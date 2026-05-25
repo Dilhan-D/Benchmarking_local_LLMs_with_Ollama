@@ -1,101 +1,85 @@
-# IBM i / RPGLE Fully Free LLM Test Suite
+# Projet Personnel: Fine-Tuning et Tests sur Granite 4.1:8b avec LLM IBM
 
-Repository for testing and fine‑tuning IBM Granite 4.1 8B on **fully‑free RPGLE**, CL and SQL running on IBM i / AS400, via **Ollama + RAG**.
+## A propos
 
----
+Ce dépôt contient le code, les scripts et les documents nécessaires pour réaliser un projet personnel visant à explorer la fine-tuning et l'interrogation de recherche assistée par contenu (RAG) sur le moteur Granite 4.1:8b fourni par IBM. Le but principal est d'évaluer les performances et les capacités du modèle dans un écosystème IBM i, avec une perspective future sur son utilisation.
 
-## 🎯 Objectif
+## Contexte
 
-- Tester la qualité des réponses de `granite4.1:8b` sur du **RPGLE full‑free** (100 % modern ILE RPG), CL et SQL IBM i.  
-- Vérifier **avant** tout fine‑tuning :  
-  - performances, cohérence, hallucinations.  
-  - qualité des réponses générales sur IBM i / AS400 (langages, concepts, bonnes pratiques).  
-- Construire un **benchmark propre** (RPGLE full‑free, CL, SQL) basé sur :
-  - des tests unitaires RPGLE full‑free,  
-  - et du **RAG sur la documentation IBM i** (PDFs officiels, guides, SQL Reference, CL, etc.).  
-- Après le fine‑tuning et le nouveau RAG (avec les fichiers utilisés pour le finetuning), refaire **les mêmes tests** et comparer les résultats (diff réponses avant / après) pour mesurer l’amélioration.
+- **École**: Epitech (Alternance)
+- **Projet**: Fine-tuning et tests sur Granite 4.1:8b
+- **Raison de choisir IBM**: Initialement pour des tests dans un écosystème IBM i, avec une perspective future.
+- **Moteur Utilisé**: Granite 4.1:8b
 
----
+## Structure du Dépôt
 
-## 🧪 Méthodologie
-
-1. **Tests pré‑fine‑tuning**  
-   - Lancer une série de **tests RPGLE full‑free, CL, SQL** sur le modèle **brut** (ou déjà modifié via `Modelfile`).  
-   - RAG : indexation des **PDF IBM i** (RPG guide, SQL reference, CL docs, etc.)  
-     → aider le modèle à générer de bonnes réponses sans fine‑tuning lourd.  
-   - Stocker les réponses dans `results/*.jsonl` avec un `verdict` (`good` / `partial` / `bad`).
-
-2. **RAG “enrichi” post‑fine‑tuning**  
-   - Ajouter dans la base de connaissances RAG :  
-     - les **fichiers / extraits** utilisés pour le fine‑tuning (tests RPGLE full‑free, exemples CL/SQL, etc.).  
-   - Cela permet au modèle de combiner :
-     - le **savoir baked‑in** du fine‑tuning,  
-     - et le **contexte explicite** via RAG.
-
-3. **Diffs avant / après fine‑tuning**  
-   - Relancer **exactement les mêmes tests** sur le modèle **après** fine‑tuning + RAG enrichi.  
-   - Comparer les réponses (avant / après) pour :
-     - réduire les hallucinations,  
-     - stabiliser le style de réponse IBM i / AS400,  
-     - améliorer la précision SQL / RPG / CL.
-
----
-
-## 📁 Structure du repo
-
-```text
-.
-├── README.md
-├── tests/
-│   ├── rpg_free_tests.jsonl         # questions RPGLE full‑free
-│   ├── cl_tests.jsonl              # questions CL
-│   ├── sql_tests.jsonl             # questions SQL DB2 for i
-│   └── prompts/
-│       ├── rpg_free_001.rpgle      # exemple de code RPGLE full‑free
-│       └── cl_simple_001.cl        # exemple CL simple
-├── results/
-│   ├── rpg_free_results.jsonl      # réponses Granite RPGLE full‑free AVANT
-│   ├── rpg_free_results_ft.jsonl   # réponses Granite APRÈS fine‑tuning
-│   ├── rags/
-│       └── context_rpg_free_001.txt # extraits RAG + fichiers utilisés pour fine‑tuning
-└── notebooks/
-    └── benchmark_granite.ipynb     # scripts Python API Ollama + RAG + diffs
+```
+README.md                # Ce document
+fine_tuning/            # Scripts et configurations pour le fine-tuning
+tests/                  # Scripts et rapports des tests avant et après fine-tuning
+rag/                    # Implémentation de la recherche assistée par contenu (RAG)
+docs/                   # Documentation PDFs et autres ressources
 ```
 
+## Contenu
+
+### `fine_tuning/`
+Ce répertoire contient tous les scripts nécessaires pour le processus de fine-tuning du modèle Granite 4.1:8b.
+- **`setup.py`**: Script pour initialiser l'environnement de fine-tuning.
+- **`train_model.py`**: Script principal pour effectuer le fine-tuning.
+- **`config.json`**: Fichier de configuration pour ajuster les paramètres de training.
+
+### `tests/`
+Ici, vous trouverez les scripts et rapports des tests réalisés avant et après la phase de fine-tuning.
+- **`pre_finetune_tests.py`**: Scripts pour évaluer les performances du modèle avant le fine-tuning.
+- **`post_finetune_tests.py`**: Scripts pour évaluer les performances post-fine-tuning.
+- **`test_reports/`**: Répertoire contenant les rapports des tests.
+
+### `rag/`
+Ce dossier implémente la recherche assistée par contenu (RAG) sur le modèle fine-tuned.
+- **`rag_setup.py`**: Script pour configurer l'implémentation de RAG.
+- **`query_processor.py`**: Script principal pour traiter les requêtes via RAG.
+
+### `docs/`
+Ce répertoire contient tous les documents PDF et autres ressources nécessaires pour comprendre le projet et les tests effectués.
+- **`project_overview.pdf`**: Vue d'ensemble du projet.
+- **`test_data.pdf`**: Description des données utilisées pour les tests.
+- **`results_analysis.pdf`**: Analyse des résultats avant et après fine-tuning.
+
+## Méthodologie
+
+1. **Préparation Initiale**:
+   - Installer l'environnement requis pour Granite 4.1:8b sur un système IBM i.
+   - Rassembler les données d'entraînement pertinentes pour le fine-tuning.
+
+2. **Fine-Tuning**:
+   - Exécuter `train_model.py` avec la configuration spécifiée dans `config.json`.
+   - Surveiller le processus de training et ajuster les paramètres si nécessaire.
+
+3. **Tests Initiaux**:
+   - Utiliser `pre_finetune_tests.py` pour évaluer les performances du modèle avant le fine-tuning.
+   - Documenter les résultats dans `test_reports/`.
+
+4. **RAG Implémentation**:
+   - Configurer et exécuter l'implémentation de RAG via `rag_setup.py`.
+   - Tester la capacité du modèle à fournir des réponses contextuelles.
+
+5. **Tests Post-Fine-Tuning**:
+   - Utiliser `post_finetune_tests.py` pour évaluer les performances post-fine-tuning.
+   - Comparer avec les résultats initiaux et documenter les améliorations ou dégradations.
+
+6. **Analyse des Résultats**:
+   - Analyser les données collectées dans `test_reports/`.
+   - Identifier les points forts et faibles des langages IBM dans ce contexte.
+
+## Transparence
+
+Ce dépôt sera maintenu aussi transparent que possible, avec une documentation détaillée de chaque étape du processus. Tous les scripts et configurations seront open-sourced pour permettre une réutilisation et un examen par la communauté.
+
+## Contribuer
+
+Si vous souhaitez contribuer ou avoir des questions sur ce projet, n'hésitez pas à créer une issue ou à envoyer un pull request. Vos retours seront grandement appréciés!
+
 ---
 
-## 🔧 Comment lancer un test
-
-1. Lancer Ollama avec ton modèle Granite 4.1 8B (CPU ou GPU) :
-
-   ```powershell
-   ollama run granite4.1-ibmi-8b
-   ```
-
-2. Copier‑coller le **prompt de test RPGLE / CL / SQL** dans le terminal Ollama.
-
-3. Copier la réponse Granite dans:
-
-   - `results/rpg_free_results.jsonl` (avant fine‑tuning).  
-   - `results/rpg_free_results_ft.jsonl` (après fine‑tuning).
-
-   avec champs `id`, `model`, `response`, `verdict` (`good` / `partial` / `bad`).
-
----
-
-## 💡 Utilisation pour fine‑tuning
-
-- Les paires `(prompt, réponse correcte)` format **chat** (RPGLE full‑free, CL, SQL)  
-  servent à l’**instruction‑tuning** de Granite 4.1 8B (QLoRA / Lora).  
-- Les **extraits PDF IBM i** (RPGLE guide, SQL ref, CL docs) sont indexés en **RAG**  
-  pour aider Granite à générer de bonnes réponses avant fine‑tuning.
-
----
-
-## ⚡ Prochaines étapes (conseillées)
-
-- Ajouter **5–10 tests RPGLE full‑free** classiques (boucles, SQL, procs…).  
-- Lancer le **benchmark manuel** avec Granite 4.1 8B et annoter `verdict`.  
-- Utiliser `results/*.jsonl` pour construire un **dataset d’instruction‑tuning Granite**  
-  (format `messages = [{"role": "user", "content": "..."}, {"role": "assistant", "content": "..."}]`).  
-- Après fine‑tuning + RAG enrichi, ré‑exécuter le même benchmark et **comparer les réponses** (avant / après).
+*Remarque: Ce README est généré en fonction des réponses du modèle et sera mis à jour après chaque étape de test et de fine-tuning pour maintenir la transparence et l'exactitude.*
