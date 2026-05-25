@@ -1,0 +1,9 @@
+Qu’est‑ce qu’IBM i et comment se distingue‑t‑il de Linux / Windows / mainframe ?
+
+Explique en 100 mots ce qu’est un AS400 / IBM iSeries / Power System IBM i.
+
+Quels sont les principaux composants d’IBM i (OS, base de données, bibliothèques, fichiers, etc.) ?
+
+Explique le rôle de la base de données intégrée DB2 for i dans IBM i.
+
+Qu’est‑ce qu’une bibliothèque IBM i, et quelles sont les principales bibliothèques systèmes (QSYS, QSYS2, QTEMP, QGPL, etc.) ?
