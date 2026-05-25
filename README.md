@@ -19,6 +19,8 @@ fine_tuning/            # Scripts et configurations pour le fine-tuning
 tests/                  # Scripts et rapports des tests avant et après fine-tuning
 rag/                    # Implémentation de la recherche assistée par contenu (RAG)
 docs/                   # Documentation PDFs et autres ressources
+generel_questions/      # Répertoire pour les questions générales
+questions_and_answers/  # Répertoire pour les questions techniques et leurs réponses
 ```
 
 ## Contenu
@@ -45,6 +47,12 @@ Ce répertoire contient tous les documents PDF et autres ressources nécessaires
 - **`project_overview.pdf`**: Vue d'ensemble du projet.
 - **`test_data.pdf`**: Description des données utilisées pour les tests.
 - **`results_analysis.pdf`**: Analyse des résultats avant et après fine-tuning.
+
+### `generel_questions/`
+Ce répertoire est dédié aux questions générales
+
+### `questions_and_answers/`
+Ce répertoire contient les questions et réponses techniques liées au projet.
 
 ## Méthodologie
 
