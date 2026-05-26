@@ -4,7 +4,7 @@
 
 Ce dépôt contient le code, les scripts et les documents nécessaires pour réaliser un projet personnel visant à explorer la fine-tuning et l'interrogation de recherche assistée par contenu (RAG) sur le moteur Granite 4.1:8b fourni par IBM. Le but principal est d'évaluer les performances et les capacités du modèle dans un écosystème IBM i, avec une perspective future sur son utilisation.
 
-Dans un second temps, essayer de lui passer des paramètres afin de lui donner du contexte sur son rôles et évaluer son comportement et ses réponses.
+Dans un second temps, essayer de lui passer des instructions afin de lui donner du contexte sur son rôles et évaluer son comportement et ses réponses.
 
 ## Contexte
 
