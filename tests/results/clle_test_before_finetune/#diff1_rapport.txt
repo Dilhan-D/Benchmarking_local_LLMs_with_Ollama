@@ -1,0 +1,96 @@
+============================================================
+   RAPPORT DE COMPARAISON - CLLE TEST #1
+============================================================
+  Date d'exécution  : 2026-05-27 13:48:37
+  Numéro exécution  : #5
+  Langage           : CLLE
+  Entrée            : #1test.clle
+  Réponse Granite   : #result1.clle
+  Options actives   : casse=False | espaces=False | vides=True
+------------------------------------------------------------
+  Total lignes entrée  : 24
+  Total lignes sortie  : 32
+------------------------------------------------------------
+  Lignes identiques    : 5
+  Lignes modifiées     : 19
+  Lignes ajoutées      : 8
+  Lignes supprimées    : 0
+  Total différences    : 27
+  Similarité globale   : 15.62%
+============================================================
+
+DÉTAIL DES DIFFÉRENCES :
+------------------------------------------------------------
+  ~ Ligne    6 | AVANT :     /* Déclarations de variables */
+             | APRÈS : // Déclaration des variables
+
+  ~ Ligne    7 | AVANT :     DCL VAR(&NOM)     TYPE(*CHAR)   LEN(30) VALUE('DUPONT')
+             | APRÈS : DCL VAR(&NOM)     TYPE(*CHAR)   LEN(30) VALUE('DUPONT')
+
+  ~ Ligne    8 | AVANT :     DCL VAR(&AGE)     TYPE(*DEC)    LEN(3 0) VALUE(25)
+             | APRÈS : DCL VAR(&AGE)     TYPE(*DEC)    LEN(3 0) VALUE(25)
+
+  ~ Ligne    9 | AVANT :     DCL VAR(&SALAIRE) TYPE(*DEC)    LEN(9 2) VALUE(2500.00)
+             | APRÈS : DCL VAR(&SALAIRE) TYPE(*DEC)    LEN(9 2) VALUE(2500.00)
+
+  ~ Ligne   10 | AVANT :     DCL VAR(&ACTIF)   TYPE(*LGL)    VALUE('1')
+             | APRÈS : DCL VAR(&ACTIF)   TYPE(*LGL)    VALUE('1')
+
+  ~ Ligne   11 | AVANT :     DCL VAR(&MSGID)   TYPE(*CHAR)   LEN(7)
+             | APRÈS : DCL VAR(&MSGID)   TYPE(*CHAR)   LEN(7)
+
+  ~ Ligne   12 | AVANT :     /* ERREUR 1: TYPE invalide */
+             | APRÈS : // Variable pour le code retourné par la condition
+
+  ~ Ligne   13 | AVANT :     DCL VAR(&CODE)    TYPE(*INTEGER) LEN(10)
+             | APRÈS : DCL VAR(&CODE)    TYPE(*INTEGER) LEN(10)
+
+  ~ Ligne   14 | AVANT :     /* ERREUR 2: LEN manquant sur *CHAR */
+             | APRÈS : // Libellé de message à afficher
+
+  ~ Ligne   15 | AVANT :     DCL VAR(&LIBELLE) TYPE(*CHAR)
+             | APRÈS : DCL VAR(&LIBELLE) TYPE(*CHAR)
+
+  ~ Ligne   16 | AVANT :     /* ERREUR 3: VALUE incompatible avec *DEC */
+             | APRÈS : // Montant numérique (correction nécessaire car 'ABC' n'est pas un nombre)
+
+  ~ Ligne   17 | AVANT :     DCL VAR(&MONTANT) TYPE(*DEC)    LEN(9 2) VALUE('ABC')
+             | APRÈS : DCL VAR(&MONTANT) TYPE(*DEC)    LEN(9 2) VALUE(1000.00) // Exemple de valeur numérique
+
+  ~ Ligne   18 | AVANT :     /* Test IF simple */
+             | APRÈS : /* 
+
+  ~ Ligne   19 | AVANT :     IF COND(&AGE *GE 18) THEN(DO)
+             | APRÈS :    Condition pour vérifier l'âge.
+
+  ~ Ligne   20 | AVANT :         SNDMSG MSG('Personne majeure') TOUSR(*SYSOPR)
+             | APRÈS :    Si &AGE est supérieur ou égal à 18, envoi un message indiquant que la personne est majeure.
+
+  ~ Ligne   21 | AVANT :     ENDDO
+             | APRÈS :    Sinon, envoie un message indiquant que la personne est mineure.
+
+  ~ Ligne   22 | AVANT :     /* ERREUR 4: ELSE sans IF */
+             | APRÈS : */
+
+  ~ Ligne   23 | AVANT :     ELSE CMD(SNDMSG MSG('Mineur') TOUSR(*SYSOPR))
+             | APRÈS : IF COND(&AGE *GE 18) THEN(
+
+  ~ Ligne   24 | AVANT :     /* ERREUR 5: ENDPGM manquant */
+             | APRÈS :     SNDMSG MSG('Personne majeure') TOUSR(*SYSOPR)
+
+  + Ligne   25 | AJOUT : )
+
+  + Ligne   26 | AJOUT : ELSE CMD(
+
+  + Ligne   27 | AJOUT :     SNDMSG MSG('Mineur') TOUSR(*SYSOPR)
+
+  + Ligne   28 | AJOUT : )
+
+  + Ligne   29 | AJOUT : // Exemple d'utilisation de &MONTANT après correction
+
+  + Ligne   30 | AJOUT : DSPFF D(Fichier: *ALL) OUTPUT(*OUTFILE) OUTFILE(MONFICHIER) MONMONTANT(&MONTANT)
+
+  + Ligne   31 | AJOUT : *INLR = *ON;  // Indique la fin du programme
+
+  + Ligne   32 | AJOUT : ENDPGM;
+

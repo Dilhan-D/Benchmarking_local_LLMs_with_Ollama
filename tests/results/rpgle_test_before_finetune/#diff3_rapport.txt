@@ -1,8 +1,9 @@
 ============================================================
-   RAPPORT DE COMPARAISON - TEST #3
+   RAPPORT DE COMPARAISON - RPGLE TEST #3
 ============================================================
-  Date d'exécution  : 2026-05-27 10:39:32
-  Numéro exécution  : #2
+  Date d'exécution  : 2026-05-27 13:18:41
+  Numéro exécution  : #3
+  Langage           : RPGLE
   Entrée            : #3test.rpgle
   Réponse Granite   : #result3.rpgle
   Options actives   : casse=False | espaces=False | vides=True

@@ -1,10 +1,12 @@
 {
-  "execution": 2,
-  "date": "2026-05-27 10:39:32",
+  "execution": 3,
+  "date": "2026-05-27 13:18:41",
+  "langage": "rpgle",
   "resultats": [
     {
-      "execution": 2,
-      "date": "2026-05-27 10:39:32",
+      "execution": 3,
+      "date": "2026-05-27 13:18:41",
+      "langage": "rpgle",
       "test": "#1",
       "fichier_entree": "#1test.rpgle",
       "fichier_reponse": "#result1.rpgle",
@@ -146,8 +148,9 @@
       ]
     },
     {
-      "execution": 2,
-      "date": "2026-05-27 10:39:32",
+      "execution": 3,
+      "date": "2026-05-27 13:18:41",
+      "langage": "rpgle",
       "test": "#2",
       "fichier_entree": "#2test.rpgle",
       "fichier_reponse": "#result2.rpgle",
@@ -271,8 +274,9 @@
       ]
     },
     {
-      "execution": 2,
-      "date": "2026-05-27 10:39:32",
+      "execution": 3,
+      "date": "2026-05-27 13:18:41",
+      "langage": "rpgle",
       "test": "#3",
       "fichier_entree": "#3test.rpgle",
       "fichier_reponse": "#result3.rpgle",
@@ -390,8 +394,9 @@
       ]
     },
     {
-      "execution": 2,
-      "date": "2026-05-27 10:39:32",
+      "execution": 3,
+      "date": "2026-05-27 13:18:41",
+      "langage": "rpgle",
       "test": "#4",
       "fichier_entree": "#4test.rpgle",
       "fichier_reponse": "#result4.rpgle",
@@ -497,8 +502,9 @@
       ]
     },
     {
-      "execution": 2,
-      "date": "2026-05-27 10:39:32",
+      "execution": 3,
+      "date": "2026-05-27 13:18:41",
+      "langage": "rpgle",
       "test": "#5",
       "fichier_entree": "#5test.rpgle",
       "fichier_reponse": "#result5.rpgle",
@@ -682,8 +688,9 @@
       ]
     },
     {
-      "execution": 2,
-      "date": "2026-05-27 10:39:32",
+      "execution": 3,
+      "date": "2026-05-27 13:18:41",
+      "langage": "rpgle",
       "test": "#6",
       "fichier_entree": "#6test.rpgle",
       "fichier_reponse": "#result6.rpgle",
@@ -915,8 +922,9 @@
       ]
     },
     {
-      "execution": 2,
-      "date": "2026-05-27 10:39:32",
+      "execution": 3,
+      "date": "2026-05-27 13:18:41",
+      "langage": "rpgle",
       "test": "#7",
       "fichier_entree": "#7test.rpgle",
       "fichier_reponse": "#result7.rpgle",

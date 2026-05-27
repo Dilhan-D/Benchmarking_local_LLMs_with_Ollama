@@ -1,0 +1,51 @@
+============================================================
+   RAPPORT DE COMPARAISON - CLLE TEST #3
+============================================================
+  Date d'exécution  : 2026-05-27 13:48:37
+  Numéro exécution  : #5
+  Langage           : CLLE
+  Entrée            : #3test.clle
+  Réponse Granite   : #result3.clle
+  Options actives   : casse=False | espaces=False | vides=True
+------------------------------------------------------------
+  Total lignes entrée  : 8
+  Total lignes sortie  : 10
+------------------------------------------------------------
+  Lignes identiques    : 0
+  Lignes modifiées     : 8
+  Lignes ajoutées      : 2
+  Lignes supprimées    : 0
+  Total différences    : 10
+  Similarité globale   : 0.0%
+============================================================
+
+DÉTAIL DES DIFFÉRENCES :
+------------------------------------------------------------
+  ~ Ligne    1 | AVANT : PGM
+             | APRÈS : /* Programme (PGM) pour vérifier un score et envoyer un message en conséquence */
+
+  ~ Ligne    2 | AVANT :     DCL VAR(&SCORE) TYPE(*DEC) LEN(3 0) VALUE(75)
+             | APRÈS : DCL VAR(&SCORE) TYPE(*DEC) LEN(3 0) VALUE(75)   /* Déclaration d'une variable &SCORE de type décimal avec une longueur de 3 chiffres et 0 décimale, initialisée à la valeur 75 */
+
+  ~ Ligne    3 | AVANT :     IF COND(&SCORE >= 50) THEN(DO)
+             | APRÈS : /* Conditionnelle pour vérifier si le score est supérieur ou égal à 50 */
+
+  ~ Ligne    4 | AVANT :     /* ERREUR 1: >= invalide en CL, doit être *GE */
+             | APRÈS : IF COND(&SCORE >= 50) THEN(DO)                 /* Si &SCORE est ≥ 50, exécute les instructions suivantes : */
+
+  ~ Ligne    5 | AVANT :         SNDMSG MSG('Recu') TOUSR(*SYSOPR)
+             | APRÈS :     SNDMSG MSG('Reçu') TOUSR(*SYSOPR)        /* Envoie un message 'Reçu' à l'utilisateur *SYSOPR */
+
+  ~ Ligne    6 | AVANT :     ENDDO
+             | APRÈS : ENDDO                                        /* Fin du bloc DO */
+
+  ~ Ligne    7 | AVANT :     ELSE CMD(SNDMSG MSG('Echoue') TOUSR(*SYSOPR))
+             | APRÈS : /* Instruction ELSE pour gérer le cas où la condition initiale est fausse (c'est-à-dire &SCORE < 50) */
+
+  ~ Ligne    8 | AVANT : ENDPGM
+             | APRÈS : ELSE CMD(SNDMSG MSG('Échoue') TOUSR(*SYSOPR)) /* Si &SCORE est inférieur à 50, envoie un message 'Échoue' à l'utilisateur *SYSOPR */
+
+  + Ligne    9 | AJOUT : /* Fin du programme (ENDPGM) */
+
+  + Ligne   10 | AJOUT : ENDPGM
+

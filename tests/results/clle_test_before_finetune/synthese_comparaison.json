@@ -1,0 +1,463 @@
+{
+  "execution": 5,
+  "date": "2026-05-27 13:48:37",
+  "langage": "clle",
+  "resultats": [
+    {
+      "execution": 5,
+      "date": "2026-05-27 13:48:37",
+      "langage": "clle",
+      "test": "#1",
+      "fichier_entree": "#1test.clle",
+      "fichier_reponse": "#result1.clle",
+      "lignes_entree": 24,
+      "lignes_sortie": 32,
+      "identiques": 5,
+      "modifiees": 19,
+      "ajoutees": 8,
+      "supprimees": 0,
+      "total_diff": 27,
+      "similarite": 15.62,
+      "differences": [
+        {
+          "ligne": 6,
+          "type": "MODIFIEE",
+          "avant": "    /* Déclarations de variables */",
+          "apres": "// Déclaration des variables"
+        },
+        {
+          "ligne": 7,
+          "type": "MODIFIEE",
+          "avant": "    DCL VAR(&NOM)     TYPE(*CHAR)   LEN(30) VALUE('DUPONT')",
+          "apres": "DCL VAR(&NOM)     TYPE(*CHAR)   LEN(30) VALUE('DUPONT')"
+        },
+        {
+          "ligne": 8,
+          "type": "MODIFIEE",
+          "avant": "    DCL VAR(&AGE)     TYPE(*DEC)    LEN(3 0) VALUE(25)",
+          "apres": "DCL VAR(&AGE)     TYPE(*DEC)    LEN(3 0) VALUE(25)"
+        },
+        {
+          "ligne": 9,
+          "type": "MODIFIEE",
+          "avant": "    DCL VAR(&SALAIRE) TYPE(*DEC)    LEN(9 2) VALUE(2500.00)",
+          "apres": "DCL VAR(&SALAIRE) TYPE(*DEC)    LEN(9 2) VALUE(2500.00)"
+        },
+        {
+          "ligne": 10,
+          "type": "MODIFIEE",
+          "avant": "    DCL VAR(&ACTIF)   TYPE(*LGL)    VALUE('1')",
+          "apres": "DCL VAR(&ACTIF)   TYPE(*LGL)    VALUE('1')"
+        },
+        {
+          "ligne": 11,
+          "type": "MODIFIEE",
+          "avant": "    DCL VAR(&MSGID)   TYPE(*CHAR)   LEN(7)",
+          "apres": "DCL VAR(&MSGID)   TYPE(*CHAR)   LEN(7)"
+        },
+        {
+          "ligne": 12,
+          "type": "MODIFIEE",
+          "avant": "    /* ERREUR 1: TYPE invalide */",
+          "apres": "// Variable pour le code retourné par la condition"
+        },
+        {
+          "ligne": 13,
+          "type": "MODIFIEE",
+          "avant": "    DCL VAR(&CODE)    TYPE(*INTEGER) LEN(10)",
+          "apres": "DCL VAR(&CODE)    TYPE(*INTEGER) LEN(10)"
+        },
+        {
+          "ligne": 14,
+          "type": "MODIFIEE",
+          "avant": "    /* ERREUR 2: LEN manquant sur *CHAR */",
+          "apres": "// Libellé de message à afficher"
+        },
+        {
+          "ligne": 15,
+          "type": "MODIFIEE",
+          "avant": "    DCL VAR(&LIBELLE) TYPE(*CHAR)",
+          "apres": "DCL VAR(&LIBELLE) TYPE(*CHAR)"
+        },
+        {
+          "ligne": 16,
+          "type": "MODIFIEE",
+          "avant": "    /* ERREUR 3: VALUE incompatible avec *DEC */",
+          "apres": "// Montant numérique (correction nécessaire car 'ABC' n'est pas un nombre)"
+        },
+        {
+          "ligne": 17,
+          "type": "MODIFIEE",
+          "avant": "    DCL VAR(&MONTANT) TYPE(*DEC)    LEN(9 2) VALUE('ABC')",
+          "apres": "DCL VAR(&MONTANT) TYPE(*DEC)    LEN(9 2) VALUE(1000.00) // Exemple de valeur numérique"
+        },
+        {
+          "ligne": 18,
+          "type": "MODIFIEE",
+          "avant": "    /* Test IF simple */",
+          "apres": "/* "
+        },
+        {
+          "ligne": 19,
+          "type": "MODIFIEE",
+          "avant": "    IF COND(&AGE *GE 18) THEN(DO)",
+          "apres": "   Condition pour vérifier l'âge."
+        },
+        {
+          "ligne": 20,
+          "type": "MODIFIEE",
+          "avant": "        SNDMSG MSG('Personne majeure') TOUSR(*SYSOPR)",
+          "apres": "   Si &AGE est supérieur ou égal à 18, envoi un message indiquant que la personne est majeure."
+        },
+        {
+          "ligne": 21,
+          "type": "MODIFIEE",
+          "avant": "    ENDDO",
+          "apres": "   Sinon, envoie un message indiquant que la personne est mineure."
+        },
+        {
+          "ligne": 22,
+          "type": "MODIFIEE",
+          "avant": "    /* ERREUR 4: ELSE sans IF */",
+          "apres": "*/"
+        },
+        {
+          "ligne": 23,
+          "type": "MODIFIEE",
+          "avant": "    ELSE CMD(SNDMSG MSG('Mineur') TOUSR(*SYSOPR))",
+          "apres": "IF COND(&AGE *GE 18) THEN("
+        },
+        {
+          "ligne": 24,
+          "type": "MODIFIEE",
+          "avant": "    /* ERREUR 5: ENDPGM manquant */",
+          "apres": "    SNDMSG MSG('Personne majeure') TOUSR(*SYSOPR)"
+        },
+        {
+          "ligne": 25,
+          "type": "AJOUTEE",
+          "avant": "",
+          "apres": ")"
+        },
+        {
+          "ligne": 26,
+          "type": "AJOUTEE",
+          "avant": "",
+          "apres": "ELSE CMD("
+        },
+        {
+          "ligne": 27,
+          "type": "AJOUTEE",
+          "avant": "",
+          "apres": "    SNDMSG MSG('Mineur') TOUSR(*SYSOPR)"
+        },
+        {
+          "ligne": 28,
+          "type": "AJOUTEE",
+          "avant": "",
+          "apres": ")"
+        },
+        {
+          "ligne": 29,
+          "type": "AJOUTEE",
+          "avant": "",
+          "apres": "// Exemple d'utilisation de &MONTANT après correction"
+        },
+        {
+          "ligne": 30,
+          "type": "AJOUTEE",
+          "avant": "",
+          "apres": "DSPFF D(Fichier: *ALL) OUTPUT(*OUTFILE) OUTFILE(MONFICHIER) MONMONTANT(&MONTANT)"
+        },
+        {
+          "ligne": 31,
+          "type": "AJOUTEE",
+          "avant": "",
+          "apres": "*INLR = *ON;  // Indique la fin du programme"
+        },
+        {
+          "ligne": 32,
+          "type": "AJOUTEE",
+          "avant": "",
+          "apres": "ENDPGM;"
+        }
+      ]
+    },
+    {
+      "execution": 5,
+      "date": "2026-05-27 13:48:37",
+      "langage": "clle",
+      "test": "#2",
+      "fichier_entree": "#2test.clle",
+      "fichier_reponse": "#result2.clle",
+      "lignes_entree": 8,
+      "lignes_sortie": 11,
+      "identiques": 0,
+      "modifiees": 8,
+      "ajoutees": 3,
+      "supprimees": 0,
+      "total_diff": 11,
+      "similarite": 0.0,
+      "differences": [
+        {
+          "ligne": 1,
+          "type": "MODIFIEE",
+          "avant": "PGM",
+          "apres": "/* Programme (PGM) pour démontrer l'utilisation de variables et envoi de messages */"
+        },
+        {
+          "ligne": 2,
+          "type": "MODIFIEE",
+          "avant": "    DCL VAR(&NOM)  TYPE(*CHAR) LEN(20) VALUE('DUPONT')",
+          "apres": "DCL VAR(&NOM)  TYPE(*CHAR) LEN(20) VALUE('DUPONT')   /* Déclaration d'une variable &NOM de type caractère avec une longueur de 20, initialisée à 'DUPONT' */"
+        },
+        {
+          "ligne": 3,
+          "type": "MODIFIEE",
+          "avant": "    DCL VAR(&AGE)  TYPE(*DEC)  LEN(3)  VALUE(25)",
+          "apres": "DCL VAR(&AGE)  TYPE(*DEC)  LEN(3 0) VALUE(25)       /* Correction ERREUR 1 : ajout de 0 pour spécifier qu'il n'y a pas de décimales */"
+        },
+        {
+          "ligne": 4,
+          "type": "MODIFIEE",
+          "avant": "    /* ERREUR 1: LEN(3) sans décimales sur *DEC doit être LEN(3 0) */",
+          "apres": "/* Message envoyé avec le nom initialisé */"
+        },
+        {
+          "ligne": 5,
+          "type": "MODIFIEE",
+          "avant": "    SNDMSG MSG(&NOM) TOUSR(*SYSOPR)",
+          "apres": "SNDMSG MSG(&NOM) TOUSR(*SYSOPR)                     /* Envoie un message contenant la valeur de &NOM à l'utilisateur *SYSOPR */"
+        },
+        {
+          "ligne": 6,
+          "type": "MODIFIEE",
+          "avant": "    /* ERREUR 2: on ne peut pas concaténer directement */",
+          "apres": "/* Construction d'un message concaténant une chaîne et la variable &NOM */"
+        },
+        {
+          "ligne": 7,
+          "type": "MODIFIEE",
+          "avant": "    SNDMSG MSG('Bonjour ' *CAT &NOM) TOUSR(*SYSOPR)",
+          "apres": "DCL VAR(&MESSAGE) TYPE(*CHAR) LEN(40)                /* Déclare une variable pour stocker le message final */"
+        },
+        {
+          "ligne": 8,
+          "type": "MODIFIEE",
+          "avant": "ENDPGM",
+          "apres": "CHGVAR VAR(&MESSAGE) VALUE('Bonjour ' *CAT &NOM)    /* Concatène 'Bonjour ' avec &NOM dans &MESSAGE */"
+        },
+        {
+          "ligne": 9,
+          "type": "AJOUTEE",
+          "avant": "",
+          "apres": "/* Envoie le message concaténé à l'utilisateur système */"
+        },
+        {
+          "ligne": 10,
+          "type": "AJOUTEE",
+          "avant": "",
+          "apres": "SNDMSG MSG(&MESSAGE) TOUSR(*SYSOPR)                  /* Envoie le message final à l'utilisateur *SYSOPR */"
+        },
+        {
+          "ligne": 11,
+          "type": "AJOUTEE",
+          "avant": "",
+          "apres": "ENDPGM                                                /* Termine le programme */"
+        }
+      ]
+    },
+    {
+      "execution": 5,
+      "date": "2026-05-27 13:48:37",
+      "langage": "clle",
+      "test": "#3",
+      "fichier_entree": "#3test.clle",
+      "fichier_reponse": "#result3.clle",
+      "lignes_entree": 8,
+      "lignes_sortie": 10,
+      "identiques": 0,
+      "modifiees": 8,
+      "ajoutees": 2,
+      "supprimees": 0,
+      "total_diff": 10,
+      "similarite": 0.0,
+      "differences": [
+        {
+          "ligne": 1,
+          "type": "MODIFIEE",
+          "avant": "PGM",
+          "apres": "/* Programme (PGM) pour vérifier un score et envoyer un message en conséquence */"
+        },
+        {
+          "ligne": 2,
+          "type": "MODIFIEE",
+          "avant": "    DCL VAR(&SCORE) TYPE(*DEC) LEN(3 0) VALUE(75)",
+          "apres": "DCL VAR(&SCORE) TYPE(*DEC) LEN(3 0) VALUE(75)   /* Déclaration d'une variable &SCORE de type décimal avec une longueur de 3 chiffres et 0 décimale, initialisée à la valeur 75 */"
+        },
+        {
+          "ligne": 3,
+          "type": "MODIFIEE",
+          "avant": "    IF COND(&SCORE >= 50) THEN(DO)",
+          "apres": "/* Conditionnelle pour vérifier si le score est supérieur ou égal à 50 */"
+        },
+        {
+          "ligne": 4,
+          "type": "MODIFIEE",
+          "avant": "    /* ERREUR 1: >= invalide en CL, doit être *GE */",
+          "apres": "IF COND(&SCORE >= 50) THEN(DO)                 /* Si &SCORE est ≥ 50, exécute les instructions suivantes : */"
+        },
+        {
+          "ligne": 5,
+          "type": "MODIFIEE",
+          "avant": "        SNDMSG MSG('Recu') TOUSR(*SYSOPR)",
+          "apres": "    SNDMSG MSG('Reçu') TOUSR(*SYSOPR)        /* Envoie un message 'Reçu' à l'utilisateur *SYSOPR */"
+        },
+        {
+          "ligne": 6,
+          "type": "MODIFIEE",
+          "avant": "    ENDDO",
+          "apres": "ENDDO                                        /* Fin du bloc DO */"
+        },
+        {
+          "ligne": 7,
+          "type": "MODIFIEE",
+          "avant": "    ELSE CMD(SNDMSG MSG('Echoue') TOUSR(*SYSOPR))",
+          "apres": "/* Instruction ELSE pour gérer le cas où la condition initiale est fausse (c'est-à-dire &SCORE < 50) */"
+        },
+        {
+          "ligne": 8,
+          "type": "MODIFIEE",
+          "avant": "ENDPGM",
+          "apres": "ELSE CMD(SNDMSG MSG('Échoue') TOUSR(*SYSOPR)) /* Si &SCORE est inférieur à 50, envoie un message 'Échoue' à l'utilisateur *SYSOPR */"
+        },
+        {
+          "ligne": 9,
+          "type": "AJOUTEE",
+          "avant": "",
+          "apres": "/* Fin du programme (ENDPGM) */"
+        },
+        {
+          "ligne": 10,
+          "type": "AJOUTEE",
+          "avant": "",
+          "apres": "ENDPGM"
+        }
+      ]
+    },
+    {
+      "execution": 5,
+      "date": "2026-05-27 13:48:37",
+      "langage": "clle",
+      "test": "#4",
+      "fichier_entree": "#4test.clle",
+      "fichier_reponse": "#result4.clle",
+      "lignes_entree": 7,
+      "lignes_sortie": 6,
+      "identiques": 0,
+      "modifiees": 6,
+      "ajoutees": 0,
+      "supprimees": 1,
+      "total_diff": 7,
+      "similarite": 0.0,
+      "differences": [
+        {
+          "ligne": 1,
+          "type": "MODIFIEE",
+          "avant": "PGM",
+          "apres": "    DCL VAR(&I) TYPE(*DEC) LEN(3 0) VALUE(1)"
+        },
+        {
+          "ligne": 2,
+          "type": "MODIFIEE",
+          "avant": "    DCL VAR(&I) TYPE(*DEC) LEN(3 0) VALUE(1)",
+          "apres": "    DOWHILE COND(&I *LE 5)"
+        },
+        {
+          "ligne": 3,
+          "type": "MODIFIEE",
+          "avant": "    DOWHILE COND(&I *LE 5)",
+          "apres": "        SNDMSG MSG('Tour de boucle') TOUSR(*SYSOPR)"
+        },
+        {
+          "ligne": 4,
+          "type": "MODIFIEE",
+          "avant": "        SNDMSG MSG('Tour de boucle') TOUSR(*SYSOPR)",
+          "apres": "        CHGVAR VAR(&I) VALUE(&I + 1)"
+        },
+        {
+          "ligne": 5,
+          "type": "MODIFIEE",
+          "avant": "        CHGVAR VAR(&I) VALUE(&I + 1)",
+          "apres": "    ENDDO"
+        },
+        {
+          "ligne": 6,
+          "type": "MODIFIEE",
+          "avant": "    /* ERREUR 1: ENDDO manquant */",
+          "apres": "ENDPGM"
+        },
+        {
+          "ligne": 7,
+          "type": "SUPPRIMEE",
+          "avant": "ENDPGM",
+          "apres": ""
+        }
+      ]
+    },
+    {
+      "execution": 5,
+      "date": "2026-05-27 13:48:37",
+      "langage": "clle",
+      "test": "#5",
+      "fichier_entree": "#5test.clle",
+      "fichier_reponse": "#result5.clle",
+      "lignes_entree": 7,
+      "lignes_sortie": 7,
+      "identiques": 1,
+      "modifiees": 6,
+      "ajoutees": 0,
+      "supprimees": 0,
+      "total_diff": 6,
+      "similarite": 14.29,
+      "differences": [
+        {
+          "ligne": 1,
+          "type": "MODIFIEE",
+          "avant": "PGM",
+          "apres": "    DCL VAR(&PARAM) TYPE(*CHAR) LEN(10) VALUE('TEST')"
+        },
+        {
+          "ligne": 2,
+          "type": "MODIFIEE",
+          "avant": "    DCL VAR(&PARAM) TYPE(*CHAR) LEN(10) VALUE('TEST')",
+          "apres": "    DCL VAR(&RESULTAT) TYPE(*DEC) LEN(5 0)"
+        },
+        {
+          "ligne": 3,
+          "type": "MODIFIEE",
+          "avant": "    /* ERREUR 1: bibliothèque non qualifiée */",
+          "apres": "    /* Appel du programme sans erreur */"
+        },
+        {
+          "ligne": 4,
+          "type": "MODIFIEE",
+          "avant": "    CALL PGM(MONPGM) PARM(&PARAM)",
+          "apres": "    CALL PGM(MYLIB/MONPGM) PARM(&PARAM)"
+        },
+        {
+          "ligne": 5,
+          "type": "MODIFIEE",
+          "avant": "    /* ERREUR 2: variable non déclarée */",
+          "apres": "    /* Appel du second programme avec une variable déclarée et qualifiée par la bibliothèque */"
+        },
+        {
+          "ligne": 6,
+          "type": "MODIFIEE",
+          "avant": "    CALL PGM(MYLIB/CALCPGM) PARM(&RESULTAT)",
+          "apres": "    CALL MYLIB/CALCPGM PARM(&RESULTAT)"
+        }
+      ]
+    }
+  ]
+}

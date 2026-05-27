@@ -1,0 +1,53 @@
+============================================================
+   RAPPORT DE COMPARAISON - CLLE TEST #2
+============================================================
+  Date d'exécution  : 2026-05-27 13:48:37
+  Numéro exécution  : #5
+  Langage           : CLLE
+  Entrée            : #2test.clle
+  Réponse Granite   : #result2.clle
+  Options actives   : casse=False | espaces=False | vides=True
+------------------------------------------------------------
+  Total lignes entrée  : 8
+  Total lignes sortie  : 11
+------------------------------------------------------------
+  Lignes identiques    : 0
+  Lignes modifiées     : 8
+  Lignes ajoutées      : 3
+  Lignes supprimées    : 0
+  Total différences    : 11
+  Similarité globale   : 0.0%
+============================================================
+
+DÉTAIL DES DIFFÉRENCES :
+------------------------------------------------------------
+  ~ Ligne    1 | AVANT : PGM
+             | APRÈS : /* Programme (PGM) pour démontrer l'utilisation de variables et envoi de messages */
+
+  ~ Ligne    2 | AVANT :     DCL VAR(&NOM)  TYPE(*CHAR) LEN(20) VALUE('DUPONT')
+             | APRÈS : DCL VAR(&NOM)  TYPE(*CHAR) LEN(20) VALUE('DUPONT')   /* Déclaration d'une variable &NOM de type caractère avec une longueur de 20, initialisée à 'DUPONT' */
+
+  ~ Ligne    3 | AVANT :     DCL VAR(&AGE)  TYPE(*DEC)  LEN(3)  VALUE(25)
+             | APRÈS : DCL VAR(&AGE)  TYPE(*DEC)  LEN(3 0) VALUE(25)       /* Correction ERREUR 1 : ajout de 0 pour spécifier qu'il n'y a pas de décimales */
+
+  ~ Ligne    4 | AVANT :     /* ERREUR 1: LEN(3) sans décimales sur *DEC doit être LEN(3 0) */
+             | APRÈS : /* Message envoyé avec le nom initialisé */
+
+  ~ Ligne    5 | AVANT :     SNDMSG MSG(&NOM) TOUSR(*SYSOPR)
+             | APRÈS : SNDMSG MSG(&NOM) TOUSR(*SYSOPR)                     /* Envoie un message contenant la valeur de &NOM à l'utilisateur *SYSOPR */
+
+  ~ Ligne    6 | AVANT :     /* ERREUR 2: on ne peut pas concaténer directement */
+             | APRÈS : /* Construction d'un message concaténant une chaîne et la variable &NOM */
+
+  ~ Ligne    7 | AVANT :     SNDMSG MSG('Bonjour ' *CAT &NOM) TOUSR(*SYSOPR)
+             | APRÈS : DCL VAR(&MESSAGE) TYPE(*CHAR) LEN(40)                /* Déclare une variable pour stocker le message final */
+
+  ~ Ligne    8 | AVANT : ENDPGM
+             | APRÈS : CHGVAR VAR(&MESSAGE) VALUE('Bonjour ' *CAT &NOM)    /* Concatène 'Bonjour ' avec &NOM dans &MESSAGE */
+
+  + Ligne    9 | AJOUT : /* Envoie le message concaténé à l'utilisateur système */
+
+  + Ligne   10 | AJOUT : SNDMSG MSG(&MESSAGE) TOUSR(*SYSOPR)                  /* Envoie le message final à l'utilisateur *SYSOPR */
+
+  + Ligne   11 | AJOUT : ENDPGM                                                /* Termine le programme */
+

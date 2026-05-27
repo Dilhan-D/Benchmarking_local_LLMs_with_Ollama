@@ -1,0 +1,43 @@
+============================================================
+   RAPPORT DE COMPARAISON - CLLE TEST #4
+============================================================
+  Date d'exécution  : 2026-05-27 13:48:37
+  Numéro exécution  : #5
+  Langage           : CLLE
+  Entrée            : #4test.clle
+  Réponse Granite   : #result4.clle
+  Options actives   : casse=False | espaces=False | vides=True
+------------------------------------------------------------
+  Total lignes entrée  : 7
+  Total lignes sortie  : 6
+------------------------------------------------------------
+  Lignes identiques    : 0
+  Lignes modifiées     : 6
+  Lignes ajoutées      : 0
+  Lignes supprimées    : 1
+  Total différences    : 7
+  Similarité globale   : 0.0%
+============================================================
+
+DÉTAIL DES DIFFÉRENCES :
+------------------------------------------------------------
+  ~ Ligne    1 | AVANT : PGM
+             | APRÈS :     DCL VAR(&I) TYPE(*DEC) LEN(3 0) VALUE(1)
+
+  ~ Ligne    2 | AVANT :     DCL VAR(&I) TYPE(*DEC) LEN(3 0) VALUE(1)
+             | APRÈS :     DOWHILE COND(&I *LE 5)
+
+  ~ Ligne    3 | AVANT :     DOWHILE COND(&I *LE 5)
+             | APRÈS :         SNDMSG MSG('Tour de boucle') TOUSR(*SYSOPR)
+
+  ~ Ligne    4 | AVANT :         SNDMSG MSG('Tour de boucle') TOUSR(*SYSOPR)
+             | APRÈS :         CHGVAR VAR(&I) VALUE(&I + 1)
+
+  ~ Ligne    5 | AVANT :         CHGVAR VAR(&I) VALUE(&I + 1)
+             | APRÈS :     ENDDO
+
+  ~ Ligne    6 | AVANT :     /* ERREUR 1: ENDDO manquant */
+             | APRÈS : ENDPGM
+
+  - Ligne    7 | SUPPR : ENDPGM
+
