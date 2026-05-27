@@ -1,0 +1,64 @@
+============================================================
+   RAPPORT DE COMPARAISON - TEST #4
+============================================================
+  Entrée  : #4test.rpgle
+  Réponse : #result4.rpgle
+  Options : casse=False | espaces=False | vides=True
+------------------------------------------------------------
+  Total lignes entrée  : 15
+  Total lignes sortie  : 16
+------------------------------------------------------------
+  Lignes identiques    : 1
+  Lignes modifiées     : 14
+  Lignes ajoutées      : 1
+  Lignes supprimées    : 0
+  Total différences    : 15
+  Similarité globale   : 6.25%
+============================================================
+
+DÉTAIL DES DIFFÉRENCES :
+------------------------------------------------------------
+  ~ Ligne    1 | AVANT : **FREE
+             | APRÈS : FREE
+
+  ~ Ligne    3 | AVANT : // ERREUR 1: type de données inexistant
+             | APRÈS : /* Correction ERREUR 1 : Utilisation de 'Dec' au lieu de 'Float8' */
+
+  ~ Ligne    4 | AVANT : Dcl-S montant Float8 Inz(1000.00);  // doit être 'Dec' ou 'Packed'
+             | APRÈS : Dcl-S montant Dec(12 2) Inz(1000.00);  
+
+  ~ Ligne    5 | AVANT : // ERREUR 2: taille invalide
+             | APRÈS : /* Correction ERREUR 2 : Taille acceptable mais irréaliste, gardez la pour compatibilité, sinon réduisez-la */
+
+  ~ Ligne    6 | AVANT : Dcl-S code VarChar(9999) Inz('A');  // trop grand, max 32767 mais irréaliste
+             | APRÈS : Dcl-S code VarChar(20) Inz('A');  /* Exemple de taille plus raisonnable */
+
+  ~ Ligne    7 | AVANT : // ERREUR 3: Inz avec valeur incompatible
+             | APRÈS : /* Correction ERREUR 3 : Utilisation dun entier avec une valeur numérique directe */
+
+  ~ Ligne    8 | AVANT : Dcl-S age Int(3) Inz('vingt');  // doit être numérique
+             | APRÈS : Dcl-S age Int(3) Inz(20);  
+
+  ~ Ligne    9 | AVANT : Dcl-S dateNaiss Date Inz(*Sys);  // OK pour comparaison
+             | APRÈS : /* Ligne OK pour la comparaison de date */
+
+  ~ Ligne   10 | AVANT : // ERREUR 4: nom de variable commence par chiffre
+             | APRÈS : Dcl-S dateNaiss Date Inz(*Sys);
+
+  ~ Ligne   11 | AVANT : Dcl-S 2var Int(5);  // impossible, doit commencer par lettre
+             | APRÈS : /* Correction ERREUR 4 : Le nom de variable doit commencer par une lettre */
+
+  ~ Ligne   12 | AVANT : // ERREUR 5: sous-définition incorrecte
+             | APRÈS : Dcl-S nouvelleVar Int(5);  
+
+  ~ Ligne   13 | AVANT : Dcl-S complexe VarChar(100);
+             | APRÈS : /* Correction ERREUR 5 : Utilisation correcte de %Subst pour extraire une sous-chaîne */
+
+  ~ Ligne   14 | AVANT : Dcl-S partie1 Subs(complexe: 1:10);  // substr doit être %Subst
+             | APRÈS : Dcl-S complexe VarChar(100);
+
+  ~ Ligne   15 | AVANT : *InLR = *On;
+             | APRÈS : Dcl-S partie1 Subs(%Subst(complexe: 1:10));  
+
+  + Ligne   16 | AJOUT : *InLR = *On;
+

@@ -1,0 +1,121 @@
+============================================================
+   RAPPORT DE COMPARAISON - TEST #6
+============================================================
+  Entrée  : #6test.rpgle
+  Réponse : #result6.rpgle
+  Options : casse=False | espaces=False | vides=True
+------------------------------------------------------------
+  Total lignes entrée  : 47
+  Total lignes sortie  : 40
+------------------------------------------------------------
+  Lignes identiques    : 11
+  Lignes modifiées     : 29
+  Lignes ajoutées      : 0
+  Lignes supprimées    : 7
+  Total différences    : 36
+  Similarité globale   : 23.4%
+============================================================
+
+DÉTAIL DES DIFFÉRENCES :
+------------------------------------------------------------
+  ~ Ligne    1 | AVANT : **FREE
+             | APRÈS : FREE
+
+  ~ Ligne    2 | AVANT : Ctl-Opt DftActGrp(*No) ActGrp(*Caller);
+             | APRÈS : Ctl-Opt DftActGrp(*NO) ActGrp(*CALLER);
+
+  ~ Ligne    7 | AVANT : Dcl-S estEmploye Bool Inz(*On);
+             | APRÈS : Dcl-S estEmploye Bool Inz(*ON);  // *ON au lieu de *On pour la casse
+
+  ~ Ligne    8 | AVANT : // ERREUR 1: AND/OR mal orthographié
+             | APRÈS : // Condition corrigée avec 'AND'
+
+  ~ Ligne    9 | AVANT : If age >= 18 AND age < 65 && salaire >= 2000;  // '&&' n'existe, doit être 'AND'
+             | APRÈS : If age >= 18 AND age < 65 AND salaire >= 2000;
+
+  ~ Ligne   12 | AVANT : // ERREUR 2: NOT mal utilisé
+             | APRÈS : // Simplification de la condition
+
+  ~ Ligne   13 | AVANT : If NOT(age < 18);  // OK mais peut être simplifié
+             | APRÈS : If age >= 18;
+
+  ~ Ligne   16 | AVANT : // ERREUR 3: parenthèse manquante dans condition complexe
+             | APRÈS : // Ajout de la parenthèse manquante et correction du type de données pour salaire
+
+  ~ Ligne   17 | AVANT : If (age >= 18 AND age < 65 OR salaire >= 5000;  // manque ')'
+             | APRÈS : If (age >= 18 AND age < 65) OR salaire >= 5000;
+
+  ~ Ligne   20 | AVANT : // ERREUR 4: comparaison de chaîne avec nombre
+             | APRÈS : // Utilisation numérique pour salaire
+
+  ~ Ligne   21 | AVANT : If salaire = '2500';  // doit être numérique, pas chaîne
+             | APRÈS : Dcl-S salaireNum Int(10);
+
+  ~ Ligne   22 | AVANT : // SELECT avec erreurs
+             | APRÈS : salaireNum = %Dec(salaire, 10, 2);
+
+  ~ Ligne   24 | AVANT :   // ERREUR 5: When mal orthographié
+             | APRÈS :   Whene age < 18;
+
+  ~ Ligne   25 | AVANT :   Whene age < 18;
+             | APRÈS :     categorie = 'Mineur';
+
+  ~ Ligne   26 | AVANT :     categorie = 'Mineur';
+             | APRÈS :   When;
+
+  ~ Ligne   27 | AVANT :   // ERREUR 6: When sans condition
+             | APRÈS :     categorie = 'Inconnu';
+
+  ~ Ligne   28 | AVANT :   When;
+             | APRÈS :   Othr;
+
+  ~ Ligne   29 | AVANT :     categorie = 'Inconnu';
+             | APRÈS :     categorie = 'Autre';
+
+  ~ Ligne   30 | AVANT :   // ERREUR 7: Other mal orthographié
+             | APRÈS : EndSelect;
+
+  ~ Ligne   31 | AVANT :   Othr;
+             | APRÈS : // Simplification des conditions pour prime
+
+  ~ Ligne   32 | AVANT :     categorie = 'Autre';
+             | APRÈS : If age > 30;
+
+  ~ Ligne   33 | AVANT : EndSelect;
+             | APRÈS :   prime = 1000;
+
+  ~ Ligne   34 | AVANT : // ERREUR 8: If sans EndIf
+             | APRÈS : Else;
+
+  ~ Ligne   35 | AVANT : If age > 30;
+             | APRÈS :   prime = 500;
+
+  ~ Ligne   36 | AVANT :   prime = 1000;
+             | APRÈS : EndIf;
+
+  ~ Ligne   37 | AVANT : // manque EndIf
+             | APRÈS : // Vérification de NULL (en RPGLE, on vérifie généralement avec une condition numérique ou caractère appropriée)
+
+  ~ Ligne   38 | AVANT : // Correction
+             | APRÈS : If salaireNum <> *BLANK;  // Exemple de vérification pour un champ numérique
+
+  ~ Ligne   39 | AVANT : If age > 30;
+             | APRÈS : Dsply 'Categorie : ' + categorie;
+
+  ~ Ligne   40 | AVANT :   prime = 1000;
+             | APRÈS : *InLR = *ON;  // *ON au lieu de *On pour la casse
+
+  - Ligne   41 | SUPPR : Else;
+
+  - Ligne   42 | SUPPR :   prime = 500;
+
+  - Ligne   43 | SUPPR : EndIf;
+
+  - Ligne   44 | SUPPR : // ERREUR 9: Test de null incorrect
+
+  - Ligne   45 | SUPPR : If salaire = NULL;  // doit être 'salaire = *Null' ou 'IsNull(salaire)'
+
+  - Ligne   46 | SUPPR : Dsply 'Categorie : ' + categorie;
+
+  - Ligne   47 | SUPPR : *InLR = *On;
+

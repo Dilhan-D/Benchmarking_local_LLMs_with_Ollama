@@ -1,0 +1,71 @@
+============================================================
+   RAPPORT DE COMPARAISON - TEST #3
+============================================================
+  Entrée  : #3test.rpgle
+  Réponse : #result3.rpgle
+  Options : casse=False | espaces=False | vides=True
+------------------------------------------------------------
+  Total lignes entrée  : 20
+  Total lignes sortie  : 20
+------------------------------------------------------------
+  Lignes identiques    : 3
+  Lignes modifiées     : 17
+  Lignes ajoutées      : 0
+  Lignes supprimées    : 0
+  Total différences    : 17
+  Similarité globale   : 15.0%
+============================================================
+
+DÉTAIL DES DIFFÉRENCES :
+------------------------------------------------------------
+  ~ Ligne    1 | AVANT : **FREE
+             | APRÈS : FREE
+
+  ~ Ligne    3 | AVANT : Dcl-S note Int(3) Inz(75);
+             | APRÈS : Dcl-S note        Int(3) Inz(75);
+
+  ~ Ligne    4 | AVANT : Dcl-S resultat VarChar(20);
+             | APRÈS : Dcl-S resultat    VarChar(20);
+
+  ~ Ligne    5 | AVANT : // ERREUR 1: When mal orthographié
+             | APRÈS : /* Utilisation de la structure When pour déterminer le résultat en fonction de la note */
+
+  ~ Ligne    6 | AVANT : Whene note >= 90;
+             | APRÈS : Select;
+
+  ~ Ligne    7 | AVANT :   resultat = 'Excellent';
+             | APRÈS :   When note >= 90;
+
+  ~ Ligne    8 | AVANT : When note >= 75;
+             | APRÈS :      resultat = 'Excellent';
+
+  ~ Ligne    9 | AVANT :   resultat = 'Bien';
+             | APRÈS :   When note >= 75;
+
+  ~ Ligne   10 | AVANT : When note >= 50;
+             | APRÈS :      resultat = 'Bien';
+
+  ~ Ligne   11 | AVANT :   resultat = 'Moyen';
+             | APRÈS :   When note >= 50;
+
+  ~ Ligne   12 | AVANT : Other
+             | APRÈS :      resultat = 'Moyen';
+
+  ~ Ligne   13 | AVANT :   // ERREUR 2: manque point-virgule après Other
+             | APRÈS :   Other
+
+  ~ Ligne   14 | AVANT :   resultat = 'Echec'  // ERREUR 3: manque point-virgule
+             | APRÈS :      resultat = 'Echec';
+
+  ~ Ligne   15 | AVANT : EndSelect;  // ERREUR 4: mal orthographié (EndSelect au lieu de EndIf ou erreur de nom)
+             | APRÈS : EndSel;
+
+  ~ Ligne   16 | AVANT : // ERREUR 5: opérateur de comparaison incorrect
+             | APRÈS : /* Correction de l'opérateur dans la condition If : '/' ne doit pas être utilisé avec '=' */
+
+  ~ Ligne   17 | AVANT : If note =/> 0;  // doit être '<=' ou '>=', pas '=/>'
+             | APRÈS : If note > 0;  
+
+  ~ Ligne   18 | AVANT :   Dsply 'Note valide';
+             | APRÈS :    Dsply 'Note valide';
+

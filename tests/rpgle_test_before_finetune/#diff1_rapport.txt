@@ -1,0 +1,81 @@
+============================================================
+   RAPPORT DE COMPARAISON - TEST #1
+============================================================
+  Entrée  : #1test.rpgle
+  Réponse : #result1.rpgle
+  Options : casse=False | espaces=False | vides=True
+------------------------------------------------------------
+  Total lignes entrée  : 22
+  Total lignes sortie  : 20
+------------------------------------------------------------
+  Lignes identiques    : 1
+  Lignes modifiées     : 19
+  Lignes ajoutées      : 0
+  Lignes supprimées    : 2
+  Total différences    : 21
+  Similarité globale   : 4.55%
+============================================================
+
+DÉTAIL DES DIFFÉRENCES :
+------------------------------------------------------------
+  ~ Ligne    1 | AVANT : **FREE
+             | APRÈS : FREE
+
+  ~ Ligne    3 | AVANT : Dcl-S age Int(3) Inz(18);
+             | APRÈS : Dcl-S age        Int(3) Inz(18);
+
+  ~ Ligne    4 | AVANT : Dcl-S nom VarChar(20) Inz('Jean');
+             | APRÈS : Dcl-S nom        VarChar(20) Inz('Jean');
+
+  ~ Ligne    5 | AVANT : Dcl-S salaire Dec(9 2) Inz(2500.00);  // ERREUR 1: manque virgule entre 9 et 2
+             | APRÈS : Dcl-S salaire    Dec(9 2) Inz(2500.00);  
+
+  ~ Ligne    6 | AVANT : Dcl-S estMajeur Ind;
+             | APRÈS : Dcl-S estMajeur  Ind;
+
+  ~ Ligne    7 | AVANT : // ERREUR 2: condition mal fermée (manque parenthèse)
+             | APRÈS : If age >= 18;
+
+  ~ Ligne    8 | AVANT : If age >= 18;
+             | APRÈS :    estMajeur = *On;
+
+  ~ Ligne    9 | AVANT :   estMajeur = *On;
+             | APRÈS :    Dsply 'Personne majeure';
+
+  ~ Ligne   10 | AVANT :   Dsply 'Personne majeure';
+             | APRÈS : Else;
+
+  ~ Ligne   11 | AVANT : Else
+             | APRÈS :    estMajeur = *Off;
+
+  ~ Ligne   12 | AVANT :   // ERREUR 3: manque point-virgule après Else
+             | APRÈS :    Dsply 'Personne mineure';
+
+  ~ Ligne   13 | AVANT :   estMajeur = *Off
+             | APRÈS : EndIf;
+
+  ~ Ligne   14 | AVANT :   Dsply 'Personne mineure';
+             | APRÈS : // Correction du nom de la variable utilisée dans la condition 
+
+  ~ Ligne   15 | AVANT : EndIf;
+             | APRÈS : If age > 65; 
+
+  ~ Ligne   16 | AVANT : // ERREUR 4: mauvais nom de variable (faute de frappe)
+             | APRÈS :    Dsply 'Senior';
+
+  ~ Ligne   17 | AVANT : If agee > 65;  // 'agee' n'existe pas
+             | APRÈS : EndIf;
+
+  ~ Ligne   18 | AVANT :   Dsply 'Senior';
+             | APRÈS : // Utilisation d'une opération mathématique correcte pour augmenter le salaire 
+
+  ~ Ligne   19 | AVANT : EndIf;
+             | APRÈS :    salaire = salaire * 1.10;  
+
+  ~ Ligne   20 | AVANT : // ERREUR 5: opérateur incorrect
+             | APRÈS : *InLR = *On;
+
+  - Ligne   21 | SUPPR : salaire = salaire ** 1.10;  // '**' n'existe pas en RPGLE, doit être '*'
+
+  - Ligne   22 | SUPPR : *InLR = *On;
+

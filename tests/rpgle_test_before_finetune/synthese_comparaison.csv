@@ -1,0 +1,8 @@
+test,fichier_entree,fichier_reponse,lignes_entree,lignes_sortie,identiques,modifiees,ajoutees,supprimees,total_diff,similarite
+#1,#1test.rpgle,#result1.rpgle,22,20,1,19,0,2,21,4.55
+#2,#2test.rpgle,#result2.rpgle,15,19,1,14,4,0,18,5.26
+#3,#3test.rpgle,#result3.rpgle,20,20,3,17,0,0,17,15.0
+#4,#4test.rpgle,#result4.rpgle,15,16,1,14,1,0,15,6.25
+#5,#5test.rpgle,#result5.rpgle,34,32,6,26,0,2,28,17.65
+#6,#6test.rpgle,#result6.rpgle,47,40,11,29,0,7,36,23.4
+#7,#7test.rpgle,#result7.rpgle,44,43,5,38,0,1,39,11.36
