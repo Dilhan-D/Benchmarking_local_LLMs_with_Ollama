@@ -10,6 +10,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from pathlib import Path
 
+
 # ============================================================
 # CONFIG PAGE
 # ============================================================
@@ -18,6 +19,7 @@ st.set_page_config(
     page_icon  = "🤖",
     layout     = "wide"
 )
+
 
 # ============================================================
 # CHARGEMENT CSV
@@ -30,21 +32,24 @@ SOURCES = {
     "cobol" : RESULTS_DIR / "cobol_test_before_finetune" / "synthese_comparaison.csv",
 }
 
+
 @st.cache_data
 def charger_donnees():
     frames = []
     for langage, path in SOURCES.items():
         if path.exists():
-            try:
-                df = pd.read_csv(path, sep=';')
-            except Exception:
-                df = pd.read_csv(path, sep=',')
+            # Auto-détection séparateur — gère ; et , sans erreur silencieuse
+            df = pd.read_csv(path, sep=None, engine='python')
+            # Force la colonne langage au cas où elle serait absente ou mal lue
+            df["langage"] = langage
             frames.append(df)
     if not frames:
         return pd.DataFrame()
     return pd.concat(frames, ignore_index=True)
 
+
 df = charger_donnees()
+
 
 # ============================================================
 # HEADER
@@ -55,6 +60,12 @@ st.caption("Comparaison des réponses Granite avant fine-tuning")
 if df.empty:
     st.error("Aucun CSV trouvé. Lance d'abord les scripts de comparaison.")
     st.stop()
+
+# Nettoyage défensif
+df["langage"]   = df["langage"].astype(str).str.strip()
+df["similarite"] = pd.to_numeric(df["similarite"], errors="coerce").fillna(0.0)
+df["execution"]  = pd.to_numeric(df["execution"],  errors="coerce").fillna(0).astype(int)
+
 
 # ============================================================
 # SIDEBAR — FILTRES
@@ -82,7 +93,6 @@ seuil_similarite = st.sidebar.slider(
     value     = 0
 )
 
-# Bouton refresh cache
 if st.sidebar.button("🔄 Actualiser les données"):
     st.cache_data.clear()
     st.rerun()
@@ -98,6 +108,7 @@ if df_filtre.empty:
     st.warning("Aucun résultat avec ces filtres.")
     st.stop()
 
+
 # ============================================================
 # KPI — MÉTRIQUES GLOBALES
 # ============================================================
@@ -111,6 +122,7 @@ col2.metric("Similarité moyenne", f"{df_filtre['similarite'].mean():.1f}%")
 col3.metric("Similarité max",     f"{df_filtre['similarite'].max():.1f}%")
 col4.metric("Similarité min",     f"{df_filtre['similarite'].min():.1f}%")
 col5.metric("Total différences",  int(df_filtre["total_diff"].sum()))
+
 
 # ============================================================
 # ROW 1 — SIMILARITÉ PAR LANGAGE + DISTRIBUTION
@@ -150,6 +162,7 @@ with col_b:
     fig_box.update_layout(showlegend=False, height=350)
     st.plotly_chart(fig_box, use_container_width=True)
 
+
 # ============================================================
 # ROW 2 — ÉVOLUTION PAR RUN + RÉPARTITION DIFFÉRENCES
 # ============================================================
@@ -172,13 +185,18 @@ with col_c:
 
 with col_d:
     st.subheader("🔍 Répartition des différences")
-    diff_sum = df_filtre[["langage", "modifiees", "ajoutees", "supprimees"]].groupby("langage").sum().reset_index()
+    diff_cols = ["modifiees", "ajoutees", "supprimees"]
+    for col in diff_cols:
+        df_filtre[col] = pd.to_numeric(df_filtre[col], errors="coerce").fillna(0).astype(int)
+
+    diff_sum = df_filtre[["langage"] + diff_cols].groupby("langage").sum().reset_index()
     fig_stack = go.Figure()
     fig_stack.add_trace(go.Bar(name="Modifiées",  x=diff_sum["langage"], y=diff_sum["modifiees"],  marker_color="#636EFA"))
     fig_stack.add_trace(go.Bar(name="Ajoutées",   x=diff_sum["langage"], y=diff_sum["ajoutees"],   marker_color="#00CC96"))
     fig_stack.add_trace(go.Bar(name="Supprimées", x=diff_sum["langage"], y=diff_sum["supprimees"], marker_color="#EF553B"))
     fig_stack.update_layout(barmode="stack", height=350)
     st.plotly_chart(fig_stack, use_container_width=True)
+
 
 # ============================================================
 # ROW 3 — DÉTAIL PAR TEST
@@ -211,6 +229,7 @@ with col_f:
     else:
         st.info("Aucun test disponible pour ce langage.")
 
+
 # ============================================================
 # TABLE COMPLÈTE
 # ============================================================
@@ -236,6 +255,7 @@ st.dataframe(
         "supprimees" : st.column_config.NumberColumn("Suppr",      format="%d"),
     }
 )
+
 
 # ============================================================
 # FOOTER
