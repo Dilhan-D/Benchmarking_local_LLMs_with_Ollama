@@ -1,37 +1,28 @@
 ============================================================
    RAPPORT DE COMPARAISON - RPGLE TEST #2
 ============================================================
-  Date d'exécution  : 2026-05-27 16:52:17
-  Numéro exécution  : #8
+  Date d'exécution  : 2026-05-27 17:03:39
+  Numéro exécution  : #9
   Langage           : RPGLE
   Entrée            : #2test.rpgle
   Réponse Granite   : #result2.rpgle
   Options actives   : casse=False | espaces=True | vides=True
 ------------------------------------------------------------
-  Total lignes entrée  : 15
-  Total lignes sortie  : 19
+  Total lignes entrée  : 13
+  Total lignes sortie  : 14
 ------------------------------------------------------------
-  Lignes identiques    : 13
-  Lignes modifiées     : 2
-  Lignes ajoutées      : 4
+  Lignes identiques    : 12
+  Lignes modifiées     : 1
+  Lignes ajoutées      : 1
   Lignes supprimées    : 0
-  Total différences    : 6
-  Similarité globale   : 68.42%
+  Total différences    : 2
+  Similarité globale   : 85.71%
 ============================================================
 
 DÉTAIL DES DIFFÉRENCES :
 ------------------------------------------------------------
-  ~ Ligne    1 | AVANT : **FREE
-             | APRÈS : FREE
+  + Ligne    1 | AJOUT : FREE
 
-  + Ligne    6 | AJOUT : /* Boucle For pour sommer les nombres de 1 à 10 */
-
-  + Ligne   10 | AJOUT : /* Initialisation de compteur à 0 et boucle Dow jusqu'à ce qu'il atteigne 5 */
-
-  ~ Ligne   13 | AVANT : total += extra; 
-             | APRÈS : /* Correction : la variable 'extra' n'est pas définie, utilisez une autre variable ou initialisez-la */
-
-  + Ligne   16 | AJOUT : total += extra; /* Cette ligne doit être corrigée pour éviter une erreur de compilation */
-
-  + Ligne   17 | AJOUT : /* Affichage et fin du programme */
+  ~ Ligne   12 | AVANT : total += extra; 
+             | APRÈS : total += extra; /* Cette ligne doit être corrigée pour éviter une erreur de compilation */
 

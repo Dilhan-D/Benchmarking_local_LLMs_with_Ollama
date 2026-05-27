@@ -1,85 +1,52 @@
 ============================================================
    RAPPORT DE COMPARAISON - RPGLE TEST #6
 ============================================================
-  Date d'exécution  : 2026-05-27 16:52:17
-  Numéro exécution  : #8
+  Date d'exécution  : 2026-05-27 17:03:39
+  Numéro exécution  : #9
   Langage           : RPGLE
   Entrée            : #6test.rpgle
   Réponse Granite   : #result6.rpgle
   Options actives   : casse=False | espaces=True | vides=True
 ------------------------------------------------------------
-  Total lignes entrée  : 47
-  Total lignes sortie  : 40
+  Total lignes entrée  : 33
+  Total lignes sortie  : 33
 ------------------------------------------------------------
   Lignes identiques    : 24
-  Lignes modifiées     : 16
-  Lignes ajoutées      : 0
-  Lignes supprimées    : 7
-  Total différences    : 23
-  Similarité globale   : 51.06%
+  Lignes modifiées     : 7
+  Lignes ajoutées      : 2
+  Lignes supprimées    : 2
+  Total différences    : 11
+  Similarité globale   : 72.73%
 ============================================================
 
 DÉTAIL DES DIFFÉRENCES :
 ------------------------------------------------------------
-  ~ Ligne    1 | AVANT : **FREE
+  ~ Ligne    1 | AVANT : Ctl-Opt DftActGrp(*No) ActGrp(*Caller);
              | APRÈS : FREE
 
-  ~ Ligne    2 | AVANT : Ctl-Opt DftActGrp(*No) ActGrp(*Caller);
-             | APRÈS : Ctl-Opt DftActGrp(*NO) ActGrp(*CALLER);
+  + Ligne    2 | AJOUT : Ctl-Opt DftActGrp(*NO) ActGrp(*CALLER);
 
-  ~ Ligne    7 | AVANT : Dcl-S estEmploye Bool Inz(*On);
+  ~ Ligne    6 | AVANT : Dcl-S estEmploye Bool Inz(*On);
              | APRÈS : Dcl-S estEmploye Bool Inz(*ON);  // *ON au lieu de *On pour la casse
 
-  ~ Ligne    8 | AVANT : // ERREUR 1: AND/OR mal orthographié
-             | APRÈS : // Condition corrigée avec 'AND'
-
-  ~ Ligne    9 | AVANT : If age >= 18 AND age < 65 && salaire >= 2000;  // '&&' n'existe, doit être 'AND'
+  ~ Ligne    7 | AVANT : If age >= 18 AND age < 65 && salaire >= 2000;  // '&&' n'existe, doit être 'AND'
              | APRÈS : If age >= 18 AND age < 65 AND salaire >= 2000;
 
-  ~ Ligne   12 | AVANT : // ERREUR 2: NOT mal utilisé
-             | APRÈS : // Simplification de la condition
-
-  ~ Ligne   13 | AVANT : If NOT(age < 18);  // OK mais peut être simplifié
+  ~ Ligne   10 | AVANT : If NOT(age < 18);  // OK mais peut être simplifié
              | APRÈS : If age >= 18;
 
-  ~ Ligne   16 | AVANT : // ERREUR 3: parenthèse manquante dans condition complexe
-             | APRÈS : // Ajout de la parenthèse manquante et correction du type de données pour salaire
-
-  ~ Ligne   17 | AVANT : If (age >= 18 AND age < 65 OR salaire >= 5000;  // manque ')'
+  ~ Ligne   13 | AVANT : If (age >= 18 AND age < 65 OR salaire >= 5000;  // manque ')'
              | APRÈS : If (age >= 18 AND age < 65) OR salaire >= 5000;
 
-  ~ Ligne   20 | AVANT : // ERREUR 4: comparaison de chaîne avec nombre
-             | APRÈS : // Utilisation numérique pour salaire
-
-  ~ Ligne   21 | AVANT : If salaire = '2500';  // doit être numérique, pas chaîne
+  ~ Ligne   16 | AVANT : If salaire = '2500';  // doit être numérique, pas chaîne
              | APRÈS : Dcl-S salaireNum Int(10);
 
-  ~ Ligne   22 | AVANT : // SELECT avec erreurs
-             | APRÈS : salaireNum = %Dec(salaire, 10, 2);
+  + Ligne   18 | AJOUT : salaireNum = %Dec(salaire, 10, 2);
 
-  - Ligne   24 | SUPPR :   // ERREUR 5: When mal orthographié
+  - Ligne   27 | SUPPR : If age > 30;
 
-  - Ligne   27 | SUPPR :   // ERREUR 6: When sans condition
+  - Ligne   28 | SUPPR :   prime = 1000;
 
-  - Ligne   30 | SUPPR :   // ERREUR 7: Other mal orthographié
-
-  ~ Ligne   34 | AVANT : // ERREUR 8: If sans EndIf
-             | APRÈS : // Simplification des conditions pour prime
-
-  - Ligne   35 | SUPPR : If age > 30;
-
-  - Ligne   36 | SUPPR :   prime = 1000;
-
-  - Ligne   37 | SUPPR : // manque EndIf
-
-  - Ligne   38 | SUPPR : // Correction
-
-  ~ Ligne   44 | AVANT : // ERREUR 9: Test de null incorrect
-             | APRÈS : // Vérification de NULL (en RPGLE, on vérifie généralement avec une condition numérique ou caractère appropriée)
-
-  ~ Ligne   45 | AVANT : If salaire = NULL;  // doit être 'salaire = *Null' ou 'IsNull(salaire)'
+  ~ Ligne   32 | AVANT : If salaire = NULL;  // doit être 'salaire = *Null' ou 'IsNull(salaire)'
              | APRÈS : If salaireNum <> *BLANK;  // Exemple de vérification pour un champ numérique
-
-  ~ Ligne   47 | AVANT : *InLR = *On;
-             | APRÈS : *InLR = *ON;  // *ON au lieu de *On pour la casse
 

@@ -1,66 +1,46 @@
 ============================================================
    RAPPORT DE COMPARAISON - RPGLE TEST #5
 ============================================================
-  Date d'exécution  : 2026-05-27 16:52:17
-  Numéro exécution  : #8
+  Date d'exécution  : 2026-05-27 17:03:39
+  Numéro exécution  : #9
   Langage           : RPGLE
   Entrée            : #5test.rpgle
   Réponse Granite   : #result5.rpgle
   Options actives   : casse=False | espaces=True | vides=True
 ------------------------------------------------------------
-  Total lignes entrée  : 34
-  Total lignes sortie  : 32
+  Total lignes entrée  : 25
+  Total lignes sortie  : 26
 ------------------------------------------------------------
-  Lignes identiques    : 19
-  Lignes modifiées     : 13
-  Lignes ajoutées      : 0
-  Lignes supprimées    : 2
-  Total différences    : 15
-  Similarité globale   : 55.88%
+  Lignes identiques    : 18
+  Lignes modifiées     : 7
+  Lignes ajoutées      : 1
+  Lignes supprimées    : 0
+  Total différences    : 8
+  Similarité globale   : 69.23%
 ============================================================
 
 DÉTAIL DES DIFFÉRENCES :
 ------------------------------------------------------------
-  ~ Ligne    1 | AVANT : **FREE
+  ~ Ligne    1 | AVANT : Ctl-Opt DftActGrp(*No) ActGrp(*Caller);
              | APRÈS : FREE
 
-  ~ Ligne    2 | AVANT : Ctl-Opt DftActGrp(*No) ActGrp(*Caller);
-             | APRÈS : Ctl-Opt DftActGrp(*NO) ActGrp(*CALLER);
+  + Ligne    2 | AJOUT : Ctl-Opt DftActGrp(*NO) ActGrp(*CALLER);
 
-  - Ligne    9 | SUPPR : // Calculs corrects
-
-  ~ Ligne   12 | AVANT : // ERREUR 1: puissance avec ^ (n'existe pas en RPGLE)
-             | APRÈS : // Correction de l'opérateur puissance
-
-  ~ Ligne   14 | AVANT : carre = 5 ^ 2;  // doit être '5 * 5' ou %DecFmt
+  ~ Ligne   11 | AVANT : carre = 5 ^ 2;  // doit être '5 * 5' ou %DecFmt
              | APRÈS : carre = 5 * 5;  // doit être '5 * 5'
 
-  ~ Ligne   15 | AVANT : // ERREUR 2: modulo avec % (incorrect)
-             | APRÈS : // Correction de l'opérateur modulo
-
-  ~ Ligne   17 | AVANT : reste = 10 % 3;  // doit être '%Mod(10: 3)'
+  ~ Ligne   13 | AVANT : reste = 10 % 3;  // doit être '%Mod(10: 3)'
              | APRÈS : reste = %Mod(10: 3);  
 
-  ~ Ligne   18 | AVANT : // ERREUR 3: fonction %Abs mal utilisée
-             | APRÈS : // Utilisation correcte de la fonction absolue
-
-  ~ Ligne   21 | AVANT : absolu = %Abs valeur;  // manque parenthèses: '%Abs(valeur)'
+  ~ Ligne   16 | AVANT : absolu = %Abs valeur;  // manque parenthèses: '%Abs(valeur)'
              | APRÈS : absolu = %Abs(valeur);  
 
-  ~ Ligne   22 | AVANT : // ERREUR 4: division par zéro potentiel
-             | APRÈS : // Attention à la division par zéro
-
-  ~ Ligne   23 | AVANT : Dcl-S diviseur Dec(10,2) Inz(0);
+  ~ Ligne   17 | AVANT : Dcl-S diviseur Dec(10,2) Inz(0);
              | APRÈS : Dcl-S diviseur Dec(10,2) Inz(1);  // Changement pour éviter la division par zéro
 
-  ~ Ligne   25 | AVANT : quotient = totalHT / diviseur;  // Erreur runtime
+  ~ Ligne   19 | AVANT : quotient = totalHT / diviseur;  // Erreur runtime
              | APRÈS : quotient = totalHT / diviseur;  
 
-  ~ Ligne   26 | AVANT : // ERREUR 5: arrondi incorrect
-             | APRÈS : // Utilisation correcte de la fonction d'arrondi
-
-  ~ Ligne   28 | AVANT : arrondi = %Round(totalTTC 2);  // manque ':', doit être '%Round(totalTTC: 2)'
+  ~ Ligne   21 | AVANT : arrondi = %Round(totalTTC 2);  // manque ':', doit être '%Round(totalTTC: 2)'
              | APRÈS : arrondi = %Round(totalTTC: 2);  
-
-  - Ligne   29 | SUPPR : // Comparaison logique
 

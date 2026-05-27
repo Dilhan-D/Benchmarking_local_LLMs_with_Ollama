@@ -1,93 +1,67 @@
 ============================================================
    RAPPORT DE COMPARAISON - RPGLE TEST #7
 ============================================================
-  Date d'exécution  : 2026-05-27 16:52:17
-  Numéro exécution  : #8
+  Date d'exécution  : 2026-05-27 17:03:39
+  Numéro exécution  : #9
   Langage           : RPGLE
   Entrée            : #7test.rpgle
   Réponse Granite   : #result7.rpgle
   Options actives   : casse=False | espaces=True | vides=True
 ------------------------------------------------------------
-  Total lignes entrée  : 44
-  Total lignes sortie  : 43
+  Total lignes entrée  : 35
+  Total lignes sortie  : 34
 ------------------------------------------------------------
-  Lignes identiques    : 21
-  Lignes modifiées     : 20
-  Lignes ajoutées      : 2
-  Lignes supprimées    : 3
-  Total différences    : 25
-  Similarité globale   : 47.73%
+  Lignes identiques    : 20
+  Lignes modifiées     : 14
+  Lignes ajoutées      : 0
+  Lignes supprimées    : 1
+  Total différences    : 15
+  Similarité globale   : 57.14%
 ============================================================
 
 DÉTAIL DES DIFFÉRENCES :
 ------------------------------------------------------------
-  ~ Ligne    2 | AVANT : // Module Principal
+  ~ Ligne    1 | AVANT : Ctl-Opt DftActGrp(*No) ActGrp(*Caller);
              | APRÈS : Ctl-Opt DftActGrp(*NO) ActGrp(*CALLER);
 
-  - Ligne    3 | SUPPR : Ctl-Opt DftActGrp(*No) ActGrp(*Caller);
-
-  ~ Ligne    5 | AVANT : // ERREUR 1: ExtpProc mal orthographié
-             | APRÈS : // Définition de la procédure externe CALCULER
-
-  ~ Ligne    6 | AVANT : Dcl-Pr Calculer ExtpProc('CALCULER');  // doit être 'ExtProc'
+  ~ Ligne    3 | AVANT : Dcl-Pr Calculer ExtpProc('CALCULER');  // doit être 'ExtProc'
              | APRÈS : Dcl-Pr Calculer ExtpProc('CALCULER');
 
-  ~ Ligne   10 | AVANT : resultat = Calculer(10: 20);
+  ~ Ligne    7 | AVANT : resultat = Calculer(10: 20);
              | APRÈS : resultat = Calculer(10: 20);  // Supposons que CALCULER retourne une valeur compatible avec 'resultat'
 
-  ~ Ligne   12 | AVANT : // ERREUR 2: Dcl-SubProc au lieu de Dcl-Proc
-             | APRÈS : // Définition de la sous-procédure MonSousProc
-
-  ~ Ligne   13 | AVANT : Dcl-SubProc MonSousProc;  // doit être 'Dcl-Proc'
+  ~ Ligne    9 | AVANT : Dcl-SubProc MonSousProc;  // doit être 'Dcl-Proc'
              | APRÈS : Dcl-SubProc MonSousProc;
 
-  ~ Ligne   14 | AVANT :   Dcl-Pi MonSousProc;
+  ~ Ligne   10 | AVANT :   Dcl-Pi MonSousProc;
              | APRÈS :   Dcl-Pi MonSousProc param1 Int(10);
 
-  ~ Ligne   15 | AVANT :     param1 Int(10);
+  ~ Ligne   11 | AVANT :     param1 Int(10);
              | APRÈS :     Dsply 'Sous-procédure appelée avec param1 = ' + %Char(param1);
 
-  ~ Ligne   17 | AVANT :   Dsply 'Sous-procédure appelée';
+  ~ Ligne   13 | AVANT :   Dsply 'Sous-procédure appelée';
              | APRÈS : End-Sub;
 
-  ~ Ligne   18 | AVANT : End-Sub;  // ERREUR 3: 'End-Sub' au lieu de 'End-Proc'
-             | APRÈS : // Définition de la procédure ProcExterne contenant une procédure interne
+  - Ligne   14 | SUPPR : End-Sub;  // ERREUR 3: 'End-Sub' au lieu de 'End-Proc'
 
-  - Ligne   19 | SUPPR : // ERREUR 4: Procédure dans procédure (impossible)
-
-  ~ Ligne   21 | AVANT :   Dcl-Proc ProcInterne;  // Impossible, procédure imbriquée
+  ~ Ligne   16 | AVANT :   Dcl-Proc ProcInterne;  // Impossible, procédure imbriquée
              | APRÈS :   Dcl-Proc ProcInterne InLb;  // Utilisez InLb pour indiquer que c'est une procédure locale
 
-  ~ Ligne   26 | AVANT :   Return ProcInterne();
-             | APRÈS :   // Appel de la procédure interne depuis ProcExterne
+  ~ Ligne   21 | AVANT :   Return ProcInterne();
+             | APRÈS :   Dsply 'Resultat de ProcInterne : ' + %Dec(ProcInterne(), 10, 2);
 
-  + Ligne   25 | AJOUT :   Dsply 'Resultat de ProcInterne : ' + %Dec(ProcInterne(), 10, 2);
-
-  ~ Ligne   28 | AVANT : // Bonnes pratiques
-             | APRÈS : // Définition de la procédure CalculerSalaire exportée
-
-  ~ Ligne   31 | AVANT :     salaireBase Dec(10,2);
+  ~ Ligne   25 | AVANT :     salaireBase Dec(10,2);
              | APRÈS :     salaireBase Dec(10,2) ;
 
-  ~ Ligne   33 | AVANT :   End-PI;
+  ~ Ligne   27 | AVANT :   End-PI;
              | APRÈS :   End-Pi;
 
-  + Ligne   33 | AJOUT :   // Calcul du salaire total avec la prime
-
-  ~ Ligne   36 | AVANT : // ERREUR 5: Export sur procédure sans prototype
-             | APRÈS : // Procédure non exportée
-
-  ~ Ligne   39 | AVANT :   End-PI;
+  ~ Ligne   32 | AVANT :   End-PI;
              | APRÈS :   End-Pi;
 
-  ~ Ligne   40 | AVANT : End-Proc Export;  // Export mal placé (doit être sur Dcl-Proc)
+  ~ Ligne   33 | AVANT : End-Proc Export;  // Export mal placé (doit être sur Dcl-Proc)
              | APRÈS : End-Proc;  // Utilisez 'N' à la place de 'Export' pour une procédure non exportée
 
-  ~ Ligne   41 | AVANT : // ERREUR 6: CallP sur procédure locale (doit être appel direct)
+  ~ Ligne   34 | AVANT : CallP Calculer(10: 20);  // doit être 'Calculer(10: 20)'
              | APRÈS : CallP Calculer(10: 20);  // Assurez-vous que CALCULER est définie correctement en dehors du module
-
-  - Ligne   42 | SUPPR : CallP Calculer(10: 20);  // doit être 'Calculer(10: 20)'
-
-  ~ Ligne   44 | AVANT : *InLR = *On;
-             | APRÈS : *InLR = *ON;  // *ON au lieu de *On pour la casse
 

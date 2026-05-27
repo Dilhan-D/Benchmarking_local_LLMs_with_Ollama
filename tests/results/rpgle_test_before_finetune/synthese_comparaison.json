@@ -1,80 +1,56 @@
 {
-  "execution": 8,
-  "date": "2026-05-27 16:52:17",
+  "execution": 9,
+  "date": "2026-05-27 17:03:39",
   "langage": "rpgle",
   "resultats": [
     {
-      "execution": 8,
-      "date": "2026-05-27 16:52:17",
+      "execution": 9,
+      "date": "2026-05-27 17:03:39",
       "langage": "rpgle",
       "test": "#1",
       "fichier_entree": "#1test.rpgle",
       "fichier_reponse": "#result1.rpgle",
-      "lignes_entree": 22,
-      "lignes_sortie": 20,
-      "identiques": 12,
-      "modifiees": 8,
-      "ajoutees": 0,
-      "supprimees": 2,
-      "total_diff": 10,
-      "similarite": 54.55,
+      "lignes_entree": 16,
+      "lignes_sortie": 17,
+      "identiques": 11,
+      "modifiees": 5,
+      "ajoutees": 1,
+      "supprimees": 0,
+      "total_diff": 6,
+      "similarite": 64.71,
       "differences": [
         {
           "ligne": 1,
-          "type": "MODIFIEE",
-          "avant": "**FREE",
+          "type": "AJOUTEE",
+          "avant": "",
           "apres": "FREE"
         },
         {
-          "ligne": 5,
+          "ligne": 4,
           "type": "MODIFIEE",
           "avant": "Dcl-S salaire Dec(9 2) Inz(2500.00);  // ERREUR 1: manque virgule entre 9 et 2",
           "apres": "Dcl-S salaire    Dec(9 2) Inz(2500.00);  "
         },
         {
-          "ligne": 7,
-          "type": "SUPPRIMEE",
-          "avant": "// ERREUR 2: condition mal fermée (manque parenthèse)",
-          "apres": ""
-        },
-        {
-          "ligne": 11,
+          "ligne": 9,
           "type": "MODIFIEE",
           "avant": "Else",
           "apres": "Else;"
         },
         {
-          "ligne": 12,
+          "ligne": 10,
           "type": "MODIFIEE",
-          "avant": "  // ERREUR 3: manque point-virgule après Else",
+          "avant": "  estMajeur = *Off",
           "apres": "   estMajeur = *Off;"
         },
         {
           "ligne": 13,
-          "type": "SUPPRIMEE",
-          "avant": "  estMajeur = *Off",
-          "apres": ""
-        },
-        {
-          "ligne": 16,
-          "type": "MODIFIEE",
-          "avant": "// ERREUR 4: mauvais nom de variable (faute de frappe)",
-          "apres": "// Correction du nom de la variable utilisée dans la condition "
-        },
-        {
-          "ligne": 17,
           "type": "MODIFIEE",
           "avant": "If agee > 65;  // 'agee' n'existe pas",
           "apres": "If age > 65; "
         },
         {
-          "ligne": 20,
-          "type": "MODIFIEE",
-          "avant": "// ERREUR 5: opérateur incorrect",
-          "apres": "// Utilisation d'une opération mathématique correcte pour augmenter le salaire "
-        },
-        {
-          "ligne": 21,
+          "ligne": 16,
           "type": "MODIFIEE",
           "avant": "salaire = salaire ** 1.10;  // '**' n'existe pas en RPGLE, doit être '*'",
           "apres": "   salaire = salaire * 1.10;  "
@@ -82,221 +58,143 @@
       ]
     },
     {
-      "execution": 8,
-      "date": "2026-05-27 16:52:17",
+      "execution": 9,
+      "date": "2026-05-27 17:03:39",
       "langage": "rpgle",
       "test": "#2",
       "fichier_entree": "#2test.rpgle",
       "fichier_reponse": "#result2.rpgle",
-      "lignes_entree": 15,
-      "lignes_sortie": 19,
-      "identiques": 13,
-      "modifiees": 2,
-      "ajoutees": 4,
+      "lignes_entree": 13,
+      "lignes_sortie": 14,
+      "identiques": 12,
+      "modifiees": 1,
+      "ajoutees": 1,
       "supprimees": 0,
-      "total_diff": 6,
-      "similarite": 68.42,
+      "total_diff": 2,
+      "similarite": 85.71,
       "differences": [
         {
           "ligne": 1,
-          "type": "MODIFIEE",
-          "avant": "**FREE",
+          "type": "AJOUTEE",
+          "avant": "",
           "apres": "FREE"
         },
         {
-          "ligne": 6,
-          "type": "AJOUTEE",
-          "avant": "",
-          "apres": "/* Boucle For pour sommer les nombres de 1 à 10 */"
-        },
-        {
-          "ligne": 10,
-          "type": "AJOUTEE",
-          "avant": "",
-          "apres": "/* Initialisation de compteur à 0 et boucle Dow jusqu'à ce qu'il atteigne 5 */"
-        },
-        {
-          "ligne": 13,
+          "ligne": 12,
           "type": "MODIFIEE",
           "avant": "total += extra; ",
-          "apres": "/* Correction : la variable 'extra' n'est pas définie, utilisez une autre variable ou initialisez-la */"
-        },
-        {
-          "ligne": 16,
-          "type": "AJOUTEE",
-          "avant": "",
           "apres": "total += extra; /* Cette ligne doit être corrigée pour éviter une erreur de compilation */"
-        },
-        {
-          "ligne": 17,
-          "type": "AJOUTEE",
-          "avant": "",
-          "apres": "/* Affichage et fin du programme */"
         }
       ]
     },
     {
-      "execution": 8,
-      "date": "2026-05-27 16:52:17",
+      "execution": 9,
+      "date": "2026-05-27 17:03:39",
       "langage": "rpgle",
       "test": "#3",
       "fichier_entree": "#3test.rpgle",
       "fichier_reponse": "#result3.rpgle",
-      "lignes_entree": 20,
-      "lignes_sortie": 20,
-      "identiques": 12,
-      "modifiees": 7,
-      "ajoutees": 1,
-      "supprimees": 1,
-      "total_diff": 9,
-      "similarite": 60.0,
+      "lignes_entree": 15,
+      "lignes_sortie": 17,
+      "identiques": 11,
+      "modifiees": 4,
+      "ajoutees": 2,
+      "supprimees": 0,
+      "total_diff": 6,
+      "similarite": 64.71,
       "differences": [
         {
           "ligne": 1,
-          "type": "MODIFIEE",
-          "avant": "**FREE",
+          "type": "AJOUTEE",
+          "avant": "",
           "apres": "FREE"
         },
         {
-          "ligne": 5,
-          "type": "MODIFIEE",
-          "avant": "// ERREUR 1: When mal orthographié",
-          "apres": "/* Utilisation de la structure When pour déterminer le résultat en fonction de la note */"
-        },
-        {
-          "ligne": 6,
+          "ligne": 4,
           "type": "MODIFIEE",
           "avant": "Whene note >= 90;",
           "apres": "Select;"
         },
         {
-          "ligne": 7,
+          "ligne": 6,
           "type": "AJOUTEE",
           "avant": "",
           "apres": "  When note >= 90;"
         },
         {
-          "ligne": 13,
+          "ligne": 11,
           "type": "MODIFIEE",
-          "avant": "  // ERREUR 2: manque point-virgule après Other",
+          "avant": "  resultat = 'Echec'  // ERREUR 3: manque point-virgule",
           "apres": "     resultat = 'Echec';"
         },
         {
-          "ligne": 14,
+          "ligne": 12,
           "type": "MODIFIEE",
-          "avant": "  resultat = 'Echec'  // ERREUR 3: manque point-virgule",
+          "avant": "EndSelect;  // ERREUR 4: mal orthographié (EndSelect au lieu de EndIf ou erreur de nom)",
           "apres": "EndSel;"
         },
         {
-          "ligne": 15,
+          "ligne": 13,
           "type": "MODIFIEE",
-          "avant": "EndSelect;  // ERREUR 4: mal orthographié (EndSelect au lieu de EndIf ou erreur de nom)",
-          "apres": "/* Correction de l'opérateur dans la condition If : '/' ne doit pas être utilisé avec '=' */"
-        },
-        {
-          "ligne": 16,
-          "type": "MODIFIEE",
-          "avant": "// ERREUR 5: opérateur de comparaison incorrect",
-          "apres": "If note > 0;  "
-        },
-        {
-          "ligne": 17,
-          "type": "SUPPRIMEE",
           "avant": "If note =/> 0;  // doit être '<=' ou '>=', pas '=/>'",
-          "apres": ""
+          "apres": "If note > 0;  "
         }
       ]
     },
     {
-      "execution": 8,
-      "date": "2026-05-27 16:52:17",
+      "execution": 9,
+      "date": "2026-05-27 17:03:39",
       "langage": "rpgle",
       "test": "#4",
       "fichier_entree": "#4test.rpgle",
       "fichier_reponse": "#result4.rpgle",
-      "lignes_entree": 15,
-      "lignes_sortie": 16,
-      "identiques": 3,
-      "modifiees": 12,
+      "lignes_entree": 8,
+      "lignes_sortie": 9,
+      "identiques": 2,
+      "modifiees": 6,
       "ajoutees": 1,
       "supprimees": 0,
-      "total_diff": 13,
-      "similarite": 18.75,
+      "total_diff": 7,
+      "similarite": 22.22,
       "differences": [
         {
           "ligne": 1,
-          "type": "MODIFIEE",
-          "avant": "**FREE",
+          "type": "AJOUTEE",
+          "avant": "",
           "apres": "FREE"
         },
         {
-          "ligne": 3,
-          "type": "MODIFIEE",
-          "avant": "// ERREUR 1: type de données inexistant",
-          "apres": "/* Correction ERREUR 1 : Utilisation de 'Dec' au lieu de 'Float8' */"
-        },
-        {
-          "ligne": 4,
+          "ligne": 2,
           "type": "MODIFIEE",
           "avant": "Dcl-S montant Float8 Inz(1000.00);  // doit être 'Dec' ou 'Packed'",
           "apres": "Dcl-S montant Dec(12 2) Inz(1000.00);  "
         },
         {
-          "ligne": 5,
-          "type": "MODIFIEE",
-          "avant": "// ERREUR 2: taille invalide",
-          "apres": "/* Correction ERREUR 2 : Taille acceptable mais irréaliste, gardez la pour compatibilité, sinon réduisez-la */"
-        },
-        {
-          "ligne": 6,
+          "ligne": 3,
           "type": "MODIFIEE",
           "avant": "Dcl-S code VarChar(9999) Inz('A');  // trop grand, max 32767 mais irréaliste",
           "apres": "Dcl-S code VarChar(20) Inz('A');  /* Exemple de taille plus raisonnable */"
         },
         {
-          "ligne": 7,
-          "type": "MODIFIEE",
-          "avant": "// ERREUR 3: Inz avec valeur incompatible",
-          "apres": "/* Correction ERREUR 3 : Utilisation dun entier avec une valeur numérique directe */"
-        },
-        {
-          "ligne": 8,
+          "ligne": 4,
           "type": "MODIFIEE",
           "avant": "Dcl-S age Int(3) Inz('vingt');  // doit être numérique",
           "apres": "Dcl-S age Int(3) Inz(20);  "
         },
         {
-          "ligne": 9,
+          "ligne": 5,
           "type": "MODIFIEE",
           "avant": "Dcl-S dateNaiss Date Inz(*Sys);  // OK pour comparaison",
-          "apres": "/* Ligne OK pour la comparaison de date */"
-        },
-        {
-          "ligne": 10,
-          "type": "MODIFIEE",
-          "avant": "// ERREUR 4: nom de variable commence par chiffre",
           "apres": "Dcl-S dateNaiss Date Inz(*Sys);"
         },
         {
-          "ligne": 11,
+          "ligne": 6,
           "type": "MODIFIEE",
           "avant": "Dcl-S 2var Int(5);  // impossible, doit commencer par lettre",
-          "apres": "/* Correction ERREUR 4 : Le nom de variable doit commencer par une lettre */"
-        },
-        {
-          "ligne": 12,
-          "type": "MODIFIEE",
-          "avant": "// ERREUR 5: sous-définition incorrecte",
           "apres": "Dcl-S nouvelleVar Int(5);  "
         },
         {
-          "ligne": 13,
-          "type": "AJOUTEE",
-          "avant": "",
-          "apres": "/* Correction ERREUR 5 : Utilisation correcte de %Subst pour extraire une sous-chaîne */"
-        },
-        {
-          "ligne": 14,
+          "ligne": 8,
           "type": "MODIFIEE",
           "avant": "Dcl-S partie1 Subs(complexe: 1:10);  // substr doit être %Subst",
           "apres": "Dcl-S partie1 Subs(%Subst(complexe: 1:10));  "
@@ -304,434 +202,260 @@
       ]
     },
     {
-      "execution": 8,
-      "date": "2026-05-27 16:52:17",
+      "execution": 9,
+      "date": "2026-05-27 17:03:39",
       "langage": "rpgle",
       "test": "#5",
       "fichier_entree": "#5test.rpgle",
       "fichier_reponse": "#result5.rpgle",
-      "lignes_entree": 34,
-      "lignes_sortie": 32,
-      "identiques": 19,
-      "modifiees": 13,
-      "ajoutees": 0,
-      "supprimees": 2,
-      "total_diff": 15,
-      "similarite": 55.88,
+      "lignes_entree": 25,
+      "lignes_sortie": 26,
+      "identiques": 18,
+      "modifiees": 7,
+      "ajoutees": 1,
+      "supprimees": 0,
+      "total_diff": 8,
+      "similarite": 69.23,
       "differences": [
         {
           "ligne": 1,
           "type": "MODIFIEE",
-          "avant": "**FREE",
+          "avant": "Ctl-Opt DftActGrp(*No) ActGrp(*Caller);",
           "apres": "FREE"
         },
         {
           "ligne": 2,
-          "type": "MODIFIEE",
-          "avant": "Ctl-Opt DftActGrp(*No) ActGrp(*Caller);",
+          "type": "AJOUTEE",
+          "avant": "",
           "apres": "Ctl-Opt DftActGrp(*NO) ActGrp(*CALLER);"
         },
         {
-          "ligne": 9,
-          "type": "SUPPRIMEE",
-          "avant": "// Calculs corrects",
-          "apres": ""
-        },
-        {
-          "ligne": 12,
-          "type": "MODIFIEE",
-          "avant": "// ERREUR 1: puissance avec ^ (n'existe pas en RPGLE)",
-          "apres": "// Correction de l'opérateur puissance"
-        },
-        {
-          "ligne": 14,
+          "ligne": 11,
           "type": "MODIFIEE",
           "avant": "carre = 5 ^ 2;  // doit être '5 * 5' ou %DecFmt",
           "apres": "carre = 5 * 5;  // doit être '5 * 5'"
         },
         {
-          "ligne": 15,
-          "type": "MODIFIEE",
-          "avant": "// ERREUR 2: modulo avec % (incorrect)",
-          "apres": "// Correction de l'opérateur modulo"
-        },
-        {
-          "ligne": 17,
+          "ligne": 13,
           "type": "MODIFIEE",
           "avant": "reste = 10 % 3;  // doit être '%Mod(10: 3)'",
           "apres": "reste = %Mod(10: 3);  "
         },
         {
-          "ligne": 18,
-          "type": "MODIFIEE",
-          "avant": "// ERREUR 3: fonction %Abs mal utilisée",
-          "apres": "// Utilisation correcte de la fonction absolue"
-        },
-        {
-          "ligne": 21,
+          "ligne": 16,
           "type": "MODIFIEE",
           "avant": "absolu = %Abs valeur;  // manque parenthèses: '%Abs(valeur)'",
           "apres": "absolu = %Abs(valeur);  "
         },
         {
-          "ligne": 22,
-          "type": "MODIFIEE",
-          "avant": "// ERREUR 4: division par zéro potentiel",
-          "apres": "// Attention à la division par zéro"
-        },
-        {
-          "ligne": 23,
+          "ligne": 17,
           "type": "MODIFIEE",
           "avant": "Dcl-S diviseur Dec(10,2) Inz(0);",
           "apres": "Dcl-S diviseur Dec(10,2) Inz(1);  // Changement pour éviter la division par zéro"
         },
         {
-          "ligne": 25,
+          "ligne": 19,
           "type": "MODIFIEE",
           "avant": "quotient = totalHT / diviseur;  // Erreur runtime",
           "apres": "quotient = totalHT / diviseur;  "
         },
         {
-          "ligne": 26,
-          "type": "MODIFIEE",
-          "avant": "// ERREUR 5: arrondi incorrect",
-          "apres": "// Utilisation correcte de la fonction d'arrondi"
-        },
-        {
-          "ligne": 28,
+          "ligne": 21,
           "type": "MODIFIEE",
           "avant": "arrondi = %Round(totalTTC 2);  // manque ':', doit être '%Round(totalTTC: 2)'",
           "apres": "arrondi = %Round(totalTTC: 2);  "
-        },
-        {
-          "ligne": 29,
-          "type": "SUPPRIMEE",
-          "avant": "// Comparaison logique",
-          "apres": ""
         }
       ]
     },
     {
-      "execution": 8,
-      "date": "2026-05-27 16:52:17",
+      "execution": 9,
+      "date": "2026-05-27 17:03:39",
       "langage": "rpgle",
       "test": "#6",
       "fichier_entree": "#6test.rpgle",
       "fichier_reponse": "#result6.rpgle",
-      "lignes_entree": 47,
-      "lignes_sortie": 40,
+      "lignes_entree": 33,
+      "lignes_sortie": 33,
       "identiques": 24,
-      "modifiees": 16,
-      "ajoutees": 0,
-      "supprimees": 7,
-      "total_diff": 23,
-      "similarite": 51.06,
+      "modifiees": 7,
+      "ajoutees": 2,
+      "supprimees": 2,
+      "total_diff": 11,
+      "similarite": 72.73,
       "differences": [
         {
           "ligne": 1,
           "type": "MODIFIEE",
-          "avant": "**FREE",
+          "avant": "Ctl-Opt DftActGrp(*No) ActGrp(*Caller);",
           "apres": "FREE"
         },
         {
           "ligne": 2,
-          "type": "MODIFIEE",
-          "avant": "Ctl-Opt DftActGrp(*No) ActGrp(*Caller);",
+          "type": "AJOUTEE",
+          "avant": "",
           "apres": "Ctl-Opt DftActGrp(*NO) ActGrp(*CALLER);"
         },
         {
-          "ligne": 7,
+          "ligne": 6,
           "type": "MODIFIEE",
           "avant": "Dcl-S estEmploye Bool Inz(*On);",
           "apres": "Dcl-S estEmploye Bool Inz(*ON);  // *ON au lieu de *On pour la casse"
         },
         {
-          "ligne": 8,
-          "type": "MODIFIEE",
-          "avant": "// ERREUR 1: AND/OR mal orthographié",
-          "apres": "// Condition corrigée avec 'AND'"
-        },
-        {
-          "ligne": 9,
+          "ligne": 7,
           "type": "MODIFIEE",
           "avant": "If age >= 18 AND age < 65 && salaire >= 2000;  // '&&' n'existe, doit être 'AND'",
           "apres": "If age >= 18 AND age < 65 AND salaire >= 2000;"
         },
         {
-          "ligne": 12,
-          "type": "MODIFIEE",
-          "avant": "// ERREUR 2: NOT mal utilisé",
-          "apres": "// Simplification de la condition"
-        },
-        {
-          "ligne": 13,
+          "ligne": 10,
           "type": "MODIFIEE",
           "avant": "If NOT(age < 18);  // OK mais peut être simplifié",
           "apres": "If age >= 18;"
         },
         {
-          "ligne": 16,
-          "type": "MODIFIEE",
-          "avant": "// ERREUR 3: parenthèse manquante dans condition complexe",
-          "apres": "// Ajout de la parenthèse manquante et correction du type de données pour salaire"
-        },
-        {
-          "ligne": 17,
+          "ligne": 13,
           "type": "MODIFIEE",
           "avant": "If (age >= 18 AND age < 65 OR salaire >= 5000;  // manque ')'",
           "apres": "If (age >= 18 AND age < 65) OR salaire >= 5000;"
         },
         {
-          "ligne": 20,
-          "type": "MODIFIEE",
-          "avant": "// ERREUR 4: comparaison de chaîne avec nombre",
-          "apres": "// Utilisation numérique pour salaire"
-        },
-        {
-          "ligne": 21,
+          "ligne": 16,
           "type": "MODIFIEE",
           "avant": "If salaire = '2500';  // doit être numérique, pas chaîne",
           "apres": "Dcl-S salaireNum Int(10);"
         },
         {
-          "ligne": 22,
-          "type": "MODIFIEE",
-          "avant": "// SELECT avec erreurs",
+          "ligne": 18,
+          "type": "AJOUTEE",
+          "avant": "",
           "apres": "salaireNum = %Dec(salaire, 10, 2);"
         },
         {
-          "ligne": 24,
-          "type": "SUPPRIMEE",
-          "avant": "  // ERREUR 5: When mal orthographié",
-          "apres": ""
-        },
-        {
           "ligne": 27,
-          "type": "SUPPRIMEE",
-          "avant": "  // ERREUR 6: When sans condition",
-          "apres": ""
-        },
-        {
-          "ligne": 30,
-          "type": "SUPPRIMEE",
-          "avant": "  // ERREUR 7: Other mal orthographié",
-          "apres": ""
-        },
-        {
-          "ligne": 34,
-          "type": "MODIFIEE",
-          "avant": "// ERREUR 8: If sans EndIf",
-          "apres": "// Simplification des conditions pour prime"
-        },
-        {
-          "ligne": 35,
           "type": "SUPPRIMEE",
           "avant": "If age > 30;",
           "apres": ""
         },
         {
-          "ligne": 36,
+          "ligne": 28,
           "type": "SUPPRIMEE",
           "avant": "  prime = 1000;",
           "apres": ""
         },
         {
-          "ligne": 37,
-          "type": "SUPPRIMEE",
-          "avant": "// manque EndIf",
-          "apres": ""
-        },
-        {
-          "ligne": 38,
-          "type": "SUPPRIMEE",
-          "avant": "// Correction",
-          "apres": ""
-        },
-        {
-          "ligne": 44,
-          "type": "MODIFIEE",
-          "avant": "// ERREUR 9: Test de null incorrect",
-          "apres": "// Vérification de NULL (en RPGLE, on vérifie généralement avec une condition numérique ou caractère appropriée)"
-        },
-        {
-          "ligne": 45,
+          "ligne": 32,
           "type": "MODIFIEE",
           "avant": "If salaire = NULL;  // doit être 'salaire = *Null' ou 'IsNull(salaire)'",
           "apres": "If salaireNum <> *BLANK;  // Exemple de vérification pour un champ numérique"
-        },
-        {
-          "ligne": 47,
-          "type": "MODIFIEE",
-          "avant": "*InLR = *On;",
-          "apres": "*InLR = *ON;  // *ON au lieu de *On pour la casse"
         }
       ]
     },
     {
-      "execution": 8,
-      "date": "2026-05-27 16:52:17",
+      "execution": 9,
+      "date": "2026-05-27 17:03:39",
       "langage": "rpgle",
       "test": "#7",
       "fichier_entree": "#7test.rpgle",
       "fichier_reponse": "#result7.rpgle",
-      "lignes_entree": 44,
-      "lignes_sortie": 43,
-      "identiques": 21,
-      "modifiees": 20,
-      "ajoutees": 2,
-      "supprimees": 3,
-      "total_diff": 25,
-      "similarite": 47.73,
+      "lignes_entree": 35,
+      "lignes_sortie": 34,
+      "identiques": 20,
+      "modifiees": 14,
+      "ajoutees": 0,
+      "supprimees": 1,
+      "total_diff": 15,
+      "similarite": 57.14,
       "differences": [
         {
-          "ligne": 2,
+          "ligne": 1,
           "type": "MODIFIEE",
-          "avant": "// Module Principal",
+          "avant": "Ctl-Opt DftActGrp(*No) ActGrp(*Caller);",
           "apres": "Ctl-Opt DftActGrp(*NO) ActGrp(*CALLER);"
         },
         {
           "ligne": 3,
-          "type": "SUPPRIMEE",
-          "avant": "Ctl-Opt DftActGrp(*No) ActGrp(*Caller);",
-          "apres": ""
-        },
-        {
-          "ligne": 5,
-          "type": "MODIFIEE",
-          "avant": "// ERREUR 1: ExtpProc mal orthographié",
-          "apres": "// Définition de la procédure externe CALCULER"
-        },
-        {
-          "ligne": 6,
           "type": "MODIFIEE",
           "avant": "Dcl-Pr Calculer ExtpProc('CALCULER');  // doit être 'ExtProc'",
           "apres": "Dcl-Pr Calculer ExtpProc('CALCULER');"
         },
         {
-          "ligne": 10,
+          "ligne": 7,
           "type": "MODIFIEE",
           "avant": "resultat = Calculer(10: 20);",
           "apres": "resultat = Calculer(10: 20);  // Supposons que CALCULER retourne une valeur compatible avec 'resultat'"
         },
         {
-          "ligne": 12,
-          "type": "MODIFIEE",
-          "avant": "// ERREUR 2: Dcl-SubProc au lieu de Dcl-Proc",
-          "apres": "// Définition de la sous-procédure MonSousProc"
-        },
-        {
-          "ligne": 13,
+          "ligne": 9,
           "type": "MODIFIEE",
           "avant": "Dcl-SubProc MonSousProc;  // doit être 'Dcl-Proc'",
           "apres": "Dcl-SubProc MonSousProc;"
         },
         {
-          "ligne": 14,
+          "ligne": 10,
           "type": "MODIFIEE",
           "avant": "  Dcl-Pi MonSousProc;",
           "apres": "  Dcl-Pi MonSousProc param1 Int(10);"
         },
         {
-          "ligne": 15,
+          "ligne": 11,
           "type": "MODIFIEE",
           "avant": "    param1 Int(10);",
           "apres": "    Dsply 'Sous-procédure appelée avec param1 = ' + %Char(param1);"
         },
         {
-          "ligne": 17,
+          "ligne": 13,
           "type": "MODIFIEE",
           "avant": "  Dsply 'Sous-procédure appelée';",
           "apres": "End-Sub;"
         },
         {
-          "ligne": 18,
-          "type": "MODIFIEE",
-          "avant": "End-Sub;  // ERREUR 3: 'End-Sub' au lieu de 'End-Proc'",
-          "apres": "// Définition de la procédure ProcExterne contenant une procédure interne"
-        },
-        {
-          "ligne": 19,
+          "ligne": 14,
           "type": "SUPPRIMEE",
-          "avant": "// ERREUR 4: Procédure dans procédure (impossible)",
+          "avant": "End-Sub;  // ERREUR 3: 'End-Sub' au lieu de 'End-Proc'",
           "apres": ""
         },
         {
-          "ligne": 21,
+          "ligne": 16,
           "type": "MODIFIEE",
           "avant": "  Dcl-Proc ProcInterne;  // Impossible, procédure imbriquée",
           "apres": "  Dcl-Proc ProcInterne InLb;  // Utilisez InLb pour indiquer que c'est une procédure locale"
         },
         {
-          "ligne": 26,
+          "ligne": 21,
           "type": "MODIFIEE",
           "avant": "  Return ProcInterne();",
-          "apres": "  // Appel de la procédure interne depuis ProcExterne"
-        },
-        {
-          "ligne": 25,
-          "type": "AJOUTEE",
-          "avant": "",
           "apres": "  Dsply 'Resultat de ProcInterne : ' + %Dec(ProcInterne(), 10, 2);"
         },
         {
-          "ligne": 28,
-          "type": "MODIFIEE",
-          "avant": "// Bonnes pratiques",
-          "apres": "// Définition de la procédure CalculerSalaire exportée"
-        },
-        {
-          "ligne": 31,
+          "ligne": 25,
           "type": "MODIFIEE",
           "avant": "    salaireBase Dec(10,2);",
           "apres": "    salaireBase Dec(10,2) ;"
         },
         {
-          "ligne": 33,
+          "ligne": 27,
+          "type": "MODIFIEE",
+          "avant": "  End-PI;",
+          "apres": "  End-Pi;"
+        },
+        {
+          "ligne": 32,
           "type": "MODIFIEE",
           "avant": "  End-PI;",
           "apres": "  End-Pi;"
         },
         {
           "ligne": 33,
-          "type": "AJOUTEE",
-          "avant": "",
-          "apres": "  // Calcul du salaire total avec la prime"
-        },
-        {
-          "ligne": 36,
-          "type": "MODIFIEE",
-          "avant": "// ERREUR 5: Export sur procédure sans prototype",
-          "apres": "// Procédure non exportée"
-        },
-        {
-          "ligne": 39,
-          "type": "MODIFIEE",
-          "avant": "  End-PI;",
-          "apres": "  End-Pi;"
-        },
-        {
-          "ligne": 40,
           "type": "MODIFIEE",
           "avant": "End-Proc Export;  // Export mal placé (doit être sur Dcl-Proc)",
           "apres": "End-Proc;  // Utilisez 'N' à la place de 'Export' pour une procédure non exportée"
         },
         {
-          "ligne": 41,
+          "ligne": 34,
           "type": "MODIFIEE",
-          "avant": "// ERREUR 6: CallP sur procédure locale (doit être appel direct)",
-          "apres": "CallP Calculer(10: 20);  // Assurez-vous que CALCULER est définie correctement en dehors du module"
-        },
-        {
-          "ligne": 42,
-          "type": "SUPPRIMEE",
           "avant": "CallP Calculer(10: 20);  // doit être 'Calculer(10: 20)'",
-          "apres": ""
-        },
-        {
-          "ligne": 44,
-          "type": "MODIFIEE",
-          "avant": "*InLR = *On;",
-          "apres": "*InLR = *ON;  // *ON au lieu de *On pour la casse"
+          "apres": "CallP Calculer(10: 20);  // Assurez-vous que CALCULER est définie correctement en dehors du module"
         }
       ]
     }

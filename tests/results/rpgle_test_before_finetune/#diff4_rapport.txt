@@ -1,61 +1,43 @@
 ============================================================
    RAPPORT DE COMPARAISON - RPGLE TEST #4
 ============================================================
-  Date d'exécution  : 2026-05-27 16:52:17
-  Numéro exécution  : #8
+  Date d'exécution  : 2026-05-27 17:03:39
+  Numéro exécution  : #9
   Langage           : RPGLE
   Entrée            : #4test.rpgle
   Réponse Granite   : #result4.rpgle
   Options actives   : casse=False | espaces=True | vides=True
 ------------------------------------------------------------
-  Total lignes entrée  : 15
-  Total lignes sortie  : 16
+  Total lignes entrée  : 8
+  Total lignes sortie  : 9
 ------------------------------------------------------------
-  Lignes identiques    : 3
-  Lignes modifiées     : 12
+  Lignes identiques    : 2
+  Lignes modifiées     : 6
   Lignes ajoutées      : 1
   Lignes supprimées    : 0
-  Total différences    : 13
-  Similarité globale   : 18.75%
+  Total différences    : 7
+  Similarité globale   : 22.22%
 ============================================================
 
 DÉTAIL DES DIFFÉRENCES :
 ------------------------------------------------------------
-  ~ Ligne    1 | AVANT : **FREE
-             | APRÈS : FREE
+  + Ligne    1 | AJOUT : FREE
 
-  ~ Ligne    3 | AVANT : // ERREUR 1: type de données inexistant
-             | APRÈS : /* Correction ERREUR 1 : Utilisation de 'Dec' au lieu de 'Float8' */
-
-  ~ Ligne    4 | AVANT : Dcl-S montant Float8 Inz(1000.00);  // doit être 'Dec' ou 'Packed'
+  ~ Ligne    2 | AVANT : Dcl-S montant Float8 Inz(1000.00);  // doit être 'Dec' ou 'Packed'
              | APRÈS : Dcl-S montant Dec(12 2) Inz(1000.00);  
 
-  ~ Ligne    5 | AVANT : // ERREUR 2: taille invalide
-             | APRÈS : /* Correction ERREUR 2 : Taille acceptable mais irréaliste, gardez la pour compatibilité, sinon réduisez-la */
-
-  ~ Ligne    6 | AVANT : Dcl-S code VarChar(9999) Inz('A');  // trop grand, max 32767 mais irréaliste
+  ~ Ligne    3 | AVANT : Dcl-S code VarChar(9999) Inz('A');  // trop grand, max 32767 mais irréaliste
              | APRÈS : Dcl-S code VarChar(20) Inz('A');  /* Exemple de taille plus raisonnable */
 
-  ~ Ligne    7 | AVANT : // ERREUR 3: Inz avec valeur incompatible
-             | APRÈS : /* Correction ERREUR 3 : Utilisation dun entier avec une valeur numérique directe */
-
-  ~ Ligne    8 | AVANT : Dcl-S age Int(3) Inz('vingt');  // doit être numérique
+  ~ Ligne    4 | AVANT : Dcl-S age Int(3) Inz('vingt');  // doit être numérique
              | APRÈS : Dcl-S age Int(3) Inz(20);  
 
-  ~ Ligne    9 | AVANT : Dcl-S dateNaiss Date Inz(*Sys);  // OK pour comparaison
-             | APRÈS : /* Ligne OK pour la comparaison de date */
-
-  ~ Ligne   10 | AVANT : // ERREUR 4: nom de variable commence par chiffre
+  ~ Ligne    5 | AVANT : Dcl-S dateNaiss Date Inz(*Sys);  // OK pour comparaison
              | APRÈS : Dcl-S dateNaiss Date Inz(*Sys);
 
-  ~ Ligne   11 | AVANT : Dcl-S 2var Int(5);  // impossible, doit commencer par lettre
-             | APRÈS : /* Correction ERREUR 4 : Le nom de variable doit commencer par une lettre */
-
-  ~ Ligne   12 | AVANT : // ERREUR 5: sous-définition incorrecte
+  ~ Ligne    6 | AVANT : Dcl-S 2var Int(5);  // impossible, doit commencer par lettre
              | APRÈS : Dcl-S nouvelleVar Int(5);  
 
-  + Ligne   13 | AJOUT : /* Correction ERREUR 5 : Utilisation correcte de %Subst pour extraire une sous-chaîne */
-
-  ~ Ligne   14 | AVANT : Dcl-S partie1 Subs(complexe: 1:10);  // substr doit être %Subst
+  ~ Ligne    8 | AVANT : Dcl-S partie1 Subs(complexe: 1:10);  // substr doit être %Subst
              | APRÈS : Dcl-S partie1 Subs(%Subst(complexe: 1:10));  
 

@@ -1,51 +1,40 @@
 ============================================================
    RAPPORT DE COMPARAISON - RPGLE TEST #1
 ============================================================
-  Date d'exécution  : 2026-05-27 16:52:17
-  Numéro exécution  : #8
+  Date d'exécution  : 2026-05-27 17:03:39
+  Numéro exécution  : #9
   Langage           : RPGLE
   Entrée            : #1test.rpgle
   Réponse Granite   : #result1.rpgle
   Options actives   : casse=False | espaces=True | vides=True
 ------------------------------------------------------------
-  Total lignes entrée  : 22
-  Total lignes sortie  : 20
+  Total lignes entrée  : 16
+  Total lignes sortie  : 17
 ------------------------------------------------------------
-  Lignes identiques    : 12
-  Lignes modifiées     : 8
-  Lignes ajoutées      : 0
-  Lignes supprimées    : 2
-  Total différences    : 10
-  Similarité globale   : 54.55%
+  Lignes identiques    : 11
+  Lignes modifiées     : 5
+  Lignes ajoutées      : 1
+  Lignes supprimées    : 0
+  Total différences    : 6
+  Similarité globale   : 64.71%
 ============================================================
 
 DÉTAIL DES DIFFÉRENCES :
 ------------------------------------------------------------
-  ~ Ligne    1 | AVANT : **FREE
-             | APRÈS : FREE
+  + Ligne    1 | AJOUT : FREE
 
-  ~ Ligne    5 | AVANT : Dcl-S salaire Dec(9 2) Inz(2500.00);  // ERREUR 1: manque virgule entre 9 et 2
+  ~ Ligne    4 | AVANT : Dcl-S salaire Dec(9 2) Inz(2500.00);  // ERREUR 1: manque virgule entre 9 et 2
              | APRÈS : Dcl-S salaire    Dec(9 2) Inz(2500.00);  
 
-  - Ligne    7 | SUPPR : // ERREUR 2: condition mal fermée (manque parenthèse)
-
-  ~ Ligne   11 | AVANT : Else
+  ~ Ligne    9 | AVANT : Else
              | APRÈS : Else;
 
-  ~ Ligne   12 | AVANT :   // ERREUR 3: manque point-virgule après Else
+  ~ Ligne   10 | AVANT :   estMajeur = *Off
              | APRÈS :    estMajeur = *Off;
 
-  - Ligne   13 | SUPPR :   estMajeur = *Off
-
-  ~ Ligne   16 | AVANT : // ERREUR 4: mauvais nom de variable (faute de frappe)
-             | APRÈS : // Correction du nom de la variable utilisée dans la condition 
-
-  ~ Ligne   17 | AVANT : If agee > 65;  // 'agee' n'existe pas
+  ~ Ligne   13 | AVANT : If agee > 65;  // 'agee' n'existe pas
              | APRÈS : If age > 65; 
 
-  ~ Ligne   20 | AVANT : // ERREUR 5: opérateur incorrect
-             | APRÈS : // Utilisation d'une opération mathématique correcte pour augmenter le salaire 
-
-  ~ Ligne   21 | AVANT : salaire = salaire ** 1.10;  // '**' n'existe pas en RPGLE, doit être '*'
+  ~ Ligne   16 | AVANT : salaire = salaire ** 1.10;  // '**' n'existe pas en RPGLE, doit être '*'
              | APRÈS :    salaire = salaire * 1.10;  
 

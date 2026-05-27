@@ -34,3 +34,10 @@ execution;date;langage;test;fichier_entree;fichier_reponse;lignes_entree;lignes_
 8;2026-05-27 16:52:17;rpgle;#5;#5test.rpgle;#result5.rpgle;34;32;19;13;0;2;15;55.88
 8;2026-05-27 16:52:17;rpgle;#6;#6test.rpgle;#result6.rpgle;47;40;24;16;0;7;23;51.06
 8;2026-05-27 16:52:17;rpgle;#7;#7test.rpgle;#result7.rpgle;44;43;21;20;2;3;25;47.73
+9;2026-05-27 17:03:39;rpgle;#1;#1test.rpgle;#result1.rpgle;16;17;11;5;1;0;6;64.71
+9;2026-05-27 17:03:39;rpgle;#2;#2test.rpgle;#result2.rpgle;13;14;12;1;1;0;2;85.71
+9;2026-05-27 17:03:39;rpgle;#3;#3test.rpgle;#result3.rpgle;15;17;11;4;2;0;6;64.71
+9;2026-05-27 17:03:39;rpgle;#4;#4test.rpgle;#result4.rpgle;8;9;2;6;1;0;7;22.22
+9;2026-05-27 17:03:39;rpgle;#5;#5test.rpgle;#result5.rpgle;25;26;18;7;1;0;8;69.23
+9;2026-05-27 17:03:39;rpgle;#6;#6test.rpgle;#result6.rpgle;33;33;24;7;2;2;11;72.73
+9;2026-05-27 17:03:39;rpgle;#7;#7test.rpgle;#result7.rpgle;35;34;20;14;0;1;15;57.14

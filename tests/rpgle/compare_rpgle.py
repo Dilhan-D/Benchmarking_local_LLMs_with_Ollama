@@ -59,12 +59,19 @@ def get_compteur():
 
 
 
+def est_commentaire(ligne):
+    l = ligne.strip()
+    return l.startswith('//') or l.startswith('/*') or l.startswith('*')
+
+
 def lire_fichier(chemin):
     try:
         with open(chemin, 'r', encoding='utf-8') as f:
             lignes = [l.rstrip('\n') for l in f.readlines()]
         if IGNORER_VIDES:
             lignes = [l for l in lignes if l.strip() != '']
+        # Exclut les lignes de commentaires
+        lignes = [l for l in lignes if not est_commentaire(l)]
         return lignes
     except FileNotFoundError:
         print(f"  ATTENTION: fichier introuvable -> {chemin}")
