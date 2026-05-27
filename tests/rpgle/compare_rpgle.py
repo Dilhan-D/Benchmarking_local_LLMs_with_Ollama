@@ -62,6 +62,7 @@ def lire_fichier(chemin):
 
 
 def normaliser(ligne):
+    ligne = ligne.strip()  
     if IGNORER_CASSE:
         ligne = ligne.lower()
     if IGNORER_ESPACES:

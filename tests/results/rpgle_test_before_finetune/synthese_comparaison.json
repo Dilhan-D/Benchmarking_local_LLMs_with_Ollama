@@ -1,23 +1,23 @@
 {
-  "execution": 4,
-  "date": "2026-05-27 14:53:59",
+  "execution": 7,
+  "date": "2026-05-27 16:46:55",
   "langage": "rpgle",
   "resultats": [
     {
-      "execution": 4,
-      "date": "2026-05-27 14:53:59",
+      "execution": 7,
+      "date": "2026-05-27 16:46:55",
       "langage": "rpgle",
       "test": "#1",
       "fichier_entree": "#1test.rpgle",
       "fichier_reponse": "#result1.rpgle",
       "lignes_entree": 22,
       "lignes_sortie": 20,
-      "identiques": 1,
-      "modifiees": 19,
+      "identiques": 4,
+      "modifiees": 16,
       "ajoutees": 0,
       "supprimees": 2,
-      "total_diff": 21,
-      "similarite": 4.55,
+      "total_diff": 18,
+      "similarite": 18.18,
       "differences": [
         {
           "ligne": 1,
@@ -26,28 +26,10 @@
           "apres": "FREE"
         },
         {
-          "ligne": 3,
-          "type": "MODIFIEE",
-          "avant": "Dcl-S age Int(3) Inz(18);",
-          "apres": "Dcl-S age        Int(3) Inz(18);"
-        },
-        {
-          "ligne": 4,
-          "type": "MODIFIEE",
-          "avant": "Dcl-S nom VarChar(20) Inz('Jean');",
-          "apres": "Dcl-S nom        VarChar(20) Inz('Jean');"
-        },
-        {
           "ligne": 5,
           "type": "MODIFIEE",
           "avant": "Dcl-S salaire Dec(9 2) Inz(2500.00);  // ERREUR 1: manque virgule entre 9 et 2",
           "apres": "Dcl-S salaire    Dec(9 2) Inz(2500.00);  "
-        },
-        {
-          "ligne": 6,
-          "type": "MODIFIEE",
-          "avant": "Dcl-S estMajeur Ind;",
-          "apres": "Dcl-S estMajeur  Ind;"
         },
         {
           "ligne": 7,
@@ -148,44 +130,26 @@
       ]
     },
     {
-      "execution": 4,
-      "date": "2026-05-27 14:53:59",
+      "execution": 7,
+      "date": "2026-05-27 16:46:55",
       "langage": "rpgle",
       "test": "#2",
       "fichier_entree": "#2test.rpgle",
       "fichier_reponse": "#result2.rpgle",
       "lignes_entree": 15,
       "lignes_sortie": 19,
-      "identiques": 1,
-      "modifiees": 14,
+      "identiques": 4,
+      "modifiees": 11,
       "ajoutees": 4,
       "supprimees": 0,
-      "total_diff": 18,
-      "similarite": 5.26,
+      "total_diff": 15,
+      "similarite": 21.05,
       "differences": [
         {
           "ligne": 1,
           "type": "MODIFIEE",
           "avant": "**FREE",
           "apres": "FREE"
-        },
-        {
-          "ligne": 3,
-          "type": "MODIFIEE",
-          "avant": "Dcl-S compteur Int(5) Inz(0);",
-          "apres": "Dcl-S compteur    Int(5) Inz(0);"
-        },
-        {
-          "ligne": 4,
-          "type": "MODIFIEE",
-          "avant": "Dcl-S total Dec(10 2) Inz(0); ",
-          "apres": "Dcl-S total       Dec(10 2) Inz(0); "
-        },
-        {
-          "ligne": 5,
-          "type": "MODIFIEE",
-          "avant": "Dcl-S nombre Int(10);",
-          "apres": "Dcl-S nombre      Int(10);"
         },
         {
           "ligne": 6,
@@ -274,38 +238,26 @@
       ]
     },
     {
-      "execution": 4,
-      "date": "2026-05-27 14:53:59",
+      "execution": 7,
+      "date": "2026-05-27 16:46:55",
       "langage": "rpgle",
       "test": "#3",
       "fichier_entree": "#3test.rpgle",
       "fichier_reponse": "#result3.rpgle",
       "lignes_entree": 20,
       "lignes_sortie": 20,
-      "identiques": 3,
-      "modifiees": 17,
+      "identiques": 6,
+      "modifiees": 14,
       "ajoutees": 0,
       "supprimees": 0,
-      "total_diff": 17,
-      "similarite": 15.0,
+      "total_diff": 14,
+      "similarite": 30.0,
       "differences": [
         {
           "ligne": 1,
           "type": "MODIFIEE",
           "avant": "**FREE",
           "apres": "FREE"
-        },
-        {
-          "ligne": 3,
-          "type": "MODIFIEE",
-          "avant": "Dcl-S note Int(3) Inz(75);",
-          "apres": "Dcl-S note        Int(3) Inz(75);"
-        },
-        {
-          "ligne": 4,
-          "type": "MODIFIEE",
-          "avant": "Dcl-S resultat VarChar(20);",
-          "apres": "Dcl-S resultat    VarChar(20);"
         },
         {
           "ligne": 5,
@@ -384,18 +336,12 @@
           "type": "MODIFIEE",
           "avant": "If note =/> 0;  // doit être '<=' ou '>=', pas '=/>'",
           "apres": "If note > 0;  "
-        },
-        {
-          "ligne": 18,
-          "type": "MODIFIEE",
-          "avant": "  Dsply 'Note valide';",
-          "apres": "   Dsply 'Note valide';"
         }
       ]
     },
     {
-      "execution": 4,
-      "date": "2026-05-27 14:53:59",
+      "execution": 7,
+      "date": "2026-05-27 16:46:55",
       "langage": "rpgle",
       "test": "#4",
       "fichier_entree": "#4test.rpgle",
@@ -502,8 +448,8 @@
       ]
     },
     {
-      "execution": 4,
-      "date": "2026-05-27 14:53:59",
+      "execution": 7,
+      "date": "2026-05-27 16:46:55",
       "langage": "rpgle",
       "test": "#5",
       "fichier_entree": "#5test.rpgle",
@@ -688,8 +634,8 @@
       ]
     },
     {
-      "execution": 4,
-      "date": "2026-05-27 14:53:59",
+      "execution": 7,
+      "date": "2026-05-27 16:46:55",
       "langage": "rpgle",
       "test": "#6",
       "fichier_entree": "#6test.rpgle",
@@ -922,8 +868,8 @@
       ]
     },
     {
-      "execution": 4,
-      "date": "2026-05-27 14:53:59",
+      "execution": 7,
+      "date": "2026-05-27 16:46:55",
       "langage": "rpgle",
       "test": "#7",
       "fichier_entree": "#7test.rpgle",

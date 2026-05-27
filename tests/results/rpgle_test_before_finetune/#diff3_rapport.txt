@@ -1,34 +1,28 @@
 ============================================================
    RAPPORT DE COMPARAISON - RPGLE TEST #3
 ============================================================
-  Date d'exécution  : 2026-05-27 14:53:59
-  Numéro exécution  : #4
+  Date d'exécution  : 2026-05-27 16:46:55
+  Numéro exécution  : #7
   Langage           : RPGLE
   Entrée            : #3test.rpgle
   Réponse Granite   : #result3.rpgle
-  Options actives   : casse=False | espaces=False | vides=True
+  Options actives   : casse=False | espaces=True | vides=True
 ------------------------------------------------------------
   Total lignes entrée  : 20
   Total lignes sortie  : 20
 ------------------------------------------------------------
-  Lignes identiques    : 3
-  Lignes modifiées     : 17
+  Lignes identiques    : 6
+  Lignes modifiées     : 14
   Lignes ajoutées      : 0
   Lignes supprimées    : 0
-  Total différences    : 17
-  Similarité globale   : 15.0%
+  Total différences    : 14
+  Similarité globale   : 30.0%
 ============================================================
 
 DÉTAIL DES DIFFÉRENCES :
 ------------------------------------------------------------
   ~ Ligne    1 | AVANT : **FREE
              | APRÈS : FREE
-
-  ~ Ligne    3 | AVANT : Dcl-S note Int(3) Inz(75);
-             | APRÈS : Dcl-S note        Int(3) Inz(75);
-
-  ~ Ligne    4 | AVANT : Dcl-S resultat VarChar(20);
-             | APRÈS : Dcl-S resultat    VarChar(20);
 
   ~ Ligne    5 | AVANT : // ERREUR 1: When mal orthographié
              | APRÈS : /* Utilisation de la structure When pour déterminer le résultat en fonction de la note */
@@ -68,7 +62,4 @@ DÉTAIL DES DIFFÉRENCES :
 
   ~ Ligne   17 | AVANT : If note =/> 0;  // doit être '<=' ou '>=', pas '=/>'
              | APRÈS : If note > 0;  
-
-  ~ Ligne   18 | AVANT :   Dsply 'Note valide';
-             | APRÈS :    Dsply 'Note valide';
 

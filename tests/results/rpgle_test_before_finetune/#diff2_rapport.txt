@@ -1,37 +1,28 @@
 ============================================================
    RAPPORT DE COMPARAISON - RPGLE TEST #2
 ============================================================
-  Date d'exécution  : 2026-05-27 14:53:59
-  Numéro exécution  : #4
+  Date d'exécution  : 2026-05-27 16:46:55
+  Numéro exécution  : #7
   Langage           : RPGLE
   Entrée            : #2test.rpgle
   Réponse Granite   : #result2.rpgle
-  Options actives   : casse=False | espaces=False | vides=True
+  Options actives   : casse=False | espaces=True | vides=True
 ------------------------------------------------------------
   Total lignes entrée  : 15
   Total lignes sortie  : 19
 ------------------------------------------------------------
-  Lignes identiques    : 1
-  Lignes modifiées     : 14
+  Lignes identiques    : 4
+  Lignes modifiées     : 11
   Lignes ajoutées      : 4
   Lignes supprimées    : 0
-  Total différences    : 18
-  Similarité globale   : 5.26%
+  Total différences    : 15
+  Similarité globale   : 21.05%
 ============================================================
 
 DÉTAIL DES DIFFÉRENCES :
 ------------------------------------------------------------
   ~ Ligne    1 | AVANT : **FREE
              | APRÈS : FREE
-
-  ~ Ligne    3 | AVANT : Dcl-S compteur Int(5) Inz(0);
-             | APRÈS : Dcl-S compteur    Int(5) Inz(0);
-
-  ~ Ligne    4 | AVANT : Dcl-S total Dec(10 2) Inz(0); 
-             | APRÈS : Dcl-S total       Dec(10 2) Inz(0); 
-
-  ~ Ligne    5 | AVANT : Dcl-S nombre Int(10);
-             | APRÈS : Dcl-S nombre      Int(10);
 
   ~ Ligne    6 | AVANT : For compteur = 1 To 10;
              | APRÈS : /* Boucle For pour sommer les nombres de 1 à 10 */
