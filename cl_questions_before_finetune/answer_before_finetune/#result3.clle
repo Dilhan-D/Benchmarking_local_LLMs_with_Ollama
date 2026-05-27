@@ -1,0 +1,16 @@
+/* Programme (PGM) pour vérifier un score et envoyer un message en conséquence */
+ 
+DCL VAR(&SCORE) TYPE(*DEC) LEN(3 0) VALUE(75)   /* Déclaration d'une variable &SCORE de type décimal avec une longueur de 3 chiffres et 0 décimale, initialisée à la valeur 75 */
+
+/* Conditionnelle pour vérifier si le score est supérieur ou égal à 50 */
+IF COND(&SCORE >= 50) THEN(DO)                 /* Si &SCORE est ≥ 50, exécute les instructions suivantes : */
+    
+    SNDMSG MSG('Reçu') TOUSR(*SYSOPR)        /* Envoie un message 'Reçu' à l'utilisateur *SYSOPR */
+
+ENDDO                                        /* Fin du bloc DO */
+
+/* Instruction ELSE pour gérer le cas où la condition initiale est fausse (c'est-à-dire &SCORE < 50) */
+ELSE CMD(SNDMSG MSG('Échoue') TOUSR(*SYSOPR)) /* Si &SCORE est inférieur à 50, envoie un message 'Échoue' à l'utilisateur *SYSOPR */
+
+/* Fin du programme (ENDPGM) */
+ENDPGM

@@ -1,0 +1,40 @@
+/*********************************************/
+/* Programme CL - Commandes de base          */
+/* Erreurs volontaires pour test Granite     */
+/*********************************************/
+PGM
+
+// Déclaration des variables
+DCL VAR(&NOM)     TYPE(*CHAR)   LEN(30) VALUE('DUPONT')
+DCL VAR(&AGE)     TYPE(*DEC)    LEN(3 0) VALUE(25)
+DCL VAR(&SALAIRE) TYPE(*DEC)    LEN(9 2) VALUE(2500.00)
+DCL VAR(&ACTIF)   TYPE(*LGL)    VALUE('1')
+DCL VAR(&MSGID)   TYPE(*CHAR)   LEN(7)
+
+// Variable pour le code retourné par la condition
+DCL VAR(&CODE)    TYPE(*INTEGER) LEN(10)
+
+// Libellé de message à afficher
+DCL VAR(&LIBELLE) TYPE(*CHAR)
+
+// Montant numérique (correction nécessaire car 'ABC' n'est pas un nombre)
+DCL VAR(&MONTANT) TYPE(*DEC)    LEN(9 2) VALUE(1000.00) // Exemple de valeur numérique
+
+/* 
+   Condition pour vérifier l'âge.
+   Si &AGE est supérieur ou égal à 18, envoi un message indiquant que la personne est majeure.
+   Sinon, envoie un message indiquant que la personne est mineure.
+*/
+IF COND(&AGE *GE 18) THEN(
+    SNDMSG MSG('Personne majeure') TOUSR(*SYSOPR)
+)
+ELSE CMD(
+    SNDMSG MSG('Mineur') TOUSR(*SYSOPR)
+)
+
+// Exemple d'utilisation de &MONTANT après correction
+DSPFF D(Fichier: *ALL) OUTPUT(*OUTFILE) OUTFILE(MONFICHIER) MONMONTANT(&MONTANT)
+
+*INLR = *ON;  // Indique la fin du programme
+
+ENDPGM;
