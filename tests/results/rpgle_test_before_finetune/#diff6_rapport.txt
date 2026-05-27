@@ -1,8 +1,8 @@
 ============================================================
    RAPPORT DE COMPARAISON - RPGLE TEST #6
 ============================================================
-  Date d'exécution  : 2026-05-27 16:46:55
-  Numéro exécution  : #7
+  Date d'exécution  : 2026-05-27 16:52:17
+  Numéro exécution  : #8
   Langage           : RPGLE
   Entrée            : #6test.rpgle
   Réponse Granite   : #result6.rpgle
@@ -11,12 +11,12 @@
   Total lignes entrée  : 47
   Total lignes sortie  : 40
 ------------------------------------------------------------
-  Lignes identiques    : 11
-  Lignes modifiées     : 29
+  Lignes identiques    : 24
+  Lignes modifiées     : 16
   Lignes ajoutées      : 0
   Lignes supprimées    : 7
-  Total différences    : 36
-  Similarité globale   : 23.4%
+  Total différences    : 23
+  Similarité globale   : 51.06%
 ============================================================
 
 DÉTAIL DES DIFFÉRENCES :
@@ -57,68 +57,29 @@ DÉTAIL DES DIFFÉRENCES :
   ~ Ligne   22 | AVANT : // SELECT avec erreurs
              | APRÈS : salaireNum = %Dec(salaire, 10, 2);
 
-  ~ Ligne   24 | AVANT :   // ERREUR 5: When mal orthographié
-             | APRÈS :   Whene age < 18;
+  - Ligne   24 | SUPPR :   // ERREUR 5: When mal orthographié
 
-  ~ Ligne   25 | AVANT :   Whene age < 18;
-             | APRÈS :     categorie = 'Mineur';
+  - Ligne   27 | SUPPR :   // ERREUR 6: When sans condition
 
-  ~ Ligne   26 | AVANT :     categorie = 'Mineur';
-             | APRÈS :   When;
-
-  ~ Ligne   27 | AVANT :   // ERREUR 6: When sans condition
-             | APRÈS :     categorie = 'Inconnu';
-
-  ~ Ligne   28 | AVANT :   When;
-             | APRÈS :   Othr;
-
-  ~ Ligne   29 | AVANT :     categorie = 'Inconnu';
-             | APRÈS :     categorie = 'Autre';
-
-  ~ Ligne   30 | AVANT :   // ERREUR 7: Other mal orthographié
-             | APRÈS : EndSelect;
-
-  ~ Ligne   31 | AVANT :   Othr;
-             | APRÈS : // Simplification des conditions pour prime
-
-  ~ Ligne   32 | AVANT :     categorie = 'Autre';
-             | APRÈS : If age > 30;
-
-  ~ Ligne   33 | AVANT : EndSelect;
-             | APRÈS :   prime = 1000;
+  - Ligne   30 | SUPPR :   // ERREUR 7: Other mal orthographié
 
   ~ Ligne   34 | AVANT : // ERREUR 8: If sans EndIf
-             | APRÈS : Else;
+             | APRÈS : // Simplification des conditions pour prime
 
-  ~ Ligne   35 | AVANT : If age > 30;
-             | APRÈS :   prime = 500;
+  - Ligne   35 | SUPPR : If age > 30;
 
-  ~ Ligne   36 | AVANT :   prime = 1000;
-             | APRÈS : EndIf;
+  - Ligne   36 | SUPPR :   prime = 1000;
 
-  ~ Ligne   37 | AVANT : // manque EndIf
+  - Ligne   37 | SUPPR : // manque EndIf
+
+  - Ligne   38 | SUPPR : // Correction
+
+  ~ Ligne   44 | AVANT : // ERREUR 9: Test de null incorrect
              | APRÈS : // Vérification de NULL (en RPGLE, on vérifie généralement avec une condition numérique ou caractère appropriée)
 
-  ~ Ligne   38 | AVANT : // Correction
+  ~ Ligne   45 | AVANT : If salaire = NULL;  // doit être 'salaire = *Null' ou 'IsNull(salaire)'
              | APRÈS : If salaireNum <> *BLANK;  // Exemple de vérification pour un champ numérique
 
-  ~ Ligne   39 | AVANT : If age > 30;
-             | APRÈS : Dsply 'Categorie : ' + categorie;
-
-  ~ Ligne   40 | AVANT :   prime = 1000;
+  ~ Ligne   47 | AVANT : *InLR = *On;
              | APRÈS : *InLR = *ON;  // *ON au lieu de *On pour la casse
-
-  - Ligne   41 | SUPPR : Else;
-
-  - Ligne   42 | SUPPR :   prime = 500;
-
-  - Ligne   43 | SUPPR : EndIf;
-
-  - Ligne   44 | SUPPR : // ERREUR 9: Test de null incorrect
-
-  - Ligne   45 | SUPPR : If salaire = NULL;  // doit être 'salaire = *Null' ou 'IsNull(salaire)'
-
-  - Ligne   46 | SUPPR : Dsply 'Categorie : ' + categorie;
-
-  - Ligne   47 | SUPPR : *InLR = *On;
 

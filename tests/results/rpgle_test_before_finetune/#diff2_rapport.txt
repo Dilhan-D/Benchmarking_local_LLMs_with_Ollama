@@ -1,8 +1,8 @@
 ============================================================
    RAPPORT DE COMPARAISON - RPGLE TEST #2
 ============================================================
-  Date d'exécution  : 2026-05-27 16:46:55
-  Numéro exécution  : #7
+  Date d'exécution  : 2026-05-27 16:52:17
+  Numéro exécution  : #8
   Langage           : RPGLE
   Entrée            : #2test.rpgle
   Réponse Granite   : #result2.rpgle
@@ -11,12 +11,12 @@
   Total lignes entrée  : 15
   Total lignes sortie  : 19
 ------------------------------------------------------------
-  Lignes identiques    : 4
-  Lignes modifiées     : 11
+  Lignes identiques    : 13
+  Lignes modifiées     : 2
   Lignes ajoutées      : 4
   Lignes supprimées    : 0
-  Total différences    : 15
-  Similarité globale   : 21.05%
+  Total différences    : 6
+  Similarité globale   : 68.42%
 ============================================================
 
 DÉTAIL DES DIFFÉRENCES :
@@ -24,41 +24,14 @@ DÉTAIL DES DIFFÉRENCES :
   ~ Ligne    1 | AVANT : **FREE
              | APRÈS : FREE
 
-  ~ Ligne    6 | AVANT : For compteur = 1 To 10;
-             | APRÈS : /* Boucle For pour sommer les nombres de 1 à 10 */
+  + Ligne    6 | AJOUT : /* Boucle For pour sommer les nombres de 1 à 10 */
 
-  ~ Ligne    7 | AVANT :   total += compteur;
-             | APRÈS : For compteur = 1 To 10;
-
-  ~ Ligne    8 | AVANT : EndFor
-             | APRÈS :    total += compteur;
-
-  ~ Ligne    9 | AVANT : compteur = 0;
-             | APRÈS : EndFor
-
-  ~ Ligne   10 | AVANT : Dow compteur < 5;
-             | APRÈS : /* Initialisation de compteur à 0 et boucle Dow jusqu'à ce qu'il atteigne 5 */
-
-  ~ Ligne   11 | AVANT :   compteur += 1;
-             | APRÈS : compteur = 0;
-
-  ~ Ligne   12 | AVANT : EndDo;
-             | APRÈS : Dow compteur < 5;
+  + Ligne   10 | AJOUT : /* Initialisation de compteur à 0 et boucle Dow jusqu'à ce qu'il atteigne 5 */
 
   ~ Ligne   13 | AVANT : total += extra; 
-             | APRÈS :    compteur += 1;
-
-  ~ Ligne   14 | AVANT : Dsply 'Termine';
-             | APRÈS : EndDo;
-
-  ~ Ligne   15 | AVANT : *InLR = *On;
              | APRÈS : /* Correction : la variable 'extra' n'est pas définie, utilisez une autre variable ou initialisez-la */
 
   + Ligne   16 | AJOUT : total += extra; /* Cette ligne doit être corrigée pour éviter une erreur de compilation */
 
   + Ligne   17 | AJOUT : /* Affichage et fin du programme */
-
-  + Ligne   18 | AJOUT : Dsply 'Termine';
-
-  + Ligne   19 | AJOUT : *InLR = *On;
 

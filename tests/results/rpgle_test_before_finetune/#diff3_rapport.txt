@@ -1,8 +1,8 @@
 ============================================================
    RAPPORT DE COMPARAISON - RPGLE TEST #3
 ============================================================
-  Date d'exécution  : 2026-05-27 16:46:55
-  Numéro exécution  : #7
+  Date d'exécution  : 2026-05-27 16:52:17
+  Numéro exécution  : #8
   Langage           : RPGLE
   Entrée            : #3test.rpgle
   Réponse Granite   : #result3.rpgle
@@ -11,12 +11,12 @@
   Total lignes entrée  : 20
   Total lignes sortie  : 20
 ------------------------------------------------------------
-  Lignes identiques    : 6
-  Lignes modifiées     : 14
-  Lignes ajoutées      : 0
-  Lignes supprimées    : 0
-  Total différences    : 14
-  Similarité globale   : 30.0%
+  Lignes identiques    : 12
+  Lignes modifiées     : 7
+  Lignes ajoutées      : 1
+  Lignes supprimées    : 1
+  Total différences    : 9
+  Similarité globale   : 60.0%
 ============================================================
 
 DÉTAIL DES DIFFÉRENCES :
@@ -30,36 +30,19 @@ DÉTAIL DES DIFFÉRENCES :
   ~ Ligne    6 | AVANT : Whene note >= 90;
              | APRÈS : Select;
 
-  ~ Ligne    7 | AVANT :   resultat = 'Excellent';
-             | APRÈS :   When note >= 90;
-
-  ~ Ligne    8 | AVANT : When note >= 75;
-             | APRÈS :      resultat = 'Excellent';
-
-  ~ Ligne    9 | AVANT :   resultat = 'Bien';
-             | APRÈS :   When note >= 75;
-
-  ~ Ligne   10 | AVANT : When note >= 50;
-             | APRÈS :      resultat = 'Bien';
-
-  ~ Ligne   11 | AVANT :   resultat = 'Moyen';
-             | APRÈS :   When note >= 50;
-
-  ~ Ligne   12 | AVANT : Other
-             | APRÈS :      resultat = 'Moyen';
+  + Ligne    7 | AJOUT :   When note >= 90;
 
   ~ Ligne   13 | AVANT :   // ERREUR 2: manque point-virgule après Other
-             | APRÈS :   Other
-
-  ~ Ligne   14 | AVANT :   resultat = 'Echec'  // ERREUR 3: manque point-virgule
              | APRÈS :      resultat = 'Echec';
 
-  ~ Ligne   15 | AVANT : EndSelect;  // ERREUR 4: mal orthographié (EndSelect au lieu de EndIf ou erreur de nom)
+  ~ Ligne   14 | AVANT :   resultat = 'Echec'  // ERREUR 3: manque point-virgule
              | APRÈS : EndSel;
 
-  ~ Ligne   16 | AVANT : // ERREUR 5: opérateur de comparaison incorrect
+  ~ Ligne   15 | AVANT : EndSelect;  // ERREUR 4: mal orthographié (EndSelect au lieu de EndIf ou erreur de nom)
              | APRÈS : /* Correction de l'opérateur dans la condition If : '/' ne doit pas être utilisé avec '=' */
 
-  ~ Ligne   17 | AVANT : If note =/> 0;  // doit être '<=' ou '>=', pas '=/>'
+  ~ Ligne   16 | AVANT : // ERREUR 5: opérateur de comparaison incorrect
              | APRÈS : If note > 0;  
+
+  - Ligne   17 | SUPPR : If note =/> 0;  // doit être '<=' ou '>=', pas '=/>'
 

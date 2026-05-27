@@ -4,17 +4,21 @@ Comparateur RPGLE - Ollama Granite Test Series
 Compare #Xtest.rpgle (questions) vs #resultX.rpgle (réponses Ollama)
 """
 
+
 import os
 import csv
 import json
+import difflib
 from pathlib import Path
 from datetime import datetime
 from dotenv import load_dotenv
+
 
 # ============================================================
 # CHARGEMENT .env
 # ============================================================
 load_dotenv(dotenv_path=Path(__file__).parent / ".env")
+
 
 LANGAGE         = os.environ["LANGAGE"]
 EXTENSION       = os.environ["EXTENSION"]
@@ -26,7 +30,9 @@ IGNORER_CASSE   = os.environ["IGNORER_CASSE"].lower()        == "true"
 IGNORER_ESPACES = os.environ["IGNORER_ESPACES"].lower()      == "true"
 IGNORER_VIDES   = os.environ["IGNORER_LIGNES_VIDES"].lower() == "true"
 
+
 DIR_RESULTATS.mkdir(parents=True, exist_ok=True)
+
 
 
 def get_compteur():
@@ -37,16 +43,20 @@ def get_compteur():
     else:
         data = {"executions": 0, "historique": []}
 
+
     data["executions"] += 1
     data["historique"].append({
         "execution" : data["executions"],
         "date"      : datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     })
 
+
     with open(compteur_path, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
+
     return data["executions"]
+
 
 
 def lire_fichier(chemin):
@@ -61,13 +71,15 @@ def lire_fichier(chemin):
         return []
 
 
+
 def normaliser(ligne):
-    ligne = ligne.strip()  
+    ligne = ligne.strip()
     if IGNORER_CASSE:
         ligne = ligne.lower()
     if IGNORER_ESPACES:
         ligne = ' '.join(ligne.split())
     return ligne
+
 
 
 def comparer(lignes1, lignes2):
@@ -77,23 +89,42 @@ def comparer(lignes1, lignes2):
     nb_supprimees = 0
     differences   = []
 
-    max_lignes = max(len(lignes1), len(lignes2)) if (lignes1 or lignes2) else 0
+    lignes1_norm = [normaliser(l) for l in lignes1]
+    lignes2_norm = [normaliser(l) for l in lignes2]
 
-    for i in range(max_lignes):
-        if i >= len(lignes2):
-            nb_supprimees += 1
-            differences.append({'ligne': i+1, 'type': 'SUPPRIMEE', 'avant': lignes1[i], 'apres': ''})
-        elif i >= len(lignes1):
-            nb_ajoutees += 1
-            differences.append({'ligne': i+1, 'type': 'AJOUTEE', 'avant': '', 'apres': lignes2[i]})
-        elif normaliser(lignes1[i]) == normaliser(lignes2[i]):
-            nb_identiques += 1
-        else:
-            nb_modifiees += 1
-            differences.append({'ligne': i+1, 'type': 'MODIFIEE', 'avant': lignes1[i], 'apres': lignes2[i]})
+    matcher = difflib.SequenceMatcher(None, lignes1_norm, lignes2_norm, autojunk=False)
+
+    for tag, i1, i2, j1, j2 in matcher.get_opcodes():
+        if tag == 'equal':
+            nb_identiques += (i2 - i1)
+
+        elif tag == 'replace':
+            bloc1 = lignes1[i1:i2]
+            bloc2 = lignes2[j1:j2]
+            for k in range(max(len(bloc1), len(bloc2))):
+                if k < len(bloc1) and k < len(bloc2):
+                    nb_modifiees += 1
+                    differences.append({'ligne': i1 + k + 1, 'type': 'MODIFIEE', 'avant': bloc1[k], 'apres': bloc2[k]})
+                elif k < len(bloc1):
+                    nb_supprimees += 1
+                    differences.append({'ligne': i1 + k + 1, 'type': 'SUPPRIMEE', 'avant': bloc1[k], 'apres': ''})
+                else:
+                    nb_ajoutees += 1
+                    differences.append({'ligne': j1 + k + 1, 'type': 'AJOUTEE', 'avant': '', 'apres': bloc2[k]})
+
+        elif tag == 'delete':
+            for k, ligne in enumerate(lignes1[i1:i2]):
+                nb_supprimees += 1
+                differences.append({'ligne': i1 + k + 1, 'type': 'SUPPRIMEE', 'avant': ligne, 'apres': ''})
+
+        elif tag == 'insert':
+            for k, ligne in enumerate(lignes2[j1:j2]):
+                nb_ajoutees += 1
+                differences.append({'ligne': j1 + k + 1, 'type': 'AJOUTEE', 'avant': '', 'apres': ligne})
 
     total      = max(len(lignes1), len(lignes2)) if (lignes1 or lignes2) else 1
     similarite = round((nb_identiques / total) * 100, 2)
+
 
     return {
         'nb_identiques' : nb_identiques,
@@ -105,6 +136,7 @@ def comparer(lignes1, lignes2):
         'total_entree'  : len(lignes1),
         'total_sortie'  : len(lignes2),
     }, differences
+
 
 
 def ecrire_rapport_txt(num, stats, differences, date_exec, num_exec, chemin):
@@ -130,6 +162,7 @@ def ecrire_rapport_txt(num, stats, differences, date_exec, num_exec, chemin):
         f.write(f"  Similarité globale   : {stats['similarite']}%\n")
         f.write("=" * 60 + "\n\n")
 
+
         if differences:
             f.write("DÉTAIL DES DIFFÉRENCES :\n")
             f.write("-" * 60 + "\n")
@@ -145,9 +178,11 @@ def ecrire_rapport_txt(num, stats, differences, date_exec, num_exec, chemin):
             f.write("  Aucune différence. Fichiers identiques.\n")
 
 
+
 def main():
     date_exec = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     num_exec  = get_compteur()
+
 
     print("=" * 60)
     print(f"   COMPARATEUR {LANGAGE.upper()} - GRANITE TEST SERIES")
@@ -158,29 +193,37 @@ def main():
     print(f"  Résultats : {DIR_RESULTATS.resolve()}")
     print("=" * 60)
 
+
     fichiers_test = sorted(DIR_QUESTIONS.glob(f"#*test{EXTENSION}"))
+
 
     if not fichiers_test:
         print(f"\n  Aucun fichier trouvé (#*test{EXTENSION}) dans :")
         print(f"  {DIR_QUESTIONS.resolve()}")
         return
 
+
     resultats_globaux = []
+
 
     for fichier_test in fichiers_test:
         num             = fichier_test.stem.replace('#', '').replace('test', '')
         fichier_reponse = DIR_REPONSES / f"#result{num}{EXTENSION}"
 
+
         print(f"\n  Test #{num}")
         print(f"    Entrée  : {fichier_test.name}")
         print(f"    Réponse : {fichier_reponse.name}")
+
 
         lignes_test    = lire_fichier(fichier_test)
         lignes_reponse = lire_fichier(fichier_reponse)
         stats, differences = comparer(lignes_test, lignes_reponse)
 
+
         rapport_txt = DIR_RESULTATS / f"#diff{num}_rapport.txt"
         ecrire_rapport_txt(num, stats, differences, date_exec, num_exec, rapport_txt)
+
 
         print(f"    Similarité  : {stats['similarite']}%")
         print(f"    Différences : {stats['nb_diff']} "
@@ -188,6 +231,7 @@ def main():
               f"{stats['nb_ajoutees']} ajout / "
               f"{stats['nb_supprimees']} suppr)")
         print(f"    Rapport     : {rapport_txt.name}")
+
 
         resultats_globaux.append({
             'execution'       : num_exec,
@@ -207,6 +251,7 @@ def main():
             'differences'     : differences
         })
 
+
     csv_path   = DIR_RESULTATS / f"{NOM_RAPPORT}.csv"
     csv_fields = [
         'execution', 'date', 'langage', 'test',
@@ -223,6 +268,7 @@ def main():
         for r in resultats_globaux:
             writer.writerow({k: r[k] for k in csv_fields})
 
+
     json_path = DIR_RESULTATS / f"{NOM_RAPPORT}.json"
     with open(json_path, 'w', encoding='utf-8') as f:
         json.dump({
@@ -232,11 +278,13 @@ def main():
             'resultats' : resultats_globaux
         }, f, indent=2, ensure_ascii=False)
 
+
     print("\n" + "=" * 60)
     print(f"  Exécution #{num_exec} terminée le {date_exec}")
     print(f"  CSV  : {csv_path.name}")
     print(f"  JSON : {json_path.name}")
     print("=" * 60)
+
 
 if __name__ == '__main__':
     main()

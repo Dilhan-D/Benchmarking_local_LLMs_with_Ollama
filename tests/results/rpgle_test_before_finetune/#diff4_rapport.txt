@@ -1,8 +1,8 @@
 ============================================================
    RAPPORT DE COMPARAISON - RPGLE TEST #4
 ============================================================
-  Date d'exécution  : 2026-05-27 16:46:55
-  Numéro exécution  : #7
+  Date d'exécution  : 2026-05-27 16:52:17
+  Numéro exécution  : #8
   Langage           : RPGLE
   Entrée            : #4test.rpgle
   Réponse Granite   : #result4.rpgle
@@ -11,12 +11,12 @@
   Total lignes entrée  : 15
   Total lignes sortie  : 16
 ------------------------------------------------------------
-  Lignes identiques    : 1
-  Lignes modifiées     : 14
+  Lignes identiques    : 3
+  Lignes modifiées     : 12
   Lignes ajoutées      : 1
   Lignes supprimées    : 0
-  Total différences    : 15
-  Similarité globale   : 6.25%
+  Total différences    : 13
+  Similarité globale   : 18.75%
 ============================================================
 
 DÉTAIL DES DIFFÉRENCES :
@@ -54,14 +54,8 @@ DÉTAIL DES DIFFÉRENCES :
   ~ Ligne   12 | AVANT : // ERREUR 5: sous-définition incorrecte
              | APRÈS : Dcl-S nouvelleVar Int(5);  
 
-  ~ Ligne   13 | AVANT : Dcl-S complexe VarChar(100);
-             | APRÈS : /* Correction ERREUR 5 : Utilisation correcte de %Subst pour extraire une sous-chaîne */
+  + Ligne   13 | AJOUT : /* Correction ERREUR 5 : Utilisation correcte de %Subst pour extraire une sous-chaîne */
 
   ~ Ligne   14 | AVANT : Dcl-S partie1 Subs(complexe: 1:10);  // substr doit être %Subst
-             | APRÈS : Dcl-S complexe VarChar(100);
-
-  ~ Ligne   15 | AVANT : *InLR = *On;
              | APRÈS : Dcl-S partie1 Subs(%Subst(complexe: 1:10));  
-
-  + Ligne   16 | AJOUT : *InLR = *On;
 
