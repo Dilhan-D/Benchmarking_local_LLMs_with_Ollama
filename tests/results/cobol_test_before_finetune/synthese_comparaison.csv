@@ -1,0 +1,2 @@
+execution,date,langage,test,fichier_entree,fichier_reponse,lignes_entree,lignes_sortie,identiques,modifiees,ajoutees,supprimees,total_diff,similarite
+1,2026-05-27 13:54:16,cobol,#1,#1test.cbl,#result1.cbl,0,0,0,0,0,0,0,0.0

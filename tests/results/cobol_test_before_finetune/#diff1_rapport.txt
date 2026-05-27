@@ -1,0 +1,22 @@
+============================================================
+   RAPPORT DE COMPARAISON - COBOL TEST #1
+============================================================
+  Date d'exécution  : 2026-05-27 13:54:16
+  Numéro exécution  : #1
+  Langage           : COBOL
+  Entrée            : #1test.cbl
+  Réponse Granite   : #result1.cbl
+  Options actives   : casse=False | espaces=False | vides=True
+------------------------------------------------------------
+  Total lignes entrée  : 0
+  Total lignes sortie  : 0
+------------------------------------------------------------
+  Lignes identiques    : 0
+  Lignes modifiées     : 0
+  Lignes ajoutées      : 0
+  Lignes supprimées    : 0
+  Total différences    : 0
+  Similarité globale   : 0.0%
+============================================================
+
+  Aucune différence. Fichiers identiques.

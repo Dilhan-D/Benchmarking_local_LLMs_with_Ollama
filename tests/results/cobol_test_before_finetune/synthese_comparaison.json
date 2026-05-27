@@ -1,0 +1,24 @@
+{
+  "execution": 1,
+  "date": "2026-05-27 13:54:16",
+  "langage": "cobol",
+  "resultats": [
+    {
+      "execution": 1,
+      "date": "2026-05-27 13:54:16",
+      "langage": "cobol",
+      "test": "#1",
+      "fichier_entree": "#1test.cbl",
+      "fichier_reponse": "#result1.cbl",
+      "lignes_entree": 0,
+      "lignes_sortie": 0,
+      "identiques": 0,
+      "modifiees": 0,
+      "ajoutees": 0,
+      "supprimees": 0,
+      "total_diff": 0,
+      "similarite": 0.0,
+      "differences": []
+    }
+  ]
+}
