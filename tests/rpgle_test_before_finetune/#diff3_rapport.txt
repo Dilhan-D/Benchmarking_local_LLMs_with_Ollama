@@ -1,9 +1,11 @@
 ============================================================
    RAPPORT DE COMPARAISON - TEST #3
 ============================================================
-  Entrée  : #3test.rpgle
-  Réponse : #result3.rpgle
-  Options : casse=False | espaces=False | vides=True
+  Date d'exécution  : 2026-05-27 10:39:32
+  Numéro exécution  : #2
+  Entrée            : #3test.rpgle
+  Réponse Granite   : #result3.rpgle
+  Options actives   : casse=False | espaces=False | vides=True
 ------------------------------------------------------------
   Total lignes entrée  : 20
   Total lignes sortie  : 20
