@@ -1,0 +1,10 @@
+    DCL VAR(&PARAM) TYPE(*CHAR) LEN(10) VALUE('TEST')
+    DCL VAR(&RESULTAT) TYPE(*DEC) LEN(5 0)
+
+    /* Appel du programme sans erreur */
+    CALL PGM(MYLIB/MONPGM) PARM(&PARAM)
+
+    /* Appel du second programme avec une variable déclarée et qualifiée par la bibliothèque */
+    CALL MYLIB/CALCPGM PARM(&RESULTAT)
+    
+ENDPGM
