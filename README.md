@@ -22,6 +22,9 @@ tests/                  # Scripts et rapports des tests avant et après fine-tun
 rag/                    # Implémentation de la recherche assistée par contenu (RAG)
 docs/                   # Documentation PDFs et autres ressources
 generel_questions/      # Répertoire pour les questions générales
+technical_questions_before_finetune # Question technique avant d'entrainer le modèle
+   - answers_before_finetune 
+   - questions_before_finetune
 questions_and_answers/  # Répertoire pour les questions techniques et leurs réponses
 ```
 
