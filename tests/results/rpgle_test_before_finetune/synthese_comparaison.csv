@@ -1,29 +1,8 @@
-test,fichier_entree,fichier_reponse,lignes_entree,lignes_sortie,identiques,modifiees,ajoutees,supprimees,total_diff,similarite
-#1,#1test.rpgle,#result1.rpgle,22,20,1,19,0,2,21,4.55
-#2,#2test.rpgle,#result2.rpgle,15,19,1,14,4,0,18,5.26
-#3,#3test.rpgle,#result3.rpgle,20,20,3,17,0,0,17,15.0
-#4,#4test.rpgle,#result4.rpgle,15,16,1,14,1,0,15,6.25
-#5,#5test.rpgle,#result5.rpgle,34,32,6,26,0,2,28,17.65
-#6,#6test.rpgle,#result6.rpgle,47,40,11,29,0,7,36,23.4
-#7,#7test.rpgle,#result7.rpgle,44,43,5,38,0,1,39,11.36
-1,2026-05-27 10:35:46,#1,#1test.rpgle,#result1.rpgle,22,20,1,19,0,2,21,4.55
-1,2026-05-27 10:35:46,#2,#2test.rpgle,#result2.rpgle,15,19,1,14,4,0,18,5.26
-1,2026-05-27 10:35:46,#3,#3test.rpgle,#result3.rpgle,20,20,3,17,0,0,17,15.0
-1,2026-05-27 10:35:46,#4,#4test.rpgle,#result4.rpgle,15,16,1,14,1,0,15,6.25
-1,2026-05-27 10:35:46,#5,#5test.rpgle,#result5.rpgle,34,32,6,26,0,2,28,17.65
-1,2026-05-27 10:35:46,#6,#6test.rpgle,#result6.rpgle,47,40,11,29,0,7,36,23.4
-1,2026-05-27 10:35:46,#7,#7test.rpgle,#result7.rpgle,44,43,5,38,0,1,39,11.36
-2,2026-05-27 10:39:32,#1,#1test.rpgle,#result1.rpgle,22,20,1,19,0,2,21,4.55
-2,2026-05-27 10:39:32,#2,#2test.rpgle,#result2.rpgle,15,19,1,14,4,0,18,5.26
-2,2026-05-27 10:39:32,#3,#3test.rpgle,#result3.rpgle,20,20,3,17,0,0,17,15.0
-2,2026-05-27 10:39:32,#4,#4test.rpgle,#result4.rpgle,15,16,1,14,1,0,15,6.25
-2,2026-05-27 10:39:32,#5,#5test.rpgle,#result5.rpgle,34,32,6,26,0,2,28,17.65
-2,2026-05-27 10:39:32,#6,#6test.rpgle,#result6.rpgle,47,40,11,29,0,7,36,23.4
-2,2026-05-27 10:39:32,#7,#7test.rpgle,#result7.rpgle,44,43,5,38,0,1,39,11.36
-3,2026-05-27 13:18:41,rpgle,#1,#1test.rpgle,#result1.rpgle,22,20,1,19,0,2,21,4.55
-3,2026-05-27 13:18:41,rpgle,#2,#2test.rpgle,#result2.rpgle,15,19,1,14,4,0,18,5.26
-3,2026-05-27 13:18:41,rpgle,#3,#3test.rpgle,#result3.rpgle,20,20,3,17,0,0,17,15.0
-3,2026-05-27 13:18:41,rpgle,#4,#4test.rpgle,#result4.rpgle,15,16,1,14,1,0,15,6.25
-3,2026-05-27 13:18:41,rpgle,#5,#5test.rpgle,#result5.rpgle,34,32,6,26,0,2,28,17.65
-3,2026-05-27 13:18:41,rpgle,#6,#6test.rpgle,#result6.rpgle,47,40,11,29,0,7,36,23.4
-3,2026-05-27 13:18:41,rpgle,#7,#7test.rpgle,#result7.rpgle,44,43,5,38,0,1,39,11.36
+execution;date;langage;test;fichier_entree;fichier_reponse;lignes_entree;lignes_sortie;identiques;modifiees;ajoutees;supprimees;total_diff;similarite
+4;2026-05-27 14:53:59;rpgle;#1;#1test.rpgle;#result1.rpgle;22;20;1;19;0;2;21;4.55
+4;2026-05-27 14:53:59;rpgle;#2;#2test.rpgle;#result2.rpgle;15;19;1;14;4;0;18;5.26
+4;2026-05-27 14:53:59;rpgle;#3;#3test.rpgle;#result3.rpgle;20;20;3;17;0;0;17;15.0
+4;2026-05-27 14:53:59;rpgle;#4;#4test.rpgle;#result4.rpgle;15;16;1;14;1;0;15;6.25
+4;2026-05-27 14:53:59;rpgle;#5;#5test.rpgle;#result5.rpgle;34;32;6;26;0;2;28;17.65
+4;2026-05-27 14:53:59;rpgle;#6;#6test.rpgle;#result6.rpgle;47;40;11;29;0;7;36;23.4
+4;2026-05-27 14:53:59;rpgle;#7;#7test.rpgle;#result7.rpgle;44;43;5;38;0;1;39;11.36

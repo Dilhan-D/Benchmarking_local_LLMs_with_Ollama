@@ -213,7 +213,7 @@ def main():
     ]
     mode_csv = 'a' if csv_path.exists() else 'w'
     with open(csv_path, mode_csv, newline='', encoding='utf-8') as f:
-        writer = csv.DictWriter(f, fieldnames=csv_fields)
+        writer = csv.DictWriter(f, fieldnames=csv_fields, delimiter=';')
         if mode_csv == 'w':
             writer.writeheader()
         for r in resultats_globaux:
