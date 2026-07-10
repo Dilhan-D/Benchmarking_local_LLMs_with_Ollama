@@ -1,23 +1,24 @@
 {
-  "execution": 6,
-  "date": "2026-05-27 14:54:11",
+  "execution": 8,
+  "date": "2026-07-10 15:08:54",
   "langage": "clle",
   "resultats": [
     {
-      "execution": 6,
-      "date": "2026-05-27 14:54:11",
+      "execution": 8,
+      "date": "2026-07-10 15:08:54",
       "langage": "clle",
       "test": "#1",
       "fichier_entree": "#1test.clle",
       "fichier_reponse": "#result1.clle",
       "lignes_entree": 24,
       "lignes_sortie": 32,
-      "identiques": 5,
-      "modifiees": 19,
+      "identiques": 12,
+      "modifiees": 12,
       "ajoutees": 8,
       "supprimees": 0,
-      "total_diff": 27,
-      "similarite": 15.62,
+      "total_diff": 20,
+      "similarite": 37.5,
+      "extraction_bloc_md": false,
       "differences": [
         {
           "ligne": 6,
@@ -26,58 +27,16 @@
           "apres": "// Déclaration des variables"
         },
         {
-          "ligne": 7,
-          "type": "MODIFIEE",
-          "avant": "    DCL VAR(&NOM)     TYPE(*CHAR)   LEN(30) VALUE('DUPONT')",
-          "apres": "DCL VAR(&NOM)     TYPE(*CHAR)   LEN(30) VALUE('DUPONT')"
-        },
-        {
-          "ligne": 8,
-          "type": "MODIFIEE",
-          "avant": "    DCL VAR(&AGE)     TYPE(*DEC)    LEN(3 0) VALUE(25)",
-          "apres": "DCL VAR(&AGE)     TYPE(*DEC)    LEN(3 0) VALUE(25)"
-        },
-        {
-          "ligne": 9,
-          "type": "MODIFIEE",
-          "avant": "    DCL VAR(&SALAIRE) TYPE(*DEC)    LEN(9 2) VALUE(2500.00)",
-          "apres": "DCL VAR(&SALAIRE) TYPE(*DEC)    LEN(9 2) VALUE(2500.00)"
-        },
-        {
-          "ligne": 10,
-          "type": "MODIFIEE",
-          "avant": "    DCL VAR(&ACTIF)   TYPE(*LGL)    VALUE('1')",
-          "apres": "DCL VAR(&ACTIF)   TYPE(*LGL)    VALUE('1')"
-        },
-        {
-          "ligne": 11,
-          "type": "MODIFIEE",
-          "avant": "    DCL VAR(&MSGID)   TYPE(*CHAR)   LEN(7)",
-          "apres": "DCL VAR(&MSGID)   TYPE(*CHAR)   LEN(7)"
-        },
-        {
           "ligne": 12,
           "type": "MODIFIEE",
           "avant": "    /* ERREUR 1: TYPE invalide */",
           "apres": "// Variable pour le code retourné par la condition"
         },
         {
-          "ligne": 13,
-          "type": "MODIFIEE",
-          "avant": "    DCL VAR(&CODE)    TYPE(*INTEGER) LEN(10)",
-          "apres": "DCL VAR(&CODE)    TYPE(*INTEGER) LEN(10)"
-        },
-        {
           "ligne": 14,
           "type": "MODIFIEE",
           "avant": "    /* ERREUR 2: LEN manquant sur *CHAR */",
           "apres": "// Libellé de message à afficher"
-        },
-        {
-          "ligne": 15,
-          "type": "MODIFIEE",
-          "avant": "    DCL VAR(&LIBELLE) TYPE(*CHAR)",
-          "apres": "DCL VAR(&LIBELLE) TYPE(*CHAR)"
         },
         {
           "ligne": 16,
@@ -184,8 +143,8 @@
       ]
     },
     {
-      "execution": 6,
-      "date": "2026-05-27 14:54:11",
+      "execution": 8,
+      "date": "2026-07-10 15:08:54",
       "langage": "clle",
       "test": "#2",
       "fichier_entree": "#2test.clle",
@@ -198,6 +157,7 @@
       "supprimees": 0,
       "total_diff": 11,
       "similarite": 0.0,
+      "extraction_bloc_md": false,
       "differences": [
         {
           "ligne": 1,
@@ -268,8 +228,8 @@
       ]
     },
     {
-      "execution": 6,
-      "date": "2026-05-27 14:54:11",
+      "execution": 8,
+      "date": "2026-07-10 15:08:54",
       "langage": "clle",
       "test": "#3",
       "fichier_entree": "#3test.clle",
@@ -282,6 +242,7 @@
       "supprimees": 0,
       "total_diff": 10,
       "similarite": 0.0,
+      "extraction_bloc_md": false,
       "differences": [
         {
           "ligne": 1,
@@ -346,8 +307,8 @@
       ]
     },
     {
-      "execution": 6,
-      "date": "2026-05-27 14:54:11",
+      "execution": 8,
+      "date": "2026-07-10 15:08:54",
       "langage": "clle",
       "test": "#4",
       "fichier_entree": "#4test.clle",
@@ -360,12 +321,13 @@
       "supprimees": 1,
       "total_diff": 7,
       "similarite": 0.0,
+      "extraction_bloc_md": false,
       "differences": [
         {
           "ligne": 1,
           "type": "MODIFIEE",
           "avant": "PGM",
-          "apres": "    DCL VAR(&I) TYPE(*DEC) LEN(3 0) VALUE(1)"
+          "apres": "DCL VAR(&I) TYPE(*DEC) LEN(3 0) VALUE(1)"
         },
         {
           "ligne": 2,
@@ -406,8 +368,8 @@
       ]
     },
     {
-      "execution": 6,
-      "date": "2026-05-27 14:54:11",
+      "execution": 8,
+      "date": "2026-07-10 15:08:54",
       "langage": "clle",
       "test": "#5",
       "fichier_entree": "#5test.clle",
@@ -420,12 +382,13 @@
       "supprimees": 0,
       "total_diff": 6,
       "similarite": 14.29,
+      "extraction_bloc_md": false,
       "differences": [
         {
           "ligne": 1,
           "type": "MODIFIEE",
           "avant": "PGM",
-          "apres": "    DCL VAR(&PARAM) TYPE(*CHAR) LEN(10) VALUE('TEST')"
+          "apres": "DCL VAR(&PARAM) TYPE(*CHAR) LEN(10) VALUE('TEST')"
         },
         {
           "ligne": 2,

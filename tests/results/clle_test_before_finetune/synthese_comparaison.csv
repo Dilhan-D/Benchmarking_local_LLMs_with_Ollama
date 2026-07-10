@@ -4,3 +4,13 @@ execution;date;langage;test;fichier_entree;fichier_reponse;lignes_entree;lignes_
 6;2026-05-27 14:54:11;clle;#3;#3test.clle;#result3.clle;8;10;0;8;2;0;10;0.0
 6;2026-05-27 14:54:11;clle;#4;#4test.clle;#result4.clle;7;6;0;6;0;1;7;0.0
 6;2026-05-27 14:54:11;clle;#5;#5test.clle;#result5.clle;7;7;1;6;0;0;6;14.29
+7;2026-07-10 14:09:14;clle;#1;#1test.clle;#result1.clle;24;32;12;12;8;0;20;37.5
+7;2026-07-10 14:09:14;clle;#2;#2test.clle;#result2.clle;8;11;0;8;3;0;11;0.0
+7;2026-07-10 14:09:14;clle;#3;#3test.clle;#result3.clle;8;10;0;8;2;0;10;0.0
+7;2026-07-10 14:09:14;clle;#4;#4test.clle;#result4.clle;7;6;0;6;0;1;7;0.0
+7;2026-07-10 14:09:14;clle;#5;#5test.clle;#result5.clle;7;7;1;6;0;0;6;14.29
+8;2026-07-10 15:08:54;clle;#1;#1test.clle;#result1.clle;24;32;12;12;8;0;20;37.5;False
+8;2026-07-10 15:08:54;clle;#2;#2test.clle;#result2.clle;8;11;0;8;3;0;11;0.0;False
+8;2026-07-10 15:08:54;clle;#3;#3test.clle;#result3.clle;8;10;0;8;2;0;10;0.0;False
+8;2026-07-10 15:08:54;clle;#4;#4test.clle;#result4.clle;7;6;0;6;0;1;7;0.0;False
+8;2026-07-10 15:08:54;clle;#5;#5test.clle;#result5.clle;7;7;1;6;0;0;6;14.29;False
