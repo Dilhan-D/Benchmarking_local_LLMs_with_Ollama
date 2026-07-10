@@ -1,11 +1,13 @@
 ============================================================
    RAPPORT DE COMPARAISON - CLLE TEST #3
 ============================================================
-  Date d'exécution  : 2026-05-27 14:54:11
-  Numéro exécution  : #6
+  Date d'exécution  : 2026-07-10 15:08:54
+  Numéro exécution  : #8
   Langage           : CLLE
+  Modèle            : granite4.1:8b
   Entrée            : #3test.clle
   Réponse Granite   : #result3.clle
+  Extraction code   : heuristique (pas de bloc détecté)
   Options actives   : casse=False | espaces=False | vides=True
 ------------------------------------------------------------
   Total lignes entrée  : 8
