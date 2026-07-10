@@ -1,4 +1,4 @@
-# Projet Personnel: Fine-Tuning et Tests sur Granite 4.1:8b avec LLM IBM
+# Projet Personnel: Fine-Tuning et Tests sur Granite 4.1:8b ->ollama
 
 ## A propos
 
