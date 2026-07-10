@@ -1,43 +1,37 @@
 ============================================================
    RAPPORT DE COMPARAISON - CLLE TEST #5
 ============================================================
-  Date d'exécution  : 2026-07-10 15:08:54
-  Numéro exécution  : #8
+  Date d'exécution  : 2026-07-10 15:38:04
+  Numéro exécution  : #9
   Langage           : CLLE
   Modèle            : granite4.1:8b
   Entrée            : #5test.clle
   Réponse Granite   : #result5.clle
   Extraction code   : heuristique (pas de bloc détecté)
-  Options actives   : casse=False | espaces=False | vides=True
+  Options actives   : casse=False | espaces=False | vides=True | commentaires=True
+  Méthode comparaison : alignement difflib (SequenceMatcher)
 ------------------------------------------------------------
-  Total lignes entrée  : 7
-  Total lignes sortie  : 7
+  Total lignes entrée (utiles) : 5
+  Total lignes sortie (utiles) : 5
 ------------------------------------------------------------
-  Lignes identiques    : 1
-  Lignes modifiées     : 6
+  Lignes identiques    : 2
+  Lignes modifiées     : 3
   Lignes ajoutées      : 0
-  Lignes supprimées    : 0
-  Total différences    : 6
-  Similarité globale   : 14.29%
+  Lignes supprimées    : 1
+  Total différences    : 4
+  Similarité globale   : 40.0%
 ============================================================
 
 DÉTAIL DES DIFFÉRENCES :
 ------------------------------------------------------------
-  ~ Ligne    1 | AVANT : PGM
-             | APRÈS : DCL VAR(&PARAM) TYPE(*CHAR) LEN(10) VALUE('TEST')
+  - Ligne    1 | SUPPR : PGM
 
-  ~ Ligne    2 | AVANT :     DCL VAR(&PARAM) TYPE(*CHAR) LEN(10) VALUE('TEST')
+  ~ Ligne    3 | AVANT :     CALL PGM(MONPGM) PARM(&PARAM)
              | APRÈS :     DCL VAR(&RESULTAT) TYPE(*DEC) LEN(5 0)
 
-  ~ Ligne    3 | AVANT :     /* ERREUR 1: bibliothèque non qualifiée */
-             | APRÈS :     /* Appel du programme sans erreur */
-
-  ~ Ligne    4 | AVANT :     CALL PGM(MONPGM) PARM(&PARAM)
+  ~ Ligne    4 | AVANT :     CALL PGM(MYLIB/CALCPGM) PARM(&RESULTAT)
              | APRÈS :     CALL PGM(MYLIB/MONPGM) PARM(&PARAM)
 
-  ~ Ligne    5 | AVANT :     /* ERREUR 2: variable non déclarée */
-             | APRÈS :     /* Appel du second programme avec une variable déclarée et qualifiée par la bibliothèque */
-
-  ~ Ligne    6 | AVANT :     CALL PGM(MYLIB/CALCPGM) PARM(&RESULTAT)
+  ~ Ligne    5 | AVANT : 
              | APRÈS :     CALL MYLIB/CALCPGM PARM(&RESULTAT)
 

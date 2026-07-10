@@ -1,77 +1,50 @@
 ============================================================
    RAPPORT DE COMPARAISON - CLLE TEST #1
 ============================================================
-  Date d'exécution  : 2026-07-10 15:08:54
-  Numéro exécution  : #8
+  Date d'exécution  : 2026-07-10 15:38:04
+  Numéro exécution  : #9
   Langage           : CLLE
   Modèle            : granite4.1:8b
   Entrée            : #1test.clle
   Réponse Granite   : #result1.clle
   Extraction code   : heuristique (pas de bloc détecté)
-  Options actives   : casse=False | espaces=False | vides=True
+  Options actives   : casse=False | espaces=False | vides=True | commentaires=True
+  Méthode comparaison : alignement difflib (SequenceMatcher)
 ------------------------------------------------------------
-  Total lignes entrée  : 24
-  Total lignes sortie  : 32
+  Total lignes entrée (utiles) : 13
+  Total lignes sortie (utiles) : 17
 ------------------------------------------------------------
-  Lignes identiques    : 12
-  Lignes modifiées     : 12
-  Lignes ajoutées      : 8
+  Lignes identiques    : 9
+  Lignes modifiées     : 8
+  Lignes ajoutées      : 0
   Lignes supprimées    : 0
-  Total différences    : 20
-  Similarité globale   : 37.5%
+  Total différences    : 8
+  Similarité globale   : 69.23%
 ============================================================
 
 DÉTAIL DES DIFFÉRENCES :
 ------------------------------------------------------------
-  ~ Ligne    6 | AVANT :     /* Déclarations de variables */
-             | APRÈS : // Déclaration des variables
-
-  ~ Ligne   12 | AVANT :     /* ERREUR 1: TYPE invalide */
-             | APRÈS : // Variable pour le code retourné par la condition
-
-  ~ Ligne   14 | AVANT :     /* ERREUR 2: LEN manquant sur *CHAR */
-             | APRÈS : // Libellé de message à afficher
-
-  ~ Ligne   16 | AVANT :     /* ERREUR 3: VALUE incompatible avec *DEC */
-             | APRÈS : // Montant numérique (correction nécessaire car 'ABC' n'est pas un nombre)
-
-  ~ Ligne   17 | AVANT :     DCL VAR(&MONTANT) TYPE(*DEC)    LEN(9 2) VALUE('ABC')
+  ~ Ligne    9 | AVANT :     DCL VAR(&MONTANT) TYPE(*DEC)    LEN(9 2) VALUE('ABC')
              | APRÈS : DCL VAR(&MONTANT) TYPE(*DEC)    LEN(9 2) VALUE(1000.00) // Exemple de valeur numérique
 
-  ~ Ligne   18 | AVANT :     /* Test IF simple */
-             | APRÈS : /* 
-
-  ~ Ligne   19 | AVANT :     IF COND(&AGE *GE 18) THEN(DO)
-             | APRÈS :    Condition pour vérifier l'âge.
-
-  ~ Ligne   20 | AVANT :         SNDMSG MSG('Personne majeure') TOUSR(*SYSOPR)
-             | APRÈS :    Si &AGE est supérieur ou égal à 18, envoi un message indiquant que la personne est majeure.
-
-  ~ Ligne   21 | AVANT :     ENDDO
-             | APRÈS :    Sinon, envoie un message indiquant que la personne est mineure.
-
-  ~ Ligne   22 | AVANT :     /* ERREUR 4: ELSE sans IF */
-             | APRÈS : */
-
-  ~ Ligne   23 | AVANT :     ELSE CMD(SNDMSG MSG('Mineur') TOUSR(*SYSOPR))
+  ~ Ligne   10 | AVANT :     IF COND(&AGE *GE 18) THEN(DO)
              | APRÈS : IF COND(&AGE *GE 18) THEN(
 
-  ~ Ligne   24 | AVANT :     /* ERREUR 5: ENDPGM manquant */
-             | APRÈS :     SNDMSG MSG('Personne majeure') TOUSR(*SYSOPR)
+  ~ Ligne   12 | AVANT :     ENDDO
+             | APRÈS : )
 
-  + Ligne   25 | AJOUT : )
+  ~ Ligne   13 | AVANT :     ELSE CMD(SNDMSG MSG('Mineur') TOUSR(*SYSOPR))
+             | APRÈS : ELSE CMD(
 
-  + Ligne   26 | AJOUT : ELSE CMD(
+  ~ Ligne   14 | AVANT : 
+             | APRÈS :     SNDMSG MSG('Mineur') TOUSR(*SYSOPR)
 
-  + Ligne   27 | AJOUT :     SNDMSG MSG('Mineur') TOUSR(*SYSOPR)
+  ~ Ligne   15 | AVANT : 
+             | APRÈS : )
 
-  + Ligne   28 | AJOUT : )
+  ~ Ligne   16 | AVANT : 
+             | APRÈS : DSPFF D(Fichier: *ALL) OUTPUT(*OUTFILE) OUTFILE(MONFICHIER) MONMONTANT(&MONTANT)
 
-  + Ligne   29 | AJOUT : // Exemple d'utilisation de &MONTANT après correction
-
-  + Ligne   30 | AJOUT : DSPFF D(Fichier: *ALL) OUTPUT(*OUTFILE) OUTFILE(MONFICHIER) MONMONTANT(&MONTANT)
-
-  + Ligne   31 | AJOUT : *INLR = *ON;  // Indique la fin du programme
-
-  + Ligne   32 | AJOUT : ENDPGM;
+  ~ Ligne   17 | AVANT : 
+             | APRÈS : ENDPGM;
 

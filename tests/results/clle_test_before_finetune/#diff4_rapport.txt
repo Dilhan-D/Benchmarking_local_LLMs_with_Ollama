@@ -1,45 +1,30 @@
 ============================================================
    RAPPORT DE COMPARAISON - CLLE TEST #4
 ============================================================
-  Date d'exécution  : 2026-07-10 15:08:54
-  Numéro exécution  : #8
+  Date d'exécution  : 2026-07-10 15:38:04
+  Numéro exécution  : #9
   Langage           : CLLE
   Modèle            : granite4.1:8b
   Entrée            : #4test.clle
   Réponse Granite   : #result4.clle
   Extraction code   : heuristique (pas de bloc détecté)
-  Options actives   : casse=False | espaces=False | vides=True
+  Options actives   : casse=False | espaces=False | vides=True | commentaires=True
+  Méthode comparaison : alignement difflib (SequenceMatcher)
 ------------------------------------------------------------
-  Total lignes entrée  : 7
-  Total lignes sortie  : 6
+  Total lignes entrée (utiles) : 6
+  Total lignes sortie (utiles) : 6
 ------------------------------------------------------------
-  Lignes identiques    : 0
-  Lignes modifiées     : 6
-  Lignes ajoutées      : 0
+  Lignes identiques    : 5
+  Lignes modifiées     : 0
+  Lignes ajoutées      : 1
   Lignes supprimées    : 1
-  Total différences    : 7
-  Similarité globale   : 0.0%
+  Total différences    : 2
+  Similarité globale   : 83.33%
 ============================================================
 
 DÉTAIL DES DIFFÉRENCES :
 ------------------------------------------------------------
-  ~ Ligne    1 | AVANT : PGM
-             | APRÈS : DCL VAR(&I) TYPE(*DEC) LEN(3 0) VALUE(1)
+  - Ligne    1 | SUPPR : PGM
 
-  ~ Ligne    2 | AVANT :     DCL VAR(&I) TYPE(*DEC) LEN(3 0) VALUE(1)
-             | APRÈS :     DOWHILE COND(&I *LE 5)
-
-  ~ Ligne    3 | AVANT :     DOWHILE COND(&I *LE 5)
-             | APRÈS :         SNDMSG MSG('Tour de boucle') TOUSR(*SYSOPR)
-
-  ~ Ligne    4 | AVANT :         SNDMSG MSG('Tour de boucle') TOUSR(*SYSOPR)
-             | APRÈS :         CHGVAR VAR(&I) VALUE(&I + 1)
-
-  ~ Ligne    5 | AVANT :         CHGVAR VAR(&I) VALUE(&I + 1)
-             | APRÈS :     ENDDO
-
-  ~ Ligne    6 | AVANT :     /* ERREUR 1: ENDDO manquant */
-             | APRÈS : ENDPGM
-
-  - Ligne    7 | SUPPR : ENDPGM
+  + Ligne    6 | AJOUT :     ENDDO
 

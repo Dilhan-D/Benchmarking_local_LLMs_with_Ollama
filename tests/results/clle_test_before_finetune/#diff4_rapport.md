@@ -6,35 +6,32 @@
 |---|---|
 | Test | #4 |
 | Langage IBM i | CLLE |
-| Date d'exécution | 2026-07-10 15:08:54 |
-| Numéro d'exécution | #8 |
+| Date d'exécution | 2026-07-10 15:38:04 |
+| Numéro d'exécution | #9 |
 | Modèle utilisé | granite4.1:8b |
-| Lignes input | 7 |
-| Lignes output (extrait) | 6 |
+| Lignes input (utiles) | 6 |
+| Lignes output (utiles) | 6 |
 | Méthode d'extraction | Heuristique (aucun bloc trouvé) |
+| Méthode de comparaison | Alignement difflib (SequenceMatcher) |
+| Commentaires ignorés | True |
 
 ## Statistiques de comparaison
 
 | Métrique | Valeur |
 |---|---|
-| Lignes identiques | 0 |
-| Lignes modifiées | 6 |
-| Lignes ajoutées | 0 |
+| Lignes identiques | 5 |
+| Lignes modifiées | 0 |
+| Lignes ajoutées | 1 |
 | Lignes supprimées | 1 |
-| Total différences | 7 |
-| **Similarité globale** | **0.0%** |
+| Total différences | 2 |
+| **Similarité globale** | **83.33%** |
 
 ## Différences détectées
 
 | Ligne | Type | Avant | Après |
 |---|---|---|---|
-| 1 | MODIFIEE | `PGM` | `DCL VAR(&I) TYPE(*DEC) LEN(3 0) VALUE(1)` |
-| 2 | MODIFIEE | `    DCL VAR(&I) TYPE(*DEC) LEN(3 0) VALUE(1)` | `    DOWHILE COND(&I *LE 5)` |
-| 3 | MODIFIEE | `    DOWHILE COND(&I *LE 5)` | `        SNDMSG MSG('Tour de boucle') TOUSR(*SYSOPR)` |
-| 4 | MODIFIEE | `        SNDMSG MSG('Tour de boucle') TOUSR(*SYSOPR)` | `        CHGVAR VAR(&I) VALUE(&I + 1)` |
-| 5 | MODIFIEE | `        CHGVAR VAR(&I) VALUE(&I + 1)` | `    ENDDO` |
-| 6 | MODIFIEE | `    /* ERREUR 1: ENDDO manquant */` | `ENDPGM` |
-| 7 | SUPPRIMEE | `ENDPGM` | `` |
+| 1 | SUPPRIMEE | `PGM` | `` |
+| 6 | AJOUTEE | `` | `    ENDDO` |
 
 ## Code original (input)
 

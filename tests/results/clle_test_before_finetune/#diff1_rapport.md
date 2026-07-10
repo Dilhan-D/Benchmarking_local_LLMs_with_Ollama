@@ -6,48 +6,38 @@
 |---|---|
 | Test | #1 |
 | Langage IBM i | CLLE |
-| Date d'exécution | 2026-07-10 15:08:54 |
-| Numéro d'exécution | #8 |
+| Date d'exécution | 2026-07-10 15:38:04 |
+| Numéro d'exécution | #9 |
 | Modèle utilisé | granite4.1:8b |
-| Lignes input | 24 |
-| Lignes output (extrait) | 32 |
+| Lignes input (utiles) | 13 |
+| Lignes output (utiles) | 17 |
 | Méthode d'extraction | Heuristique (aucun bloc trouvé) |
+| Méthode de comparaison | Alignement difflib (SequenceMatcher) |
+| Commentaires ignorés | True |
 
 ## Statistiques de comparaison
 
 | Métrique | Valeur |
 |---|---|
-| Lignes identiques | 12 |
-| Lignes modifiées | 12 |
-| Lignes ajoutées | 8 |
+| Lignes identiques | 9 |
+| Lignes modifiées | 8 |
+| Lignes ajoutées | 0 |
 | Lignes supprimées | 0 |
-| Total différences | 20 |
-| **Similarité globale** | **37.5%** |
+| Total différences | 8 |
+| **Similarité globale** | **69.23%** |
 
 ## Différences détectées
 
 | Ligne | Type | Avant | Après |
 |---|---|---|---|
-| 6 | MODIFIEE | `    /* Déclarations de variables */` | `// Déclaration des variables` |
-| 12 | MODIFIEE | `    /* ERREUR 1: TYPE invalide */` | `// Variable pour le code retourné par la condition` |
-| 14 | MODIFIEE | `    /* ERREUR 2: LEN manquant sur *CHAR */` | `// Libellé de message à afficher` |
-| 16 | MODIFIEE | `    /* ERREUR 3: VALUE incompatible avec *DEC */` | `// Montant numérique (correction nécessaire car 'ABC' n'est pas un nombre)` |
-| 17 | MODIFIEE | `    DCL VAR(&MONTANT) TYPE(*DEC)    LEN(9 2) VALUE('ABC')` | `DCL VAR(&MONTANT) TYPE(*DEC)    LEN(9 2) VALUE(1000.00) // Exemple de valeur numérique` |
-| 18 | MODIFIEE | `    /* Test IF simple */` | `/* ` |
-| 19 | MODIFIEE | `    IF COND(&AGE *GE 18) THEN(DO)` | `   Condition pour vérifier l'âge.` |
-| 20 | MODIFIEE | `        SNDMSG MSG('Personne majeure') TOUSR(*SYSOPR)` | `   Si &AGE est supérieur ou égal à 18, envoi un message indiquant que la personne est majeure.` |
-| 21 | MODIFIEE | `    ENDDO` | `   Sinon, envoie un message indiquant que la personne est mineure.` |
-| 22 | MODIFIEE | `    /* ERREUR 4: ELSE sans IF */` | `*/` |
-| 23 | MODIFIEE | `    ELSE CMD(SNDMSG MSG('Mineur') TOUSR(*SYSOPR))` | `IF COND(&AGE *GE 18) THEN(` |
-| 24 | MODIFIEE | `    /* ERREUR 5: ENDPGM manquant */` | `    SNDMSG MSG('Personne majeure') TOUSR(*SYSOPR)` |
-| 25 | AJOUTEE | `` | `)` |
-| 26 | AJOUTEE | `` | `ELSE CMD(` |
-| 27 | AJOUTEE | `` | `    SNDMSG MSG('Mineur') TOUSR(*SYSOPR)` |
-| 28 | AJOUTEE | `` | `)` |
-| 29 | AJOUTEE | `` | `// Exemple d'utilisation de &MONTANT après correction` |
-| 30 | AJOUTEE | `` | `DSPFF D(Fichier: *ALL) OUTPUT(*OUTFILE) OUTFILE(MONFICHIER) MONMONTANT(&MONTANT)` |
-| 31 | AJOUTEE | `` | `*INLR = *ON;  // Indique la fin du programme` |
-| 32 | AJOUTEE | `` | `ENDPGM;` |
+| 9 | MODIFIEE | `    DCL VAR(&MONTANT) TYPE(*DEC)    LEN(9 2) VALUE('ABC')` | `DCL VAR(&MONTANT) TYPE(*DEC)    LEN(9 2) VALUE(1000.00) // Exemple de valeur numérique` |
+| 10 | MODIFIEE | `    IF COND(&AGE *GE 18) THEN(DO)` | `IF COND(&AGE *GE 18) THEN(` |
+| 12 | MODIFIEE | `    ENDDO` | `)` |
+| 13 | MODIFIEE | `    ELSE CMD(SNDMSG MSG('Mineur') TOUSR(*SYSOPR))` | `ELSE CMD(` |
+| 14 | MODIFIEE | `` | `    SNDMSG MSG('Mineur') TOUSR(*SYSOPR)` |
+| 15 | MODIFIEE | `` | `)` |
+| 16 | MODIFIEE | `` | `DSPFF D(Fichier: *ALL) OUTPUT(*OUTFILE) OUTFILE(MONFICHIER) MONMONTANT(&MONTANT)` |
+| 17 | MODIFIEE | `` | `ENDPGM;` |
 
 ## Code original (input)
 
