@@ -1,8 +1,11 @@
 PGM
 
     DCL VAR(&PARAM) TYPE(*CHAR) LEN(10) VALUE('TEST')
+
+    /* ERREUR 1: bibliothèque non qualifiée */
     CALL PGM(MONPGM) PARM(&PARAM)
 
+    /* ERREUR 2: variable non déclarée */
     CALL PGM(MYLIB/CALCPGM) PARM(&RESULTAT)
 
 ENDPGM
