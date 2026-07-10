@@ -1,22 +1,24 @@
 ============================================================
    RAPPORT DE COMPARAISON - CLLE TEST #1
 ============================================================
-  Date d'exécution  : 2026-05-27 14:54:11
-  Numéro exécution  : #6
+  Date d'exécution  : 2026-07-10 15:08:54
+  Numéro exécution  : #8
   Langage           : CLLE
+  Modèle            : granite4.1:8b
   Entrée            : #1test.clle
   Réponse Granite   : #result1.clle
+  Extraction code   : heuristique (pas de bloc détecté)
   Options actives   : casse=False | espaces=False | vides=True
 ------------------------------------------------------------
   Total lignes entrée  : 24
   Total lignes sortie  : 32
 ------------------------------------------------------------
-  Lignes identiques    : 5
-  Lignes modifiées     : 19
+  Lignes identiques    : 12
+  Lignes modifiées     : 12
   Lignes ajoutées      : 8
   Lignes supprimées    : 0
-  Total différences    : 27
-  Similarité globale   : 15.62%
+  Total différences    : 20
+  Similarité globale   : 37.5%
 ============================================================
 
 DÉTAIL DES DIFFÉRENCES :
@@ -24,32 +26,11 @@ DÉTAIL DES DIFFÉRENCES :
   ~ Ligne    6 | AVANT :     /* Déclarations de variables */
              | APRÈS : // Déclaration des variables
 
-  ~ Ligne    7 | AVANT :     DCL VAR(&NOM)     TYPE(*CHAR)   LEN(30) VALUE('DUPONT')
-             | APRÈS : DCL VAR(&NOM)     TYPE(*CHAR)   LEN(30) VALUE('DUPONT')
-
-  ~ Ligne    8 | AVANT :     DCL VAR(&AGE)     TYPE(*DEC)    LEN(3 0) VALUE(25)
-             | APRÈS : DCL VAR(&AGE)     TYPE(*DEC)    LEN(3 0) VALUE(25)
-
-  ~ Ligne    9 | AVANT :     DCL VAR(&SALAIRE) TYPE(*DEC)    LEN(9 2) VALUE(2500.00)
-             | APRÈS : DCL VAR(&SALAIRE) TYPE(*DEC)    LEN(9 2) VALUE(2500.00)
-
-  ~ Ligne   10 | AVANT :     DCL VAR(&ACTIF)   TYPE(*LGL)    VALUE('1')
-             | APRÈS : DCL VAR(&ACTIF)   TYPE(*LGL)    VALUE('1')
-
-  ~ Ligne   11 | AVANT :     DCL VAR(&MSGID)   TYPE(*CHAR)   LEN(7)
-             | APRÈS : DCL VAR(&MSGID)   TYPE(*CHAR)   LEN(7)
-
   ~ Ligne   12 | AVANT :     /* ERREUR 1: TYPE invalide */
              | APRÈS : // Variable pour le code retourné par la condition
 
-  ~ Ligne   13 | AVANT :     DCL VAR(&CODE)    TYPE(*INTEGER) LEN(10)
-             | APRÈS : DCL VAR(&CODE)    TYPE(*INTEGER) LEN(10)
-
   ~ Ligne   14 | AVANT :     /* ERREUR 2: LEN manquant sur *CHAR */
              | APRÈS : // Libellé de message à afficher
-
-  ~ Ligne   15 | AVANT :     DCL VAR(&LIBELLE) TYPE(*CHAR)
-             | APRÈS : DCL VAR(&LIBELLE) TYPE(*CHAR)
 
   ~ Ligne   16 | AVANT :     /* ERREUR 3: VALUE incompatible avec *DEC */
              | APRÈS : // Montant numérique (correction nécessaire car 'ABC' n'est pas un nombre)
