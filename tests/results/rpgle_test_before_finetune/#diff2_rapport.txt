@@ -1,28 +1,29 @@
 ============================================================
    RAPPORT DE COMPARAISON - RPGLE TEST #2
 ============================================================
-  Date d'exécution  : 2026-05-27 17:16:34
-  Numéro exécution  : #10
+  Date d'exécution  : 2026-07-24 16:53:01
+  Numéro exécution  : #11
   Langage           : RPGLE
+  Modèle            : granite4.1:8b
   Entrée            : #2test.rpgle
   Réponse Granite   : #result2.rpgle
-  Options actives   : casse=False | espaces=True | vides=True
+  Extraction code   : heuristique (pas de bloc détecté)
+  Options actives   : casse_ignoree=False | espaces_ignores=True | vides_ignorees=True | commentaires_ignores=True
+  Méthode comparaison : alignement difflib (SequenceMatcher)
 ------------------------------------------------------------
-  Total lignes entrée  : 13
-  Total lignes sortie  : 14
+  Total lignes entrée (utiles) : 14
+  Total lignes sortie (utiles) : 14
 ------------------------------------------------------------
-  Lignes identiques    : 12
+  Lignes identiques    : 13
   Lignes modifiées     : 1
-  Lignes ajoutées      : 1
+  Lignes ajoutées      : 0
   Lignes supprimées    : 0
-  Total différences    : 2
-  Similarité globale   : 85.71%
+  Total différences    : 1
+  Similarité globale   : 92.86%
 ============================================================
 
 DÉTAIL DES DIFFÉRENCES :
 ------------------------------------------------------------
-  + Ligne    1 | AJOUT : FREE
-
-  ~ Ligne   12 | AVANT : total += extra; 
-             | APRÈS : total += extra; /* Cette ligne doit être corrigée pour éviter une erreur de compilation */
+  ~ Ligne    1 | AVANT : **FREE
+             | APRÈS : FREE
 
