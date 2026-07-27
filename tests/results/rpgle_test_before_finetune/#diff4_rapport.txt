@@ -1,43 +1,44 @@
 ============================================================
    RAPPORT DE COMPARAISON - RPGLE TEST #4
 ============================================================
-  Date d'exécution  : 2026-05-27 17:16:34
-  Numéro exécution  : #10
+  Date d'exécution  : 2026-07-24 16:53:01
+  Numéro exécution  : #11
   Langage           : RPGLE
+  Modèle            : granite4.1:8b
   Entrée            : #4test.rpgle
   Réponse Granite   : #result4.rpgle
-  Options actives   : casse=False | espaces=True | vides=True
+  Extraction code   : heuristique (pas de bloc détecté)
+  Options actives   : casse_ignoree=False | espaces_ignores=True | vides_ignorees=True | commentaires_ignores=True
+  Méthode comparaison : alignement difflib (SequenceMatcher)
 ------------------------------------------------------------
-  Total lignes entrée  : 8
-  Total lignes sortie  : 9
+  Total lignes entrée (utiles) : 9
+  Total lignes sortie (utiles) : 9
 ------------------------------------------------------------
-  Lignes identiques    : 2
+  Lignes identiques    : 3
   Lignes modifiées     : 6
-  Lignes ajoutées      : 1
+  Lignes ajoutées      : 0
   Lignes supprimées    : 0
-  Total différences    : 7
-  Similarité globale   : 22.22%
+  Total différences    : 6
+  Similarité globale   : 33.33%
 ============================================================
 
 DÉTAIL DES DIFFÉRENCES :
 ------------------------------------------------------------
-  + Ligne    1 | AJOUT : FREE
+  ~ Ligne    1 | AVANT : **FREE
+             | APRÈS : FREE
 
-  ~ Ligne    2 | AVANT : Dcl-S montant Float8 Inz(1000.00);  // doit être 'Dec' ou 'Packed'
-             | APRÈS : Dcl-S montant Dec(12 2) Inz(1000.00);  
+  ~ Ligne    3 | AVANT : Dcl-S montant Float8 Inz(1000.00);  // doit être 'Dec' ou 'Packed'
+             | APRÈS : Dcl-S montant Dec(12 2) Inz(1000.00);
 
-  ~ Ligne    3 | AVANT : Dcl-S code VarChar(9999) Inz('A');  // trop grand, max 32767 mais irréaliste
-             | APRÈS : Dcl-S code VarChar(20) Inz('A');  /* Exemple de taille plus raisonnable */
+  ~ Ligne    4 | AVANT : Dcl-S code VarChar(9999) Inz('A');
+             | APRÈS : Dcl-S code VarChar(20) Inz('A');
 
-  ~ Ligne    4 | AVANT : Dcl-S age Int(3) Inz('vingt');  // doit être numérique
-             | APRÈS : Dcl-S age Int(3) Inz(20);  
+  ~ Ligne    5 | AVANT : Dcl-S age Int(3) Inz('vingt');
+             | APRÈS : Dcl-S age Int(3) Inz(20);
 
-  ~ Ligne    5 | AVANT : Dcl-S dateNaiss Date Inz(*Sys);  // OK pour comparaison
-             | APRÈS : Dcl-S dateNaiss Date Inz(*Sys);
+  ~ Ligne    7 | AVANT : Dcl-S 2var Int(5);
+             | APRÈS : Dcl-S nouvelleVar Int(5);
 
-  ~ Ligne    6 | AVANT : Dcl-S 2var Int(5);  // impossible, doit commencer par lettre
-             | APRÈS : Dcl-S nouvelleVar Int(5);  
-
-  ~ Ligne    8 | AVANT : Dcl-S partie1 Subs(complexe: 1:10);  // substr doit être %Subst
-             | APRÈS : Dcl-S partie1 Subs(%Subst(complexe: 1:10));  
+  ~ Ligne    9 | AVANT : Dcl-S partie1 Subs(complexe: 1:10);
+             | APRÈS : Dcl-S partie1 Subs(%Subst(complexe: 1:10));
 
