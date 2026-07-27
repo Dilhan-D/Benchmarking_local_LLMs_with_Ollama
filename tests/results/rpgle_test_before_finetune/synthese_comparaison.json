@@ -1,461 +1,444 @@
 {
-  "execution": 10,
-  "date": "2026-05-27 17:16:34",
+  "execution": 11,
+  "date": "2026-07-24 16:53:01",
   "langage": "rpgle",
   "resultats": [
     {
-      "execution": 10,
-      "date": "2026-05-27 17:16:34",
+      "execution": 11,
+      "date": "2026-07-24 16:53:01",
       "langage": "rpgle",
       "test": "#1",
       "fichier_entree": "#1test.rpgle",
       "fichier_reponse": "#result1.rpgle",
-      "lignes_entree": 16,
+      "lignes_entree": 17,
       "lignes_sortie": 17,
-      "identiques": 11,
+      "identiques": 12,
       "modifiees": 5,
-      "ajoutees": 1,
+      "ajoutees": 0,
       "supprimees": 0,
-      "total_diff": 6,
-      "similarite": 64.71,
+      "total_diff": 5,
+      "similarite": 70.59,
+      "extraction_bloc_md": false,
       "differences": [
         {
           "ligne": 1,
-          "type": "AJOUTEE",
-          "avant": "",
+          "type": "MODIFIEE",
+          "avant": "**FREE",
           "apres": "FREE"
         },
         {
-          "ligne": 4,
-          "type": "MODIFIEE",
-          "avant": "Dcl-S salaire Dec(9 2) Inz(2500.00);  // ERREUR 1: manque virgule entre 9 et 2",
-          "apres": "Dcl-S salaire    Dec(9 2) Inz(2500.00);  "
-        },
-        {
-          "ligne": 9,
+          "ligne": 10,
           "type": "MODIFIEE",
           "avant": "Else",
           "apres": "Else;"
         },
         {
-          "ligne": 10,
+          "ligne": 11,
           "type": "MODIFIEE",
-          "avant": "  estMajeur = *Off",
-          "apres": "   estMajeur = *Off;"
+          "avant": "estMajeur = *Off",
+          "apres": "estMajeur = *Off;"
         },
         {
-          "ligne": 13,
+          "ligne": 14,
           "type": "MODIFIEE",
           "avant": "If agee > 65;  // 'agee' n'existe pas",
-          "apres": "If age > 65; "
+          "apres": "If age > 65;"
         },
         {
-          "ligne": 16,
+          "ligne": 17,
           "type": "MODIFIEE",
           "avant": "salaire = salaire ** 1.10;  // '**' n'existe pas en RPGLE, doit être '*'",
-          "apres": "   salaire = salaire * 1.10;  "
+          "apres": "salaire = salaire * 1.10;"
         }
       ]
     },
     {
-      "execution": 10,
-      "date": "2026-05-27 17:16:34",
+      "execution": 11,
+      "date": "2026-07-24 16:53:01",
       "langage": "rpgle",
       "test": "#2",
       "fichier_entree": "#2test.rpgle",
       "fichier_reponse": "#result2.rpgle",
-      "lignes_entree": 13,
+      "lignes_entree": 14,
       "lignes_sortie": 14,
-      "identiques": 12,
+      "identiques": 13,
       "modifiees": 1,
-      "ajoutees": 1,
+      "ajoutees": 0,
       "supprimees": 0,
-      "total_diff": 2,
-      "similarite": 85.71,
+      "total_diff": 1,
+      "similarite": 92.86,
+      "extraction_bloc_md": false,
       "differences": [
         {
           "ligne": 1,
-          "type": "AJOUTEE",
-          "avant": "",
-          "apres": "FREE"
-        },
-        {
-          "ligne": 12,
           "type": "MODIFIEE",
-          "avant": "total += extra; ",
-          "apres": "total += extra; /* Cette ligne doit être corrigée pour éviter une erreur de compilation */"
+          "avant": "**FREE",
+          "apres": "FREE"
         }
       ]
     },
     {
-      "execution": 10,
-      "date": "2026-05-27 17:16:34",
+      "execution": 11,
+      "date": "2026-07-24 16:53:01",
       "langage": "rpgle",
       "test": "#3",
       "fichier_entree": "#3test.rpgle",
       "fichier_reponse": "#result3.rpgle",
-      "lignes_entree": 15,
+      "lignes_entree": 16,
       "lignes_sortie": 17,
       "identiques": 11,
-      "modifiees": 4,
-      "ajoutees": 2,
+      "modifiees": 6,
+      "ajoutees": 0,
       "supprimees": 0,
       "total_diff": 6,
-      "similarite": 64.71,
+      "similarite": 68.75,
+      "extraction_bloc_md": false,
       "differences": [
         {
           "ligne": 1,
-          "type": "AJOUTEE",
-          "avant": "",
+          "type": "MODIFIEE",
+          "avant": "**FREE",
           "apres": "FREE"
         },
         {
-          "ligne": 4,
+          "ligne": 5,
           "type": "MODIFIEE",
           "avant": "Whene note >= 90;",
           "apres": "Select;"
         },
         {
           "ligne": 6,
-          "type": "AJOUTEE",
-          "avant": "",
-          "apres": "  When note >= 90;"
-        },
-        {
-          "ligne": 11,
           "type": "MODIFIEE",
-          "avant": "  resultat = 'Echec'  // ERREUR 3: manque point-virgule",
-          "apres": "     resultat = 'Echec';"
+          "avant": "",
+          "apres": "When note >= 90;"
         },
         {
           "ligne": 12,
           "type": "MODIFIEE",
-          "avant": "EndSelect;  // ERREUR 4: mal orthographié (EndSelect au lieu de EndIf ou erreur de nom)",
-          "apres": "EndSel;"
+          "avant": "resultat = 'Echec'",
+          "apres": "resultat = 'Echec';"
         },
         {
           "ligne": 13,
           "type": "MODIFIEE",
+          "avant": "EndSelect;",
+          "apres": "EndSel;"
+        },
+        {
+          "ligne": 14,
+          "type": "MODIFIEE",
           "avant": "If note =/> 0;  // doit être '<=' ou '>=', pas '=/>'",
-          "apres": "If note > 0;  "
+          "apres": "If note > 0;"
         }
       ]
     },
     {
-      "execution": 10,
-      "date": "2026-05-27 17:16:34",
+      "execution": 11,
+      "date": "2026-07-24 16:53:01",
       "langage": "rpgle",
       "test": "#4",
       "fichier_entree": "#4test.rpgle",
       "fichier_reponse": "#result4.rpgle",
-      "lignes_entree": 8,
+      "lignes_entree": 9,
       "lignes_sortie": 9,
-      "identiques": 2,
+      "identiques": 3,
       "modifiees": 6,
-      "ajoutees": 1,
+      "ajoutees": 0,
       "supprimees": 0,
-      "total_diff": 7,
-      "similarite": 22.22,
+      "total_diff": 6,
+      "similarite": 33.33,
+      "extraction_bloc_md": false,
       "differences": [
         {
           "ligne": 1,
-          "type": "AJOUTEE",
-          "avant": "",
-          "apres": "FREE"
-        },
-        {
-          "ligne": 2,
           "type": "MODIFIEE",
-          "avant": "Dcl-S montant Float8 Inz(1000.00);  // doit être 'Dec' ou 'Packed'",
-          "apres": "Dcl-S montant Dec(12 2) Inz(1000.00);  "
+          "avant": "**FREE",
+          "apres": "FREE"
         },
         {
           "ligne": 3,
           "type": "MODIFIEE",
-          "avant": "Dcl-S code VarChar(9999) Inz('A');  // trop grand, max 32767 mais irréaliste",
-          "apres": "Dcl-S code VarChar(20) Inz('A');  /* Exemple de taille plus raisonnable */"
+          "avant": "Dcl-S montant Float8 Inz(1000.00);  // doit être 'Dec' ou 'Packed'",
+          "apres": "Dcl-S montant Dec(12 2) Inz(1000.00);"
         },
         {
           "ligne": 4,
           "type": "MODIFIEE",
-          "avant": "Dcl-S age Int(3) Inz('vingt');  // doit être numérique",
-          "apres": "Dcl-S age Int(3) Inz(20);  "
+          "avant": "Dcl-S code VarChar(9999) Inz('A');",
+          "apres": "Dcl-S code VarChar(20) Inz('A');"
         },
         {
           "ligne": 5,
           "type": "MODIFIEE",
-          "avant": "Dcl-S dateNaiss Date Inz(*Sys);  // OK pour comparaison",
-          "apres": "Dcl-S dateNaiss Date Inz(*Sys);"
+          "avant": "Dcl-S age Int(3) Inz('vingt');",
+          "apres": "Dcl-S age Int(3) Inz(20);"
         },
         {
-          "ligne": 6,
+          "ligne": 7,
           "type": "MODIFIEE",
-          "avant": "Dcl-S 2var Int(5);  // impossible, doit commencer par lettre",
-          "apres": "Dcl-S nouvelleVar Int(5);  "
+          "avant": "Dcl-S 2var Int(5);",
+          "apres": "Dcl-S nouvelleVar Int(5);"
         },
         {
-          "ligne": 8,
+          "ligne": 9,
           "type": "MODIFIEE",
-          "avant": "Dcl-S partie1 Subs(complexe: 1:10);  // substr doit être %Subst",
-          "apres": "Dcl-S partie1 Subs(%Subst(complexe: 1:10));  "
+          "avant": "Dcl-S partie1 Subs(complexe: 1:10);",
+          "apres": "Dcl-S partie1 Subs(%Subst(complexe: 1:10));"
         }
       ]
     },
     {
-      "execution": 10,
-      "date": "2026-05-27 17:16:34",
+      "execution": 11,
+      "date": "2026-07-24 16:53:01",
       "langage": "rpgle",
       "test": "#5",
       "fichier_entree": "#5test.rpgle",
       "fichier_reponse": "#result5.rpgle",
-      "lignes_entree": 25,
+      "lignes_entree": 26,
       "lignes_sortie": 26,
-      "identiques": 18,
+      "identiques": 19,
       "modifiees": 7,
-      "ajoutees": 1,
+      "ajoutees": 0,
       "supprimees": 0,
-      "total_diff": 8,
-      "similarite": 69.23,
+      "total_diff": 7,
+      "similarite": 73.08,
+      "extraction_bloc_md": false,
       "differences": [
         {
           "ligne": 1,
           "type": "MODIFIEE",
-          "avant": "Ctl-Opt DftActGrp(*No) ActGrp(*Caller);",
+          "avant": "**FREE",
           "apres": "FREE"
         },
         {
           "ligne": 2,
-          "type": "AJOUTEE",
-          "avant": "",
+          "type": "MODIFIEE",
+          "avant": "Ctl-Opt DftActGrp(*No) ActGrp(*Caller);",
           "apres": "Ctl-Opt DftActGrp(*NO) ActGrp(*CALLER);"
         },
         {
-          "ligne": 11,
+          "ligne": 12,
           "type": "MODIFIEE",
           "avant": "carre = 5 ^ 2;  // doit être '5 * 5' ou %DecFmt",
           "apres": "carre = 5 * 5;  // doit être '5 * 5'"
         },
         {
-          "ligne": 13,
+          "ligne": 14,
           "type": "MODIFIEE",
           "avant": "reste = 10 % 3;  // doit être '%Mod(10: 3)'",
-          "apres": "reste = %Mod(10: 3);  "
-        },
-        {
-          "ligne": 16,
-          "type": "MODIFIEE",
-          "avant": "absolu = %Abs valeur;  // manque parenthèses: '%Abs(valeur)'",
-          "apres": "absolu = %Abs(valeur);  "
+          "apres": "reste = %Mod(10: 3);"
         },
         {
           "ligne": 17,
           "type": "MODIFIEE",
-          "avant": "Dcl-S diviseur Dec(10,2) Inz(0);",
-          "apres": "Dcl-S diviseur Dec(10,2) Inz(1);  // Changement pour éviter la division par zéro"
+          "avant": "absolu = %Abs valeur;  // manque parenthèses: '%Abs(valeur)'",
+          "apres": "absolu = %Abs(valeur);"
         },
         {
-          "ligne": 19,
+          "ligne": 18,
           "type": "MODIFIEE",
-          "avant": "quotient = totalHT / diviseur;  // Erreur runtime",
-          "apres": "quotient = totalHT / diviseur;  "
+          "avant": "Dcl-S diviseur Dec(10,2) Inz(0);",
+          "apres": "Dcl-S diviseur Dec(10,2) Inz(1);"
         },
         {
-          "ligne": 21,
+          "ligne": 22,
           "type": "MODIFIEE",
           "avant": "arrondi = %Round(totalTTC 2);  // manque ':', doit être '%Round(totalTTC: 2)'",
-          "apres": "arrondi = %Round(totalTTC: 2);  "
+          "apres": "arrondi = %Round(totalTTC: 2);"
         }
       ]
     },
     {
-      "execution": 10,
-      "date": "2026-05-27 17:16:34",
+      "execution": 11,
+      "date": "2026-07-24 16:53:01",
       "langage": "rpgle",
       "test": "#6",
       "fichier_entree": "#6test.rpgle",
       "fichier_reponse": "#result6.rpgle",
-      "lignes_entree": 33,
+      "lignes_entree": 34,
       "lignes_sortie": 33,
       "identiques": 24,
-      "modifiees": 7,
-      "ajoutees": 2,
+      "modifiees": 9,
+      "ajoutees": 0,
       "supprimees": 2,
       "total_diff": 11,
-      "similarite": 72.73,
+      "similarite": 70.59,
+      "extraction_bloc_md": false,
       "differences": [
         {
           "ligne": 1,
           "type": "MODIFIEE",
-          "avant": "Ctl-Opt DftActGrp(*No) ActGrp(*Caller);",
+          "avant": "**FREE",
           "apres": "FREE"
         },
         {
           "ligne": 2,
-          "type": "AJOUTEE",
-          "avant": "",
+          "type": "MODIFIEE",
+          "avant": "Ctl-Opt DftActGrp(*No) ActGrp(*Caller);",
           "apres": "Ctl-Opt DftActGrp(*NO) ActGrp(*CALLER);"
         },
         {
-          "ligne": 6,
+          "ligne": 7,
           "type": "MODIFIEE",
           "avant": "Dcl-S estEmploye Bool Inz(*On);",
-          "apres": "Dcl-S estEmploye Bool Inz(*ON);  // *ON au lieu de *On pour la casse"
+          "apres": "Dcl-S estEmploye Bool Inz(*ON);"
         },
         {
-          "ligne": 7,
+          "ligne": 8,
           "type": "MODIFIEE",
           "avant": "If age >= 18 AND age < 65 && salaire >= 2000;  // '&&' n'existe, doit être 'AND'",
           "apres": "If age >= 18 AND age < 65 AND salaire >= 2000;"
         },
         {
-          "ligne": 10,
+          "ligne": 11,
           "type": "MODIFIEE",
-          "avant": "If NOT(age < 18);  // OK mais peut être simplifié",
+          "avant": "If NOT(age < 18);",
           "apres": "If age >= 18;"
         },
         {
-          "ligne": 13,
+          "ligne": 14,
           "type": "MODIFIEE",
           "avant": "If (age >= 18 AND age < 65 OR salaire >= 5000;  // manque ')'",
           "apres": "If (age >= 18 AND age < 65) OR salaire >= 5000;"
         },
         {
-          "ligne": 16,
+          "ligne": 17,
           "type": "MODIFIEE",
-          "avant": "If salaire = '2500';  // doit être numérique, pas chaîne",
+          "avant": "If salaire = '2500';",
           "apres": "Dcl-S salaireNum Int(10);"
         },
         {
           "ligne": 18,
-          "type": "AJOUTEE",
+          "type": "MODIFIEE",
           "avant": "",
           "apres": "salaireNum = %Dec(salaire, 10, 2);"
         },
         {
-          "ligne": 27,
+          "ligne": 28,
           "type": "SUPPRIMEE",
           "avant": "If age > 30;",
           "apres": ""
         },
         {
-          "ligne": 28,
+          "ligne": 29,
           "type": "SUPPRIMEE",
-          "avant": "  prime = 1000;",
+          "avant": "prime = 1000;",
           "apres": ""
         },
         {
-          "ligne": 32,
+          "ligne": 33,
           "type": "MODIFIEE",
           "avant": "If salaire = NULL;  // doit être 'salaire = *Null' ou 'IsNull(salaire)'",
-          "apres": "If salaireNum <> *BLANK;  // Exemple de vérification pour un champ numérique"
+          "apres": "If salaireNum <> *BLANK;"
         }
       ]
     },
     {
-      "execution": 10,
-      "date": "2026-05-27 17:16:34",
+      "execution": 11,
+      "date": "2026-07-24 16:53:01",
       "langage": "rpgle",
       "test": "#7",
       "fichier_entree": "#7test.rpgle",
       "fichier_reponse": "#result7.rpgle",
-      "lignes_entree": 35,
-      "lignes_sortie": 34,
-      "identiques": 20,
-      "modifiees": 14,
+      "lignes_entree": 36,
+      "lignes_sortie": 35,
+      "identiques": 21,
+      "modifiees": 15,
       "ajoutees": 0,
-      "supprimees": 1,
+      "supprimees": 0,
       "total_diff": 15,
-      "similarite": 57.14,
+      "similarite": 58.33,
+      "extraction_bloc_md": false,
       "differences": [
         {
-          "ligne": 1,
+          "ligne": 2,
           "type": "MODIFIEE",
           "avant": "Ctl-Opt DftActGrp(*No) ActGrp(*Caller);",
           "apres": "Ctl-Opt DftActGrp(*NO) ActGrp(*CALLER);"
         },
         {
-          "ligne": 3,
+          "ligne": 4,
           "type": "MODIFIEE",
           "avant": "Dcl-Pr Calculer ExtpProc('CALCULER');  // doit être 'ExtProc'",
           "apres": "Dcl-Pr Calculer ExtpProc('CALCULER');"
         },
         {
-          "ligne": 7,
+          "ligne": 8,
           "type": "MODIFIEE",
           "avant": "resultat = Calculer(10: 20);",
           "apres": "resultat = Calculer(10: 20);  // Supposons que CALCULER retourne une valeur compatible avec 'resultat'"
         },
         {
-          "ligne": 9,
+          "ligne": 10,
           "type": "MODIFIEE",
           "avant": "Dcl-SubProc MonSousProc;  // doit être 'Dcl-Proc'",
           "apres": "Dcl-SubProc MonSousProc;"
         },
         {
-          "ligne": 10,
-          "type": "MODIFIEE",
-          "avant": "  Dcl-Pi MonSousProc;",
-          "apres": "  Dcl-Pi MonSousProc param1 Int(10);"
-        },
-        {
           "ligne": 11,
           "type": "MODIFIEE",
-          "avant": "    param1 Int(10);",
-          "apres": "    Dsply 'Sous-procédure appelée avec param1 = ' + %Char(param1);"
+          "avant": "Dcl-Pi MonSousProc;",
+          "apres": "Dcl-Pi MonSousProc param1 Int(10);"
         },
         {
-          "ligne": 13,
+          "ligne": 12,
           "type": "MODIFIEE",
-          "avant": "  Dsply 'Sous-procédure appelée';",
-          "apres": "End-Sub;"
+          "avant": "param1 Int(10);",
+          "apres": "Dsply 'Sous-procédure appelée avec param1 = ' + %Char(param1);"
         },
         {
           "ligne": 14,
-          "type": "SUPPRIMEE",
+          "type": "MODIFIEE",
+          "avant": "Dsply 'Sous-procédure appelée';",
+          "apres": "End-Sub;"
+        },
+        {
+          "ligne": 15,
+          "type": "MODIFIEE",
           "avant": "End-Sub;  // ERREUR 3: 'End-Sub' au lieu de 'End-Proc'",
           "apres": ""
         },
         {
-          "ligne": 16,
+          "ligne": 17,
           "type": "MODIFIEE",
-          "avant": "  Dcl-Proc ProcInterne;  // Impossible, procédure imbriquée",
-          "apres": "  Dcl-Proc ProcInterne InLb;  // Utilisez InLb pour indiquer que c'est une procédure locale"
+          "avant": "Dcl-Proc ProcInterne;",
+          "apres": "Dcl-Proc ProcInterne InLb;  // Utilisez InLb pour indiquer que c'est une procédure locale"
         },
         {
-          "ligne": 21,
+          "ligne": 22,
           "type": "MODIFIEE",
-          "avant": "  Return ProcInterne();",
-          "apres": "  Dsply 'Resultat de ProcInterne : ' + %Dec(ProcInterne(), 10, 2);"
+          "avant": "Return ProcInterne();",
+          "apres": "Dsply 'Resultat de ProcInterne : ' + %Dec(ProcInterne(), 10, 2);"
         },
         {
-          "ligne": 25,
+          "ligne": 26,
           "type": "MODIFIEE",
-          "avant": "    salaireBase Dec(10,2);",
-          "apres": "    salaireBase Dec(10,2) ;"
+          "avant": "salaireBase Dec(10,2);",
+          "apres": "salaireBase Dec(10,2) ;"
         },
         {
-          "ligne": 27,
+          "ligne": 28,
           "type": "MODIFIEE",
-          "avant": "  End-PI;",
-          "apres": "  End-Pi;"
-        },
-        {
-          "ligne": 32,
-          "type": "MODIFIEE",
-          "avant": "  End-PI;",
-          "apres": "  End-Pi;"
+          "avant": "End-PI;",
+          "apres": "End-Pi;"
         },
         {
           "ligne": 33,
           "type": "MODIFIEE",
-          "avant": "End-Proc Export;  // Export mal placé (doit être sur Dcl-Proc)",
-          "apres": "End-Proc;  // Utilisez 'N' à la place de 'Export' pour une procédure non exportée"
+          "avant": "End-PI;",
+          "apres": "End-Pi;"
         },
         {
           "ligne": 34,
           "type": "MODIFIEE",
+          "avant": "End-Proc Export;",
+          "apres": "End-Proc;  // Utilisez 'N' à la place de 'Export' pour une procédure non exportée"
+        },
+        {
+          "ligne": 35,
+          "type": "MODIFIEE",
           "avant": "CallP Calculer(10: 20);  // doit être 'Calculer(10: 20)'",
-          "apres": "CallP Calculer(10: 20);  // Assurez-vous que CALCULER est définie correctement en dehors du module"
+          "apres": "CallP Calculer(10: 20);"
         }
       ]
     }
