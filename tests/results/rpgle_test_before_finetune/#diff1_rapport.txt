@@ -1,40 +1,41 @@
 ============================================================
    RAPPORT DE COMPARAISON - RPGLE TEST #1
 ============================================================
-  Date d'exécution  : 2026-05-27 17:16:34
-  Numéro exécution  : #10
+  Date d'exécution  : 2026-07-24 16:53:01
+  Numéro exécution  : #11
   Langage           : RPGLE
+  Modèle            : granite4.1:8b
   Entrée            : #1test.rpgle
   Réponse Granite   : #result1.rpgle
-  Options actives   : casse=False | espaces=True | vides=True
+  Extraction code   : heuristique (pas de bloc détecté)
+  Options actives   : casse_ignoree=False | espaces_ignores=True | vides_ignorees=True | commentaires_ignores=True
+  Méthode comparaison : alignement difflib (SequenceMatcher)
 ------------------------------------------------------------
-  Total lignes entrée  : 16
-  Total lignes sortie  : 17
+  Total lignes entrée (utiles) : 17
+  Total lignes sortie (utiles) : 17
 ------------------------------------------------------------
-  Lignes identiques    : 11
+  Lignes identiques    : 12
   Lignes modifiées     : 5
-  Lignes ajoutées      : 1
+  Lignes ajoutées      : 0
   Lignes supprimées    : 0
-  Total différences    : 6
-  Similarité globale   : 64.71%
+  Total différences    : 5
+  Similarité globale   : 70.59%
 ============================================================
 
 DÉTAIL DES DIFFÉRENCES :
 ------------------------------------------------------------
-  + Ligne    1 | AJOUT : FREE
+  ~ Ligne    1 | AVANT : **FREE
+             | APRÈS : FREE
 
-  ~ Ligne    4 | AVANT : Dcl-S salaire Dec(9 2) Inz(2500.00);  // ERREUR 1: manque virgule entre 9 et 2
-             | APRÈS : Dcl-S salaire    Dec(9 2) Inz(2500.00);  
-
-  ~ Ligne    9 | AVANT : Else
+  ~ Ligne   10 | AVANT : Else
              | APRÈS : Else;
 
-  ~ Ligne   10 | AVANT :   estMajeur = *Off
-             | APRÈS :    estMajeur = *Off;
+  ~ Ligne   11 | AVANT : estMajeur = *Off
+             | APRÈS : estMajeur = *Off;
 
-  ~ Ligne   13 | AVANT : If agee > 65;  // 'agee' n'existe pas
-             | APRÈS : If age > 65; 
+  ~ Ligne   14 | AVANT : If agee > 65;  // 'agee' n'existe pas
+             | APRÈS : If age > 65;
 
-  ~ Ligne   16 | AVANT : salaire = salaire ** 1.10;  // '**' n'existe pas en RPGLE, doit être '*'
-             | APRÈS :    salaire = salaire * 1.10;  
+  ~ Ligne   17 | AVANT : salaire = salaire ** 1.10;  // '**' n'existe pas en RPGLE, doit être '*'
+             | APRÈS : salaire = salaire * 1.10;
 
