@@ -3,10 +3,9 @@
 Comparateur CLLE - Ollama Granite Test Series
 Compare #Xtest.clle (questions) vs #resultX.clle (réponses Ollama)
 
-v3 : normalisation avancée (suppression lignes vides + commentaires // et /* */)
-     + comparaison par alignement réel (difflib) au lieu d'une comparaison
-       positionnelle ligne-à-ligne (qui décale tout dès qu'une ligne est
-       ajoutée/retirée).
+v4 : suppression des commentaires en fin de ligne (pas seulement les
+     lignes 100% commentaire) + indentation toujours ignorée (sans
+     valeur syntaxique en RPGLE/CL/COBOL) + casse ignorée par défaut.
 """
 
 
@@ -29,15 +28,17 @@ DIR_QUESTIONS   = Path(__file__).parent / os.environ["DIR_QUESTIONS"]
 DIR_REPONSES    = Path(__file__).parent / os.environ["DIR_REPONSES"]
 DIR_RESULTATS   = Path(__file__).parent / os.environ["DIR_RESULTATS"]
 NOM_RAPPORT     = os.environ["NOM_RAPPORT"]
-IGNORER_CASSE   = os.environ["IGNORER_CASSE"].lower()        == "true"
-IGNORER_ESPACES = os.environ["IGNORER_ESPACES"].lower()      == "true"
-IGNORER_VIDES   = os.environ["IGNORER_LIGNES_VIDES"].lower() == "true"
+
+# Langages IBM i insensibles à la casse et à l'indentation : on force
+# ces options à true par défaut (surchargeables explicitement via .env).
+IGNORER_CASSE   = os.environ.get("IGNORER_CASSE", "true").lower()        == "true"
+IGNORER_ESPACES = os.environ.get("IGNORER_ESPACES", "true").lower()      == "true"
+IGNORER_VIDES   = os.environ.get("IGNORER_LIGNES_VIDES", "true").lower() == "true"
 
 MODELE_LLM       = os.environ.get("MODELE_LLM", "granite4.1:8b")
 GENERER_MARKDOWN = os.environ.get("GENERER_MARKDOWN", "true").lower() == "true"
 
-# Ignore les lignes de commentaire (// ..., /* ... */) lors de la comparaison.
-# Activable/désactivable via .env : IGNORER_COMMENTAIRES=true
+# Ignore les commentaires (lignes entières ET fin de ligne) lors de la comparaison.
 IGNORER_COMMENTAIRES = os.environ.get("IGNORER_COMMENTAIRES", "true").lower() == "true"
 
 DIR_RESULTATS.mkdir(parents=True, exist_ok=True)
@@ -54,12 +55,6 @@ BLOC_MARKDOWN_RE = re.compile(
 
 
 def extraire_code_depuis_reponse(texte_brut):
-    """
-    Extrait uniquement le code utile d'une réponse LLM :
-    - Si des blocs ```...``` sont présents, on concatène leur contenu.
-    - Sinon, on applique une heuristique de repli qui supprime les lignes
-      ressemblant à des phrases d'explication en langage naturel.
-    """
     blocs = BLOC_MARKDOWN_RE.findall(texte_brut)
 
     if blocs:
@@ -77,24 +72,32 @@ def extraire_code_depuis_reponse(texte_brut):
 
 
 # ============================================================
-# FILTRAGE COMMENTAIRES / LIGNES VIDES
+# FILTRAGE COMMENTAIRES (bloc + fin de ligne) / LIGNES VIDES
 # ============================================================
 
 def supprimer_commentaires_bloc(texte):
-    """
-    Supprime les blocs de commentaires /* ... */ (multi-lignes ou non),
-    typiques du CL, RPG III/IV et SQL.
-    """
+    """Supprime les blocs /* ... */ multi-lignes."""
     return re.sub(r"/\*.*?\*/", "", texte, flags=re.DOTALL)
 
 
+def supprimer_commentaire_fin_ligne(ligne):
+    """
+    Supprime un commentaire en fin de ligne (// ... ou /* ... */ résiduel),
+    en protégeant le contenu des chaînes littérales entre quotes simples
+    pour ne pas tronquer un '//' ou '/*' présent dans une valeur.
+    """
+    dernier_quote = ligne.rfind("'")
+    zone_protegee  = ligne[:dernier_quote + 1] if dernier_quote != -1 else ""
+    zone_a_traiter = ligne[len(zone_protegee):]
+
+    zone_a_traiter = re.sub(r"//.*$", "", zone_a_traiter)
+    zone_a_traiter = re.sub(r"/\*.*?(\*/)?$", "", zone_a_traiter)
+
+    return zone_protegee + zone_a_traiter
+
+
 def est_ligne_commentaire(ligne):
-    """
-    Détecte si une ligne, une fois strippée, est un commentaire pur :
-    - // ...           (RPG Free, CL moderne, Java-like)
-    - /* ... */         (bloc mono-ligne restant après nettoyage)
-    - *  ...            (commentaire colonne 7 en RPG III / RPG IV fixe)
-    """
+    """Détecte une ligne 100% commentaire (après strip)."""
     l = ligne.strip()
     if not l:
         return False
@@ -113,8 +116,11 @@ def nettoyer_code(texte):
     comparaison :
     1. Suppression des blocs /* ... */ multi-lignes.
     2. Découpage en lignes.
-    3. Suppression des lignes de commentaire pur (// ou /* */ ou * ...).
-    4. Suppression des lignes vides (si IGNORER_VIDES).
+    3. Suppression des lignes 100% commentaire, PUIS suppression des
+       commentaires en fin de ligne restants (ex: 'code; // note').
+    4. Strip systématique : l'indentation est ignorée car sans valeur
+       syntaxique en RPGLE/CL/COBOL.
+    5. Suppression des lignes devenues vides.
     """
     texte = supprimer_commentaires_bloc(texte)
     lignes = texte.splitlines()
@@ -122,16 +128,29 @@ def nettoyer_code(texte):
     lignes_utiles = []
     for l in lignes:
         l = l.rstrip('\n')
-        if IGNORER_COMMENTAIRES and est_ligne_commentaire(l):
+
+        if IGNORER_COMMENTAIRES:
+            if est_ligne_commentaire(l):
+                continue
+            l = supprimer_commentaire_fin_ligne(l)
+
+        l = l.strip()  # indentation toujours ignorée
+
+        if IGNORER_VIDES and l == '':
             continue
-        if IGNORER_VIDES and l.strip() == '':
-            continue
+
         lignes_utiles.append(l)
 
     return lignes_utiles
 
 
 def normaliser_ligne(ligne):
+    """
+    Normalisation finale avant comparaison :
+    - strip (indentation ignorée)
+    - casse ignorée par défaut (RPG/CL/COBOL insensibles à la casse)
+    - espaces internes multiples réduits à un seul
+    """
     ligne = ligne.strip()
     if IGNORER_CASSE:
         ligne = ligne.lower()
@@ -150,8 +169,7 @@ def lire_fichier(chemin):
 
 
 # ============================================================
-# COMPARAISON PAR ALIGNEMENT RÉEL (difflib) — remplace la comparaison
-# positionnelle qui décalait tout dès qu'une ligne était ajoutée/retirée.
+# COMPARAISON PAR ALIGNEMENT RÉEL (difflib)
 # ============================================================
 
 def comparer(lignes1, lignes2):
@@ -212,8 +230,8 @@ def ecrire_rapport_txt(num, stats, differences, date_exec, num_exec, chemin, ext
         f.write(f"  Entrée            : #{num}test{EXTENSION}\n")
         f.write(f"  Réponse Granite   : #result{num}{EXTENSION}\n")
         f.write(f"  Extraction code   : {'bloc Markdown' if extraction_ok else 'heuristique (pas de bloc détecté)'}\n")
-        f.write(f"  Options actives   : casse={IGNORER_CASSE} | espaces={IGNORER_ESPACES} | "
-                f"vides={IGNORER_VIDES} | commentaires={IGNORER_COMMENTAIRES}\n")
+        f.write(f"  Options actives   : casse_ignoree={IGNORER_CASSE} | espaces_ignores={IGNORER_ESPACES} | "
+                f"vides_ignorees={IGNORER_VIDES} | commentaires_ignores={IGNORER_COMMENTAIRES}\n")
         f.write(f"  Méthode comparaison : alignement difflib (SequenceMatcher)\n")
         f.write("-" * 60 + "\n")
         f.write(f"  Total lignes entrée (utiles) : {stats['total_entree']}\n")
@@ -239,7 +257,7 @@ def ecrire_rapport_txt(num, stats, differences, date_exec, num_exec, chemin, ext
                 elif d['type'] == 'SUPPRIMEE':
                     f.write(f"  - Ligne {d['ligne']:4} | SUPPR : {d['avant']}\n\n")
         else:
-            f.write("  Aucune différence. Fichiers identiques (hors commentaires/lignes vides).\n")
+            f.write("  Aucune différence. Fichiers identiques (hors commentaires/indentation/casse).\n")
 
 
 def ecrire_rapport_markdown(num, stats, differences, date_exec, num_exec, chemin,
@@ -264,7 +282,9 @@ def ecrire_rapport_markdown(num, stats, differences, date_exec, num_exec, chemin
         f.write(f"| Lignes output (utiles) | {stats['total_sortie']} |\n")
         f.write(f"| Méthode d'extraction | {'Bloc Markdown détecté' if extraction_ok else 'Heuristique (aucun bloc trouvé)'} |\n")
         f.write(f"| Méthode de comparaison | Alignement difflib (SequenceMatcher) |\n")
-        f.write(f"| Commentaires ignorés | {IGNORER_COMMENTAIRES} |\n\n")
+        f.write(f"| Commentaires ignorés | {IGNORER_COMMENTAIRES} |\n")
+        f.write(f"| Casse ignorée | {IGNORER_CASSE} |\n")
+        f.write(f"| Indentation ignorée | Toujours (aucune valeur syntaxique en IBM i) |\n\n")
 
         f.write("## Statistiques de comparaison\n\n")
         f.write("| Métrique | Valeur |\n")
@@ -286,7 +306,7 @@ def ecrire_rapport_markdown(num, stats, differences, date_exec, num_exec, chemin
                 f.write(f"| {d['ligne']} | {d['type']} | `{avant}` | `{apres}` |\n")
             f.write("\n")
         else:
-            f.write("_Aucune différence significative (hors commentaires/lignes vides)._\n\n")
+            f.write("_Aucune différence significative (hors commentaires/indentation/casse)._\n\n")
 
         f.write("## Code original (input)\n\n")
         f.write(f"```{lang_fence}\n{code_original}\n```\n\n")
@@ -306,7 +326,7 @@ def get_compteur():
     data["executions"] += 1
     data["historique"].append({
         "execution" : data["executions"],
-        "date"      : datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        "date"      : datetime.now().strftime("%Y-%m-%d")
     })
 
     with open(compteur_path, 'w', encoding='utf-8') as f:
@@ -316,7 +336,7 @@ def get_compteur():
 
 
 def main():
-    date_exec = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    date_exec = datetime.now().strftime("%Y-%m-%d")
     num_exec  = get_compteur()
 
     print("=" * 60)
@@ -326,7 +346,7 @@ def main():
     print(f"  Questions : {DIR_QUESTIONS.resolve()}")
     print(f"  Réponses  : {DIR_REPONSES.resolve()}")
     print(f"  Résultats : {DIR_RESULTATS.resolve()}")
-    print(f"  Commentaires ignorés : {IGNORER_COMMENTAIRES}")
+    print(f"  Commentaires ignorés : {IGNORER_COMMENTAIRES} | Casse ignorée : {IGNORER_CASSE}")
     print("=" * 60)
 
     fichiers_test = sorted(DIR_QUESTIONS.glob(f"#*test{EXTENSION}"))
@@ -351,7 +371,6 @@ def main():
 
         code_extrait, extraction_ok = extraire_code_depuis_reponse(contenu_reponse)
 
-        # --- Normalisation : suppression commentaires + lignes vides ---
         lignes_test    = nettoyer_code(contenu_test)
         lignes_reponse = nettoyer_code(code_extrait)
 
