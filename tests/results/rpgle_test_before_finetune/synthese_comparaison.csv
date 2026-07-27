@@ -1,8 +1,0 @@
-execution;date;langage;test;fichier_entree;fichier_reponse;lignes_entree;lignes_sortie;identiques;modifiees;ajoutees;supprimees;total_diff;similarite;extraction_bloc_md
-11;2026-07-24 16:53:01;rpgle;#1;#1test.rpgle;#result1.rpgle;17;17;12;5;0;0;5;70.59;False
-11;2026-07-24 16:53:01;rpgle;#2;#2test.rpgle;#result2.rpgle;14;14;13;1;0;0;1;92.86;False
-11;2026-07-24 16:53:01;rpgle;#3;#3test.rpgle;#result3.rpgle;16;17;11;6;0;0;6;68.75;False
-11;2026-07-24 16:53:01;rpgle;#4;#4test.rpgle;#result4.rpgle;9;9;3;6;0;0;6;33.33;False
-11;2026-07-24 16:53:01;rpgle;#5;#5test.rpgle;#result5.rpgle;26;26;19;7;0;0;7;73.08;False
-11;2026-07-24 16:53:01;rpgle;#6;#6test.rpgle;#result6.rpgle;34;33;24;9;0;2;11;70.59;False
-11;2026-07-24 16:53:01;rpgle;#7;#7test.rpgle;#result7.rpgle;36;35;21;15;0;0;15;58.33;False
