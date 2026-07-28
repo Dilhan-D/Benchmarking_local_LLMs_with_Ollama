@@ -6,14 +6,16 @@
 |---|---|
 | Test | #3 |
 | Langage IBM i | CLLE |
-| Date d'exécution | 2026-07-10 15:38:04 |
-| Numéro d'exécution | #9 |
+| Date d'exécution | 2026-07-27 |
+| Numéro d'exécution | #10 |
 | Modèle utilisé | granite4.1:8b |
 | Lignes input (utiles) | 7 |
 | Lignes output (utiles) | 6 |
 | Méthode d'extraction | Heuristique (aucun bloc trouvé) |
 | Méthode de comparaison | Alignement difflib (SequenceMatcher) |
 | Commentaires ignorés | True |
+| Casse ignorée | False |
+| Indentation ignorée | Toujours (aucune valeur syntaxique en IBM i) |
 
 ## Statistiques de comparaison
 
@@ -31,8 +33,8 @@
 | Ligne | Type | Avant | Après |
 |---|---|---|---|
 | 1 | SUPPRIMEE | `PGM` | `` |
-| 4 | MODIFIEE | `        SNDMSG MSG('Recu') TOUSR(*SYSOPR)` | `    SNDMSG MSG('Reçu') TOUSR(*SYSOPR)        ` |
-| 6 | MODIFIEE | `    ELSE CMD(SNDMSG MSG('Echoue') TOUSR(*SYSOPR))` | `ELSE CMD(SNDMSG MSG('Échoue') TOUSR(*SYSOPR)) ` |
+| 4 | MODIFIEE | `SNDMSG MSG('Recu') TOUSR(*SYSOPR)` | `SNDMSG MSG('Reçu') TOUSR(*SYSOPR)` |
+| 6 | MODIFIEE | `ELSE CMD(SNDMSG MSG('Echoue') TOUSR(*SYSOPR))` | `ELSE CMD(SNDMSG MSG('Échoue') TOUSR(*SYSOPR))` |
 
 ## Code original (input)
 
