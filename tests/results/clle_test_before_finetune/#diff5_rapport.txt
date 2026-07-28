@@ -1,14 +1,14 @@
 ============================================================
    RAPPORT DE COMPARAISON - CLLE TEST #5
 ============================================================
-  Date d'exécution  : 2026-07-10 15:38:04
-  Numéro exécution  : #9
+  Date d'exécution  : 2026-07-27
+  Numéro exécution  : #10
   Langage           : CLLE
   Modèle            : granite4.1:8b
   Entrée            : #5test.clle
   Réponse Granite   : #result5.clle
   Extraction code   : heuristique (pas de bloc détecté)
-  Options actives   : casse=False | espaces=False | vides=True | commentaires=True
+  Options actives   : casse_ignoree=False | espaces_ignores=False | vides_ignorees=True | commentaires_ignores=True
   Méthode comparaison : alignement difflib (SequenceMatcher)
 ------------------------------------------------------------
   Total lignes entrée (utiles) : 5
@@ -26,12 +26,12 @@ DÉTAIL DES DIFFÉRENCES :
 ------------------------------------------------------------
   - Ligne    1 | SUPPR : PGM
 
-  ~ Ligne    3 | AVANT :     CALL PGM(MONPGM) PARM(&PARAM)
-             | APRÈS :     DCL VAR(&RESULTAT) TYPE(*DEC) LEN(5 0)
+  ~ Ligne    3 | AVANT : CALL PGM(MONPGM) PARM(&PARAM)
+             | APRÈS : DCL VAR(&RESULTAT) TYPE(*DEC) LEN(5 0)
 
-  ~ Ligne    4 | AVANT :     CALL PGM(MYLIB/CALCPGM) PARM(&RESULTAT)
-             | APRÈS :     CALL PGM(MYLIB/MONPGM) PARM(&PARAM)
+  ~ Ligne    4 | AVANT : CALL PGM(MYLIB/CALCPGM) PARM(&RESULTAT)
+             | APRÈS : CALL PGM(MYLIB/MONPGM) PARM(&PARAM)
 
   ~ Ligne    5 | AVANT : 
-             | APRÈS :     CALL MYLIB/CALCPGM PARM(&RESULTAT)
+             | APRÈS : CALL MYLIB/CALCPGM PARM(&RESULTAT)
 
