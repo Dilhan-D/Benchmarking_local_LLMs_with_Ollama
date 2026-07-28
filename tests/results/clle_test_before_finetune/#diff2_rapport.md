@@ -6,14 +6,16 @@
 |---|---|
 | Test | #2 |
 | Langage IBM i | CLLE |
-| Date d'exécution | 2026-07-10 15:38:04 |
-| Numéro d'exécution | #9 |
+| Date d'exécution | 2026-07-27 |
+| Numéro d'exécution | #10 |
 | Modèle utilisé | granite4.1:8b |
 | Lignes input (utiles) | 6 |
 | Lignes output (utiles) | 7 |
 | Méthode d'extraction | Heuristique (aucun bloc trouvé) |
 | Méthode de comparaison | Alignement difflib (SequenceMatcher) |
 | Commentaires ignorés | True |
+| Casse ignorée | False |
+| Indentation ignorée | Toujours (aucune valeur syntaxique en IBM i) |
 
 ## Statistiques de comparaison
 
@@ -31,10 +33,10 @@
 | Ligne | Type | Avant | Après |
 |---|---|---|---|
 | 1 | SUPPRIMEE | `PGM` | `` |
-| 3 | MODIFIEE | `    DCL VAR(&AGE)  TYPE(*DEC)  LEN(3)  VALUE(25)` | `DCL VAR(&AGE)  TYPE(*DEC)  LEN(3 0) VALUE(25)       ` |
-| 5 | MODIFIEE | `    SNDMSG MSG('Bonjour ' *CAT &NOM) TOUSR(*SYSOPR)` | `DCL VAR(&MESSAGE) TYPE(*CHAR) LEN(40)                ` |
-| 6 | MODIFIEE | `` | `CHGVAR VAR(&MESSAGE) VALUE('Bonjour ' *CAT &NOM)    ` |
-| 7 | MODIFIEE | `` | `SNDMSG MSG(&MESSAGE) TOUSR(*SYSOPR)                  ` |
+| 3 | MODIFIEE | `DCL VAR(&AGE)  TYPE(*DEC)  LEN(3)  VALUE(25)` | `DCL VAR(&AGE)  TYPE(*DEC)  LEN(3 0) VALUE(25)` |
+| 5 | MODIFIEE | `SNDMSG MSG('Bonjour ' *CAT &NOM) TOUSR(*SYSOPR)` | `DCL VAR(&MESSAGE) TYPE(*CHAR) LEN(40)` |
+| 6 | MODIFIEE | `` | `CHGVAR VAR(&MESSAGE) VALUE('Bonjour ' *CAT &NOM)` |
+| 7 | MODIFIEE | `` | `SNDMSG MSG(&MESSAGE) TOUSR(*SYSOPR)` |
 
 ## Code original (input)
 
