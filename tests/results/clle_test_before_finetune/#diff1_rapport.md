@@ -6,14 +6,16 @@
 |---|---|
 | Test | #1 |
 | Langage IBM i | CLLE |
-| Date d'exécution | 2026-07-10 15:38:04 |
-| Numéro d'exécution | #9 |
+| Date d'exécution | 2026-07-27 |
+| Numéro d'exécution | #10 |
 | Modèle utilisé | granite4.1:8b |
 | Lignes input (utiles) | 13 |
 | Lignes output (utiles) | 17 |
 | Méthode d'extraction | Heuristique (aucun bloc trouvé) |
 | Méthode de comparaison | Alignement difflib (SequenceMatcher) |
 | Commentaires ignorés | True |
+| Casse ignorée | False |
+| Indentation ignorée | Toujours (aucune valeur syntaxique en IBM i) |
 
 ## Statistiques de comparaison
 
@@ -30,11 +32,11 @@
 
 | Ligne | Type | Avant | Après |
 |---|---|---|---|
-| 9 | MODIFIEE | `    DCL VAR(&MONTANT) TYPE(*DEC)    LEN(9 2) VALUE('ABC')` | `DCL VAR(&MONTANT) TYPE(*DEC)    LEN(9 2) VALUE(1000.00) // Exemple de valeur numérique` |
-| 10 | MODIFIEE | `    IF COND(&AGE *GE 18) THEN(DO)` | `IF COND(&AGE *GE 18) THEN(` |
-| 12 | MODIFIEE | `    ENDDO` | `)` |
-| 13 | MODIFIEE | `    ELSE CMD(SNDMSG MSG('Mineur') TOUSR(*SYSOPR))` | `ELSE CMD(` |
-| 14 | MODIFIEE | `` | `    SNDMSG MSG('Mineur') TOUSR(*SYSOPR)` |
+| 9 | MODIFIEE | `DCL VAR(&MONTANT) TYPE(*DEC)    LEN(9 2) VALUE('ABC')` | `DCL VAR(&MONTANT) TYPE(*DEC)    LEN(9 2) VALUE(1000.00)` |
+| 10 | MODIFIEE | `IF COND(&AGE *GE 18) THEN(DO)` | `IF COND(&AGE *GE 18) THEN(` |
+| 12 | MODIFIEE | `ENDDO` | `)` |
+| 13 | MODIFIEE | `ELSE CMD(SNDMSG MSG('Mineur') TOUSR(*SYSOPR))` | `ELSE CMD(` |
+| 14 | MODIFIEE | `` | `SNDMSG MSG('Mineur') TOUSR(*SYSOPR)` |
 | 15 | MODIFIEE | `` | `)` |
 | 16 | MODIFIEE | `` | `DSPFF D(Fichier: *ALL) OUTPUT(*OUTFILE) OUTFILE(MONFICHIER) MONMONTANT(&MONTANT)` |
 | 17 | MODIFIEE | `` | `ENDPGM;` |

@@ -1,14 +1,14 @@
 ============================================================
    RAPPORT DE COMPARAISON - CLLE TEST #1
 ============================================================
-  Date d'exécution  : 2026-07-10 15:38:04
-  Numéro exécution  : #9
+  Date d'exécution  : 2026-07-27
+  Numéro exécution  : #10
   Langage           : CLLE
   Modèle            : granite4.1:8b
   Entrée            : #1test.clle
   Réponse Granite   : #result1.clle
   Extraction code   : heuristique (pas de bloc détecté)
-  Options actives   : casse=False | espaces=False | vides=True | commentaires=True
+  Options actives   : casse_ignoree=False | espaces_ignores=False | vides_ignorees=True | commentaires_ignores=True
   Méthode comparaison : alignement difflib (SequenceMatcher)
 ------------------------------------------------------------
   Total lignes entrée (utiles) : 13
@@ -24,20 +24,20 @@
 
 DÉTAIL DES DIFFÉRENCES :
 ------------------------------------------------------------
-  ~ Ligne    9 | AVANT :     DCL VAR(&MONTANT) TYPE(*DEC)    LEN(9 2) VALUE('ABC')
-             | APRÈS : DCL VAR(&MONTANT) TYPE(*DEC)    LEN(9 2) VALUE(1000.00) // Exemple de valeur numérique
+  ~ Ligne    9 | AVANT : DCL VAR(&MONTANT) TYPE(*DEC)    LEN(9 2) VALUE('ABC')
+             | APRÈS : DCL VAR(&MONTANT) TYPE(*DEC)    LEN(9 2) VALUE(1000.00)
 
-  ~ Ligne   10 | AVANT :     IF COND(&AGE *GE 18) THEN(DO)
+  ~ Ligne   10 | AVANT : IF COND(&AGE *GE 18) THEN(DO)
              | APRÈS : IF COND(&AGE *GE 18) THEN(
 
-  ~ Ligne   12 | AVANT :     ENDDO
+  ~ Ligne   12 | AVANT : ENDDO
              | APRÈS : )
 
-  ~ Ligne   13 | AVANT :     ELSE CMD(SNDMSG MSG('Mineur') TOUSR(*SYSOPR))
+  ~ Ligne   13 | AVANT : ELSE CMD(SNDMSG MSG('Mineur') TOUSR(*SYSOPR))
              | APRÈS : ELSE CMD(
 
   ~ Ligne   14 | AVANT : 
-             | APRÈS :     SNDMSG MSG('Mineur') TOUSR(*SYSOPR)
+             | APRÈS : SNDMSG MSG('Mineur') TOUSR(*SYSOPR)
 
   ~ Ligne   15 | AVANT : 
              | APRÈS : )
