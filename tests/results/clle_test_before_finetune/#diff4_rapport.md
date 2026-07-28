@@ -6,14 +6,16 @@
 |---|---|
 | Test | #4 |
 | Langage IBM i | CLLE |
-| Date d'exécution | 2026-07-10 15:38:04 |
-| Numéro d'exécution | #9 |
+| Date d'exécution | 2026-07-27 |
+| Numéro d'exécution | #10 |
 | Modèle utilisé | granite4.1:8b |
 | Lignes input (utiles) | 6 |
 | Lignes output (utiles) | 6 |
 | Méthode d'extraction | Heuristique (aucun bloc trouvé) |
 | Méthode de comparaison | Alignement difflib (SequenceMatcher) |
 | Commentaires ignorés | True |
+| Casse ignorée | False |
+| Indentation ignorée | Toujours (aucune valeur syntaxique en IBM i) |
 
 ## Statistiques de comparaison
 
@@ -31,7 +33,7 @@
 | Ligne | Type | Avant | Après |
 |---|---|---|---|
 | 1 | SUPPRIMEE | `PGM` | `` |
-| 6 | AJOUTEE | `` | `    ENDDO` |
+| 6 | AJOUTEE | `` | `ENDDO` |
 
 ## Code original (input)
 

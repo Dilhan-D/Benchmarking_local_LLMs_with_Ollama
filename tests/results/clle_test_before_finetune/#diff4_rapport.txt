@@ -1,14 +1,14 @@
 ============================================================
    RAPPORT DE COMPARAISON - CLLE TEST #4
 ============================================================
-  Date d'exécution  : 2026-07-10 15:38:04
-  Numéro exécution  : #9
+  Date d'exécution  : 2026-07-27
+  Numéro exécution  : #10
   Langage           : CLLE
   Modèle            : granite4.1:8b
   Entrée            : #4test.clle
   Réponse Granite   : #result4.clle
   Extraction code   : heuristique (pas de bloc détecté)
-  Options actives   : casse=False | espaces=False | vides=True | commentaires=True
+  Options actives   : casse_ignoree=False | espaces_ignores=False | vides_ignorees=True | commentaires_ignores=True
   Méthode comparaison : alignement difflib (SequenceMatcher)
 ------------------------------------------------------------
   Total lignes entrée (utiles) : 6
@@ -26,5 +26,5 @@ DÉTAIL DES DIFFÉRENCES :
 ------------------------------------------------------------
   - Ligne    1 | SUPPR : PGM
 
-  + Ligne    6 | AJOUT :     ENDDO
+  + Ligne    6 | AJOUT : ENDDO
 
