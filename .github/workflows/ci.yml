@@ -3,8 +3,20 @@ name: CI
 on:
   push:
     branches: [ main, master ]
+    paths:
+      - '.github/workflows/ci.yml'
+      - 'tests/**'
+      - 'cl_questions_before_finetune/**'
+      - 'cobol_questions_before_finetune/**'
+      - 'rpgle_questions_before_finetune/**'
   pull_request:
     branches: [ main, master ]
+    paths:
+      - '.github/workflows/ci.yml'
+      - 'tests/**'
+      - 'cl_questions_before_finetune/**'
+      - 'cobol_questions_before_finetune/**'
+      - 'rpgle_questions_before_finetune/**'
   workflow_dispatch:
 
 jobs:
@@ -47,6 +59,22 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Create CLLE .env file
+        run: |
+          set -euo pipefail
+          mkdir -p tests/clle
+          cat > tests/clle/.env <<'EOF'
+          LANGAGE=clle
+          EXTENSION=.clle
+          DIR_QUESTIONS=../../cl_questions_before_finetune/questions_before_finetune
+          DIR_REPONSES=../../cl_questions_before_finetune/answer_before_finetune
+          DIR_RESULTATS=../results/clle_test_before_finetune
+          NOM_RAPPORT=synthese_comparaison
+          IGNORER_CASSE=false
+          IGNORER_ESPACES=false
+          IGNORER_LIGNES_VIDES=true
+          EOF
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -54,11 +82,21 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install --disable-pip-version-check --quiet python-dotenv
+          set -euo pipefail
+          python3 -m pip install --disable-pip-version-check --quiet python-dotenv
+
+      - name: Verify CLLE inputs
+        run: |
+          set -euo pipefail
+          pwd
+          ls tests/clle
+          test -f tests/clle/.env
+          test -d cl_questions_before_finetune/questions_before_finetune
 
       - name: Run CLLE comparison script
         run: |
-          python tests/clle/compare_clle.py
+          set -euo pipefail
+          python3 tests/clle/compare_clle.py
 
   cobol-tests:
     needs: changes
@@ -68,6 +106,22 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Create COBOL .env file
+        run: |
+          set -euo pipefail
+          mkdir -p tests/cobol
+          cat > tests/cobol/.env <<'EOF'
+          LANGAGE=cobol
+          EXTENSION=.cbl
+          DIR_QUESTIONS=../../cobol_questions_before_finetune/questions_before_finetune
+          DIR_REPONSES=../../cobol_questions_before_finetune/answers_before_finetune
+          DIR_RESULTATS=../results/cobol_test_before_finetune
+          NOM_RAPPORT=synthese_comparaison
+          IGNORER_CASSE=false
+          IGNORER_ESPACES=false
+          IGNORER_LIGNES_VIDES=true
+          EOF
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -75,11 +129,21 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install --disable-pip-version-check --quiet python-dotenv
+          set -euo pipefail
+          python3 -m pip install --disable-pip-version-check --quiet python-dotenv
+
+      - name: Verify COBOL inputs
+        run: |
+          set -euo pipefail
+          pwd
+          ls tests/cobol
+          test -f tests/cobol/.env
+          test -d cobol_questions_before_finetune/questions_before_finetune
 
       - name: Run COBOL comparison script
         run: |
-          python tests/cobol/compare_cobol.py
+          set -euo pipefail
+          python3 tests/cobol/compare_cobol.py
 
   rpgle-tests:
     needs: changes
@@ -89,6 +153,22 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Create RPGLE .env file
+        run: |
+          set -euo pipefail
+          mkdir -p tests/rpgle
+          cat > tests/rpgle/.env <<'EOF'
+          LANGAGE=rpgle
+          EXTENSION=.rpgle
+          DIR_QUESTIONS=../../rpgle_questions_before_finetune/questions_before_finetune
+          DIR_REPONSES=../../rpgle_questions_before_finetune/answers_before_finetune
+          DIR_RESULTATS=../results/rpgle_test_before_finetune
+          NOM_RAPPORT=synthese_comparaison
+          IGNORER_CASSE=false
+          IGNORER_ESPACES=True
+          IGNORER_LIGNES_VIDES=true
+          EOF
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -96,8 +176,18 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install --disable-pip-version-check --quiet python-dotenv
+          set -euo pipefail
+          python3 -m pip install --disable-pip-version-check --quiet python-dotenv
+
+      - name: Verify RPGLE inputs
+        run: |
+          set -euo pipefail
+          pwd
+          ls tests/rpgle
+          test -f tests/rpgle/.env
+          test -d rpgle_questions_before_finetune/questions_before_finetune
 
       - name: Run RPGLE comparison script
         run: |
-          python tests/rpgle/compare_rpgle.py
+          set -euo pipefail
+          python3 tests/rpgle/compare_rpgle.py

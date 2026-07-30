@@ -1,0 +1,11 @@
+# ============================================================
+# Ollama Granite Test Series - Requirements
+# ============================================================
+
+# Chargement .env
+python-dotenv
+
+# Dashboard
+streamlit
+pandas
+plotly
