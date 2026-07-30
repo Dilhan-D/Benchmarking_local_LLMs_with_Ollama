@@ -21,7 +21,7 @@ Dcl-SubProc MonSousProc;  // doit être 'Dcl-Proc'
   
   Dsply 'Sous-procédure appelée';
   
-End-Sub;  // ERREUR 3: 'End-Sub' au lieu de 'End-Proc'
+End-Sub;  // ERREUR 3 : 'End-Sub' au lieu de 'End-Proc'
 
 // ERREUR 4: Procédure dans procédure (impossible)
 Dcl-Proc ProcExterne;
