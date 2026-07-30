@@ -98,6 +98,16 @@ jobs:
           set -euo pipefail
           python3 tests/clle/compare_clle.py
 
+      - name: Publish CLLE results
+        if: success()
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tests/results/clle_test_before_finetune
+          git commit -m "ci: update CLLE comparison results" || echo "No changes to commit"
+          git push
+
   cobol-tests:
     needs: changes
     if: ${{ needs.changes.outputs.cobol == 'true' }}
@@ -145,6 +155,16 @@ jobs:
           set -euo pipefail
           python3 tests/cobol/compare_cobol.py
 
+      - name: Publish COBOL results
+        if: success()
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tests/results/cobol_test_before_finetune
+          git commit -m "ci: update COBOL comparison results" || echo "No changes to commit"
+          git push
+
   rpgle-tests:
     needs: changes
     if: ${{ needs.changes.outputs.rpgle == 'true' }}
@@ -191,3 +211,13 @@ jobs:
         run: |
           set -euo pipefail
           python3 tests/rpgle/compare_rpgle.py
+
+      - name: Publish RPGLE results
+        if: success()
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tests/results/rpgle_test_before_finetune
+          git commit -m "ci: update RPGLE comparison results" || echo "No changes to commit"
+          git push
