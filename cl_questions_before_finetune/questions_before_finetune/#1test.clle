@@ -5,7 +5,7 @@
 PGM
 
     /* Déclarations de variables */
-    DCL VAR(&NOM)     TYPE(*CHAR)   LEN(30) VALUE('DUPONT')
+    DCL VAR(&NOM)     TYPE(*CHAR)   LEN(30) VALUE('GILLES')
     DCL VAR(&AGE)     TYPE(*DEC)    LEN(3 0) VALUE(25)
     DCL VAR(&SALAIRE) TYPE(*DEC)    LEN(9 2) VALUE(2500.00)
     DCL VAR(&ACTIF)   TYPE(*LGL)    VALUE('1')
