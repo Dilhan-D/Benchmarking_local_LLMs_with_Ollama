@@ -1,8 +1,8 @@
 ============================================================
    RAPPORT DE COMPARAISON - RPGLE TEST #5
 ============================================================
-  Date d'exécution  : 2026-07-24 16:53:01
-  Numéro exécution  : #11
+  Date d'exécution  : 2026-07-30
+  Numéro exécution  : #1
   Langage           : RPGLE
   Modèle            : granite4.1:8b
   Entrée            : #5test.rpgle
