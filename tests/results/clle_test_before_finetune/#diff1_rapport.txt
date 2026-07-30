@@ -2,7 +2,7 @@
    RAPPORT DE COMPARAISON - CLLE TEST #1
 ============================================================
   Date d'exécution  : 2026-07-30
-  Numéro exécution  : #1
+  Numéro exécution  : #2
   Langage           : CLLE
   Modèle            : granite4.1:8b
   Entrée            : #1test.clle
@@ -27,7 +27,7 @@ DÉTAIL DES DIFFÉRENCES :
   ~ Ligne    2 | AVANT : DCL VAR(&NOM)     TYPE(*CHAR)   LEN(30) VALUE('GILLES')
              | APRÈS : DCL VAR(&NOM)     TYPE(*CHAR)   LEN(30) VALUE('DUPONT')
 
-  ~ Ligne    3 | AVANT : DCL VAR(&AGE)     TYPE(*DEC)    LEN(3 0) VALUE(33)
+  ~ Ligne    3 | AVANT : DCL VAR(&AGE)     TYPE(*DEC)    LEN(3 0) VALUE(34)
              | APRÈS : DCL VAR(&AGE)     TYPE(*DEC)    LEN(3 0) VALUE(25)
 
   ~ Ligne    9 | AVANT : DCL VAR(&MONTANT) TYPE(*DEC)    LEN(9 2) VALUE('ABC')
