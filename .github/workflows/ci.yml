@@ -1,0 +1,106 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      clle: ${{ steps.filter.outputs.clle }}
+      cobol: ${{ steps.filter.outputs.cobol }}
+      rpgle: ${{ steps.filter.outputs.rpgle }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Detect relevant changes
+        id: filter
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            clle:
+              - 'tests/clle/**'
+              - 'cl_questions_before_finetune/**'
+              - 'tests/requirements.txt'
+              - '.github/workflows/ci.yml'
+            cobol:
+              - 'tests/cobol/**'
+              - 'cobol_questions_before_finetune/**'
+              - 'tests/requirements.txt'
+              - '.github/workflows/ci.yml'
+            rpgle:
+              - 'tests/rpgle/**'
+              - 'rpgle_questions_before_finetune/**'
+              - 'tests/requirements.txt'
+              - '.github/workflows/ci.yml'
+
+  clle-tests:
+    needs: changes
+    if: ${{ needs.changes.outputs.clle == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r tests/requirements.txt
+
+      - name: Run CLLE comparison script
+        run: |
+          python tests/clle/compare_clle.py
+
+  cobol-tests:
+    needs: changes
+    if: ${{ needs.changes.outputs.cobol == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r tests/requirements.txt
+
+      - name: Run COBOL comparison script
+        run: |
+          python tests/cobol/compare_cobol.py
+
+  rpgle-tests:
+    needs: changes
+    if: ${{ needs.changes.outputs.rpgle == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r tests/requirements.txt
+
+      - name: Run RPGLE comparison script
+        run: |
+          python tests/rpgle/compare_rpgle.py
