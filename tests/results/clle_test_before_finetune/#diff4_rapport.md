@@ -6,8 +6,8 @@
 |---|---|
 | Test | #4 |
 | Langage IBM i | CLLE |
-| Date d'exécution | 2026-07-27 |
-| Numéro d'exécution | #10 |
+| Date d'exécution | 2026-07-30 |
+| Numéro d'exécution | #1 |
 | Modèle utilisé | granite4.1:8b |
 | Lignes input (utiles) | 6 |
 | Lignes output (utiles) | 6 |

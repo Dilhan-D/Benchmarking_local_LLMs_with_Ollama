@@ -6,8 +6,8 @@
 |---|---|
 | Test | #1 |
 | Langage IBM i | CLLE |
-| Date d'exécution | 2026-07-27 |
-| Numéro d'exécution | #10 |
+| Date d'exécution | 2026-07-30 |
+| Numéro d'exécution | #1 |
 | Modèle utilisé | granite4.1:8b |
 | Lignes input (utiles) | 13 |
 | Lignes output (utiles) | 17 |
@@ -21,17 +21,19 @@
 
 | Métrique | Valeur |
 |---|---|
-| Lignes identiques | 9 |
-| Lignes modifiées | 8 |
+| Lignes identiques | 7 |
+| Lignes modifiées | 10 |
 | Lignes ajoutées | 0 |
 | Lignes supprimées | 0 |
-| Total différences | 8 |
-| **Similarité globale** | **69.23%** |
+| Total différences | 10 |
+| **Similarité globale** | **53.85%** |
 
 ## Différences détectées
 
 | Ligne | Type | Avant | Après |
 |---|---|---|---|
+| 2 | MODIFIEE | `DCL VAR(&NOM)     TYPE(*CHAR)   LEN(30) VALUE('GILLES')` | `DCL VAR(&NOM)     TYPE(*CHAR)   LEN(30) VALUE('DUPONT')` |
+| 3 | MODIFIEE | `DCL VAR(&AGE)     TYPE(*DEC)    LEN(3 0) VALUE(33)` | `DCL VAR(&AGE)     TYPE(*DEC)    LEN(3 0) VALUE(25)` |
 | 9 | MODIFIEE | `DCL VAR(&MONTANT) TYPE(*DEC)    LEN(9 2) VALUE('ABC')` | `DCL VAR(&MONTANT) TYPE(*DEC)    LEN(9 2) VALUE(1000.00)` |
 | 10 | MODIFIEE | `IF COND(&AGE *GE 18) THEN(DO)` | `IF COND(&AGE *GE 18) THEN(` |
 | 12 | MODIFIEE | `ENDDO` | `)` |
@@ -51,8 +53,8 @@
 PGM
 
     /* Déclarations de variables */
-    DCL VAR(&NOM)     TYPE(*CHAR)   LEN(30) VALUE('DUPONT')
-    DCL VAR(&AGE)     TYPE(*DEC)    LEN(3 0) VALUE(25)
+    DCL VAR(&NOM)     TYPE(*CHAR)   LEN(30) VALUE('GILLES')
+    DCL VAR(&AGE)     TYPE(*DEC)    LEN(3 0) VALUE(33)
     DCL VAR(&SALAIRE) TYPE(*DEC)    LEN(9 2) VALUE(2500.00)
     DCL VAR(&ACTIF)   TYPE(*LGL)    VALUE('1')
     DCL VAR(&MSGID)   TYPE(*CHAR)   LEN(7)

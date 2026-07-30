@@ -1,8 +1,8 @@
 ============================================================
    RAPPORT DE COMPARAISON - CLLE TEST #5
 ============================================================
-  Date d'exécution  : 2026-07-27
-  Numéro exécution  : #10
+  Date d'exécution  : 2026-07-30
+  Numéro exécution  : #1
   Langage           : CLLE
   Modèle            : granite4.1:8b
   Entrée            : #5test.clle
