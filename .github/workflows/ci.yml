@@ -54,7 +54,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install -r tests/requirements_utf8.txt
+          python -m pip install --disable-pip-version-check --quiet python-dotenv
 
       - name: Run CLLE comparison script
         run: |
@@ -75,7 +75,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install -r tests/requirements_utf8.txt
+          python -m pip install --disable-pip-version-check --quiet python-dotenv
 
       - name: Run COBOL comparison script
         run: |
@@ -96,7 +96,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install -r tests/requirements_utf8.txt
+          python -m pip install --disable-pip-version-check --quiet python-dotenv
 
       - name: Run RPGLE comparison script
         run: |
