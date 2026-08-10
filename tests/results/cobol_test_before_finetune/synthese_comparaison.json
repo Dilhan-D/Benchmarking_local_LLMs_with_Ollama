@@ -1,10 +1,10 @@
 {
-  "execution": 4,
+  "execution": 5,
   "date": "2026-08-10",
   "langage": "cobol",
   "resultats": [
     {
-      "execution": 4,
+      "execution": 5,
       "date": "2026-08-10",
       "langage": "cobol",
       "test": "#1",
@@ -53,7 +53,7 @@
       ]
     },
     {
-      "execution": 4,
+      "execution": 5,
       "date": "2026-08-10",
       "langage": "cobol",
       "test": "#2",
@@ -126,7 +126,7 @@
       ]
     },
     {
-      "execution": 4,
+      "execution": 5,
       "date": "2026-08-10",
       "langage": "cobol",
       "test": "#3",
@@ -181,7 +181,7 @@
       ]
     },
     {
-      "execution": 4,
+      "execution": 5,
       "date": "2026-08-10",
       "langage": "cobol",
       "test": "#4",
@@ -260,7 +260,7 @@
       ]
     },
     {
-      "execution": 4,
+      "execution": 5,
       "date": "2026-08-10",
       "langage": "cobol",
       "test": "#5",
@@ -322,6 +322,91 @@
           "ligne": 8,
           "type": "SUPPRIMEE",
           "avant": "STOP RUN.",
+          "apres": ""
+        }
+      ]
+    },
+    {
+      "execution": 5,
+      "date": "2026-08-10",
+      "langage": "cobol",
+      "test": "#6",
+      "fichier_entree": "#6test.cbl",
+      "fichier_reponse": "#result6.cbl",
+      "lignes_entree": 11,
+      "lignes_sortie": 0,
+      "identiques": 0,
+      "modifiees": 0,
+      "ajoutees": 0,
+      "supprimees": 11,
+      "total_diff": 11,
+      "similarite": 0.0,
+      "extraction_bloc_md": false,
+      "differences": [
+        {
+          "ligne": 1,
+          "type": "SUPPRIMEE",
+          "avant": "IDENTIFICATION DIVISION.",
+          "apres": ""
+        },
+        {
+          "ligne": 2,
+          "type": "SUPPRIMEE",
+          "avant": "PROGRAM-ID. TEST6",
+          "apres": ""
+        },
+        {
+          "ligne": 3,
+          "type": "SUPPRIMEE",
+          "avant": "DATA DIVISION.",
+          "apres": ""
+        },
+        {
+          "ligne": 4,
+          "type": "SUPPRIMEE",
+          "avant": "WORKING-STORAGE SECTION.",
+          "apres": ""
+        },
+        {
+          "ligne": 5,
+          "type": "SUPPRIMEE",
+          "avant": "01 COUNTER PIC 9.",
+          "apres": ""
+        },
+        {
+          "ligne": 6,
+          "type": "SUPPRIMEE",
+          "avant": "10 VENOM   PIC(x)",
+          "apres": ""
+        },
+        {
+          "ligne": 7,
+          "type": "SUPPRIMEE",
+          "avant": "PROCEDURE DIVISION.",
+          "apres": ""
+        },
+        {
+          "ligne": 8,
+          "type": "SUPPRIMEE",
+          "avant": "PERFORM 3 TIMES",
+          "apres": ""
+        },
+        {
+          "ligne": 9,
+          "type": "SUPPRIMEE",
+          "avant": "PRINT \"ERROR\"",
+          "apres": ""
+        },
+        {
+          "ligne": 10,
+          "type": "SUPPRIMEE",
+          "avant": "COMPUTE 1 = 2",
+          "apres": ""
+        },
+        {
+          "ligne": 11,
+          "type": "SUPPRIMEE",
+          "avant": "STOP RUN",
           "apres": ""
         }
       ]
