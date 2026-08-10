@@ -1,24 +1,24 @@
 ============================================================
-   RAPPORT DE COMPARAISON - COBOL TEST #1
+   RAPPORT DE COMPARAISON - COBOL TEST #3
 ============================================================
   Date d'exécution  : 2026-08-10
   Numéro exécution  : #2
   Langage           : COBOL
   Modèle            : granite4.1:8b
-  Entrée            : #1test.cbl
-  Réponse Granite   : #result1.cbl
+  Entrée            : #3test.cbl
+  Réponse Granite   : #result3.cbl
   Extraction code   : heuristique (pas de bloc détecté)
   Options actives   : casse_ignoree=False | espaces_ignores=False | vides_ignorees=True | commentaires_ignores=True
   Méthode comparaison : alignement difflib (SequenceMatcher)
 ------------------------------------------------------------
-  Total lignes entrée (utiles) : 5
+  Total lignes entrée (utiles) : 6
   Total lignes sortie (utiles) : 0
 ------------------------------------------------------------
   Lignes identiques    : 0
   Lignes modifiées     : 0
   Lignes ajoutées      : 0
-  Lignes supprimées    : 5
-  Total différences    : 5
+  Lignes supprimées    : 6
+  Total différences    : 6
   Similarité globale   : 0.0%
 ============================================================
 
@@ -26,11 +26,13 @@ DÉTAIL DES DIFFÉRENCES :
 ------------------------------------------------------------
   - Ligne    1 | SUPPR : IDENTIFICATION DIVISION.
 
-  - Ligne    2 | SUPPR : PROGRAM-ID TEST1
+  - Ligne    2 | SUPPR : PROGRAM-ID. TEST3.
 
   - Ligne    3 | SUPPR : PROCEDURE DIVISION.
 
-  - Ligne    4 | SUPPR : PRINT "HELLO"
+  - Ligne    4 | SUPPR : DISPLAY "TESTING"
 
-  - Ligne    5 | SUPPR : STOP RUN.
+  - Ligne    5 | SUPPR : IF 1 = 1
+
+  - Ligne    6 | SUPPR : DISPLAY "TRUE"
 
