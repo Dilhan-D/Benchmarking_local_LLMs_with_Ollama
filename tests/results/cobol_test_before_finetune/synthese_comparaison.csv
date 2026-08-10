@@ -4,3 +4,7 @@ execution;date;langage;test;fichier_entree;fichier_reponse;lignes_entree;lignes_
 2;2026-08-10;cobol;#1;#1test.cbl;#result1.cbl;5;0;0;0;0;5;5;0.0;False
 2;2026-08-10;cobol;#2;#2test.cbl;#result2.cbl;9;0;0;0;0;9;9;0.0;False
 2;2026-08-10;cobol;#3;#3test.cbl;#result3.cbl;6;0;0;0;0;6;6;0.0;False
+3;2026-08-10;cobol;#1;#1test.cbl;#result1.cbl;5;0;0;0;0;5;5;0.0;False
+3;2026-08-10;cobol;#2;#2test.cbl;#result2.cbl;9;0;0;0;0;9;9;0.0;False
+3;2026-08-10;cobol;#3;#3test.cbl;#result3.cbl;6;0;0;0;0;6;6;0.0;False
+3;2026-08-10;cobol;#4;#4test.cbl;#result4.cbl;10;0;0;0;0;10;10;0.0;False
