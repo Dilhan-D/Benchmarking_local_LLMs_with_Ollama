@@ -6,8 +6,8 @@
 |---|---|
 | Test | #7 |
 | Langage IBM i | RPGLE |
-| Date d'exécution | 2026-07-24 16:53:01 |
-| Numéro d'exécution | #11 |
+| Date d'exécution | 2026-07-30 |
+| Numéro d'exécution | #1 |
 | Modèle utilisé | granite4.1:8b |
 | Lignes input (utiles) | 36 |
 | Lignes output (utiles) | 35 |
@@ -39,7 +39,7 @@
 | 11 | MODIFIEE | `Dcl-Pi MonSousProc;` | `Dcl-Pi MonSousProc param1 Int(10);` |
 | 12 | MODIFIEE | `param1 Int(10);` | `Dsply 'Sous-procédure appelée avec param1 = ' + %Char(param1);` |
 | 14 | MODIFIEE | `Dsply 'Sous-procédure appelée';` | `End-Sub;` |
-| 15 | MODIFIEE | `End-Sub;  // ERREUR 3: 'End-Sub' au lieu de 'End-Proc'` | `` |
+| 15 | MODIFIEE | `End-Sub;  // ERREUR 3 : 'End-Sub' au lieu de 'End-Proc'` | `` |
 | 17 | MODIFIEE | `Dcl-Proc ProcInterne;` | `Dcl-Proc ProcInterne InLb;  // Utilisez InLb pour indiquer que c'est une procédure locale` |
 | 22 | MODIFIEE | `Return ProcInterne();` | `Dsply 'Resultat de ProcInterne : ' + %Dec(ProcInterne(), 10, 2);` |
 | 26 | MODIFIEE | `salaireBase Dec(10,2);` | `salaireBase Dec(10,2) ;` |
@@ -74,7 +74,7 @@ Dcl-SubProc MonSousProc;  // doit être 'Dcl-Proc'
   
   Dsply 'Sous-procédure appelée';
   
-End-Sub;  // ERREUR 3: 'End-Sub' au lieu de 'End-Proc'
+End-Sub;  // ERREUR 3 : 'End-Sub' au lieu de 'End-Proc'
 
 // ERREUR 4: Procédure dans procédure (impossible)
 Dcl-Proc ProcExterne;

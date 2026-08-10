@@ -6,8 +6,8 @@
 |---|---|
 | Test | #2 |
 | Langage IBM i | RPGLE |
-| Date d'exécution | 2026-07-24 16:53:01 |
-| Numéro d'exécution | #11 |
+| Date d'exécution | 2026-07-30 |
+| Numéro d'exécution | #1 |
 | Modèle utilisé | granite4.1:8b |
 | Lignes input (utiles) | 14 |
 | Lignes output (utiles) | 14 |
