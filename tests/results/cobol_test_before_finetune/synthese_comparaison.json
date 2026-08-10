@@ -1,10 +1,10 @@
 {
-  "execution": 1,
+  "execution": 2,
   "date": "2026-08-10",
   "langage": "cobol",
   "resultats": [
     {
-      "execution": 1,
+      "execution": 2,
       "date": "2026-08-10",
       "langage": "cobol",
       "test": "#1",
@@ -53,7 +53,7 @@
       ]
     },
     {
-      "execution": 1,
+      "execution": 2,
       "date": "2026-08-10",
       "langage": "cobol",
       "test": "#2",
@@ -121,6 +121,61 @@
           "ligne": 9,
           "type": "SUPPRIMEE",
           "avant": "STOP RUN.",
+          "apres": ""
+        }
+      ]
+    },
+    {
+      "execution": 2,
+      "date": "2026-08-10",
+      "langage": "cobol",
+      "test": "#3",
+      "fichier_entree": "#3test.cbl",
+      "fichier_reponse": "#result3.cbl",
+      "lignes_entree": 6,
+      "lignes_sortie": 0,
+      "identiques": 0,
+      "modifiees": 0,
+      "ajoutees": 0,
+      "supprimees": 6,
+      "total_diff": 6,
+      "similarite": 0.0,
+      "extraction_bloc_md": false,
+      "differences": [
+        {
+          "ligne": 1,
+          "type": "SUPPRIMEE",
+          "avant": "IDENTIFICATION DIVISION.",
+          "apres": ""
+        },
+        {
+          "ligne": 2,
+          "type": "SUPPRIMEE",
+          "avant": "PROGRAM-ID. TEST3.",
+          "apres": ""
+        },
+        {
+          "ligne": 3,
+          "type": "SUPPRIMEE",
+          "avant": "PROCEDURE DIVISION.",
+          "apres": ""
+        },
+        {
+          "ligne": 4,
+          "type": "SUPPRIMEE",
+          "avant": "DISPLAY \"TESTING\"",
+          "apres": ""
+        },
+        {
+          "ligne": 5,
+          "type": "SUPPRIMEE",
+          "avant": "IF 1 = 1",
+          "apres": ""
+        },
+        {
+          "ligne": 6,
+          "type": "SUPPRIMEE",
+          "avant": "DISPLAY \"TRUE\"",
           "apres": ""
         }
       ]
