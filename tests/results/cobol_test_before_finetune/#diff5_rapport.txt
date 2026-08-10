@@ -1,24 +1,24 @@
 ============================================================
-   RAPPORT DE COMPARAISON - COBOL TEST #1
+   RAPPORT DE COMPARAISON - COBOL TEST #5
 ============================================================
   Date d'exécution  : 2026-08-10
   Numéro exécution  : #4
   Langage           : COBOL
   Modèle            : granite4.1:8b
-  Entrée            : #1test.cbl
-  Réponse Granite   : #result1.cbl
+  Entrée            : #5test.cbl
+  Réponse Granite   : #result5.cbl
   Extraction code   : heuristique (pas de bloc détecté)
   Options actives   : casse_ignoree=False | espaces_ignores=False | vides_ignorees=True | commentaires_ignores=True
   Méthode comparaison : alignement difflib (SequenceMatcher)
 ------------------------------------------------------------
-  Total lignes entrée (utiles) : 5
+  Total lignes entrée (utiles) : 8
   Total lignes sortie (utiles) : 0
 ------------------------------------------------------------
   Lignes identiques    : 0
   Lignes modifiées     : 0
   Lignes ajoutées      : 0
-  Lignes supprimées    : 5
-  Total différences    : 5
+  Lignes supprimées    : 8
+  Total différences    : 8
   Similarité globale   : 0.0%
 ============================================================
 
@@ -26,11 +26,17 @@ DÉTAIL DES DIFFÉRENCES :
 ------------------------------------------------------------
   - Ligne    1 | SUPPR : IDENTIFICATION DIVISION.
 
-  - Ligne    2 | SUPPR : PROGRAM-ID TEST1
+  - Ligne    2 | SUPPR : PROGRAM-ID. TEST5.
 
-  - Ligne    3 | SUPPR : PROCEDURE DIVISION.
+  - Ligne    3 | SUPPR : DATA DIVISION.
 
-  - Ligne    4 | SUPPR : PRINT "HELLO"
+  - Ligne    4 | SUPPR : 01 VAL1 PIC 9(3).
 
-  - Ligne    5 | SUPPR : STOP RUN.
+  - Ligne    5 | SUPPR : PROCEDURE DIVISION.
+
+  - Ligne    6 | SUPPR : MOVE "ABC" TO VAL1.
+
+  - Ligne    7 | SUPPR : DISPLAY VAL1.
+
+  - Ligne    8 | SUPPR : STOP RUN.
 

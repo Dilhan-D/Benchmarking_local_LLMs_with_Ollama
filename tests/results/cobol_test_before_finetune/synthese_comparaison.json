@@ -1,10 +1,10 @@
 {
-  "execution": 3,
+  "execution": 4,
   "date": "2026-08-10",
   "langage": "cobol",
   "resultats": [
     {
-      "execution": 3,
+      "execution": 4,
       "date": "2026-08-10",
       "langage": "cobol",
       "test": "#1",
@@ -53,7 +53,7 @@
       ]
     },
     {
-      "execution": 3,
+      "execution": 4,
       "date": "2026-08-10",
       "langage": "cobol",
       "test": "#2",
@@ -126,7 +126,7 @@
       ]
     },
     {
-      "execution": 3,
+      "execution": 4,
       "date": "2026-08-10",
       "langage": "cobol",
       "test": "#3",
@@ -181,7 +181,7 @@
       ]
     },
     {
-      "execution": 3,
+      "execution": 4,
       "date": "2026-08-10",
       "langage": "cobol",
       "test": "#4",
@@ -253,6 +253,73 @@
         },
         {
           "ligne": 10,
+          "type": "SUPPRIMEE",
+          "avant": "STOP RUN.",
+          "apres": ""
+        }
+      ]
+    },
+    {
+      "execution": 4,
+      "date": "2026-08-10",
+      "langage": "cobol",
+      "test": "#5",
+      "fichier_entree": "#5test.cbl",
+      "fichier_reponse": "#result5.cbl",
+      "lignes_entree": 8,
+      "lignes_sortie": 0,
+      "identiques": 0,
+      "modifiees": 0,
+      "ajoutees": 0,
+      "supprimees": 8,
+      "total_diff": 8,
+      "similarite": 0.0,
+      "extraction_bloc_md": false,
+      "differences": [
+        {
+          "ligne": 1,
+          "type": "SUPPRIMEE",
+          "avant": "IDENTIFICATION DIVISION.",
+          "apres": ""
+        },
+        {
+          "ligne": 2,
+          "type": "SUPPRIMEE",
+          "avant": "PROGRAM-ID. TEST5.",
+          "apres": ""
+        },
+        {
+          "ligne": 3,
+          "type": "SUPPRIMEE",
+          "avant": "DATA DIVISION.",
+          "apres": ""
+        },
+        {
+          "ligne": 4,
+          "type": "SUPPRIMEE",
+          "avant": "01 VAL1 PIC 9(3).",
+          "apres": ""
+        },
+        {
+          "ligne": 5,
+          "type": "SUPPRIMEE",
+          "avant": "PROCEDURE DIVISION.",
+          "apres": ""
+        },
+        {
+          "ligne": 6,
+          "type": "SUPPRIMEE",
+          "avant": "MOVE \"ABC\" TO VAL1.",
+          "apres": ""
+        },
+        {
+          "ligne": 7,
+          "type": "SUPPRIMEE",
+          "avant": "DISPLAY VAL1.",
+          "apres": ""
+        },
+        {
+          "ligne": 8,
           "type": "SUPPRIMEE",
           "avant": "STOP RUN.",
           "apres": ""
