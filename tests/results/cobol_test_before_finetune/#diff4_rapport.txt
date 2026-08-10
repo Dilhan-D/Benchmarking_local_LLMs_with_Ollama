@@ -1,24 +1,24 @@
 ============================================================
-   RAPPORT DE COMPARAISON - COBOL TEST #2
+   RAPPORT DE COMPARAISON - COBOL TEST #4
 ============================================================
   Date d'exécution  : 2026-08-10
   Numéro exécution  : #3
   Langage           : COBOL
   Modèle            : granite4.1:8b
-  Entrée            : #2test.cbl
-  Réponse Granite   : #result2.cbl
+  Entrée            : #4test.cbl
+  Réponse Granite   : #result4.cbl
   Extraction code   : heuristique (pas de bloc détecté)
   Options actives   : casse_ignoree=False | espaces_ignores=False | vides_ignorees=True | commentaires_ignores=True
   Méthode comparaison : alignement difflib (SequenceMatcher)
 ------------------------------------------------------------
-  Total lignes entrée (utiles) : 9
+  Total lignes entrée (utiles) : 10
   Total lignes sortie (utiles) : 0
 ------------------------------------------------------------
   Lignes identiques    : 0
   Lignes modifiées     : 0
   Lignes ajoutées      : 0
-  Lignes supprimées    : 9
-  Total différences    : 9
+  Lignes supprimées    : 10
+  Total différences    : 10
   Similarité globale   : 0.0%
 ============================================================
 
@@ -26,19 +26,21 @@ DÉTAIL DES DIFFÉRENCES :
 ------------------------------------------------------------
   - Ligne    1 | SUPPR : IDENTIFICATION DIVISION.
 
-  - Ligne    2 | SUPPR : PROGRAM-ID. TEST2.
+  - Ligne    2 | SUPPR : PROGRAM-ID. TEST4.
 
   - Ligne    3 | SUPPR : DATA DIVISION.
 
   - Ligne    4 | SUPPR : WORKING-STORAGE SECTION.
 
-  - Ligne    5 | SUPPR : 01 NAME PIC X(10).
+  - Ligne    5 | SUPPR : 01 COUNTER PIC 9(2) VALUE 0.
 
   - Ligne    6 | SUPPR : PROCEDURE DIVISION.
 
-  - Ligne    7 | SUPPR : MOVE "JOHN" TO NAMES.
+  - Ligne    7 | SUPPR : PERFORM UNTIL COUNTER > 5
 
-  - Ligne    8 | SUPPR : DISPLAY NAME.
+  - Ligne    8 | SUPPR : DISPLAY COUNTER
 
-  - Ligne    9 | SUPPR : STOP RUN.
+  - Ligne    9 | SUPPR : ADD 1 TO COUNTER
+
+  - Ligne   10 | SUPPR : STOP RUN.
 

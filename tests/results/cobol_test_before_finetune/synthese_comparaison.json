@@ -1,10 +1,10 @@
 {
-  "execution": 2,
+  "execution": 3,
   "date": "2026-08-10",
   "langage": "cobol",
   "resultats": [
     {
-      "execution": 2,
+      "execution": 3,
       "date": "2026-08-10",
       "langage": "cobol",
       "test": "#1",
@@ -53,7 +53,7 @@
       ]
     },
     {
-      "execution": 2,
+      "execution": 3,
       "date": "2026-08-10",
       "langage": "cobol",
       "test": "#2",
@@ -126,7 +126,7 @@
       ]
     },
     {
-      "execution": 2,
+      "execution": 3,
       "date": "2026-08-10",
       "langage": "cobol",
       "test": "#3",
@@ -176,6 +176,85 @@
           "ligne": 6,
           "type": "SUPPRIMEE",
           "avant": "DISPLAY \"TRUE\"",
+          "apres": ""
+        }
+      ]
+    },
+    {
+      "execution": 3,
+      "date": "2026-08-10",
+      "langage": "cobol",
+      "test": "#4",
+      "fichier_entree": "#4test.cbl",
+      "fichier_reponse": "#result4.cbl",
+      "lignes_entree": 10,
+      "lignes_sortie": 0,
+      "identiques": 0,
+      "modifiees": 0,
+      "ajoutees": 0,
+      "supprimees": 10,
+      "total_diff": 10,
+      "similarite": 0.0,
+      "extraction_bloc_md": false,
+      "differences": [
+        {
+          "ligne": 1,
+          "type": "SUPPRIMEE",
+          "avant": "IDENTIFICATION DIVISION.",
+          "apres": ""
+        },
+        {
+          "ligne": 2,
+          "type": "SUPPRIMEE",
+          "avant": "PROGRAM-ID. TEST4.",
+          "apres": ""
+        },
+        {
+          "ligne": 3,
+          "type": "SUPPRIMEE",
+          "avant": "DATA DIVISION.",
+          "apres": ""
+        },
+        {
+          "ligne": 4,
+          "type": "SUPPRIMEE",
+          "avant": "WORKING-STORAGE SECTION.",
+          "apres": ""
+        },
+        {
+          "ligne": 5,
+          "type": "SUPPRIMEE",
+          "avant": "01 COUNTER PIC 9(2) VALUE 0.",
+          "apres": ""
+        },
+        {
+          "ligne": 6,
+          "type": "SUPPRIMEE",
+          "avant": "PROCEDURE DIVISION.",
+          "apres": ""
+        },
+        {
+          "ligne": 7,
+          "type": "SUPPRIMEE",
+          "avant": "PERFORM UNTIL COUNTER > 5",
+          "apres": ""
+        },
+        {
+          "ligne": 8,
+          "type": "SUPPRIMEE",
+          "avant": "DISPLAY COUNTER",
+          "apres": ""
+        },
+        {
+          "ligne": 9,
+          "type": "SUPPRIMEE",
+          "avant": "ADD 1 TO COUNTER",
+          "apres": ""
+        },
+        {
+          "ligne": 10,
+          "type": "SUPPRIMEE",
+          "avant": "STOP RUN.",
           "apres": ""
         }
       ]
