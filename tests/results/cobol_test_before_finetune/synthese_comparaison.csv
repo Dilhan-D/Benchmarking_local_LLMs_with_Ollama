@@ -1,2 +1,3 @@
-execution,date,langage,test,fichier_entree,fichier_reponse,lignes_entree,lignes_sortie,identiques,modifiees,ajoutees,supprimees,total_diff,similarite
-1,2026-05-27 13:54:16,cobol,#1,#1test.cbl,#result1.cbl,0,0,0,0,0,0,0,0.0
+execution;date;langage;test;fichier_entree;fichier_reponse;lignes_entree;lignes_sortie;identiques;modifiees;ajoutees;supprimees;total_diff;similarite;extraction_bloc_md
+1;2026-08-10;cobol;#1;#1test.cbl;#result1.cbl;5;0;0;0;0;5;5;0.0;False
+1;2026-08-10;cobol;#2;#2test.cbl;#result2.cbl;9;0;0;0;0;9;9;0.0;False
