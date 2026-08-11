@@ -1,10 +1,10 @@
 {
-  "execution": 8,
+  "execution": 9,
   "date": "2026-08-11",
   "langage": "cobol",
   "resultats": [
     {
-      "execution": 8,
+      "execution": 9,
       "date": "2026-08-11",
       "langage": "cobol",
       "test": "#1",
@@ -35,7 +35,7 @@
       ]
     },
     {
-      "execution": 8,
+      "execution": 9,
       "date": "2026-08-11",
       "langage": "cobol",
       "test": "#2",
@@ -60,7 +60,7 @@
       ]
     },
     {
-      "execution": 8,
+      "execution": 9,
       "date": "2026-08-11",
       "langage": "cobol",
       "test": "#3",
@@ -103,86 +103,62 @@
       ]
     },
     {
-      "execution": 8,
+      "execution": 9,
       "date": "2026-08-11",
       "langage": "cobol",
       "test": "#4",
       "fichier_entree": "#4test.cbl",
       "fichier_reponse": "#result4.cbl",
       "lignes_entree": 10,
-      "lignes_sortie": 0,
-      "identiques": 0,
-      "modifiees": 0,
+      "lignes_sortie": 11,
+      "identiques": 5,
+      "modifiees": 6,
       "ajoutees": 0,
-      "supprimees": 10,
-      "total_diff": 10,
-      "similarite": 0.0,
+      "supprimees": 0,
+      "total_diff": 6,
+      "similarite": 50.0,
       "extraction_bloc_md": false,
       "differences": [
         {
-          "ligne": 1,
-          "type": "SUPPRIMEE",
-          "avant": "IDENTIFICATION DIVISION.",
-          "apres": ""
-        },
-        {
-          "ligne": 2,
-          "type": "SUPPRIMEE",
-          "avant": "PROGRAM-ID. TEST4.",
-          "apres": ""
-        },
-        {
-          "ligne": 3,
-          "type": "SUPPRIMEE",
-          "avant": "DATA DIVISION.",
-          "apres": ""
-        },
-        {
-          "ligne": 4,
-          "type": "SUPPRIMEE",
-          "avant": "WORKING-STORAGE SECTION.",
-          "apres": ""
-        },
-        {
           "ligne": 5,
-          "type": "SUPPRIMEE",
+          "type": "MODIFIEE",
           "avant": "01 COUNTER PIC 9(2) VALUE 0.",
-          "apres": ""
-        },
-        {
-          "ligne": 6,
-          "type": "SUPPRIMEE",
-          "avant": "PROCEDURE DIVISION.",
-          "apres": ""
+          "apres": "01 COUNTER PIC 9(2) VALUE 0.   *> Déclare un compteur de 2 chiffres, initialisé à 0"
         },
         {
           "ligne": 7,
-          "type": "SUPPRIMEE",
+          "type": "MODIFIEE",
           "avant": "PERFORM UNTIL COUNTER > 5",
-          "apres": ""
+          "apres": "PERFORM UNTIL COUNTER > 5      *> Boucle jusqu'à ce que le compteur soit supérieur à 5"
         },
         {
           "ligne": 8,
-          "type": "SUPPRIMEE",
+          "type": "MODIFIEE",
           "avant": "DISPLAY COUNTER",
-          "apres": ""
+          "apres": "DISPLAY COUNTER            *> Affiche la valeur actuelle du compteur"
         },
         {
           "ligne": 9,
-          "type": "SUPPRIMEE",
+          "type": "MODIFIEE",
           "avant": "ADD 1 TO COUNTER",
-          "apres": ""
+          "apres": "ADD 1 TO COUNTER           *> Incrément le compteur de 1"
         },
         {
           "ligne": 10,
-          "type": "SUPPRIMEE",
+          "type": "MODIFIEE",
           "avant": "STOP RUN.",
-          "apres": ""
+          "apres": "END-PERFORM."
+        },
+        {
+          "ligne": 11,
+          "type": "MODIFIEE",
+          "avant": "",
+          "apres": "STOP RUN.                         *> Termine l'exécution du programme"
         }
       ]
     },
     {
-      "execution": 8,
+      "execution": 9,
       "date": "2026-08-11",
       "langage": "cobol",
       "test": "#5",
@@ -249,7 +225,7 @@
       ]
     },
     {
-      "execution": 8,
+      "execution": 9,
       "date": "2026-08-11",
       "langage": "cobol",
       "test": "#6",
