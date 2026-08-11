@@ -2,7 +2,7 @@
    RAPPORT DE COMPARAISON - COBOL TEST #3
 ============================================================
   Date d'exécution  : 2026-08-11
-  Numéro exécution  : #7
+  Numéro exécution  : #8
   Langage           : COBOL
   Modèle            : granite4.1:8b
   Entrée            : #3test.cbl
@@ -12,27 +12,27 @@
   Méthode comparaison : alignement difflib (SequenceMatcher)
 ------------------------------------------------------------
   Total lignes entrée (utiles) : 6
-  Total lignes sortie (utiles) : 0
+  Total lignes sortie (utiles) : 8
 ------------------------------------------------------------
-  Lignes identiques    : 0
-  Lignes modifiées     : 0
+  Lignes identiques    : 4
+  Lignes modifiées     : 4
   Lignes ajoutées      : 0
-  Lignes supprimées    : 6
-  Total différences    : 6
-  Similarité globale   : 0.0%
+  Lignes supprimées    : 0
+  Total différences    : 4
+  Similarité globale   : 66.67%
 ============================================================
 
 DÉTAIL DES DIFFÉRENCES :
 ------------------------------------------------------------
-  - Ligne    1 | SUPPR : IDENTIFICATION DIVISION.
+  ~ Ligne    4 | AVANT : DISPLAY "TESTING"
+             | APRÈS : DISPLAY "TESTING".
 
-  - Ligne    2 | SUPPR : PROGRAM-ID. TEST3.
+  ~ Ligne    6 | AVANT : DISPLAY "TRUE"
+             | APRÈS : DISPLAY "TRUE".
 
-  - Ligne    3 | SUPPR : PROCEDURE DIVISION.
+  ~ Ligne    7 | AVANT : 
+             | APRÈS : END-IF.
 
-  - Ligne    4 | SUPPR : DISPLAY "TESTING"
-
-  - Ligne    5 | SUPPR : IF 1 = 1
-
-  - Ligne    6 | SUPPR : DISPLAY "TRUE"
+  ~ Ligne    8 | AVANT : 
+             | APRÈS : STOP RUN.
 

@@ -1,10 +1,10 @@
 {
-  "execution": 7,
+  "execution": 8,
   "date": "2026-08-11",
   "langage": "cobol",
   "resultats": [
     {
-      "execution": 7,
+      "execution": 8,
       "date": "2026-08-11",
       "langage": "cobol",
       "test": "#1",
@@ -35,7 +35,7 @@
       ]
     },
     {
-      "execution": 7,
+      "execution": 8,
       "date": "2026-08-11",
       "langage": "cobol",
       "test": "#2",
@@ -60,62 +60,50 @@
       ]
     },
     {
-      "execution": 7,
+      "execution": 8,
       "date": "2026-08-11",
       "langage": "cobol",
       "test": "#3",
       "fichier_entree": "#3test.cbl",
       "fichier_reponse": "#result3.cbl",
       "lignes_entree": 6,
-      "lignes_sortie": 0,
-      "identiques": 0,
-      "modifiees": 0,
+      "lignes_sortie": 8,
+      "identiques": 4,
+      "modifiees": 4,
       "ajoutees": 0,
-      "supprimees": 6,
-      "total_diff": 6,
-      "similarite": 0.0,
+      "supprimees": 0,
+      "total_diff": 4,
+      "similarite": 66.67,
       "extraction_bloc_md": false,
       "differences": [
         {
-          "ligne": 1,
-          "type": "SUPPRIMEE",
-          "avant": "IDENTIFICATION DIVISION.",
-          "apres": ""
-        },
-        {
-          "ligne": 2,
-          "type": "SUPPRIMEE",
-          "avant": "PROGRAM-ID. TEST3.",
-          "apres": ""
-        },
-        {
-          "ligne": 3,
-          "type": "SUPPRIMEE",
-          "avant": "PROCEDURE DIVISION.",
-          "apres": ""
-        },
-        {
           "ligne": 4,
-          "type": "SUPPRIMEE",
+          "type": "MODIFIEE",
           "avant": "DISPLAY \"TESTING\"",
-          "apres": ""
-        },
-        {
-          "ligne": 5,
-          "type": "SUPPRIMEE",
-          "avant": "IF 1 = 1",
-          "apres": ""
+          "apres": "DISPLAY \"TESTING\"."
         },
         {
           "ligne": 6,
-          "type": "SUPPRIMEE",
+          "type": "MODIFIEE",
           "avant": "DISPLAY \"TRUE\"",
-          "apres": ""
+          "apres": "DISPLAY \"TRUE\"."
+        },
+        {
+          "ligne": 7,
+          "type": "MODIFIEE",
+          "avant": "",
+          "apres": "END-IF."
+        },
+        {
+          "ligne": 8,
+          "type": "MODIFIEE",
+          "avant": "",
+          "apres": "STOP RUN."
         }
       ]
     },
     {
-      "execution": 7,
+      "execution": 8,
       "date": "2026-08-11",
       "langage": "cobol",
       "test": "#4",
@@ -194,7 +182,7 @@
       ]
     },
     {
-      "execution": 7,
+      "execution": 8,
       "date": "2026-08-11",
       "langage": "cobol",
       "test": "#5",
@@ -261,7 +249,7 @@
       ]
     },
     {
-      "execution": 7,
+      "execution": 8,
       "date": "2026-08-11",
       "langage": "cobol",
       "test": "#6",

@@ -7,10 +7,10 @@
 | Test | #3 |
 | Langage IBM i | COBOL |
 | Date d'exécution | 2026-08-11 |
-| Numéro d'exécution | #7 |
+| Numéro d'exécution | #8 |
 | Modèle utilisé | granite4.1:8b |
 | Lignes input (utiles) | 6 |
-| Lignes output (utiles) | 0 |
+| Lignes output (utiles) | 8 |
 | Méthode d'extraction | Heuristique (aucun bloc trouvé) |
 | Méthode de comparaison | Alignement difflib (SequenceMatcher) |
 | Commentaires ignorés | True |
@@ -21,23 +21,21 @@
 
 | Métrique | Valeur |
 |---|---|
-| Lignes identiques | 0 |
-| Lignes modifiées | 0 |
+| Lignes identiques | 4 |
+| Lignes modifiées | 4 |
 | Lignes ajoutées | 0 |
-| Lignes supprimées | 6 |
-| Total différences | 6 |
-| **Similarité globale** | **0.0%** |
+| Lignes supprimées | 0 |
+| Total différences | 4 |
+| **Similarité globale** | **66.67%** |
 
 ## Différences détectées
 
 | Ligne | Type | Avant | Après |
 |---|---|---|---|
-| 1 | SUPPRIMEE | `IDENTIFICATION DIVISION.` | `` |
-| 2 | SUPPRIMEE | `PROGRAM-ID. TEST3.` | `` |
-| 3 | SUPPRIMEE | `PROCEDURE DIVISION.` | `` |
-| 4 | SUPPRIMEE | `DISPLAY "TESTING"` | `` |
-| 5 | SUPPRIMEE | `IF 1 = 1` | `` |
-| 6 | SUPPRIMEE | `DISPLAY "TRUE"` | `` |
+| 4 | MODIFIEE | `DISPLAY "TESTING"` | `DISPLAY "TESTING".` |
+| 6 | MODIFIEE | `DISPLAY "TRUE"` | `DISPLAY "TRUE".` |
+| 7 | MODIFIEE | `` | `END-IF.` |
+| 8 | MODIFIEE | `` | `STOP RUN.` |
 
 ## Code original (input)
 
@@ -53,6 +51,13 @@
 ## Réponse Granite — code extrait (output normalisé)
 
 ```cobol
-
+IDENTIFICATION DIVISION.
+        PROGRAM-ID. TEST3.
+        PROCEDURE DIVISION.
+            DISPLAY "TESTING".
+            IF 1 = 1
+                DISPLAY "TRUE".
+            END-IF.
+        STOP RUN.
 ```
 
