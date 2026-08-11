@@ -6,11 +6,11 @@
 |---|---|
 | Test | #1 |
 | Langage IBM i | COBOL |
-| Date d'exécution | 2026-08-10 |
-| Numéro d'exécution | #5 |
+| Date d'exécution | 2026-08-11 |
+| Numéro d'exécution | #6 |
 | Modèle utilisé | granite4.1:8b |
 | Lignes input (utiles) | 5 |
-| Lignes output (utiles) | 0 |
+| Lignes output (utiles) | 5 |
 | Méthode d'extraction | Heuristique (aucun bloc trouvé) |
 | Méthode de comparaison | Alignement difflib (SequenceMatcher) |
 | Commentaires ignorés | True |
@@ -21,22 +21,19 @@
 
 | Métrique | Valeur |
 |---|---|
-| Lignes identiques | 0 |
-| Lignes modifiées | 0 |
+| Lignes identiques | 3 |
+| Lignes modifiées | 2 |
 | Lignes ajoutées | 0 |
-| Lignes supprimées | 5 |
-| Total différences | 5 |
-| **Similarité globale** | **0.0%** |
+| Lignes supprimées | 0 |
+| Total différences | 2 |
+| **Similarité globale** | **60.0%** |
 
 ## Différences détectées
 
 | Ligne | Type | Avant | Après |
 |---|---|---|---|
-| 1 | SUPPRIMEE | `IDENTIFICATION DIVISION.` | `` |
-| 2 | SUPPRIMEE | `PROGRAM-ID TEST1` | `` |
-| 3 | SUPPRIMEE | `PROCEDURE DIVISION.` | `` |
-| 4 | SUPPRIMEE | `PRINT "HELLO"` | `` |
-| 5 | SUPPRIMEE | `STOP RUN.` | `` |
+| 2 | MODIFIEE | `PROGRAM-ID TEST1` | `PROGRAM-ID. TEST1.` |
+| 4 | MODIFIEE | `PRINT "HELLO"` | `DISPLAY "HELLO".` |
 
 ## Code original (input)
 
@@ -52,6 +49,11 @@
 ## Réponse Granite — code extrait (output normalisé)
 
 ```cobol
+IDENTIFICATION DIVISION.
+        PROGRAM-ID. TEST1.
 
+        PROCEDURE DIVISION.
+            DISPLAY "HELLO".
+            STOP RUN.
 ```
 

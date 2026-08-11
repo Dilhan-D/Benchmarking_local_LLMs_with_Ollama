@@ -19,3 +19,9 @@ execution;date;langage;test;fichier_entree;fichier_reponse;lignes_entree;lignes_
 5;2026-08-10;cobol;#4;#4test.cbl;#result4.cbl;10;0;0;0;0;10;10;0.0;False
 5;2026-08-10;cobol;#5;#5test.cbl;#result5.cbl;8;0;0;0;0;8;8;0.0;False
 5;2026-08-10;cobol;#6;#6test.cbl;#result6.cbl;11;0;0;0;0;11;11;0.0;False
+6;2026-08-11;cobol;#1;#1test.cbl;#result1.cbl;5;5;3;2;0;0;2;60.0;False
+6;2026-08-11;cobol;#2;#2test.cbl;#result2.cbl;9;0;0;0;0;9;9;0.0;False
+6;2026-08-11;cobol;#3;#3test.cbl;#result3.cbl;6;0;0;0;0;6;6;0.0;False
+6;2026-08-11;cobol;#4;#4test.cbl;#result4.cbl;10;0;0;0;0;10;10;0.0;False
+6;2026-08-11;cobol;#5;#5test.cbl;#result5.cbl;8;0;0;0;0;8;8;0.0;False
+6;2026-08-11;cobol;#6;#6test.cbl;#result6.cbl;11;0;0;0;0;11;11;0.0;False
