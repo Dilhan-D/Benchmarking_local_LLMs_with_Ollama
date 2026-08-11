@@ -2,7 +2,7 @@
    RAPPORT DE COMPARAISON - COBOL TEST #2
 ============================================================
   Date d'exécution  : 2026-08-11
-  Numéro exécution  : #6
+  Numéro exécution  : #7
   Langage           : COBOL
   Modèle            : granite4.1:8b
   Entrée            : #2test.cbl
@@ -12,33 +12,18 @@
   Méthode comparaison : alignement difflib (SequenceMatcher)
 ------------------------------------------------------------
   Total lignes entrée (utiles) : 9
-  Total lignes sortie (utiles) : 0
+  Total lignes sortie (utiles) : 9
 ------------------------------------------------------------
-  Lignes identiques    : 0
-  Lignes modifiées     : 0
+  Lignes identiques    : 8
+  Lignes modifiées     : 1
   Lignes ajoutées      : 0
-  Lignes supprimées    : 9
-  Total différences    : 9
-  Similarité globale   : 0.0%
+  Lignes supprimées    : 0
+  Total différences    : 1
+  Similarité globale   : 88.89%
 ============================================================
 
 DÉTAIL DES DIFFÉRENCES :
 ------------------------------------------------------------
-  - Ligne    1 | SUPPR : IDENTIFICATION DIVISION.
-
-  - Ligne    2 | SUPPR : PROGRAM-ID. TEST2.
-
-  - Ligne    3 | SUPPR : DATA DIVISION.
-
-  - Ligne    4 | SUPPR : WORKING-STORAGE SECTION.
-
-  - Ligne    5 | SUPPR : 01 NAME PIC X(10).
-
-  - Ligne    6 | SUPPR : PROCEDURE DIVISION.
-
-  - Ligne    7 | SUPPR : MOVE "JOHN" TO NAMES.
-
-  - Ligne    8 | SUPPR : DISPLAY NAME.
-
-  - Ligne    9 | SUPPR : STOP RUN.
+  ~ Ligne    7 | AVANT : MOVE "JOHN" TO NAMES.
+             | APRÈS : MOVE "JOHN" TO NAME.
 

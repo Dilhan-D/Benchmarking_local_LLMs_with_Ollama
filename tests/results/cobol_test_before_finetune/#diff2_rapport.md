@@ -7,10 +7,10 @@
 | Test | #2 |
 | Langage IBM i | COBOL |
 | Date d'exécution | 2026-08-11 |
-| Numéro d'exécution | #6 |
+| Numéro d'exécution | #7 |
 | Modèle utilisé | granite4.1:8b |
 | Lignes input (utiles) | 9 |
-| Lignes output (utiles) | 0 |
+| Lignes output (utiles) | 9 |
 | Méthode d'extraction | Heuristique (aucun bloc trouvé) |
 | Méthode de comparaison | Alignement difflib (SequenceMatcher) |
 | Commentaires ignorés | True |
@@ -21,26 +21,18 @@
 
 | Métrique | Valeur |
 |---|---|
-| Lignes identiques | 0 |
-| Lignes modifiées | 0 |
+| Lignes identiques | 8 |
+| Lignes modifiées | 1 |
 | Lignes ajoutées | 0 |
-| Lignes supprimées | 9 |
-| Total différences | 9 |
-| **Similarité globale** | **0.0%** |
+| Lignes supprimées | 0 |
+| Total différences | 1 |
+| **Similarité globale** | **88.89%** |
 
 ## Différences détectées
 
 | Ligne | Type | Avant | Après |
 |---|---|---|---|
-| 1 | SUPPRIMEE | `IDENTIFICATION DIVISION.` | `` |
-| 2 | SUPPRIMEE | `PROGRAM-ID. TEST2.` | `` |
-| 3 | SUPPRIMEE | `DATA DIVISION.` | `` |
-| 4 | SUPPRIMEE | `WORKING-STORAGE SECTION.` | `` |
-| 5 | SUPPRIMEE | `01 NAME PIC X(10).` | `` |
-| 6 | SUPPRIMEE | `PROCEDURE DIVISION.` | `` |
-| 7 | SUPPRIMEE | `MOVE "JOHN" TO NAMES.` | `` |
-| 8 | SUPPRIMEE | `DISPLAY NAME.` | `` |
-| 9 | SUPPRIMEE | `STOP RUN.` | `` |
+| 7 | MODIFIEE | `MOVE "JOHN" TO NAMES.` | `MOVE "JOHN" TO NAME.` |
 
 ## Code original (input)
 
@@ -60,6 +52,16 @@
 ## Réponse Granite — code extrait (output normalisé)
 
 ```cobol
+IDENTIFICATION DIVISION.
+        PROGRAM-ID. TEST2.
 
+        DATA DIVISION.
+        WORKING-STORAGE SECTION.
+        01 NAME PIC X(10).
+
+        PROCEDURE DIVISION.
+            MOVE "JOHN" TO NAME.
+            DISPLAY NAME.
+            STOP RUN.
 ```
 
