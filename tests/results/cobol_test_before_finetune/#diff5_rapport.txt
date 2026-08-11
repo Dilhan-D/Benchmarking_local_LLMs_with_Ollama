@@ -2,7 +2,7 @@
    RAPPORT DE COMPARAISON - COBOL TEST #5
 ============================================================
   Date d'exécution  : 2026-08-11
-  Numéro exécution  : #9
+  Numéro exécution  : #10
   Langage           : COBOL
   Modèle            : granite4.1:8b
   Entrée            : #5test.cbl
@@ -12,31 +12,30 @@
   Méthode comparaison : alignement difflib (SequenceMatcher)
 ------------------------------------------------------------
   Total lignes entrée (utiles) : 8
-  Total lignes sortie (utiles) : 0
+  Total lignes sortie (utiles) : 9
 ------------------------------------------------------------
-  Lignes identiques    : 0
-  Lignes modifiées     : 0
+  Lignes identiques    : 4
+  Lignes modifiées     : 5
   Lignes ajoutées      : 0
-  Lignes supprimées    : 8
-  Total différences    : 8
-  Similarité globale   : 0.0%
+  Lignes supprimées    : 0
+  Total différences    : 5
+  Similarité globale   : 50.0%
 ============================================================
 
 DÉTAIL DES DIFFÉRENCES :
 ------------------------------------------------------------
-  - Ligne    1 | SUPPR : IDENTIFICATION DIVISION.
+  ~ Ligne    4 | AVANT : 01 VAL1 PIC 9(3).
+             | APRÈS : WORKING-STORAGE SECTION.
 
-  - Ligne    2 | SUPPR : PROGRAM-ID. TEST5.
+  ~ Ligne    5 | AVANT : 
+             | APRÈS : 01 VAL1 PIC X(3).   *> Variable alphabétique pour contenir les caractères
 
-  - Ligne    3 | SUPPR : DATA DIVISION.
+  ~ Ligne    6 | AVANT : MOVE "ABC" TO VAL1.
+             | APRÈS : MOVE "ABC" TO VAL1   *> Assigne la chaîne de caractères à VAL1
 
-  - Ligne    4 | SUPPR : 01 VAL1 PIC 9(3).
+  ~ Ligne    7 | AVANT : DISPLAY VAL1.
+             | APRÈS : DISPLAY VAL1        *> Affiche la valeur de VAL1
 
-  - Ligne    5 | SUPPR : PROCEDURE DIVISION.
-
-  - Ligne    6 | SUPPR : MOVE "ABC" TO VAL1.
-
-  - Ligne    7 | SUPPR : DISPLAY VAL1.
-
-  - Ligne    8 | SUPPR : STOP RUN.
+  ~ Ligne    8 | AVANT : STOP RUN.
+             | APRÈS : STOP RUN.           *> Termine l'exécution du programme
 

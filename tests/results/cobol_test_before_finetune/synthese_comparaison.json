@@ -1,10 +1,10 @@
 {
-  "execution": 9,
+  "execution": 10,
   "date": "2026-08-11",
   "langage": "cobol",
   "resultats": [
     {
-      "execution": 9,
+      "execution": 10,
       "date": "2026-08-11",
       "langage": "cobol",
       "test": "#1",
@@ -35,7 +35,7 @@
       ]
     },
     {
-      "execution": 9,
+      "execution": 10,
       "date": "2026-08-11",
       "langage": "cobol",
       "test": "#2",
@@ -60,7 +60,7 @@
       ]
     },
     {
-      "execution": 9,
+      "execution": 10,
       "date": "2026-08-11",
       "langage": "cobol",
       "test": "#3",
@@ -103,7 +103,7 @@
       ]
     },
     {
-      "execution": 9,
+      "execution": 10,
       "date": "2026-08-11",
       "langage": "cobol",
       "test": "#4",
@@ -158,74 +158,56 @@
       ]
     },
     {
-      "execution": 9,
+      "execution": 10,
       "date": "2026-08-11",
       "langage": "cobol",
       "test": "#5",
       "fichier_entree": "#5test.cbl",
       "fichier_reponse": "#result5.cbl",
       "lignes_entree": 8,
-      "lignes_sortie": 0,
-      "identiques": 0,
-      "modifiees": 0,
+      "lignes_sortie": 9,
+      "identiques": 4,
+      "modifiees": 5,
       "ajoutees": 0,
-      "supprimees": 8,
-      "total_diff": 8,
-      "similarite": 0.0,
+      "supprimees": 0,
+      "total_diff": 5,
+      "similarite": 50.0,
       "extraction_bloc_md": false,
       "differences": [
         {
-          "ligne": 1,
-          "type": "SUPPRIMEE",
-          "avant": "IDENTIFICATION DIVISION.",
-          "apres": ""
-        },
-        {
-          "ligne": 2,
-          "type": "SUPPRIMEE",
-          "avant": "PROGRAM-ID. TEST5.",
-          "apres": ""
-        },
-        {
-          "ligne": 3,
-          "type": "SUPPRIMEE",
-          "avant": "DATA DIVISION.",
-          "apres": ""
-        },
-        {
           "ligne": 4,
-          "type": "SUPPRIMEE",
+          "type": "MODIFIEE",
           "avant": "01 VAL1 PIC 9(3).",
-          "apres": ""
+          "apres": "WORKING-STORAGE SECTION."
         },
         {
           "ligne": 5,
-          "type": "SUPPRIMEE",
-          "avant": "PROCEDURE DIVISION.",
-          "apres": ""
+          "type": "MODIFIEE",
+          "avant": "",
+          "apres": "01 VAL1 PIC X(3).   *> Variable alphabétique pour contenir les caractères"
         },
         {
           "ligne": 6,
-          "type": "SUPPRIMEE",
+          "type": "MODIFIEE",
           "avant": "MOVE \"ABC\" TO VAL1.",
-          "apres": ""
+          "apres": "MOVE \"ABC\" TO VAL1   *> Assigne la chaîne de caractères à VAL1"
         },
         {
           "ligne": 7,
-          "type": "SUPPRIMEE",
+          "type": "MODIFIEE",
           "avant": "DISPLAY VAL1.",
-          "apres": ""
+          "apres": "DISPLAY VAL1        *> Affiche la valeur de VAL1"
         },
         {
           "ligne": 8,
-          "type": "SUPPRIMEE",
+          "type": "MODIFIEE",
           "avant": "STOP RUN.",
-          "apres": ""
+          "apres": "STOP RUN.           *> Termine l'exécution du programme"
         }
       ]
     },
     {
-      "execution": 9,
+      "execution": 10,
       "date": "2026-08-11",
       "langage": "cobol",
       "test": "#6",
