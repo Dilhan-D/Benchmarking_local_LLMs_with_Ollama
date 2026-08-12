@@ -1,8 +1,8 @@
 ============================================================
    RAPPORT DE COMPARAISON - COBOL TEST #6
 ============================================================
-  Date d'exécution  : 2026-08-11
-  Numéro exécution  : #10
+  Date d'exécution  : 2026-08-12
+  Numéro exécution  : #11
   Langage           : COBOL
   Modèle            : granite4.1:8b
   Entrée            : #6test.cbl
@@ -12,37 +12,36 @@
   Méthode comparaison : alignement difflib (SequenceMatcher)
 ------------------------------------------------------------
   Total lignes entrée (utiles) : 11
-  Total lignes sortie (utiles) : 0
+  Total lignes sortie (utiles) : 12
 ------------------------------------------------------------
-  Lignes identiques    : 0
-  Lignes modifiées     : 0
+  Lignes identiques    : 5
+  Lignes modifiées     : 7
   Lignes ajoutées      : 0
-  Lignes supprimées    : 11
-  Total différences    : 11
-  Similarité globale   : 0.0%
+  Lignes supprimées    : 0
+  Total différences    : 7
+  Similarité globale   : 45.45%
 ============================================================
 
 DÉTAIL DES DIFFÉRENCES :
 ------------------------------------------------------------
-  - Ligne    1 | SUPPR : IDENTIFICATION DIVISION.
+  ~ Ligne    2 | AVANT : PROGRAM-ID. TEST6
+             | APRÈS : PROGRAM-ID. TEST6.
 
-  - Ligne    2 | SUPPR : PROGRAM-ID. TEST6
+  ~ Ligne    5 | AVANT : 01 COUNTER PIC 9.
+             | APRÈS : 01 COUNTER PIC 9(2).  * Utilisez un format de numération approprié pour le compteur.
 
-  - Ligne    3 | SUPPR : DATA DIVISION.
+  ~ Ligne    6 | AVANT : 10 VENOM   PIC(x)
+             | APRÈS : 10 VENOM   PIC X(1).  * Assurez-vous que la longueur de VENOM est spécifiée correctement.
 
-  - Ligne    4 | SUPPR : WORKING-STORAGE SECTION.
+  ~ Ligne    9 | AVANT : PRINT "ERROR"
+             | APRÈS : DISPLAY "ERROR"  * Remplacez PRINT par DISPLAY pour afficher du texte.
 
-  - Ligne    5 | SUPPR : 01 COUNTER PIC 9.
+  ~ Ligne   10 | AVANT : COMPUTE 1 = 2
+             | APRÈS : END-PERFORM.
 
-  - Ligne    6 | SUPPR : 10 VENOM   PIC(x)
+  ~ Ligne   11 | AVANT : STOP RUN
+             | APRÈS : COMPUTE COUNTER = COUNTER + 1.  * Corrigez la ligne COMPUTE pour qu'elle utilise le compteur correctement.
 
-  - Ligne    7 | SUPPR : PROCEDURE DIVISION.
-
-  - Ligne    8 | SUPPR : PERFORM 3 TIMES
-
-  - Ligne    9 | SUPPR : PRINT "ERROR"
-
-  - Ligne   10 | SUPPR : COMPUTE 1 = 2
-
-  - Ligne   11 | SUPPR : STOP RUN
+  ~ Ligne   12 | AVANT : 
+             | APRÈS : STOP RUN.
 

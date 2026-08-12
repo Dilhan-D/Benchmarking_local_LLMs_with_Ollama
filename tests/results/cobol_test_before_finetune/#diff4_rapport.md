@@ -6,8 +6,8 @@
 |---|---|
 | Test | #4 |
 | Langage IBM i | COBOL |
-| Date d'exécution | 2026-08-11 |
-| Numéro d'exécution | #10 |
+| Date d'exécution | 2026-08-12 |
+| Numéro d'exécution | #11 |
 | Modèle utilisé | granite4.1:8b |
 | Lignes input (utiles) | 10 |
 | Lignes output (utiles) | 11 |

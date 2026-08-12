@@ -1,11 +1,11 @@
 {
-  "execution": 10,
-  "date": "2026-08-11",
+  "execution": 11,
+  "date": "2026-08-12",
   "langage": "cobol",
   "resultats": [
     {
-      "execution": 10,
-      "date": "2026-08-11",
+      "execution": 11,
+      "date": "2026-08-12",
       "langage": "cobol",
       "test": "#1",
       "fichier_entree": "#1test.cbl",
@@ -35,8 +35,8 @@
       ]
     },
     {
-      "execution": 10,
-      "date": "2026-08-11",
+      "execution": 11,
+      "date": "2026-08-12",
       "langage": "cobol",
       "test": "#2",
       "fichier_entree": "#2test.cbl",
@@ -60,8 +60,8 @@
       ]
     },
     {
-      "execution": 10,
-      "date": "2026-08-11",
+      "execution": 11,
+      "date": "2026-08-12",
       "langage": "cobol",
       "test": "#3",
       "fichier_entree": "#3test.cbl",
@@ -103,8 +103,8 @@
       ]
     },
     {
-      "execution": 10,
-      "date": "2026-08-11",
+      "execution": 11,
+      "date": "2026-08-12",
       "langage": "cobol",
       "test": "#4",
       "fichier_entree": "#4test.cbl",
@@ -158,8 +158,8 @@
       ]
     },
     {
-      "execution": 10,
-      "date": "2026-08-11",
+      "execution": 11,
+      "date": "2026-08-12",
       "langage": "cobol",
       "test": "#5",
       "fichier_entree": "#5test.cbl",
@@ -207,87 +207,63 @@
       ]
     },
     {
-      "execution": 10,
-      "date": "2026-08-11",
+      "execution": 11,
+      "date": "2026-08-12",
       "langage": "cobol",
       "test": "#6",
       "fichier_entree": "#6test.cbl",
       "fichier_reponse": "#result6.cbl",
       "lignes_entree": 11,
-      "lignes_sortie": 0,
-      "identiques": 0,
-      "modifiees": 0,
+      "lignes_sortie": 12,
+      "identiques": 5,
+      "modifiees": 7,
       "ajoutees": 0,
-      "supprimees": 11,
-      "total_diff": 11,
-      "similarite": 0.0,
+      "supprimees": 0,
+      "total_diff": 7,
+      "similarite": 45.45,
       "extraction_bloc_md": false,
       "differences": [
         {
-          "ligne": 1,
-          "type": "SUPPRIMEE",
-          "avant": "IDENTIFICATION DIVISION.",
-          "apres": ""
-        },
-        {
           "ligne": 2,
-          "type": "SUPPRIMEE",
+          "type": "MODIFIEE",
           "avant": "PROGRAM-ID. TEST6",
-          "apres": ""
-        },
-        {
-          "ligne": 3,
-          "type": "SUPPRIMEE",
-          "avant": "DATA DIVISION.",
-          "apres": ""
-        },
-        {
-          "ligne": 4,
-          "type": "SUPPRIMEE",
-          "avant": "WORKING-STORAGE SECTION.",
-          "apres": ""
+          "apres": "PROGRAM-ID. TEST6."
         },
         {
           "ligne": 5,
-          "type": "SUPPRIMEE",
+          "type": "MODIFIEE",
           "avant": "01 COUNTER PIC 9.",
-          "apres": ""
+          "apres": "01 COUNTER PIC 9(2).  * Utilisez un format de numération approprié pour le compteur."
         },
         {
           "ligne": 6,
-          "type": "SUPPRIMEE",
+          "type": "MODIFIEE",
           "avant": "10 VENOM   PIC(x)",
-          "apres": ""
-        },
-        {
-          "ligne": 7,
-          "type": "SUPPRIMEE",
-          "avant": "PROCEDURE DIVISION.",
-          "apres": ""
-        },
-        {
-          "ligne": 8,
-          "type": "SUPPRIMEE",
-          "avant": "PERFORM 3 TIMES",
-          "apres": ""
+          "apres": "10 VENOM   PIC X(1).  * Assurez-vous que la longueur de VENOM est spécifiée correctement."
         },
         {
           "ligne": 9,
-          "type": "SUPPRIMEE",
+          "type": "MODIFIEE",
           "avant": "PRINT \"ERROR\"",
-          "apres": ""
+          "apres": "DISPLAY \"ERROR\"  * Remplacez PRINT par DISPLAY pour afficher du texte."
         },
         {
           "ligne": 10,
-          "type": "SUPPRIMEE",
+          "type": "MODIFIEE",
           "avant": "COMPUTE 1 = 2",
-          "apres": ""
+          "apres": "END-PERFORM."
         },
         {
           "ligne": 11,
-          "type": "SUPPRIMEE",
+          "type": "MODIFIEE",
           "avant": "STOP RUN",
-          "apres": ""
+          "apres": "COMPUTE COUNTER = COUNTER + 1.  * Corrigez la ligne COMPUTE pour qu'elle utilise le compteur correctement."
+        },
+        {
+          "ligne": 12,
+          "type": "MODIFIEE",
+          "avant": "",
+          "apres": "STOP RUN."
         }
       ]
     }
