@@ -33,9 +33,9 @@ RESULTS_DIR = Path(__file__).parent.parent / "results"
 
 
 SOURCES = {
-    "rpgle" : RESULTS_DIR / "rpgle_test_before_finetune" / "synthese_comparaison.csv",
-    "clle"  : RESULTS_DIR / "clle_test_before_finetune"  / "synthese_comparaison.csv",
-    "cobol" : RESULTS_DIR / "cobol_test_before_finetune" / "synthese_comparaison.csv",
+    "clle"  : RESULTS_DIR / "granite_clle_test_before_finetune"  / "synthese_comparaison.csv",
+    "cobol" : RESULTS_DIR / "granite_cobol_test_before_finetune" / "synthese_comparaison.csv",
+    "rpgle" : RESULTS_DIR / "granite_rpgle_test_before_finetune" / "synthese_comparaison.csv",
 }
 
 
