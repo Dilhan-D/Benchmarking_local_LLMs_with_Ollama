@@ -10,7 +10,7 @@ Dans un second temps, essayer de lui passer des instructions afin de lui donner 
 
 - **École**: Epitech (Alternance)
 - **Projet**: Fine-tuning et tests sur Granite 4.1:8b
-- **Raison de choisir IBM**: Initialement pour des tests dans un écosystème IBM i, avec une perspective future.
+- **Raison de choisir IBM**: Pour du développement en IBM i, avec une perspective future.
 - **Moteur Utilisé**: Granite 4.1:8b
 
 ## Structure du Dépôt
@@ -21,8 +21,8 @@ fine_tuning/            # Scripts et configurations pour le fine-tuning
 tests/                  # Scripts et rapports des tests avant et après fine-tuning
 rag/                    # Implémentation de la recherche assistée par contenu (RAG)
 docs/                   # Documentation PDFs et autres ressources
-generel_questions/      # Répertoire pour les questions générales
-granite_rpgle_questions_before_finetune/ # Question rpgle avant d'entrainer le modèle
+{llm}_generel_questions/      # Répertoire pour les questions générales suivant le modèle utilisé
+granite_rpgle_questions_before_finetune/ # Question rpgle avant d'entrainer le modèle 
    - answers_before_finetune/ 
    - questions_before_finetune/
 questions_and_answers/  # Répertoire pour les questions techniques et leurs réponses
@@ -32,6 +32,9 @@ granite_cobol_questions_before_finetune/ # Question cobol avant d'entrainer le m
 ```
 
 ## Contenu
+
+### .github/workflows 
+Ce répertoire contient un CI/CD pour lancer automatiquement les tests quand les réponses de l'IA ont été générées et implémentées dans les dossiers en questions : {llm}/***. (ex: granite/cl_questions/before_finetune/)
 
 ### `fine_tuning/`
 Ce répertoire contient tous les scripts nécessaires pour le processus de fine-tuning du modèle Granite 4.1:8b.
@@ -56,8 +59,8 @@ Ce répertoire contient tous les documents PDF et autres ressources nécessaires
 - **`test_data.pdf`**: Description des données utilisées pour les tests.
 - **`results_analysis.pdf`**: Analyse des résultats avant et après fine-tuning.
 
-### `generel_questions/`
-Ce répertoire est dédié aux questions générales
+### `granite_generel_questions/`
+Ce répertoire est dédié aux questions générales répondues par granite.
 
 ### `questions_and_answers/`
 Ce répertoire contient les questions et réponses techniques liées au projet.
@@ -65,8 +68,8 @@ Ce répertoire contient les questions et réponses techniques liées au projet.
 ## Méthodologie
 
 1. **Préparation Initiale**:
-   - Installer l'environnement requis pour Granite 4.1:8b sur un système IBM i.
-   - Rassembler les données d'entraînement pertinentes pour le fine-tuning.
+   - Installer l'environnement requis pour Granite 4.1:8b ( ex : depuis ollama ).
+   - Rassembler les données d'entraînement depuis ce repo dès que les docs sont implémentés pertinentes pour le fine-tuning.
 
 2. **Fine-Tuning**:
    - Exécuter `train_model.py` avec la configuration spécifiée dans `config.json`.
@@ -77,15 +80,14 @@ Ce répertoire contient les questions et réponses techniques liées au projet.
    - Documenter les résultats dans `test_reports/`.
 
 4. **RAG Implémentation**:
-   - Configurer et exécuter l'implémentation de RAG via `rag_setup.py`.
-   - Tester la capacité du modèle à fournir des réponses contextuelles.
+   - à compléter dés que rag effectuer.
 
 5. **Tests Post-Fine-Tuning**:
-   - Utiliser `post_finetune_tests.py` pour évaluer les performances post-fine-tuning.
+   - à compléter dés que rag effectuer.
    - Comparer avec les résultats initiaux et documenter les améliorations ou dégradations.
 
 6. **Analyse des Résultats**:
-   - Analyser les données collectées dans `test_reports/`.
+   - Analyser les données collectées dans `tests/results/***`.
    - Identifier les points forts et faibles des langages IBM dans ce contexte.
 
 ## Transparence
