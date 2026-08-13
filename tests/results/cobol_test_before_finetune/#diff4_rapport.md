@@ -6,8 +6,8 @@
 |---|---|
 | Test | #4 |
 | Langage IBM i | COBOL |
-| Date d'exécution | 2026-08-12 |
-| Numéro d'exécution | #11 |
+| Date d'exécution | 2026-08-13 |
+| Numéro d'exécution | #12 |
 | Modèle utilisé | granite4.1:8b |
 | Lignes input (utiles) | 10 |
 | Lignes output (utiles) | 11 |
@@ -21,23 +21,18 @@
 
 | Métrique | Valeur |
 |---|---|
-| Lignes identiques | 5 |
-| Lignes modifiées | 6 |
-| Lignes ajoutées | 0 |
+| Lignes identiques | 10 |
+| Lignes modifiées | 0 |
+| Lignes ajoutées | 1 |
 | Lignes supprimées | 0 |
-| Total différences | 6 |
-| **Similarité globale** | **50.0%** |
+| Total différences | 1 |
+| **Similarité globale** | **100.0%** |
 
 ## Différences détectées
 
 | Ligne | Type | Avant | Après |
 |---|---|---|---|
-| 5 | MODIFIEE | `01 COUNTER PIC 9(2) VALUE 0.` | `01 COUNTER PIC 9(2) VALUE 0.   *> Déclare un compteur de 2 chiffres, initialisé à 0` |
-| 7 | MODIFIEE | `PERFORM UNTIL COUNTER > 5` | `PERFORM UNTIL COUNTER > 5      *> Boucle jusqu'à ce que le compteur soit supérieur à 5` |
-| 8 | MODIFIEE | `DISPLAY COUNTER` | `DISPLAY COUNTER            *> Affiche la valeur actuelle du compteur` |
-| 9 | MODIFIEE | `ADD 1 TO COUNTER` | `ADD 1 TO COUNTER           *> Incrément le compteur de 1` |
-| 10 | MODIFIEE | `STOP RUN.` | `END-PERFORM.` |
-| 11 | MODIFIEE | `` | `STOP RUN.                         *> Termine l'exécution du programme` |
+| 10 | AJOUTEE | `` | `END-PERFORM.` |
 
 ## Code original (input)
 
@@ -63,13 +58,13 @@ PROGRAM-ID. TEST4.
 
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 COUNTER PIC 9(2) VALUE 0.   *> Déclare un compteur de 2 chiffres, initialisé à 0
+01 COUNTER PIC 9(2) VALUE 0.   
 
 PROCEDURE DIVISION.
-    PERFORM UNTIL COUNTER > 5      *> Boucle jusqu'à ce que le compteur soit supérieur à 5
-        DISPLAY COUNTER            *> Affiche la valeur actuelle du compteur
-        ADD 1 TO COUNTER           *> Incrément le compteur de 1
+    PERFORM UNTIL COUNTER > 5     
+        DISPLAY COUNTER           
+        ADD 1 TO COUNTER        
     END-PERFORM.
-STOP RUN.                         *> Termine l'exécution du programme
+STOP RUN.
 ```
 

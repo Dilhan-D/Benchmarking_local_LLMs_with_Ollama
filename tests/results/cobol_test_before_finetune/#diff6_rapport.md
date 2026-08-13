@@ -6,8 +6,8 @@
 |---|---|
 | Test | #6 |
 | Langage IBM i | COBOL |
-| Date d'exécution | 2026-08-12 |
-| Numéro d'exécution | #11 |
+| Date d'exécution | 2026-08-13 |
+| Numéro d'exécution | #12 |
 | Modèle utilisé | granite4.1:8b |
 | Lignes input (utiles) | 11 |
 | Lignes output (utiles) | 12 |
@@ -33,11 +33,11 @@
 | Ligne | Type | Avant | Après |
 |---|---|---|---|
 | 2 | MODIFIEE | `PROGRAM-ID. TEST6` | `PROGRAM-ID. TEST6.` |
-| 5 | MODIFIEE | `01 COUNTER PIC 9.` | `01 COUNTER PIC 9(2).  * Utilisez un format de numération approprié pour le compteur.` |
-| 6 | MODIFIEE | `10 VENOM   PIC(x)` | `10 VENOM   PIC X(1).  * Assurez-vous que la longueur de VENOM est spécifiée correctement.` |
-| 9 | MODIFIEE | `PRINT "ERROR"` | `DISPLAY "ERROR"  * Remplacez PRINT par DISPLAY pour afficher du texte.` |
+| 5 | MODIFIEE | `01 COUNTER PIC 9.` | `01 COUNTER PIC 9(2).` |
+| 6 | MODIFIEE | `10 VENOM   PIC(x)` | `10 VENOM   PIC X(1).` |
+| 9 | MODIFIEE | `PRINT "ERROR"` | `DISPLAY "ERROR"` |
 | 10 | MODIFIEE | `COMPUTE 1 = 2` | `END-PERFORM.` |
-| 11 | MODIFIEE | `STOP RUN` | `COMPUTE COUNTER = COUNTER + 1.  * Corrigez la ligne COMPUTE pour qu'elle utilise le compteur correctement.` |
+| 11 | MODIFIEE | `STOP RUN` | `COMPUTE COUNTER = COUNTER + 1.` |
 | 12 | MODIFIEE | `` | `STOP RUN.` |
 
 ## Code original (input)
@@ -65,14 +65,14 @@ IDENTIFICATION DIVISION.
 
         DATA DIVISION.
         WORKING-STORAGE SECTION.
-        01 COUNTER PIC 9(2).  * Utilisez un format de numération approprié pour le compteur.
-        10 VENOM   PIC X(1).  * Assurez-vous que la longueur de VENOM est spécifiée correctement.
+        01 COUNTER PIC 9(2).  
+        10 VENOM   PIC X(1). 
 
         PROCEDURE DIVISION.
             PERFORM 3 TIMES
-                DISPLAY "ERROR"  * Remplacez PRINT par DISPLAY pour afficher du texte.
+                DISPLAY "ERROR" 
             END-PERFORM.
-            COMPUTE COUNTER = COUNTER + 1.  * Corrigez la ligne COMPUTE pour qu'elle utilise le compteur correctement.
+            COMPUTE COUNTER = COUNTER + 1.  
             STOP RUN.
 ```
 

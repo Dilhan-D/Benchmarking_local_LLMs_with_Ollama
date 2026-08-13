@@ -1,8 +1,8 @@
 ============================================================
    RAPPORT DE COMPARAISON - COBOL TEST #1
 ============================================================
-  Date d'exécution  : 2026-08-12
-  Numéro exécution  : #11
+  Date d'exécution  : 2026-08-13
+  Numéro exécution  : #12
   Langage           : COBOL
   Modèle            : granite4.1:8b
   Entrée            : #1test.cbl

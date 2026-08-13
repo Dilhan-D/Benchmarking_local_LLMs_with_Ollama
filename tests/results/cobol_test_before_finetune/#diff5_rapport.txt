@@ -1,8 +1,8 @@
 ============================================================
    RAPPORT DE COMPARAISON - COBOL TEST #5
 ============================================================
-  Date d'exécution  : 2026-08-12
-  Numéro exécution  : #11
+  Date d'exécution  : 2026-08-13
+  Numéro exécution  : #12
   Langage           : COBOL
   Modèle            : granite4.1:8b
   Entrée            : #5test.cbl
@@ -14,12 +14,12 @@
   Total lignes entrée (utiles) : 8
   Total lignes sortie (utiles) : 9
 ------------------------------------------------------------
-  Lignes identiques    : 4
-  Lignes modifiées     : 5
+  Lignes identiques    : 5
+  Lignes modifiées     : 4
   Lignes ajoutées      : 0
   Lignes supprimées    : 0
-  Total différences    : 5
-  Similarité globale   : 50.0%
+  Total différences    : 4
+  Similarité globale   : 62.5%
 ============================================================
 
 DÉTAIL DES DIFFÉRENCES :
@@ -28,14 +28,11 @@ DÉTAIL DES DIFFÉRENCES :
              | APRÈS : WORKING-STORAGE SECTION.
 
   ~ Ligne    5 | AVANT : 
-             | APRÈS : 01 VAL1 PIC X(3).   *> Variable alphabétique pour contenir les caractères
+             | APRÈS : 01 VAL1 PIC X(3).
 
   ~ Ligne    6 | AVANT : MOVE "ABC" TO VAL1.
-             | APRÈS : MOVE "ABC" TO VAL1   *> Assigne la chaîne de caractères à VAL1
+             | APRÈS : MOVE "ABC" TO VAL1
 
   ~ Ligne    7 | AVANT : DISPLAY VAL1.
-             | APRÈS : DISPLAY VAL1        *> Affiche la valeur de VAL1
-
-  ~ Ligne    8 | AVANT : STOP RUN.
-             | APRÈS : STOP RUN.           *> Termine l'exécution du programme
+             | APRÈS : DISPLAY VAL1
 

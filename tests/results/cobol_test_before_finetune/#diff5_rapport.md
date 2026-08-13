@@ -6,8 +6,8 @@
 |---|---|
 | Test | #5 |
 | Langage IBM i | COBOL |
-| Date d'exécution | 2026-08-12 |
-| Numéro d'exécution | #11 |
+| Date d'exécution | 2026-08-13 |
+| Numéro d'exécution | #12 |
 | Modèle utilisé | granite4.1:8b |
 | Lignes input (utiles) | 8 |
 | Lignes output (utiles) | 9 |
@@ -21,22 +21,21 @@
 
 | Métrique | Valeur |
 |---|---|
-| Lignes identiques | 4 |
-| Lignes modifiées | 5 |
+| Lignes identiques | 5 |
+| Lignes modifiées | 4 |
 | Lignes ajoutées | 0 |
 | Lignes supprimées | 0 |
-| Total différences | 5 |
-| **Similarité globale** | **50.0%** |
+| Total différences | 4 |
+| **Similarité globale** | **62.5%** |
 
 ## Différences détectées
 
 | Ligne | Type | Avant | Après |
 |---|---|---|---|
 | 4 | MODIFIEE | `01 VAL1 PIC 9(3).` | `WORKING-STORAGE SECTION.` |
-| 5 | MODIFIEE | `` | `01 VAL1 PIC X(3).   *> Variable alphabétique pour contenir les caractères` |
-| 6 | MODIFIEE | `MOVE "ABC" TO VAL1.` | `MOVE "ABC" TO VAL1   *> Assigne la chaîne de caractères à VAL1` |
-| 7 | MODIFIEE | `DISPLAY VAL1.` | `DISPLAY VAL1        *> Affiche la valeur de VAL1` |
-| 8 | MODIFIEE | `STOP RUN.` | `STOP RUN.           *> Termine l'exécution du programme` |
+| 5 | MODIFIEE | `` | `01 VAL1 PIC X(3).` |
+| 6 | MODIFIEE | `MOVE "ABC" TO VAL1.` | `MOVE "ABC" TO VAL1` |
+| 7 | MODIFIEE | `DISPLAY VAL1.` | `DISPLAY VAL1` |
 
 ## Code original (input)
 
@@ -60,11 +59,11 @@ PROGRAM-ID. TEST5.
 
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 VAL1 PIC X(3).   *> Variable alphabétique pour contenir les caractères
+01 VAL1 PIC X(3).  
 
 PROCEDURE DIVISION.
-    MOVE "ABC" TO VAL1   *> Assigne la chaîne de caractères à VAL1
-    DISPLAY VAL1        *> Affiche la valeur de VAL1
-    STOP RUN.           *> Termine l'exécution du programme
+    MOVE "ABC" TO VAL1  
+    DISPLAY VAL1        
+    STOP RUN.
 ```
 

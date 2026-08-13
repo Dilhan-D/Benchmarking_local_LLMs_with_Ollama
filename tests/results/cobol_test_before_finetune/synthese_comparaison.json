@@ -1,11 +1,11 @@
 {
-  "execution": 11,
-  "date": "2026-08-12",
+  "execution": 12,
+  "date": "2026-08-13",
   "langage": "cobol",
   "resultats": [
     {
-      "execution": 11,
-      "date": "2026-08-12",
+      "execution": 12,
+      "date": "2026-08-13",
       "langage": "cobol",
       "test": "#1",
       "fichier_entree": "#1test.cbl",
@@ -35,8 +35,8 @@
       ]
     },
     {
-      "execution": 11,
-      "date": "2026-08-12",
+      "execution": 12,
+      "date": "2026-08-13",
       "langage": "cobol",
       "test": "#2",
       "fichier_entree": "#2test.cbl",
@@ -60,8 +60,8 @@
       ]
     },
     {
-      "execution": 11,
-      "date": "2026-08-12",
+      "execution": 12,
+      "date": "2026-08-13",
       "langage": "cobol",
       "test": "#3",
       "fichier_entree": "#3test.cbl",
@@ -103,75 +103,45 @@
       ]
     },
     {
-      "execution": 11,
-      "date": "2026-08-12",
+      "execution": 12,
+      "date": "2026-08-13",
       "langage": "cobol",
       "test": "#4",
       "fichier_entree": "#4test.cbl",
       "fichier_reponse": "#result4.cbl",
       "lignes_entree": 10,
       "lignes_sortie": 11,
-      "identiques": 5,
-      "modifiees": 6,
-      "ajoutees": 0,
+      "identiques": 10,
+      "modifiees": 0,
+      "ajoutees": 1,
       "supprimees": 0,
-      "total_diff": 6,
-      "similarite": 50.0,
+      "total_diff": 1,
+      "similarite": 100.0,
       "extraction_bloc_md": false,
       "differences": [
         {
-          "ligne": 5,
-          "type": "MODIFIEE",
-          "avant": "01 COUNTER PIC 9(2) VALUE 0.",
-          "apres": "01 COUNTER PIC 9(2) VALUE 0.   *> Déclare un compteur de 2 chiffres, initialisé à 0"
-        },
-        {
-          "ligne": 7,
-          "type": "MODIFIEE",
-          "avant": "PERFORM UNTIL COUNTER > 5",
-          "apres": "PERFORM UNTIL COUNTER > 5      *> Boucle jusqu'à ce que le compteur soit supérieur à 5"
-        },
-        {
-          "ligne": 8,
-          "type": "MODIFIEE",
-          "avant": "DISPLAY COUNTER",
-          "apres": "DISPLAY COUNTER            *> Affiche la valeur actuelle du compteur"
-        },
-        {
-          "ligne": 9,
-          "type": "MODIFIEE",
-          "avant": "ADD 1 TO COUNTER",
-          "apres": "ADD 1 TO COUNTER           *> Incrément le compteur de 1"
-        },
-        {
           "ligne": 10,
-          "type": "MODIFIEE",
-          "avant": "STOP RUN.",
-          "apres": "END-PERFORM."
-        },
-        {
-          "ligne": 11,
-          "type": "MODIFIEE",
+          "type": "AJOUTEE",
           "avant": "",
-          "apres": "STOP RUN.                         *> Termine l'exécution du programme"
+          "apres": "END-PERFORM."
         }
       ]
     },
     {
-      "execution": 11,
-      "date": "2026-08-12",
+      "execution": 12,
+      "date": "2026-08-13",
       "langage": "cobol",
       "test": "#5",
       "fichier_entree": "#5test.cbl",
       "fichier_reponse": "#result5.cbl",
       "lignes_entree": 8,
       "lignes_sortie": 9,
-      "identiques": 4,
-      "modifiees": 5,
+      "identiques": 5,
+      "modifiees": 4,
       "ajoutees": 0,
       "supprimees": 0,
-      "total_diff": 5,
-      "similarite": 50.0,
+      "total_diff": 4,
+      "similarite": 62.5,
       "extraction_bloc_md": false,
       "differences": [
         {
@@ -184,31 +154,25 @@
           "ligne": 5,
           "type": "MODIFIEE",
           "avant": "",
-          "apres": "01 VAL1 PIC X(3).   *> Variable alphabétique pour contenir les caractères"
+          "apres": "01 VAL1 PIC X(3)."
         },
         {
           "ligne": 6,
           "type": "MODIFIEE",
           "avant": "MOVE \"ABC\" TO VAL1.",
-          "apres": "MOVE \"ABC\" TO VAL1   *> Assigne la chaîne de caractères à VAL1"
+          "apres": "MOVE \"ABC\" TO VAL1"
         },
         {
           "ligne": 7,
           "type": "MODIFIEE",
           "avant": "DISPLAY VAL1.",
-          "apres": "DISPLAY VAL1        *> Affiche la valeur de VAL1"
-        },
-        {
-          "ligne": 8,
-          "type": "MODIFIEE",
-          "avant": "STOP RUN.",
-          "apres": "STOP RUN.           *> Termine l'exécution du programme"
+          "apres": "DISPLAY VAL1"
         }
       ]
     },
     {
-      "execution": 11,
-      "date": "2026-08-12",
+      "execution": 12,
+      "date": "2026-08-13",
       "langage": "cobol",
       "test": "#6",
       "fichier_entree": "#6test.cbl",
@@ -233,19 +197,19 @@
           "ligne": 5,
           "type": "MODIFIEE",
           "avant": "01 COUNTER PIC 9.",
-          "apres": "01 COUNTER PIC 9(2).  * Utilisez un format de numération approprié pour le compteur."
+          "apres": "01 COUNTER PIC 9(2)."
         },
         {
           "ligne": 6,
           "type": "MODIFIEE",
           "avant": "10 VENOM   PIC(x)",
-          "apres": "10 VENOM   PIC X(1).  * Assurez-vous que la longueur de VENOM est spécifiée correctement."
+          "apres": "10 VENOM   PIC X(1)."
         },
         {
           "ligne": 9,
           "type": "MODIFIEE",
           "avant": "PRINT \"ERROR\"",
-          "apres": "DISPLAY \"ERROR\"  * Remplacez PRINT par DISPLAY pour afficher du texte."
+          "apres": "DISPLAY \"ERROR\""
         },
         {
           "ligne": 10,
@@ -257,7 +221,7 @@
           "ligne": 11,
           "type": "MODIFIEE",
           "avant": "STOP RUN",
-          "apres": "COMPUTE COUNTER = COUNTER + 1.  * Corrigez la ligne COMPUTE pour qu'elle utilise le compteur correctement."
+          "apres": "COMPUTE COUNTER = COUNTER + 1."
         },
         {
           "ligne": 12,

@@ -1,8 +1,8 @@
 ============================================================
    RAPPORT DE COMPARAISON - COBOL TEST #6
 ============================================================
-  Date d'exécution  : 2026-08-12
-  Numéro exécution  : #11
+  Date d'exécution  : 2026-08-13
+  Numéro exécution  : #12
   Langage           : COBOL
   Modèle            : granite4.1:8b
   Entrée            : #6test.cbl
@@ -28,19 +28,19 @@ DÉTAIL DES DIFFÉRENCES :
              | APRÈS : PROGRAM-ID. TEST6.
 
   ~ Ligne    5 | AVANT : 01 COUNTER PIC 9.
-             | APRÈS : 01 COUNTER PIC 9(2).  * Utilisez un format de numération approprié pour le compteur.
+             | APRÈS : 01 COUNTER PIC 9(2).
 
   ~ Ligne    6 | AVANT : 10 VENOM   PIC(x)
-             | APRÈS : 10 VENOM   PIC X(1).  * Assurez-vous que la longueur de VENOM est spécifiée correctement.
+             | APRÈS : 10 VENOM   PIC X(1).
 
   ~ Ligne    9 | AVANT : PRINT "ERROR"
-             | APRÈS : DISPLAY "ERROR"  * Remplacez PRINT par DISPLAY pour afficher du texte.
+             | APRÈS : DISPLAY "ERROR"
 
   ~ Ligne   10 | AVANT : COMPUTE 1 = 2
              | APRÈS : END-PERFORM.
 
   ~ Ligne   11 | AVANT : STOP RUN
-             | APRÈS : COMPUTE COUNTER = COUNTER + 1.  * Corrigez la ligne COMPUTE pour qu'elle utilise le compteur correctement.
+             | APRÈS : COMPUTE COUNTER = COUNTER + 1.
 
   ~ Ligne   12 | AVANT : 
              | APRÈS : STOP RUN.
