@@ -1,8 +1,0 @@
-    DCL VAR(&I) TYPE(*DEC) LEN(3 0) VALUE(1)
-
-    DOWHILE COND(&I *LE 5)
-        SNDMSG MSG('Tour de boucle') TOUSR(*SYSOPR)
-        CHGVAR VAR(&I) VALUE(&I + 1)
-    ENDDO
-
-ENDPGM

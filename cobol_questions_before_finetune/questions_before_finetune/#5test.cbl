@@ -1,8 +1,0 @@
-       IDENTIFICATION DIVISION.
-       PROGRAM-ID. TEST5.
-       DATA DIVISION.
-       01 VAL1 PIC 9(3).
-       PROCEDURE DIVISION.
-           MOVE "ABC" TO VAL1.
-           DISPLAY VAL1.
-           STOP RUN.
