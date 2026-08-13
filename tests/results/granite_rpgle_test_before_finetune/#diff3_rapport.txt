@@ -1,0 +1,44 @@
+============================================================
+   RAPPORT DE COMPARAISON - RPGLE TEST #3
+============================================================
+  Date d'exécution  : 2026-08-13
+  Numéro exécution  : #1
+  Langage           : RPGLE
+  Modèle            : granite4.1:8b
+  Entrée            : #3test.rpgle
+  Réponse Granite   : #result3.rpgle
+  Extraction code   : heuristique (pas de bloc détecté)
+  Options actives   : casse_ignoree=False | espaces_ignores=True | vides_ignorees=True | commentaires_ignores=True
+  Méthode comparaison : alignement difflib (SequenceMatcher)
+------------------------------------------------------------
+  Total lignes entrée (utiles) : 16
+  Total lignes sortie (utiles) : 17
+------------------------------------------------------------
+  Lignes identiques    : 11
+  Lignes modifiées     : 6
+  Lignes ajoutées      : 0
+  Lignes supprimées    : 0
+  Total différences    : 6
+  Similarité globale   : 68.75%
+============================================================
+
+DÉTAIL DES DIFFÉRENCES :
+------------------------------------------------------------
+  ~ Ligne    1 | AVANT : **FREE
+             | APRÈS : FREE
+
+  ~ Ligne    5 | AVANT : Whene note >= 90;
+             | APRÈS : Select;
+
+  ~ Ligne    6 | AVANT : 
+             | APRÈS : When note >= 90;
+
+  ~ Ligne   12 | AVANT : resultat = 'Echec'
+             | APRÈS : resultat = 'Echec';
+
+  ~ Ligne   13 | AVANT : EndSelect;
+             | APRÈS : EndSel;
+
+  ~ Ligne   14 | AVANT : If note =/> 0;  // doit être '<=' ou '>=', pas '=/>'
+             | APRÈS : If note > 0;
+

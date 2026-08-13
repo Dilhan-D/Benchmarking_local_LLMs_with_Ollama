@@ -1,0 +1,44 @@
+============================================================
+   RAPPORT DE COMPARAISON - RPGLE TEST #4
+============================================================
+  Date d'exécution  : 2026-08-13
+  Numéro exécution  : #1
+  Langage           : RPGLE
+  Modèle            : granite4.1:8b
+  Entrée            : #4test.rpgle
+  Réponse Granite   : #result4.rpgle
+  Extraction code   : heuristique (pas de bloc détecté)
+  Options actives   : casse_ignoree=False | espaces_ignores=True | vides_ignorees=True | commentaires_ignores=True
+  Méthode comparaison : alignement difflib (SequenceMatcher)
+------------------------------------------------------------
+  Total lignes entrée (utiles) : 9
+  Total lignes sortie (utiles) : 9
+------------------------------------------------------------
+  Lignes identiques    : 3
+  Lignes modifiées     : 6
+  Lignes ajoutées      : 0
+  Lignes supprimées    : 0
+  Total différences    : 6
+  Similarité globale   : 33.33%
+============================================================
+
+DÉTAIL DES DIFFÉRENCES :
+------------------------------------------------------------
+  ~ Ligne    1 | AVANT : **FREE
+             | APRÈS : FREE
+
+  ~ Ligne    3 | AVANT : Dcl-S montant Float8 Inz(1000.00);  // doit être 'Dec' ou 'Packed'
+             | APRÈS : Dcl-S montant Dec(12 2) Inz(1000.00);
+
+  ~ Ligne    4 | AVANT : Dcl-S code VarChar(9999) Inz('A');
+             | APRÈS : Dcl-S code VarChar(20) Inz('A');
+
+  ~ Ligne    5 | AVANT : Dcl-S age Int(3) Inz('vingt');
+             | APRÈS : Dcl-S age Int(3) Inz(20);
+
+  ~ Ligne    7 | AVANT : Dcl-S 2var Int(5);
+             | APRÈS : Dcl-S nouvelleVar Int(5);
+
+  ~ Ligne    9 | AVANT : Dcl-S partie1 Subs(complexe: 1:10);
+             | APRÈS : Dcl-S partie1 Subs(%Subst(complexe: 1:10));
+
