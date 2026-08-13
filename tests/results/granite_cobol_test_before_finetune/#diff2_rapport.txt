@@ -1,0 +1,29 @@
+============================================================
+   RAPPORT DE COMPARAISON - COBOL TEST #2
+============================================================
+  Date d'exécution  : 2026-08-13
+  Numéro exécution  : #1
+  Langage           : COBOL
+  Modèle            : granite4.1:8b
+  Entrée            : #2test.cbl
+  Réponse Granite   : #result2.cbl
+  Extraction code   : heuristique (pas de bloc détecté)
+  Options actives   : casse_ignoree=False | espaces_ignores=False | vides_ignorees=True | commentaires_ignores=True
+  Méthode comparaison : alignement difflib (SequenceMatcher)
+------------------------------------------------------------
+  Total lignes entrée (utiles) : 9
+  Total lignes sortie (utiles) : 9
+------------------------------------------------------------
+  Lignes identiques    : 8
+  Lignes modifiées     : 1
+  Lignes ajoutées      : 0
+  Lignes supprimées    : 0
+  Total différences    : 1
+  Similarité globale   : 88.89%
+============================================================
+
+DÉTAIL DES DIFFÉRENCES :
+------------------------------------------------------------
+  ~ Ligne    7 | AVANT : MOVE "JOHN" TO NAMES.
+             | APRÈS : MOVE "JOHN" TO NAME.
+
