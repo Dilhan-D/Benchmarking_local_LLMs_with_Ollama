@@ -63,6 +63,26 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Detect changed tests
+        id: detect
+        run: |
+          set -euo pipefail
+          # list changed files between commits
+          CHANGED=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} || true)
+          echo "Changed files: $CHANGED"
+          tests=""
+          for f in $CHANGED; do
+            if [[ "$f" =~ granite_cl_questions_before_finetune/questions_before_finetune/\#([0-9]+)test ]]; then
+              tests=",${tests}${BASH_REMATCH[1]}"
+            fi
+            if [[ "$f" =~ granite_cl_questions_before_finetune/answer_before_finetune/\#result([0-9]+) ]]; then
+              tests=",${tests}${BASH_REMATCH[1]}"
+            fi
+          done
+          tests=$(echo "$tests" | sed 's/,\+/,/g' | sed 's/^,//' | tr ',' '\n' | grep -E '^[0-9]+' || true | sort -u | tr '\n' ',' | sed 's/,$//')
+          echo "tests=$tests" >> $GITHUB_OUTPUT
 
       - name: Create CLLE .env file
         run: |
@@ -99,6 +119,8 @@ jobs:
           test -d granite_cl_questions_before_finetune/questions_before_finetune
 
       - name: Run CLLE comparison script
+        env:
+          FILTER_TESTS: ${{ steps.detect.outputs.tests }}
         run: |
           set -euo pipefail
           python3 tests/clle/compare_clle.py
@@ -122,6 +144,25 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Detect changed tests
+        id: detect
+        run: |
+          set -euo pipefail
+          CHANGED=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} || true)
+          echo "Changed files: $CHANGED"
+          tests=""
+          for f in $CHANGED; do
+            if [[ "$f" =~ granite_cobol_questions_before_finetune/questions_before_finetune/\#([0-9]+)test ]]; then
+              tests=",${tests}${BASH_REMATCH[1]}"
+            fi
+            if [[ "$f" =~ granite_cobol_questions_before_finetune/answers_before_finetune/\#result([0-9]+) ]]; then
+              tests=",${tests}${BASH_REMATCH[1]}"
+            fi
+          done
+          tests=$(echo "$tests" | sed 's/,\+/,/g' | sed 's/^,//' | tr ',' '\n' | grep -E '^[0-9]+' || true | sort -u | tr '\n' ',' | sed 's/,$//')
+          echo "tests=$tests" >> $GITHUB_OUTPUT
 
       - name: Create COBOL .env file
         run: |
@@ -158,6 +199,8 @@ jobs:
           test -d granite_cobol_questions_before_finetune/questions_before_finetune
 
       - name: Run COBOL comparison script
+        env:
+          FILTER_TESTS: ${{ steps.detect.outputs.tests }}
         run: |
           set -euo pipefail
           python3 tests/cobol/compare_cobol.py
@@ -181,6 +224,25 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Detect changed tests
+        id: detect
+        run: |
+          set -euo pipefail
+          CHANGED=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} || true)
+          echo "Changed files: $CHANGED"
+          tests=""
+          for f in $CHANGED; do
+            if [[ "$f" =~ granite_rpgle_questions_before_finetune/questions_before_finetune/\#([0-9]+)test ]]; then
+              tests=",${tests}${BASH_REMATCH[1]}"
+            fi
+            if [[ "$f" =~ granite_rpgle_questions_before_finetune/answers_before_finetune/\#result([0-9]+) ]]; then
+              tests=",${tests}${BASH_REMATCH[1]}"
+            fi
+          done
+          tests=$(echo "$tests" | sed 's/,\+/,/g' | sed 's/^,//' | tr ',' '\n' | grep -E '^[0-9]+' || true | sort -u | tr '\n' ',' | sed 's/,$//')
+          echo "tests=$tests" >> $GITHUB_OUTPUT
 
       - name: Create RPGLE .env file
         run: |
@@ -217,6 +279,8 @@ jobs:
           test -d granite_rpgle_questions_before_finetune/questions_before_finetune
 
       - name: Run RPGLE comparison script
+        env:
+          FILTER_TESTS: ${{ steps.detect.outputs.tests }}
         run: |
           set -euo pipefail
           python3 tests/rpgle/compare_rpgle.py
