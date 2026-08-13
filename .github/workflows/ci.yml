@@ -9,17 +9,17 @@ on:
     paths:
       - '.github/workflows/ci.yml'
       - 'tests/**'
-      - 'cl_questions_before_finetune/**'
-      - 'cobol_questions_before_finetune/**'
-      - 'rpgle_questions_before_finetune/**'
+      - 'granite_cl_questions_before_finetune/**'
+      - 'granite_cobol_questions_before_finetune/**'
+      - 'granite_rpgle_questions_before_finetune/**'
   pull_request:
     branches: [ main, master ]
     paths:
       - '.github/workflows/ci.yml'
       - 'tests/**'
-      - 'cl_questions_before_finetune/**'
-      - 'cobol_questions_before_finetune/**'
-      - 'rpgle_questions_before_finetune/**'
+      - 'granite_cl_questions_before_finetune/**'
+      - 'granite_cobol_questions_before_finetune/**'
+      - 'granite_rpgle_questions_before_finetune/**'
   workflow_dispatch:
 
 jobs:
@@ -40,17 +40,17 @@ jobs:
           filters: |
             clle:
               - 'tests/clle/**'
-              - 'cl_questions_before_finetune/**'
+              - 'granite_cl_questions_before_finetune/**'
               - 'tests/requirements.txt'
               - '.github/workflows/ci.yml'
             cobol:
               - 'tests/cobol/**'
-              - 'cobol_questions_before_finetune/**'
+              - 'granite_cobol_questions_before_finetune/**'
               - 'tests/requirements.txt'
               - '.github/workflows/ci.yml'
             rpgle:
               - 'tests/rpgle/**'
-              - 'rpgle_questions_before_finetune/**'
+              - 'granite_rpgle_questions_before_finetune/**'
               - 'tests/requirements.txt'
               - '.github/workflows/ci.yml'
 
@@ -71,9 +71,9 @@ jobs:
           cat > tests/clle/.env <<'EOF'
           LANGAGE=clle
           EXTENSION=.clle
-          DIR_QUESTIONS=../../cl_questions_before_finetune/questions_before_finetune
-          DIR_REPONSES=../../cl_questions_before_finetune/answer_before_finetune
-          DIR_RESULTATS=../results/clle_test_before_finetune
+          DIR_QUESTIONS=../../granite_cl_questions_before_finetune/questions_before_finetune
+          DIR_REPONSES=../../granite_cl_questions_before_finetune/answer_before_finetune
+          DIR_RESULTATS=../results/granite_clle_test_before_finetune
           NOM_RAPPORT=synthese_comparaison
           IGNORER_CASSE=false
           IGNORER_ESPACES=false
@@ -96,7 +96,7 @@ jobs:
           pwd
           ls tests/clle
           test -f tests/clle/.env
-          test -d cl_questions_before_finetune/questions_before_finetune
+          test -d granite_cl_questions_before_finetune/questions_before_finetune
 
       - name: Run CLLE comparison script
         run: |
@@ -109,7 +109,7 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add tests/results/clle_test_before_finetune
+          git add tests/results/granite_clle_test_before_finetune
           git commit -m "ci: update CLLE comparison results" || echo "No changes to commit"
           git push
 
@@ -130,9 +130,9 @@ jobs:
           cat > tests/cobol/.env <<'EOF'
           LANGAGE=cobol
           EXTENSION=.cbl
-          DIR_QUESTIONS=../../cobol_questions_before_finetune/questions_before_finetune
-          DIR_REPONSES=../../cobol_questions_before_finetune/answers_before_finetune
-          DIR_RESULTATS=../results/cobol_test_before_finetune
+          DIR_QUESTIONS=../../granite_cobol_questions_before_finetune/questions_before_finetune
+          DIR_REPONSES=../../granite_cobol_questions_before_finetune/answers_before_finetune
+          DIR_RESULTATS=../results/granite_cobol_test_before_finetune
           NOM_RAPPORT=synthese_comparaison
           IGNORER_CASSE=false
           IGNORER_ESPACES=false
@@ -155,7 +155,7 @@ jobs:
           pwd
           ls tests/cobol
           test -f tests/cobol/.env
-          test -d cobol_questions_before_finetune/questions_before_finetune
+          test -d granite_cobol_questions_before_finetune/questions_before_finetune
 
       - name: Run COBOL comparison script
         run: |
@@ -168,7 +168,7 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add tests/results/cobol_test_before_finetune
+          git add tests/results/granite_cobol_test_before_finetune
           git commit -m "ci: update COBOL comparison results" || echo "No changes to commit"
           git push
 
@@ -189,9 +189,9 @@ jobs:
           cat > tests/rpgle/.env <<'EOF'
           LANGAGE=rpgle
           EXTENSION=.rpgle
-          DIR_QUESTIONS=../../rpgle_questions_before_finetune/questions_before_finetune
-          DIR_REPONSES=../../rpgle_questions_before_finetune/answers_before_finetune
-          DIR_RESULTATS=../results/rpgle_test_before_finetune
+          DIR_QUESTIONS=../../granite_rpgle_questions_before_finetune/questions_before_finetune
+          DIR_REPONSES=../../granite_rpgle_questions_before_finetune/answers_before_finetune
+          DIR_RESULTATS=../results/granite_rpgle_test_before_finetune
           NOM_RAPPORT=synthese_comparaison
           IGNORER_CASSE=false
           IGNORER_ESPACES=True
@@ -214,7 +214,7 @@ jobs:
           pwd
           ls tests/rpgle
           test -f tests/rpgle/.env
-          test -d rpgle_questions_before_finetune/questions_before_finetune
+          test -d granite_rpgle_questions_before_finetune/questions_before_finetune
 
       - name: Run RPGLE comparison script
         run: |
@@ -227,6 +227,6 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add tests/results/rpgle_test_before_finetune
+          git add tests/results/granite_rpgle_test_before_finetune
           git commit -m "ci: update RPGLE comparison results" || echo "No changes to commit"
           git push
