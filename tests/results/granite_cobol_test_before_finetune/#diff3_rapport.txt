@@ -1,0 +1,38 @@
+============================================================
+   RAPPORT DE COMPARAISON - COBOL TEST #3
+============================================================
+  Date d'exécution  : 2026-08-13
+  Numéro exécution  : #1
+  Langage           : COBOL
+  Modèle            : granite4.1:8b
+  Entrée            : #3test.cbl
+  Réponse Granite   : #result3.cbl
+  Extraction code   : heuristique (pas de bloc détecté)
+  Options actives   : casse_ignoree=False | espaces_ignores=False | vides_ignorees=True | commentaires_ignores=True
+  Méthode comparaison : alignement difflib (SequenceMatcher)
+------------------------------------------------------------
+  Total lignes entrée (utiles) : 6
+  Total lignes sortie (utiles) : 8
+------------------------------------------------------------
+  Lignes identiques    : 4
+  Lignes modifiées     : 4
+  Lignes ajoutées      : 0
+  Lignes supprimées    : 0
+  Total différences    : 4
+  Similarité globale   : 66.67%
+============================================================
+
+DÉTAIL DES DIFFÉRENCES :
+------------------------------------------------------------
+  ~ Ligne    4 | AVANT : DISPLAY "TESTING"
+             | APRÈS : DISPLAY "TESTING".
+
+  ~ Ligne    6 | AVANT : DISPLAY "TRUE"
+             | APRÈS : DISPLAY "TRUE".
+
+  ~ Ligne    7 | AVANT : 
+             | APRÈS : END-IF.
+
+  ~ Ligne    8 | AVANT : 
+             | APRÈS : STOP RUN.
+
