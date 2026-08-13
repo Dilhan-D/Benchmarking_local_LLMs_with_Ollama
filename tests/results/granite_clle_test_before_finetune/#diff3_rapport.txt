@@ -1,0 +1,34 @@
+============================================================
+   RAPPORT DE COMPARAISON - CLLE TEST #3
+============================================================
+  Date d'exécution  : 2026-08-13
+  Numéro exécution  : #1
+  Langage           : CLLE
+  Modèle            : granite4.1:8b
+  Entrée            : #3test.clle
+  Réponse Granite   : #result3.clle
+  Extraction code   : heuristique (pas de bloc détecté)
+  Options actives   : casse_ignoree=False | espaces_ignores=False | vides_ignorees=True | commentaires_ignores=True
+  Méthode comparaison : alignement difflib (SequenceMatcher)
+------------------------------------------------------------
+  Total lignes entrée (utiles) : 7
+  Total lignes sortie (utiles) : 6
+------------------------------------------------------------
+  Lignes identiques    : 4
+  Lignes modifiées     : 2
+  Lignes ajoutées      : 0
+  Lignes supprimées    : 1
+  Total différences    : 3
+  Similarité globale   : 57.14%
+============================================================
+
+DÉTAIL DES DIFFÉRENCES :
+------------------------------------------------------------
+  - Ligne    1 | SUPPR : PGM
+
+  ~ Ligne    4 | AVANT : SNDMSG MSG('Recu') TOUSR(*SYSOPR)
+             | APRÈS : SNDMSG MSG('Reçu') TOUSR(*SYSOPR)
+
+  ~ Ligne    6 | AVANT : ELSE CMD(SNDMSG MSG('Echoue') TOUSR(*SYSOPR))
+             | APRÈS : ELSE CMD(SNDMSG MSG('Échoue') TOUSR(*SYSOPR))
+

@@ -1,0 +1,56 @@
+============================================================
+   RAPPORT DE COMPARAISON - CLLE TEST #1
+============================================================
+  Date d'exécution  : 2026-08-13
+  Numéro exécution  : #1
+  Langage           : CLLE
+  Modèle            : granite4.1:8b
+  Entrée            : #1test.clle
+  Réponse Granite   : #result1.clle
+  Extraction code   : heuristique (pas de bloc détecté)
+  Options actives   : casse_ignoree=False | espaces_ignores=False | vides_ignorees=True | commentaires_ignores=True
+  Méthode comparaison : alignement difflib (SequenceMatcher)
+------------------------------------------------------------
+  Total lignes entrée (utiles) : 13
+  Total lignes sortie (utiles) : 17
+------------------------------------------------------------
+  Lignes identiques    : 7
+  Lignes modifiées     : 10
+  Lignes ajoutées      : 0
+  Lignes supprimées    : 0
+  Total différences    : 10
+  Similarité globale   : 53.85%
+============================================================
+
+DÉTAIL DES DIFFÉRENCES :
+------------------------------------------------------------
+  ~ Ligne    2 | AVANT : DCL VAR(&NOM)     TYPE(*CHAR)   LEN(30) VALUE('GILLES')
+             | APRÈS : DCL VAR(&NOM)     TYPE(*CHAR)   LEN(30) VALUE('DUPONT')
+
+  ~ Ligne    3 | AVANT : DCL VAR(&AGE)     TYPE(*DEC)    LEN(3 0) VALUE(34)
+             | APRÈS : DCL VAR(&AGE)     TYPE(*DEC)    LEN(3 0) VALUE(25)
+
+  ~ Ligne    9 | AVANT : DCL VAR(&MONTANT) TYPE(*DEC)    LEN(9 2) VALUE('ABC')
+             | APRÈS : DCL VAR(&MONTANT) TYPE(*DEC)    LEN(9 2) VALUE(1000.00)
+
+  ~ Ligne   10 | AVANT : IF COND(&AGE *GE 18) THEN(DO)
+             | APRÈS : IF COND(&AGE *GE 18) THEN(
+
+  ~ Ligne   12 | AVANT : ENDDO
+             | APRÈS : )
+
+  ~ Ligne   13 | AVANT : ELSE CMD(SNDMSG MSG('Mineur') TOUSR(*SYSOPR))
+             | APRÈS : ELSE CMD(
+
+  ~ Ligne   14 | AVANT : 
+             | APRÈS : SNDMSG MSG('Mineur') TOUSR(*SYSOPR)
+
+  ~ Ligne   15 | AVANT : 
+             | APRÈS : )
+
+  ~ Ligne   16 | AVANT : 
+             | APRÈS : DSPFF D(Fichier: *ALL) OUTPUT(*OUTFILE) OUTFILE(MONFICHIER) MONMONTANT(&MONTANT)
+
+  ~ Ligne   17 | AVANT : 
+             | APRÈS : ENDPGM;
+
