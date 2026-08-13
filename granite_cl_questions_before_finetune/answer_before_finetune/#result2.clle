@@ -1,0 +1,16 @@
+/* Programme (PGM) pour démontrer l'utilisation de variables et envoi de messages */
+
+DCL VAR(&NOM)  TYPE(*CHAR) LEN(20) VALUE('DUPONT')   /* Déclaration d'une variable &NOM de type caractère avec une longueur de 20, initialisée à 'DUPONT' */
+DCL VAR(&AGE)  TYPE(*DEC)  LEN(3 0) VALUE(25)       /* Correction ERREUR 1 : ajout de 0 pour spécifier qu'il n'y a pas de décimales */
+
+/* Message envoyé avec le nom initialisé */
+SNDMSG MSG(&NOM) TOUSR(*SYSOPR)                     /* Envoie un message contenant la valeur de &NOM à l'utilisateur *SYSOPR */
+
+/* Construction d'un message concaténant une chaîne et la variable &NOM */
+DCL VAR(&MESSAGE) TYPE(*CHAR) LEN(40)                /* Déclare une variable pour stocker le message final */
+CHGVAR VAR(&MESSAGE) VALUE('Bonjour ' *CAT &NOM)    /* Concatène 'Bonjour ' avec &NOM dans &MESSAGE */
+
+/* Envoie le message concaténé à l'utilisateur système */
+SNDMSG MSG(&MESSAGE) TOUSR(*SYSOPR)                  /* Envoie le message final à l'utilisateur *SYSOPR */
+
+ENDPGM                                                /* Termine le programme */

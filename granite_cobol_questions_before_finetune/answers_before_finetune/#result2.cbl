@@ -1,0 +1,11 @@
+        IDENTIFICATION DIVISION.
+        PROGRAM-ID. TEST2.
+
+        DATA DIVISION.
+        WORKING-STORAGE SECTION.
+        01 NAME PIC X(10).
+
+        PROCEDURE DIVISION.
+            MOVE "JOHN" TO NAME.
+            DISPLAY NAME.
+            STOP RUN.

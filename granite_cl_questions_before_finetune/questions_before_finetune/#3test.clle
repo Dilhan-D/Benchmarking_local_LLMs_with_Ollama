@@ -1,0 +1,11 @@
+PGM
+
+    DCL VAR(&SCORE) TYPE(*DEC) LEN(3 0) VALUE(75)
+
+    IF COND(&SCORE >= 50) THEN(DO)
+    /* ERREUR 1: >= invalide en CL, doit être *GE */
+        SNDMSG MSG('Recu') TOUSR(*SYSOPR)
+    ENDDO
+    ELSE CMD(SNDMSG MSG('Echoue') TOUSR(*SYSOPR))
+
+ENDPGM
