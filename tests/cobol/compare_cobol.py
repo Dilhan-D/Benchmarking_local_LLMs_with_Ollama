@@ -351,6 +351,14 @@ def main():
 
     fichiers_test = sorted(DIR_QUESTIONS.glob(f"#*test{EXTENSION}"))
 
+    # Filtrage optionnel depuis CI: si FILTER_TESTS est défini (ex: "1,3"),
+    # ne garder que les fichiers #<N>test correspondant.
+    filt = os.environ.get("FILTER_TESTS", "").strip()
+    if filt:
+        allowed = {s.strip() for s in filt.split(',') if s.strip()}
+        if allowed:
+            fichiers_test = [p for p in fichiers_test if (m := re.search(r"#([0-9]+)test", p.name)) and m.group(1) in allowed]
+
     if not fichiers_test:
         print(f"\n  Aucun fichier trouvé (#*test{EXTENSION}) dans :")
         print(f"  {DIR_QUESTIONS.resolve()}")
