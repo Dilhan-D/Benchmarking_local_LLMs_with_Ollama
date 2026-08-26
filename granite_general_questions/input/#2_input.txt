@@ -1,0 +1,11 @@
+Explique comment fonctionne l’architecture IBM i et comment les différents éléments du système interagissent entre eux.
+
+* Quel est le rôle du système d’exploitation IBM i ?
+* Comment fonctionne le système d’objets IBM i et en quoi diffère-t-il d’un système de fichiers classique ?
+* Quelle est la différence entre un objet, un fichier physique, un fichier logique et un programme ?
+* Comment IBM i gère-t-il les jobs, les sous-systèmes et les files d’attente de jobs ?
+* Explique le rôle des bibliothèques dans la résolution des objets et l’importance de la library list.
+* Comment un programme RPG ou COBOL peut-il accéder aux données DB2 for i ?
+* Explique brièvement les notions de job, job queue, output queue et subsystem.
+
+Donne une réponse structurée, avec des exemples concrets de commandes IBM i lorsque cela est pertinent.
