@@ -1,0 +1,11 @@
+Explique les principales tâches d’un administrateur IBM i.
+
+* Comment démarrer et arrêter proprement un système IBM i ?
+* Comment surveiller l’utilisation du CPU et de la mémoire ?
+* Comment identifier les jobs qui consomment beaucoup de ressources ?
+* Comment gérer les utilisateurs et leurs profils ?
+* Comment consulter les messages système ?
+* Comment gérer les périphériques et les ressources système ?
+* Comment analyser un problème de performance ou un job bloqué ?
+
+Présente une procédure de diagnostic étape par étape.
