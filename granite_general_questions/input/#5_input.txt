@@ -1,0 +1,11 @@
+Explique les principales notions de programmation RPG sur IBM i.
+
+* Quelle différence entre RPG III, RPG IV et RPGLE ?
+* Qu’est-ce qu’un programme RPGLE ?
+* Comment un programme RPG accède-t-il à DB2 for i ?
+* Quel est le rôle des fichiers déclarés dans un programme RPG ?
+* Explique la différence entre *free-form RPG* et l’ancien format en colonnes.
+* Comment un programme RPG appelle-t-il un autre programme ou une procédure ?
+* Comment gérer les erreurs et les exceptions dans un programme RPGLE ?
+
+Ajoute quelques exemples simples de code RPGLE et explique-les.
