@@ -1,0 +1,11 @@
+Explique le modèle de sécurité d’IBM i et la manière dont les accès aux ressources sont contrôlés.
+
+* Qu’est-ce qu’un profil utilisateur IBM i ?
+* Quelle différence entre un profil utilisateur et un objet ?
+* Comment fonctionnent les autorités *private* et *public* ?
+* Quel est le rôle de *QSECOFR* ?
+* Comment fonctionne l’autorité adoptée (*adopted authority*) ?
+* Comment contrôler les droits d’un utilisateur sur un objet ?
+* Quelles sont les bonnes pratiques pour sécuriser un système IBM i ?
+
+Donne des exemples concrets de commandes et de situations courantes.
