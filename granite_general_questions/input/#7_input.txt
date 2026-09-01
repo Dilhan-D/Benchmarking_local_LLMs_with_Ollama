@@ -1,0 +1,11 @@
+Compare IBM i et Linux du point de vue d’un administrateur système.
+
+* Comment les deux systèmes gèrent-ils les processus ou jobs ?
+* Comment sont organisés les fichiers et les ressources ?
+* Comment fonctionne la gestion des utilisateurs et des permissions ?
+* Comment les applications accèdent-elles aux bases de données ?
+* Quelles différences existe-t-il entre un objet IBM i et un fichier Linux ?
+* Comment se comparent les outils d’administration et les interfaces en ligne de commande ?
+* Dans quels cas IBM i présente-t-il des avantages ou des contraintes par rapport à Linux ?
+
+Fais une comparaison technique et évite les explications trop générales.
