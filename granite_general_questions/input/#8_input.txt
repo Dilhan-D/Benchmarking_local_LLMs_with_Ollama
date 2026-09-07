@@ -1,0 +1,9 @@
+Explique ce qu’est l’IFS (Integrated File System) sur IBM i.
+
+* Pourquoi IBM i possède-t-il un IFS en plus de son système d’objets traditionnel ?
+* Quels sont les principaux systèmes de fichiers accessibles via l’IFS ?
+* Quelle différence entre `/`, `/home`, `/tmp`, `/QSYS.LIB` et `/QOpenSys` ?
+* Comment accéder à l’IFS depuis IBM i ?
+* Comment accéder à l’IFS depuis Windows ou Linux ?
+* Quelles commandes permettent de naviguer et manipuler les fichiers IFS ?
+* Comment les droits d’accès aux fichiers IFS sont-ils gérés ?
