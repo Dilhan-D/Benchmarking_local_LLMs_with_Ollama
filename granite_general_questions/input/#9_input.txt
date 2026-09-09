@@ -1,0 +1,9 @@
+Explique le rôle de `/QOpenSys` dans l’IFS IBM i.
+
+* Pourquoi ce système de fichiers existe-t-il ?
+* Quelle est sa relation avec les environnements de type Unix ?
+* Quelle différence entre `/QOpenSys` et `/home` ?
+* Comment IBM i gère-t-il la casse des noms de fichiers dans cet environnement ?
+* Quels types d’applications utilisent généralement `/QOpenSys` ?
+* Quel est le lien entre QOpenSys et PASE ?
+* Quels sont les pièges à connaître lorsqu’une application utilise QOpenSys ?
