@@ -1,0 +1,16 @@
+Décris l’architecture typique d’une application métier développée en RPGLE sur IBM i.
+
+Explique le rôle respectif :
+
+* des programmes RPGLE ;
+* des modules ;
+* des service programs ;
+* de DB2 for i ;
+* des procédures ;
+* des bibliothèques ;
+* de l’IFS ;
+* des jobs ;
+* des activation groups ;
+* des objets IBM i.
+
+Explique ensuite comment une demande utilisateur peut traverser l’ensemble de ces composants, depuis l’appel initial jusqu’à la lecture ou modification des données DB2.
