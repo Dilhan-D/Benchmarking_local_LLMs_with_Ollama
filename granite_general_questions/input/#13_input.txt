@@ -1,0 +1,12 @@
+Explique le cycle de compilation d’un programme RPGLE sur IBM i.
+
+* Qu’est-ce qu’un source member ?
+* Comment passe-t-on d’un source member à un module puis à un programme ?
+* Quel est le rôle de CRTBNDRPG ?
+* Quelle différence entre compilation séparée et compilation directe en programme ?
+* Qu’est-ce qu’un *binder source* ?
+* Comment gérer les dépendances entre modules ?
+* Que se passe-t-il lorsqu’un programme utilise un copybook ou un service program ?
+* Comment diagnostiquer une erreur de compilation ou de binding ?
+
+Présente le cycle complet avec les commandes IBM i correspondantes.
