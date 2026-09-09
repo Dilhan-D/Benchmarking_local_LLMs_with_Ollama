@@ -1,0 +1,9 @@
+Explique l'utilisation des modules et des service programs dans une application IBM i moderne. répond en syntaxe markdown
+
+* Pourquoi séparer un programme en plusieurs modules ?
+* Quelle différence entre compiler un module et créer un programme ?
+* Quel est le rôle de CRTRPGMOD, CRTSRVPGM et CRTPGM ?
+* Qu'est-ce qu'une procédure exportée ?
+* Comment une procédure est-elle importée par un autre programme ?
+* Pourquoi utiliser un service program plutôt qu'un simple programme ?
+* Comment gérer l'évolution d'un service program sans casser les applications existantes ?
