@@ -1,0 +1,11 @@
+Explique comment SSH et SFTP peuvent être utilisés avec IBM i.
+
+* Comment fonctionne SSH sur IBM i ?
+* Comment se connecter à un IBM i depuis Linux ou Windows ?
+* Comment transférer un fichier vers l’IFS avec SFTP ?
+* Où sont généralement stockés les fichiers transférés ?
+* Comment gérer les permissions des fichiers transférés ?
+* Quelle différence entre FTP, SFTP et SCP ?
+* Quels sont les principaux problèmes rencontrés lors d’un transfert de fichiers vers l’IFS ?
+
+Donne un exemple complet de transfert d’un fichier entre un serveur externe et IBM i.
