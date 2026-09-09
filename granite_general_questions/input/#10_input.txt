@@ -1,0 +1,9 @@
+Explique ce qu’est PASE (Portable Application Solutions Environment) sur IBM i.
+
+* Pourquoi IBM i propose-t-il un environnement de type Unix ?
+* Quelle relation existe entre PASE et l’IFS ?
+* Comment lancer une commande PASE depuis IBM i ?
+* Quelle différence entre une commande CL et une commande Unix/PASE ?
+* Quels types d’outils ou applications peuvent fonctionner dans PASE ?
+* Comment un programme PASE peut-il communiquer avec les ressources IBM i ?
+* Dans quels cas PASE est-il particulièrement utile ?
