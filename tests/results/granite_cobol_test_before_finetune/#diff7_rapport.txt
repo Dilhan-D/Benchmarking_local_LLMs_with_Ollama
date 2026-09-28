@@ -2,7 +2,7 @@
    RAPPORT DE COMPARAISON - COBOL TEST #7
 ============================================================
   Date d'exécution  : 2026-09-28
-  Numéro exécution  : #2
+  Numéro exécution  : #3
   Langage           : COBOL
   Modèle            : granite4.1:8b
   Entrée            : #7test.cbl
@@ -12,73 +12,42 @@
   Méthode comparaison : alignement difflib (SequenceMatcher)
 ------------------------------------------------------------
   Total lignes entrée (utiles) : 29
-  Total lignes sortie (utiles) : 0
+  Total lignes sortie (utiles) : 26
 ------------------------------------------------------------
-  Lignes identiques    : 0
-  Lignes modifiées     : 0
+  Lignes identiques    : 20
+  Lignes modifiées     : 9
   Lignes ajoutées      : 0
-  Lignes supprimées    : 29
-  Total différences    : 29
-  Similarité globale   : 0.0%
+  Lignes supprimées    : 0
+  Total différences    : 9
+  Similarité globale   : 68.97%
 ============================================================
 
 DÉTAIL DES DIFFÉRENCES :
 ------------------------------------------------------------
-  - Ligne    1 | SUPPR : IDENTIFICATION DIVISION.
+  ~ Ligne    9 | AVANT : 01 TAUX-CHARGES    PIC 9V99.
+             | APRÈS : 01 TAUX-CHARGES    PIC 9V99 VALUE 23.   *> Initialise le taux de charges à 23%
 
-  - Ligne    2 | SUPPR : PROGRAM-ID. CALCUL-SALAIRE.
+  ~ Ligne   13 | AVANT : DISPLAY "Nom de l'employe : "
+             | APRÈS : DISPLAY "Nom de l'employé : "
 
-  - Ligne    3 | SUPPR : DATA DIVISION.
+  ~ Ligne   18 | AVANT : ACCEPT PRIME.
+             | APRÈS : ACCEPT PRIME
 
-  - Ligne    4 | SUPPR : WORKING-STORAGE SECTION.
+  ~ Ligne   19 | AVANT : MOVE 0.23 TO TAUX-CHARGES
+             | APRÈS : COMPUTE CHARGES = SALAIRE-BRUT * TAUX-CHARGES / 100
 
-  - Ligne    5 | SUPPR : 01 NOM-EMPLOYE     PIC X(30).
+  ~ Ligne   20 | AVANT : COMPUTE SALAIRE-NET =
+             | APRÈS : COMPUTE SALAIRE-NET = SALAIRE-BRUT + PRIME - CHARGES
 
-  - Ligne    6 | SUPPR : 01 SALAIRE-BRUT    PIC 9(7)V99.
+  ~ Ligne   21 | AVANT : SALAIRE-BRUT + PRIME - CHARGES
+             | APRÈS : DISPLAY "Employé : " NOM-EMPLOYE
 
-  - Ligne    7 | SUPPR : 01 PRIME           PIC 9(5)V99.
+  ~ Ligne   22 | AVANT : COMPUTE CHARGES =
+             | APRÈS : 
 
-  - Ligne    8 | SUPPR : 01 SALAIRE-NET     PIC 9(7)V99.
+  ~ Ligne   23 | AVANT : SALAIRE-BRUT * TAUX-CHARGES
+             | APRÈS : 
 
-  - Ligne    9 | SUPPR : 01 TAUX-CHARGES    PIC 9V99.
-
-  - Ligne   10 | SUPPR : 01 CHARGES         PIC 9(7)V99.
-
-  - Ligne   11 | SUPPR : PROCEDURE DIVISION.
-
-  - Ligne   12 | SUPPR : DEBUT.
-
-  - Ligne   13 | SUPPR : DISPLAY "Nom de l'employe : "
-
-  - Ligne   14 | SUPPR : ACCEPT NOM-EMPLOYE
-
-  - Ligne   15 | SUPPR : DISPLAY "Salaire brut : "
-
-  - Ligne   16 | SUPPR : ACCEPT SALAIRE-BRUT
-
-  - Ligne   17 | SUPPR : DISPLAY "Prime : "
-
-  - Ligne   18 | SUPPR : ACCEPT PRIME.
-
-  - Ligne   19 | SUPPR : MOVE 0.23 TO TAUX-CHARGES
-
-  - Ligne   20 | SUPPR : COMPUTE SALAIRE-NET =
-
-  - Ligne   21 | SUPPR : SALAIRE-BRUT + PRIME - CHARGES
-
-  - Ligne   22 | SUPPR : COMPUTE CHARGES =
-
-  - Ligne   23 | SUPPR : SALAIRE-BRUT * TAUX-CHARGES
-
-  - Ligne   24 | SUPPR : DISPLAY "Employe : " NOM-EMPLOYE
-
-  - Ligne   25 | SUPPR : DISPLAY "Salaire brut : " SALAIRE-BRUT
-
-  - Ligne   26 | SUPPR : DISPLAY "Prime : " PRIME
-
-  - Ligne   27 | SUPPR : DISPLAY "Charges : " CHARGES
-
-  - Ligne   28 | SUPPR : DISPLAY "Salaire net : " SALAIRE-NET
-
-  - Ligne   29 | SUPPR : STOP-RUN.
+  ~ Ligne   24 | AVANT : DISPLAY "Employe : " NOM-EMPLOYE
+             | APRÈS : 
 

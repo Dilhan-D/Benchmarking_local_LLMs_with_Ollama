@@ -1,197 +1,77 @@
 {
-  "execution": 2,
+  "execution": 3,
   "date": "2026-09-28",
   "langage": "cobol",
   "resultats": [
     {
-      "execution": 2,
+      "execution": 3,
       "date": "2026-09-28",
       "langage": "cobol",
       "test": "#7",
       "fichier_entree": "#7test.cbl",
       "fichier_reponse": "#result7.cbl",
       "lignes_entree": 29,
-      "lignes_sortie": 0,
-      "identiques": 0,
-      "modifiees": 0,
+      "lignes_sortie": 26,
+      "identiques": 20,
+      "modifiees": 9,
       "ajoutees": 0,
-      "supprimees": 29,
-      "total_diff": 29,
-      "similarite": 0.0,
+      "supprimees": 0,
+      "total_diff": 9,
+      "similarite": 68.97,
       "extraction_bloc_md": false,
       "differences": [
         {
-          "ligne": 1,
-          "type": "SUPPRIMEE",
-          "avant": "IDENTIFICATION DIVISION.",
-          "apres": ""
-        },
-        {
-          "ligne": 2,
-          "type": "SUPPRIMEE",
-          "avant": "PROGRAM-ID. CALCUL-SALAIRE.",
-          "apres": ""
-        },
-        {
-          "ligne": 3,
-          "type": "SUPPRIMEE",
-          "avant": "DATA DIVISION.",
-          "apres": ""
-        },
-        {
-          "ligne": 4,
-          "type": "SUPPRIMEE",
-          "avant": "WORKING-STORAGE SECTION.",
-          "apres": ""
-        },
-        {
-          "ligne": 5,
-          "type": "SUPPRIMEE",
-          "avant": "01 NOM-EMPLOYE     PIC X(30).",
-          "apres": ""
-        },
-        {
-          "ligne": 6,
-          "type": "SUPPRIMEE",
-          "avant": "01 SALAIRE-BRUT    PIC 9(7)V99.",
-          "apres": ""
-        },
-        {
-          "ligne": 7,
-          "type": "SUPPRIMEE",
-          "avant": "01 PRIME           PIC 9(5)V99.",
-          "apres": ""
-        },
-        {
-          "ligne": 8,
-          "type": "SUPPRIMEE",
-          "avant": "01 SALAIRE-NET     PIC 9(7)V99.",
-          "apres": ""
-        },
-        {
           "ligne": 9,
-          "type": "SUPPRIMEE",
+          "type": "MODIFIEE",
           "avant": "01 TAUX-CHARGES    PIC 9V99.",
-          "apres": ""
-        },
-        {
-          "ligne": 10,
-          "type": "SUPPRIMEE",
-          "avant": "01 CHARGES         PIC 9(7)V99.",
-          "apres": ""
-        },
-        {
-          "ligne": 11,
-          "type": "SUPPRIMEE",
-          "avant": "PROCEDURE DIVISION.",
-          "apres": ""
-        },
-        {
-          "ligne": 12,
-          "type": "SUPPRIMEE",
-          "avant": "DEBUT.",
-          "apres": ""
+          "apres": "01 TAUX-CHARGES    PIC 9V99 VALUE 23.   *> Initialise le taux de charges à 23%"
         },
         {
           "ligne": 13,
-          "type": "SUPPRIMEE",
+          "type": "MODIFIEE",
           "avant": "DISPLAY \"Nom de l'employe : \"",
-          "apres": ""
-        },
-        {
-          "ligne": 14,
-          "type": "SUPPRIMEE",
-          "avant": "ACCEPT NOM-EMPLOYE",
-          "apres": ""
-        },
-        {
-          "ligne": 15,
-          "type": "SUPPRIMEE",
-          "avant": "DISPLAY \"Salaire brut : \"",
-          "apres": ""
-        },
-        {
-          "ligne": 16,
-          "type": "SUPPRIMEE",
-          "avant": "ACCEPT SALAIRE-BRUT",
-          "apres": ""
-        },
-        {
-          "ligne": 17,
-          "type": "SUPPRIMEE",
-          "avant": "DISPLAY \"Prime : \"",
-          "apres": ""
+          "apres": "DISPLAY \"Nom de l'employé : \""
         },
         {
           "ligne": 18,
-          "type": "SUPPRIMEE",
+          "type": "MODIFIEE",
           "avant": "ACCEPT PRIME.",
-          "apres": ""
+          "apres": "ACCEPT PRIME"
         },
         {
           "ligne": 19,
-          "type": "SUPPRIMEE",
+          "type": "MODIFIEE",
           "avant": "MOVE 0.23 TO TAUX-CHARGES",
-          "apres": ""
+          "apres": "COMPUTE CHARGES = SALAIRE-BRUT * TAUX-CHARGES / 100"
         },
         {
           "ligne": 20,
-          "type": "SUPPRIMEE",
+          "type": "MODIFIEE",
           "avant": "COMPUTE SALAIRE-NET =",
-          "apres": ""
+          "apres": "COMPUTE SALAIRE-NET = SALAIRE-BRUT + PRIME - CHARGES"
         },
         {
           "ligne": 21,
-          "type": "SUPPRIMEE",
+          "type": "MODIFIEE",
           "avant": "SALAIRE-BRUT + PRIME - CHARGES",
-          "apres": ""
+          "apres": "DISPLAY \"Employé : \" NOM-EMPLOYE"
         },
         {
           "ligne": 22,
-          "type": "SUPPRIMEE",
+          "type": "MODIFIEE",
           "avant": "COMPUTE CHARGES =",
           "apres": ""
         },
         {
           "ligne": 23,
-          "type": "SUPPRIMEE",
+          "type": "MODIFIEE",
           "avant": "SALAIRE-BRUT * TAUX-CHARGES",
           "apres": ""
         },
         {
           "ligne": 24,
-          "type": "SUPPRIMEE",
+          "type": "MODIFIEE",
           "avant": "DISPLAY \"Employe : \" NOM-EMPLOYE",
-          "apres": ""
-        },
-        {
-          "ligne": 25,
-          "type": "SUPPRIMEE",
-          "avant": "DISPLAY \"Salaire brut : \" SALAIRE-BRUT",
-          "apres": ""
-        },
-        {
-          "ligne": 26,
-          "type": "SUPPRIMEE",
-          "avant": "DISPLAY \"Prime : \" PRIME",
-          "apres": ""
-        },
-        {
-          "ligne": 27,
-          "type": "SUPPRIMEE",
-          "avant": "DISPLAY \"Charges : \" CHARGES",
-          "apres": ""
-        },
-        {
-          "ligne": 28,
-          "type": "SUPPRIMEE",
-          "avant": "DISPLAY \"Salaire net : \" SALAIRE-NET",
-          "apres": ""
-        },
-        {
-          "ligne": 29,
-          "type": "SUPPRIMEE",
-          "avant": "STOP-RUN.",
           "apres": ""
         }
       ]
