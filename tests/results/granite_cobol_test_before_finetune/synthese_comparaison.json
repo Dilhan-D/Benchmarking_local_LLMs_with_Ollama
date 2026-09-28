@@ -1,233 +1,198 @@
 {
-  "execution": 1,
-  "date": "2026-08-13",
+  "execution": 2,
+  "date": "2026-09-28",
   "langage": "cobol",
   "resultats": [
     {
-      "execution": 1,
-      "date": "2026-08-13",
+      "execution": 2,
+      "date": "2026-09-28",
       "langage": "cobol",
-      "test": "#1",
-      "fichier_entree": "#1test.cbl",
-      "fichier_reponse": "#result1.cbl",
-      "lignes_entree": 5,
-      "lignes_sortie": 5,
-      "identiques": 3,
-      "modifiees": 2,
+      "test": "#7",
+      "fichier_entree": "#7test.cbl",
+      "fichier_reponse": "#result7.cbl",
+      "lignes_entree": 29,
+      "lignes_sortie": 0,
+      "identiques": 0,
+      "modifiees": 0,
       "ajoutees": 0,
-      "supprimees": 0,
-      "total_diff": 2,
-      "similarite": 60.0,
+      "supprimees": 29,
+      "total_diff": 29,
+      "similarite": 0.0,
       "extraction_bloc_md": false,
       "differences": [
         {
+          "ligne": 1,
+          "type": "SUPPRIMEE",
+          "avant": "IDENTIFICATION DIVISION.",
+          "apres": ""
+        },
+        {
           "ligne": 2,
-          "type": "MODIFIEE",
-          "avant": "PROGRAM-ID TEST1",
-          "apres": "PROGRAM-ID. TEST1."
+          "type": "SUPPRIMEE",
+          "avant": "PROGRAM-ID. CALCUL-SALAIRE.",
+          "apres": ""
+        },
+        {
+          "ligne": 3,
+          "type": "SUPPRIMEE",
+          "avant": "DATA DIVISION.",
+          "apres": ""
         },
         {
           "ligne": 4,
-          "type": "MODIFIEE",
-          "avant": "PRINT \"HELLO\"",
-          "apres": "DISPLAY \"HELLO\"."
-        }
-      ]
-    },
-    {
-      "execution": 1,
-      "date": "2026-08-13",
-      "langage": "cobol",
-      "test": "#2",
-      "fichier_entree": "#2test.cbl",
-      "fichier_reponse": "#result2.cbl",
-      "lignes_entree": 9,
-      "lignes_sortie": 9,
-      "identiques": 8,
-      "modifiees": 1,
-      "ajoutees": 0,
-      "supprimees": 0,
-      "total_diff": 1,
-      "similarite": 88.89,
-      "extraction_bloc_md": false,
-      "differences": [
+          "type": "SUPPRIMEE",
+          "avant": "WORKING-STORAGE SECTION.",
+          "apres": ""
+        },
         {
-          "ligne": 7,
-          "type": "MODIFIEE",
-          "avant": "MOVE \"JOHN\" TO NAMES.",
-          "apres": "MOVE \"JOHN\" TO NAME."
-        }
-      ]
-    },
-    {
-      "execution": 1,
-      "date": "2026-08-13",
-      "langage": "cobol",
-      "test": "#3",
-      "fichier_entree": "#3test.cbl",
-      "fichier_reponse": "#result3.cbl",
-      "lignes_entree": 6,
-      "lignes_sortie": 8,
-      "identiques": 4,
-      "modifiees": 4,
-      "ajoutees": 0,
-      "supprimees": 0,
-      "total_diff": 4,
-      "similarite": 66.67,
-      "extraction_bloc_md": false,
-      "differences": [
-        {
-          "ligne": 4,
-          "type": "MODIFIEE",
-          "avant": "DISPLAY \"TESTING\"",
-          "apres": "DISPLAY \"TESTING\"."
+          "ligne": 5,
+          "type": "SUPPRIMEE",
+          "avant": "01 NOM-EMPLOYE     PIC X(30).",
+          "apres": ""
         },
         {
           "ligne": 6,
-          "type": "MODIFIEE",
-          "avant": "DISPLAY \"TRUE\"",
-          "apres": "DISPLAY \"TRUE\"."
+          "type": "SUPPRIMEE",
+          "avant": "01 SALAIRE-BRUT    PIC 9(7)V99.",
+          "apres": ""
         },
         {
           "ligne": 7,
-          "type": "MODIFIEE",
-          "avant": "",
-          "apres": "END-IF."
+          "type": "SUPPRIMEE",
+          "avant": "01 PRIME           PIC 9(5)V99.",
+          "apres": ""
         },
         {
           "ligne": 8,
-          "type": "MODIFIEE",
-          "avant": "",
-          "apres": "STOP RUN."
-        }
-      ]
-    },
-    {
-      "execution": 1,
-      "date": "2026-08-13",
-      "langage": "cobol",
-      "test": "#4",
-      "fichier_entree": "#4test.cbl",
-      "fichier_reponse": "#result4.cbl",
-      "lignes_entree": 10,
-      "lignes_sortie": 11,
-      "identiques": 10,
-      "modifiees": 0,
-      "ajoutees": 1,
-      "supprimees": 0,
-      "total_diff": 1,
-      "similarite": 100.0,
-      "extraction_bloc_md": false,
-      "differences": [
-        {
-          "ligne": 10,
-          "type": "AJOUTEE",
-          "avant": "",
-          "apres": "END-PERFORM."
-        }
-      ]
-    },
-    {
-      "execution": 1,
-      "date": "2026-08-13",
-      "langage": "cobol",
-      "test": "#5",
-      "fichier_entree": "#5test.cbl",
-      "fichier_reponse": "#result5.cbl",
-      "lignes_entree": 8,
-      "lignes_sortie": 9,
-      "identiques": 5,
-      "modifiees": 4,
-      "ajoutees": 0,
-      "supprimees": 0,
-      "total_diff": 4,
-      "similarite": 62.5,
-      "extraction_bloc_md": false,
-      "differences": [
-        {
-          "ligne": 4,
-          "type": "MODIFIEE",
-          "avant": "01 VAL1 PIC 9(3).",
-          "apres": "WORKING-STORAGE SECTION."
-        },
-        {
-          "ligne": 5,
-          "type": "MODIFIEE",
-          "avant": "",
-          "apres": "01 VAL1 PIC X(3)."
-        },
-        {
-          "ligne": 6,
-          "type": "MODIFIEE",
-          "avant": "MOVE \"ABC\" TO VAL1.",
-          "apres": "MOVE \"ABC\" TO VAL1"
-        },
-        {
-          "ligne": 7,
-          "type": "MODIFIEE",
-          "avant": "DISPLAY VAL1.",
-          "apres": "DISPLAY VAL1"
-        }
-      ]
-    },
-    {
-      "execution": 1,
-      "date": "2026-08-13",
-      "langage": "cobol",
-      "test": "#6",
-      "fichier_entree": "#6test.cbl",
-      "fichier_reponse": "#result6.cbl",
-      "lignes_entree": 11,
-      "lignes_sortie": 12,
-      "identiques": 5,
-      "modifiees": 7,
-      "ajoutees": 0,
-      "supprimees": 0,
-      "total_diff": 7,
-      "similarite": 45.45,
-      "extraction_bloc_md": false,
-      "differences": [
-        {
-          "ligne": 2,
-          "type": "MODIFIEE",
-          "avant": "PROGRAM-ID. TEST6",
-          "apres": "PROGRAM-ID. TEST6."
-        },
-        {
-          "ligne": 5,
-          "type": "MODIFIEE",
-          "avant": "01 COUNTER PIC 9.",
-          "apres": "01 COUNTER PIC 9(2)."
-        },
-        {
-          "ligne": 6,
-          "type": "MODIFIEE",
-          "avant": "10 VENOM   PIC(x)",
-          "apres": "10 VENOM   PIC X(1)."
+          "type": "SUPPRIMEE",
+          "avant": "01 SALAIRE-NET     PIC 9(7)V99.",
+          "apres": ""
         },
         {
           "ligne": 9,
-          "type": "MODIFIEE",
-          "avant": "PRINT \"ERROR\"",
-          "apres": "DISPLAY \"ERROR\""
+          "type": "SUPPRIMEE",
+          "avant": "01 TAUX-CHARGES    PIC 9V99.",
+          "apres": ""
         },
         {
           "ligne": 10,
-          "type": "MODIFIEE",
-          "avant": "COMPUTE 1 = 2",
-          "apres": "END-PERFORM."
+          "type": "SUPPRIMEE",
+          "avant": "01 CHARGES         PIC 9(7)V99.",
+          "apres": ""
         },
         {
           "ligne": 11,
-          "type": "MODIFIEE",
-          "avant": "STOP RUN",
-          "apres": "COMPUTE COUNTER = COUNTER + 1."
+          "type": "SUPPRIMEE",
+          "avant": "PROCEDURE DIVISION.",
+          "apres": ""
         },
         {
           "ligne": 12,
-          "type": "MODIFIEE",
-          "avant": "",
-          "apres": "STOP RUN."
+          "type": "SUPPRIMEE",
+          "avant": "DEBUT.",
+          "apres": ""
+        },
+        {
+          "ligne": 13,
+          "type": "SUPPRIMEE",
+          "avant": "DISPLAY \"Nom de l'employe : \"",
+          "apres": ""
+        },
+        {
+          "ligne": 14,
+          "type": "SUPPRIMEE",
+          "avant": "ACCEPT NOM-EMPLOYE",
+          "apres": ""
+        },
+        {
+          "ligne": 15,
+          "type": "SUPPRIMEE",
+          "avant": "DISPLAY \"Salaire brut : \"",
+          "apres": ""
+        },
+        {
+          "ligne": 16,
+          "type": "SUPPRIMEE",
+          "avant": "ACCEPT SALAIRE-BRUT",
+          "apres": ""
+        },
+        {
+          "ligne": 17,
+          "type": "SUPPRIMEE",
+          "avant": "DISPLAY \"Prime : \"",
+          "apres": ""
+        },
+        {
+          "ligne": 18,
+          "type": "SUPPRIMEE",
+          "avant": "ACCEPT PRIME.",
+          "apres": ""
+        },
+        {
+          "ligne": 19,
+          "type": "SUPPRIMEE",
+          "avant": "MOVE 0.23 TO TAUX-CHARGES",
+          "apres": ""
+        },
+        {
+          "ligne": 20,
+          "type": "SUPPRIMEE",
+          "avant": "COMPUTE SALAIRE-NET =",
+          "apres": ""
+        },
+        {
+          "ligne": 21,
+          "type": "SUPPRIMEE",
+          "avant": "SALAIRE-BRUT + PRIME - CHARGES",
+          "apres": ""
+        },
+        {
+          "ligne": 22,
+          "type": "SUPPRIMEE",
+          "avant": "COMPUTE CHARGES =",
+          "apres": ""
+        },
+        {
+          "ligne": 23,
+          "type": "SUPPRIMEE",
+          "avant": "SALAIRE-BRUT * TAUX-CHARGES",
+          "apres": ""
+        },
+        {
+          "ligne": 24,
+          "type": "SUPPRIMEE",
+          "avant": "DISPLAY \"Employe : \" NOM-EMPLOYE",
+          "apres": ""
+        },
+        {
+          "ligne": 25,
+          "type": "SUPPRIMEE",
+          "avant": "DISPLAY \"Salaire brut : \" SALAIRE-BRUT",
+          "apres": ""
+        },
+        {
+          "ligne": 26,
+          "type": "SUPPRIMEE",
+          "avant": "DISPLAY \"Prime : \" PRIME",
+          "apres": ""
+        },
+        {
+          "ligne": 27,
+          "type": "SUPPRIMEE",
+          "avant": "DISPLAY \"Charges : \" CHARGES",
+          "apres": ""
+        },
+        {
+          "ligne": 28,
+          "type": "SUPPRIMEE",
+          "avant": "DISPLAY \"Salaire net : \" SALAIRE-NET",
+          "apres": ""
+        },
+        {
+          "ligne": 29,
+          "type": "SUPPRIMEE",
+          "avant": "STOP-RUN.",
+          "apres": ""
         }
       ]
     }
