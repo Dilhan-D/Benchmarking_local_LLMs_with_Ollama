@@ -9,55 +9,119 @@ on:
     paths:
       - '.github/workflows/ci.yml'
       - 'tests/**'
-      - 'granite_cl_questions_before_finetune/**'
-      - 'granite_cobol_questions_before_finetune/**'
-      - 'granite_rpgle_questions_before_finetune/**'
+      - 'granite4.1_cl_questions_before_finetune/**'
+      - 'granite4.1_cobol_questions_before_finetune/**'
+      - 'granite4.1_rpgle_questions_before_finetune/**'
+      - 'granite4.2_cl_questions_before_finetune/**'
+      - 'granite4.2_cobol_questions_before_finetune/**'
+      - 'granite4.2_rpgle_questions_before_finetune/**'
   pull_request:
     branches: [ main, master ]
     paths:
       - '.github/workflows/ci.yml'
       - 'tests/**'
-      - 'granite_cl_questions_before_finetune/**'
-      - 'granite_cobol_questions_before_finetune/**'
-      - 'granite_rpgle_questions_before_finetune/**'
+      - 'granite4.1_cl_questions_before_finetune/**'
+      - 'granite4.1_cobol_questions_before_finetune/**'
+      - 'granite4.1_rpgle_questions_before_finetune/**'
+      - 'granite4.2_cl_questions_before_finetune/**'
+      - 'granite4.2_cobol_questions_before_finetune/**'
+      - 'granite4.2_rpgle_questions_before_finetune/**'
   workflow_dispatch:
 
 jobs:
   changes:
     runs-on: ubuntu-latest
     outputs:
-      clle: ${{ steps.filter.outputs.clle }}
-      cobol: ${{ steps.filter.outputs.cobol }}
-      rpgle: ${{ steps.filter.outputs.rpgle }}
+      matrix: ${{ steps.matrix.outputs.matrix }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Detect relevant changes
         id: filter
+        if: ${{ github.event_name != 'workflow_dispatch' }}
         uses: dorny/paths-filter@v3
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           filters: |
-            clle:
+            clle_41:
               - 'tests/clle/**'
-              - 'granite_cl_questions_before_finetune/**'
               - 'tests/requirements.txt'
               - '.github/workflows/ci.yml'
-            cobol:
+              - 'granite4.1_cl_questions_before_finetune/**'
+            cobol_41:
               - 'tests/cobol/**'
-              - 'granite_cobol_questions_before_finetune/**'
               - 'tests/requirements.txt'
               - '.github/workflows/ci.yml'
-            rpgle:
+              - 'granite4.1_cobol_questions_before_finetune/**'
+            rpgle_41:
               - 'tests/rpgle/**'
-              - 'granite_rpgle_questions_before_finetune/**'
               - 'tests/requirements.txt'
               - '.github/workflows/ci.yml'
+              - 'granite4.1_rpgle_questions_before_finetune/**'
+            clle_42:
+              - 'tests/clle/**'
+              - 'tests/requirements.txt'
+              - '.github/workflows/ci.yml'
+              - 'granite4.2_cl_questions_before_finetune/**'
+            cobol_42:
+              - 'tests/cobol/**'
+              - 'tests/requirements.txt'
+              - '.github/workflows/ci.yml'
+              - 'granite4.2_cobol_questions_before_finetune/**'
+            rpgle_42:
+              - 'tests/rpgle/**'
+              - 'tests/requirements.txt'
+              - '.github/workflows/ci.yml'
+              - 'granite4.2_rpgle_questions_before_finetune/**'
 
-  clle-tests:
+      - name: Build test matrix
+        id: matrix
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          CLLE_41: ${{ steps.filter.outputs.clle_41 }}
+          COBOL_41: ${{ steps.filter.outputs.cobol_41 }}
+          RPGLE_41: ${{ steps.filter.outputs.rpgle_41 }}
+          CLLE_42: ${{ steps.filter.outputs.clle_42 }}
+          COBOL_42: ${{ steps.filter.outputs.cobol_42 }}
+          RPGLE_42: ${{ steps.filter.outputs.rpgle_42 }}
+        run: |
+          set -euo pipefail
+          entries=()
+          add_entry() {
+            entries+=("{\"language\":\"$1\",\"version\":\"$2\",\"model\":\"$3\",\"data_dir\":\"$4\",\"answer_dir\":\"$5\",\"extension\":\"$6\",\"script\":\"$7\",\"result_dir\":\"$8\"}")
+          }
+          if [[ "$EVENT_NAME" == "workflow_dispatch" || "$CLLE_41" == "true" ]]; then
+            add_entry clle 4.1 granite4.1:8b granite4.1_cl_questions_before_finetune answer_before_finetune .clle tests/clle/compare_clle.py granite4.1_clle_test_before_finetune
+          fi
+          if [[ "$EVENT_NAME" == "workflow_dispatch" || "$COBOL_41" == "true" ]]; then
+            add_entry cobol 4.1 granite4.1:8b granite4.1_cobol_questions_before_finetune answers_before_finetune .cbl tests/cobol/compare_cobol.py granite4.1_cobol_test_before_finetune
+          fi
+          if [[ "$EVENT_NAME" == "workflow_dispatch" || "$RPGLE_41" == "true" ]]; then
+            add_entry rpgle 4.1 granite4.1:8b granite4.1_rpgle_questions_before_finetune answers_before_finetune .rpgle tests/rpgle/compare_rpgle.py granite4.1_rpgle_test_before_finetune
+          fi
+          if [[ "$EVENT_NAME" == "workflow_dispatch" || "$CLLE_42" == "true" ]]; then
+            add_entry clle 4.2 granite4.2:8b granite4.2_cl_questions_before_finetune answer_before_finetune .clle tests/clle/compare_clle.py granite4.2_clle_test_before_finetune
+          fi
+          if [[ "$EVENT_NAME" == "workflow_dispatch" || "$COBOL_42" == "true" ]]; then
+            add_entry cobol 4.2 granite4.2:8b granite4.2_cobol_questions_before_finetune answers_before_finetune .cbl tests/cobol/compare_cobol.py granite4.2_cobol_test_before_finetune
+          fi
+          if [[ "$EVENT_NAME" == "workflow_dispatch" || "$RPGLE_42" == "true" ]]; then
+            add_entry rpgle 4.2 granite4.2:8b granite4.2_rpgle_questions_before_finetune answers_before_finetune .rpgle tests/rpgle/compare_rpgle.py granite4.2_rpgle_test_before_finetune
+          fi
+          if ((${#entries[@]} == 0)); then
+            entries+=('{"skip":true}')
+          fi
+          printf 'matrix={"include":[%s]}\n' "$(IFS=,; echo "${entries[*]}")" >> "$GITHUB_OUTPUT"
+
+  compare-tests:
     needs: changes
-    if: ${{ needs.changes.outputs.clle == 'true' }}
+    if: ${{ needs.changes.outputs.matrix != '{"include":[{"skip":true}]}' }}
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix: ${{ fromJson(needs.changes.outputs.matrix) }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -67,36 +131,83 @@ jobs:
 
       - name: Detect changed tests
         id: detect
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+          DATA_DIR: ${{ matrix.data_dir }}
+          ANSWER_DIR: ${{ matrix.answer_dir }}
+          EXTENSION: ${{ matrix.extension }}
         run: |
           set -euo pipefail
-          # list changed files between commits
-          CHANGED=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} || true)
-          echo "Changed files: $CHANGED"
-          tests=""
-          for f in $CHANGED; do
-            if [[ "$f" =~ granite_cl_questions_before_finetune/questions_before_finetune/\#([0-9]+)test ]]; then
-              tests=",${tests}${BASH_REMATCH[1]}"
-            fi
-            if [[ "$f" =~ granite_cl_questions_before_finetune/answer_before_finetune/\#result([0-9]+) ]]; then
-              tests=",${tests}${BASH_REMATCH[1]}"
+          changed_tests=()
+          if [[ -n "$BASE_SHA" && "$BASE_SHA" != "0000000000000000000000000000000000000000" ]]; then
+            changed_files=$(git diff --name-only "$BASE_SHA" "$GITHUB_SHA" || true)
+            echo "Changed files: $changed_files"
+            while IFS= read -r file; do
+              if [[ "$file" == "$DATA_DIR/questions_before_finetune/"* ]]; then
+                filename=${file##*/}
+                if [[ "$filename" =~ ^#([0-9]+)test ]]; then
+                  changed_tests+=("${BASH_REMATCH[1]}")
+                fi
+              elif [[ "$file" == "$DATA_DIR/$ANSWER_DIR/"* ]]; then
+                filename=${file##*/}
+                if [[ "$filename" =~ ^#result([0-9]+) ]]; then
+                  changed_tests+=("${BASH_REMATCH[1]}")
+                fi
+              fi
+            done <<< "$changed_files"
+          fi
+
+          available_tests=()
+          for question in "$DATA_DIR"/questions_before_finetune/#*test"$EXTENSION"; do
+            [[ -f "$question" ]] || continue
+            filename=${question##*/}
+            [[ "$filename" =~ ^#([0-9]+)test ]] || continue
+            test_number=${BASH_REMATCH[1]}
+            if [[ -f "$DATA_DIR/$ANSWER_DIR/#result$test_number$EXTENSION" ]]; then
+              available_tests+=("$test_number")
             fi
           done
-          tests=$(echo "$tests" | sed 's/,\+/,/g' | sed 's/^,//' | tr ',' '\n' | grep -E '^[0-9]+' || true | sort -u | tr '\n' ',' | sed 's/,$//')
-          echo "tests=$tests" >> $GITHUB_OUTPUT
 
-      - name: Create CLLE .env file
+          if ((${#changed_tests[@]} > 0)); then
+            tests=()
+            for changed_test in "${changed_tests[@]}"; do
+              for available_test in "${available_tests[@]}"; do
+                if [[ "$changed_test" == "$available_test" ]]; then
+                  tests+=("$changed_test")
+                fi
+              done
+            done
+          else
+            tests=("${available_tests[@]}")
+          fi
+
+          if ((${#tests[@]} > 0)); then
+            filter_tests=$(printf '%s\n' "${tests[@]}" | sort -u | paste -sd, -)
+          else
+            filter_tests=""
+          fi
+          echo "tests=$filter_tests" >> "$GITHUB_OUTPUT"
+
+      - name: Create comparison configuration
+        env:
+          LANGUAGE: ${{ matrix.language }}
+          MODEL: ${{ matrix.model }}
+          DATA_DIR: ${{ matrix.data_dir }}
+          ANSWER_DIR: ${{ matrix.answer_dir }}
+          EXTENSION: ${{ matrix.extension }}
+          RESULT_DIR: ${{ matrix.result_dir }}
         run: |
           set -euo pipefail
-          mkdir -p tests/clle
-          cat > tests/clle/.env <<'EOF'
-          LANGAGE=clle
-          EXTENSION=.clle
-          DIR_QUESTIONS=../../granite_cl_questions_before_finetune/questions_before_finetune
-          DIR_REPONSES=../../granite_cl_questions_before_finetune/answer_before_finetune
-          DIR_RESULTATS=../results/granite_clle_test_before_finetune
+          cat > "tests/$LANGUAGE/.env" <<EOF
+          LANGAGE=$LANGUAGE
+          EXTENSION=$EXTENSION
+          DIR_QUESTIONS=../../$DATA_DIR/questions_before_finetune
+          DIR_REPONSES=../../$DATA_DIR/$ANSWER_DIR
+          DIR_RESULTATS=../results/$RESULT_DIR
           NOM_RAPPORT=synthese_comparaison
+          MODELE_LLM=$MODEL
           IGNORER_CASSE=false
-          IGNORER_ESPACES=false
+          IGNORER_ESPACES=$([[ "$LANGUAGE" == "rpgle" ]] && echo true || echo false)
           IGNORER_LIGNES_VIDES=true
           EOF
 
@@ -106,191 +217,38 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
+        run: python3 -m pip install --disable-pip-version-check --quiet python-dotenv
+
+      - name: Verify inputs
+        env:
+          DATA_DIR: ${{ matrix.data_dir }}
+          ANSWER_DIR: ${{ matrix.answer_dir }}
+          LANGUAGE: ${{ matrix.language }}
         run: |
           set -euo pipefail
-          python3 -m pip install --disable-pip-version-check --quiet python-dotenv
+          test -f "tests/$LANGUAGE/.env"
+          test -d "$DATA_DIR/questions_before_finetune"
+          test -d "$DATA_DIR/$ANSWER_DIR"
 
-      - name: Verify CLLE inputs
-        run: |
-          set -euo pipefail
-          pwd
-          ls tests/clle
-          test -f tests/clle/.env
-          test -d granite_cl_questions_before_finetune/questions_before_finetune
-
-      - name: Run CLLE comparison script
+      - name: Run comparison
+        if: ${{ steps.detect.outputs.tests != '' }}
         env:
           FILTER_TESTS: ${{ steps.detect.outputs.tests }}
-        run: |
-          set -euo pipefail
-          python3 tests/clle/compare_clle.py
+          SCRIPT: ${{ matrix.script }}
+        run: python3 "$SCRIPT"
 
-      - name: Publish CLLE results
-        if: success()
+      - name: Publish comparison results
+        if: ${{ github.event_name != 'pull_request' && steps.detect.outputs.tests != '' }}
+        env:
+          LANGUAGE: ${{ matrix.language }}
+          VERSION: ${{ matrix.version }}
+          RESULT_DIR: ${{ matrix.result_dir }}
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add tests/results/granite_clle_test_before_finetune
-          git commit -m "ci: update CLLE comparison results" || echo "No changes to commit"
-          git push
-
-  cobol-tests:
-    needs: changes
-    if: ${{ needs.changes.outputs.cobol == 'true' }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0
-
-      - name: Detect changed tests
-        id: detect
-        run: |
-          set -euo pipefail
-          CHANGED=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} || true)
-          echo "Changed files: $CHANGED"
-          tests=""
-          for f in $CHANGED; do
-            if [[ "$f" =~ granite_cobol_questions_before_finetune/questions_before_finetune/\#([0-9]+)test ]]; then
-              tests=",${tests}${BASH_REMATCH[1]}"
-            fi
-            if [[ "$f" =~ granite_cobol_questions_before_finetune/answers_before_finetune/\#result([0-9]+) ]]; then
-              tests=",${tests}${BASH_REMATCH[1]}"
-            fi
-          done
-          tests=$(echo "$tests" | sed 's/,\+/,/g' | sed 's/^,//' | tr ',' '\n' | grep -E '^[0-9]+' || true | sort -u | tr '\n' ',' | sed 's/,$//')
-          echo "tests=$tests" >> $GITHUB_OUTPUT
-
-      - name: Create COBOL .env file
-        run: |
-          set -euo pipefail
-          mkdir -p tests/cobol
-          cat > tests/cobol/.env <<'EOF'
-          LANGAGE=cobol
-          EXTENSION=.cbl
-          DIR_QUESTIONS=../../granite_cobol_questions_before_finetune/questions_before_finetune
-          DIR_REPONSES=../../granite_cobol_questions_before_finetune/answers_before_finetune
-          DIR_RESULTATS=../results/granite_cobol_test_before_finetune
-          NOM_RAPPORT=synthese_comparaison
-          IGNORER_CASSE=false
-          IGNORER_ESPACES=false
-          IGNORER_LIGNES_VIDES=true
-          EOF
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Install dependencies
-        run: |
-          set -euo pipefail
-          python3 -m pip install --disable-pip-version-check --quiet python-dotenv
-
-      - name: Verify COBOL inputs
-        run: |
-          set -euo pipefail
-          pwd
-          ls tests/cobol
-          test -f tests/cobol/.env
-          test -d granite_cobol_questions_before_finetune/questions_before_finetune
-
-      - name: Run COBOL comparison script
-        env:
-          FILTER_TESTS: ${{ steps.detect.outputs.tests }}
-        run: |
-          set -euo pipefail
-          python3 tests/cobol/compare_cobol.py
-
-      - name: Publish COBOL results
-        if: success()
-        run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add tests/results/granite_cobol_test_before_finetune
-          git commit -m "ci: update COBOL comparison results" || echo "No changes to commit"
-          git push
-
-  rpgle-tests:
-    needs: changes
-    if: ${{ needs.changes.outputs.rpgle == 'true' }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0
-
-      - name: Detect changed tests
-        id: detect
-        run: |
-          set -euo pipefail
-          CHANGED=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} || true)
-          echo "Changed files: $CHANGED"
-          tests=""
-          for f in $CHANGED; do
-            if [[ "$f" =~ granite_rpgle_questions_before_finetune/questions_before_finetune/\#([0-9]+)test ]]; then
-              tests=",${tests}${BASH_REMATCH[1]}"
-            fi
-            if [[ "$f" =~ granite_rpgle_questions_before_finetune/answers_before_finetune/\#result([0-9]+) ]]; then
-              tests=",${tests}${BASH_REMATCH[1]}"
-            fi
-          done
-          tests=$(echo "$tests" | sed 's/,\+/,/g' | sed 's/^,//' | tr ',' '\n' | grep -E '^[0-9]+' || true | sort -u | tr '\n' ',' | sed 's/,$//')
-          echo "tests=$tests" >> $GITHUB_OUTPUT
-
-      - name: Create RPGLE .env file
-        run: |
-          set -euo pipefail
-          mkdir -p tests/rpgle
-          cat > tests/rpgle/.env <<'EOF'
-          LANGAGE=rpgle
-          EXTENSION=.rpgle
-          DIR_QUESTIONS=../../granite_rpgle_questions_before_finetune/questions_before_finetune
-          DIR_REPONSES=../../granite_rpgle_questions_before_finetune/answers_before_finetune
-          DIR_RESULTATS=../results/granite_rpgle_test_before_finetune
-          NOM_RAPPORT=synthese_comparaison
-          IGNORER_CASSE=false
-          IGNORER_ESPACES=True
-          IGNORER_LIGNES_VIDES=true
-          EOF
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Install dependencies
-        run: |
-          set -euo pipefail
-          python3 -m pip install --disable-pip-version-check --quiet python-dotenv
-
-      - name: Verify RPGLE inputs
-        run: |
-          set -euo pipefail
-          pwd
-          ls tests/rpgle
-          test -f tests/rpgle/.env
-          test -d granite_rpgle_questions_before_finetune/questions_before_finetune
-
-      - name: Run RPGLE comparison script
-        env:
-          FILTER_TESTS: ${{ steps.detect.outputs.tests }}
-        run: |
-          set -euo pipefail
-          python3 tests/rpgle/compare_rpgle.py
-
-      - name: Publish RPGLE results
-        if: success()
-        run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add tests/results/granite_rpgle_test_before_finetune
-          git commit -m "ci: update RPGLE comparison results" || echo "No changes to commit"
-          git push
+          git add -- "tests/results/$RESULT_DIR"
+          git commit -m "ci: update $LANGUAGE Granite $VERSION comparison results" || echo "No changes to commit"
+          git fetch origin "$GITHUB_REF_NAME"
+          git rebase "origin/$GITHUB_REF_NAME"
+          git push origin "HEAD:refs/heads/$GITHUB_REF_NAME"
