@@ -7,10 +7,10 @@
 | Test | #7 |
 | Langage IBM i | COBOL |
 | Date d'exécution | 2026-09-28 |
-| Numéro d'exécution | #2 |
+| Numéro d'exécution | #3 |
 | Modèle utilisé | granite4.1:8b |
 | Lignes input (utiles) | 29 |
-| Lignes output (utiles) | 0 |
+| Lignes output (utiles) | 26 |
 | Méthode d'extraction | Heuristique (aucun bloc trouvé) |
 | Méthode de comparaison | Alignement difflib (SequenceMatcher) |
 | Commentaires ignorés | True |
@@ -21,46 +21,26 @@
 
 | Métrique | Valeur |
 |---|---|
-| Lignes identiques | 0 |
-| Lignes modifiées | 0 |
+| Lignes identiques | 20 |
+| Lignes modifiées | 9 |
 | Lignes ajoutées | 0 |
-| Lignes supprimées | 29 |
-| Total différences | 29 |
-| **Similarité globale** | **0.0%** |
+| Lignes supprimées | 0 |
+| Total différences | 9 |
+| **Similarité globale** | **68.97%** |
 
 ## Différences détectées
 
 | Ligne | Type | Avant | Après |
 |---|---|---|---|
-| 1 | SUPPRIMEE | `IDENTIFICATION DIVISION.` | `` |
-| 2 | SUPPRIMEE | `PROGRAM-ID. CALCUL-SALAIRE.` | `` |
-| 3 | SUPPRIMEE | `DATA DIVISION.` | `` |
-| 4 | SUPPRIMEE | `WORKING-STORAGE SECTION.` | `` |
-| 5 | SUPPRIMEE | `01 NOM-EMPLOYE     PIC X(30).` | `` |
-| 6 | SUPPRIMEE | `01 SALAIRE-BRUT    PIC 9(7)V99.` | `` |
-| 7 | SUPPRIMEE | `01 PRIME           PIC 9(5)V99.` | `` |
-| 8 | SUPPRIMEE | `01 SALAIRE-NET     PIC 9(7)V99.` | `` |
-| 9 | SUPPRIMEE | `01 TAUX-CHARGES    PIC 9V99.` | `` |
-| 10 | SUPPRIMEE | `01 CHARGES         PIC 9(7)V99.` | `` |
-| 11 | SUPPRIMEE | `PROCEDURE DIVISION.` | `` |
-| 12 | SUPPRIMEE | `DEBUT.` | `` |
-| 13 | SUPPRIMEE | `DISPLAY "Nom de l'employe : "` | `` |
-| 14 | SUPPRIMEE | `ACCEPT NOM-EMPLOYE` | `` |
-| 15 | SUPPRIMEE | `DISPLAY "Salaire brut : "` | `` |
-| 16 | SUPPRIMEE | `ACCEPT SALAIRE-BRUT` | `` |
-| 17 | SUPPRIMEE | `DISPLAY "Prime : "` | `` |
-| 18 | SUPPRIMEE | `ACCEPT PRIME.` | `` |
-| 19 | SUPPRIMEE | `MOVE 0.23 TO TAUX-CHARGES` | `` |
-| 20 | SUPPRIMEE | `COMPUTE SALAIRE-NET =` | `` |
-| 21 | SUPPRIMEE | `SALAIRE-BRUT + PRIME - CHARGES` | `` |
-| 22 | SUPPRIMEE | `COMPUTE CHARGES =` | `` |
-| 23 | SUPPRIMEE | `SALAIRE-BRUT * TAUX-CHARGES` | `` |
-| 24 | SUPPRIMEE | `DISPLAY "Employe : " NOM-EMPLOYE` | `` |
-| 25 | SUPPRIMEE | `DISPLAY "Salaire brut : " SALAIRE-BRUT` | `` |
-| 26 | SUPPRIMEE | `DISPLAY "Prime : " PRIME` | `` |
-| 27 | SUPPRIMEE | `DISPLAY "Charges : " CHARGES` | `` |
-| 28 | SUPPRIMEE | `DISPLAY "Salaire net : " SALAIRE-NET` | `` |
-| 29 | SUPPRIMEE | `STOP-RUN.` | `` |
+| 9 | MODIFIEE | `01 TAUX-CHARGES    PIC 9V99.` | `01 TAUX-CHARGES    PIC 9V99 VALUE 23.   *> Initialise le taux de charges à 23%` |
+| 13 | MODIFIEE | `DISPLAY "Nom de l'employe : "` | `DISPLAY "Nom de l'employé : "` |
+| 18 | MODIFIEE | `ACCEPT PRIME.` | `ACCEPT PRIME` |
+| 19 | MODIFIEE | `MOVE 0.23 TO TAUX-CHARGES` | `COMPUTE CHARGES = SALAIRE-BRUT * TAUX-CHARGES / 100` |
+| 20 | MODIFIEE | `COMPUTE SALAIRE-NET =` | `COMPUTE SALAIRE-NET = SALAIRE-BRUT + PRIME - CHARGES` |
+| 21 | MODIFIEE | `SALAIRE-BRUT + PRIME - CHARGES` | `DISPLAY "Employé : " NOM-EMPLOYE` |
+| 22 | MODIFIEE | `COMPUTE CHARGES =` | `` |
+| 23 | MODIFIEE | `SALAIRE-BRUT * TAUX-CHARGES` | `` |
+| 24 | MODIFIEE | `DISPLAY "Employe : " NOM-EMPLOYE` | `` |
 
 ## Code original (input)
 
@@ -110,6 +90,43 @@
 ## Réponse Granite — code extrait (output normalisé)
 
 ```cobol
+IDENTIFICATION DIVISION.
+       PROGRAM-ID. CALCUL-SALAIRE.
 
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+
+       01 NOM-EMPLOYE     PIC X(30).
+       01 SALAIRE-BRUT    PIC 9(7)V99.
+       01 PRIME           PIC 9(5)V99.
+       01 SALAIRE-NET     PIC 9(7)V99.
+       01 TAUX-CHARGES    PIC 9V99 VALUE 23.   *> Initialise le taux de charges à 23%
+       01 CHARGES         PIC 9(7)V99.
+
+       PROCEDURE DIVISION.
+
+       DEBUT.
+           DISPLAY "Nom de l'employé : "
+           ACCEPT NOM-EMPLOYE
+
+           DISPLAY "Salaire brut : "
+           ACCEPT SALAIRE-BRUT
+
+           DISPLAY "Prime : "
+           ACCEPT PRIME
+
+           *> Calcul des charges
+           COMPUTE CHARGES = SALAIRE-BRUT * TAUX-CHARGES / 100
+
+           *> Calcul du salaire net
+           COMPUTE SALAIRE-NET = SALAIRE-BRUT + PRIME - CHARGES
+
+           DISPLAY "Employé : " NOM-EMPLOYE
+           DISPLAY "Salaire brut : " SALAIRE-BRUT
+           DISPLAY "Prime : " PRIME
+           DISPLAY "Charges : " CHARGES
+           DISPLAY "Salaire net : " SALAIRE-NET
+
+           STOP-RUN.
 ```
 
