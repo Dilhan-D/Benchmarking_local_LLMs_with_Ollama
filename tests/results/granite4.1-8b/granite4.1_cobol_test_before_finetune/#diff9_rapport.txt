@@ -1,38 +1,41 @@
 ============================================================
-   RAPPORT DE COMPARAISON - COBOL TEST #3
+   RAPPORT DE COMPARAISON - COBOL TEST #9
 ============================================================
   Date d'exécution  : 2026-09-30
   Numéro exécution  : #11
   Langage           : COBOL
   Modèle            : granite4.1:8b
-  Entrée            : #3test.cbl
-  Réponse Granite   : #result3.cbl
+  Entrée            : #9test.cbl
+  Réponse Granite   : #result9.cbl
   Extraction code   : heuristique (pas de bloc détecté)
   Options actives   : casse_ignoree=False | espaces_ignores=False | vides_ignorees=True | commentaires_ignores=True
   Méthode comparaison : alignement difflib (SequenceMatcher)
 ------------------------------------------------------------
-  Total lignes entrée (utiles) : 6
-  Total lignes sortie (utiles) : 8
+  Total lignes entrée (utiles) : 15
+  Total lignes sortie (utiles) : 15
 ------------------------------------------------------------
-  Lignes identiques    : 4
-  Lignes modifiées     : 4
+  Lignes identiques    : 10
+  Lignes modifiées     : 5
   Lignes ajoutées      : 0
   Lignes supprimées    : 0
-  Total différences    : 4
+  Total différences    : 5
   Similarité globale   : 66.67%
 ============================================================
 
 DÉTAIL DES DIFFÉRENCES :
 ------------------------------------------------------------
-  ~ Ligne    4 | AVANT : DISPLAY "TESTING"
-             | APRÈS : DISPLAY "TESTING".
+  ~ Ligne    5 | AVANT : 01  WS-PRIX       PIC 9(5)V99.
+             | APRÈS : 01 WS-PRIX       PIC 9(5)V99.
 
-  ~ Ligne    6 | AVANT : DISPLAY "TRUE"
-             | APRÈS : DISPLAY "TRUE".
+  ~ Ligne    6 | AVANT : 01  WS-QUANTITE   PIC 9(3).
+             | APRÈS : 01 WS-QUANTITE   PIC 9(3).
 
-  ~ Ligne    7 | AVANT : 
-             | APRÈS : END-IF.
+  ~ Ligne    7 | AVANT : 01  WS-TOTAL      PIC 9(7)V99.
+             | APRÈS : 01 WS-TOTAL      PIC 9(7)V99.
 
-  ~ Ligne    8 | AVANT : 
-             | APRÈS : STOP RUN.
+  ~ Ligne   11 | AVANT : DISPLAY "Entrez la quantite : "
+             | APRÈS : DISPLAY "Entrez la quantité : "
+
+  ~ Ligne   13 | AVANT : COMPUTE WS-TOTAL = WS-PRIX + WS-QUANTITE
+             | APRÈS : COMPUTE WS-TOTAL = WS-PRIX * WS-QUANTITE
 
