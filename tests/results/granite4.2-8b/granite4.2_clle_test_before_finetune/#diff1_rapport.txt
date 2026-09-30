@@ -2,7 +2,7 @@
    RAPPORT DE COMPARAISON - CLLE TEST #1
 ============================================================
   Date d'exécution  : 2026-09-30
-  Numéro exécution  : #1
+  Numéro exécution  : #2
   Langage           : CLLE
   Modèle            : granite4.2:8b
   Entrée            : #1test.clle
@@ -12,45 +12,54 @@
   Méthode comparaison : alignement difflib (SequenceMatcher)
 ------------------------------------------------------------
   Total lignes entrée (utiles) : 13
-  Total lignes sortie (utiles) : 17
+  Total lignes sortie (utiles) : 15
 ------------------------------------------------------------
-  Lignes identiques    : 7
-  Lignes modifiées     : 10
+  Lignes identiques    : 2
+  Lignes modifiées     : 13
   Lignes ajoutées      : 0
   Lignes supprimées    : 0
-  Total différences    : 10
-  Similarité globale   : 53.85%
+  Total différences    : 13
+  Similarité globale   : 15.38%
 ============================================================
 
 DÉTAIL DES DIFFÉRENCES :
 ------------------------------------------------------------
   ~ Ligne    2 | AVANT : DCL VAR(&NOM)     TYPE(*CHAR)   LEN(30) VALUE('GILLES')
-             | APRÈS : DCL VAR(&NOM)     TYPE(*CHAR)   LEN(30) VALUE('DUPONT')
+             | APRÈS : DCL VAR(&NOM      CHAR(30)) VALUE('GILLES')
 
   ~ Ligne    3 | AVANT : DCL VAR(&AGE)     TYPE(*DEC)    LEN(3 0) VALUE(34)
-             | APRÈS : DCL VAR(&AGE)     TYPE(*DEC)    LEN(3 0) VALUE(25)
+             | APRÈS : DCL VAR(&AGE      DEC(3 0)) VALUE(34)
+
+  ~ Ligne    4 | AVANT : DCL VAR(&SALAIRE) TYPE(*DEC)    LEN(9 2) VALUE(2500.00)
+             | APRÈS : DCL VAR(&SALAIRE  DEC(9 2)) VALUE(2500.00)
+
+  ~ Ligne    5 | AVANT : DCL VAR(&ACTIF)   TYPE(*LGL)    VALUE('1')
+             | APRÈS : DCL VAR(&ACTIF    LOGIC) VALUE('1')
+
+  ~ Ligne    6 | AVANT : DCL VAR(&MSGID)   TYPE(*CHAR)   LEN(7)
+             | APRÈS : DCL VAR(&MSGID    CHAR(7))
+
+  ~ Ligne    7 | AVANT : DCL VAR(&CODE)    TYPE(*INTEGER) LEN(10)
+             | APRÈS : DCL VAR(&CODE     *INTEGER LEN(10))
+
+  ~ Ligne    8 | AVANT : DCL VAR(&LIBELLE) TYPE(*CHAR)
+             | APRÈS : DCL VAR(&LIBELLE  CHAR(30))
 
   ~ Ligne    9 | AVANT : DCL VAR(&MONTANT) TYPE(*DEC)    LEN(9 2) VALUE('ABC')
-             | APRÈS : DCL VAR(&MONTANT) TYPE(*DEC)    LEN(9 2) VALUE(1000.00)
+             | APRÈS : DCL VAR(&MONTANT  DEC(9 2)) VALUE('0.00')
 
   ~ Ligne   10 | AVANT : IF COND(&AGE *GE 18) THEN(DO)
-             | APRÈS : IF COND(&AGE *GE 18) THEN(
+             | APRÈS : IF COND(&AGE *GE 18)
 
   ~ Ligne   12 | AVANT : ENDDO
-             | APRÈS : )
+             | APRÈS : ELSE
 
   ~ Ligne   13 | AVANT : ELSE CMD(SNDMSG MSG('Mineur') TOUSR(*SYSOPR))
-             | APRÈS : ELSE CMD(
-
-  ~ Ligne   14 | AVANT : 
              | APRÈS : SNDMSG MSG('Mineur') TOUSR(*SYSOPR)
 
+  ~ Ligne   14 | AVANT : 
+             | APRÈS : ENDIF
+
   ~ Ligne   15 | AVANT : 
-             | APRÈS : )
-
-  ~ Ligne   16 | AVANT : 
-             | APRÈS : DSPFF D(Fichier: *ALL) OUTPUT(*OUTFILE) OUTFILE(MONFICHIER) MONMONTANT(&MONTANT)
-
-  ~ Ligne   17 | AVANT : 
-             | APRÈS : ENDPGM;
+             | APRÈS : ENDPGM
 

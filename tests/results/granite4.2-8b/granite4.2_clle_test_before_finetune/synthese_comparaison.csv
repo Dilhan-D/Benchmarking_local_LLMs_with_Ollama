@@ -1,2 +1,3 @@
 execution;date;langage;test;fichier_entree;fichier_reponse;lignes_entree;lignes_sortie;identiques;modifiees;ajoutees;supprimees;total_diff;similarite;extraction_bloc_md
 1;2026-09-30;clle;#1;#1test.clle;#result1.clle;13;17;7;10;0;0;10;53.85;False
+2;2026-09-30;clle;#1;#1test.clle;#result1.clle;13;15;2;13;0;0;13;15.38;False
