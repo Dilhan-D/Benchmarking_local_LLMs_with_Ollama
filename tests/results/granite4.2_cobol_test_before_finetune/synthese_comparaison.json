@@ -1,0 +1,38 @@
+{
+  "execution": 1,
+  "date": "2026-09-30",
+  "langage": "cobol",
+  "resultats": [
+    {
+      "execution": 1,
+      "date": "2026-09-30",
+      "langage": "cobol",
+      "test": "#1",
+      "fichier_entree": "#1test.cbl",
+      "fichier_reponse": "#result1.cbl",
+      "lignes_entree": 5,
+      "lignes_sortie": 5,
+      "identiques": 3,
+      "modifiees": 2,
+      "ajoutees": 0,
+      "supprimees": 0,
+      "total_diff": 2,
+      "similarite": 60.0,
+      "extraction_bloc_md": false,
+      "differences": [
+        {
+          "ligne": 2,
+          "type": "MODIFIEE",
+          "avant": "PROGRAM-ID TEST1",
+          "apres": "PROGRAM-ID. TEST1."
+        },
+        {
+          "ligne": 4,
+          "type": "MODIFIEE",
+          "avant": "PRINT \"HELLO\"",
+          "apres": "DISPLAY \"HELLO\"."
+        }
+      ]
+    }
+  ]
+}
