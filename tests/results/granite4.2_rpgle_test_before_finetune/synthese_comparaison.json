@@ -1,0 +1,56 @@
+{
+  "execution": 1,
+  "date": "2026-09-30",
+  "langage": "rpgle",
+  "resultats": [
+    {
+      "execution": 1,
+      "date": "2026-09-30",
+      "langage": "rpgle",
+      "test": "#1",
+      "fichier_entree": "#1test.rpgle",
+      "fichier_reponse": "#result1.rpgle",
+      "lignes_entree": 17,
+      "lignes_sortie": 17,
+      "identiques": 12,
+      "modifiees": 5,
+      "ajoutees": 0,
+      "supprimees": 0,
+      "total_diff": 5,
+      "similarite": 70.59,
+      "extraction_bloc_md": false,
+      "differences": [
+        {
+          "ligne": 1,
+          "type": "MODIFIEE",
+          "avant": "**FREE",
+          "apres": "FREE"
+        },
+        {
+          "ligne": 10,
+          "type": "MODIFIEE",
+          "avant": "Else",
+          "apres": "Else;"
+        },
+        {
+          "ligne": 11,
+          "type": "MODIFIEE",
+          "avant": "estMajeur = *Off",
+          "apres": "estMajeur = *Off;"
+        },
+        {
+          "ligne": 14,
+          "type": "MODIFIEE",
+          "avant": "If agee > 65;  // 'agee' n'existe pas",
+          "apres": "If age > 65;"
+        },
+        {
+          "ligne": 17,
+          "type": "MODIFIEE",
+          "avant": "salaire = salaire ** 1.10;  // '**' n'existe pas en RPGLE, doit être '*'",
+          "apres": "salaire = salaire * 1.10;"
+        }
+      ]
+    }
+  ]
+}
