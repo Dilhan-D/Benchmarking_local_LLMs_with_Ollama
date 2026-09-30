@@ -1,28 +1,32 @@
 ============================================================
-   RAPPORT DE COMPARAISON - COBOL TEST #4
+   RAPPORT DE COMPARAISON - COBOL TEST #1
 ============================================================
   Date d'exécution  : 2026-09-30
-  Numéro exécution  : #10
+  Numéro exécution  : #1
   Langage           : COBOL
-  Modèle            : granite4.1:8b
-  Entrée            : #4test.cbl
-  Réponse Granite   : #result4.cbl
+  Modèle            : granite4.2:8b
+  Entrée            : #1test.cbl
+  Réponse Granite   : #result1.cbl
   Extraction code   : heuristique (pas de bloc détecté)
   Options actives   : casse_ignoree=False | espaces_ignores=False | vides_ignorees=True | commentaires_ignores=True
   Méthode comparaison : alignement difflib (SequenceMatcher)
 ------------------------------------------------------------
-  Total lignes entrée (utiles) : 10
-  Total lignes sortie (utiles) : 11
+  Total lignes entrée (utiles) : 5
+  Total lignes sortie (utiles) : 5
 ------------------------------------------------------------
-  Lignes identiques    : 10
-  Lignes modifiées     : 0
-  Lignes ajoutées      : 1
+  Lignes identiques    : 3
+  Lignes modifiées     : 2
+  Lignes ajoutées      : 0
   Lignes supprimées    : 0
-  Total différences    : 1
-  Similarité globale   : 100.0%
+  Total différences    : 2
+  Similarité globale   : 60.0%
 ============================================================
 
 DÉTAIL DES DIFFÉRENCES :
 ------------------------------------------------------------
-  + Ligne   10 | AJOUT : END-PERFORM.
+  ~ Ligne    2 | AVANT : PROGRAM-ID TEST1
+             | APRÈS : PROGRAM-ID. TEST1.
+
+  ~ Ligne    4 | AVANT : PRINT "HELLO"
+             | APRÈS : DISPLAY "HELLO".
 
