@@ -2,7 +2,7 @@
    RAPPORT DE COMPARAISON - COBOL TEST #3
 ============================================================
   Date d'exécution  : 2026-09-30
-  Numéro exécution  : #7
+  Numéro exécution  : #9
   Langage           : COBOL
   Modèle            : granite4.1:8b
   Entrée            : #3test.cbl
