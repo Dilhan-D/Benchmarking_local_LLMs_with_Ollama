@@ -1,305 +1,155 @@
 {
-  "execution": 5,
+  "execution": 6,
   "date": "2026-09-30",
   "langage": "cobol",
   "resultats": [
     {
-      "execution": 5,
+      "execution": 6,
       "date": "2026-09-30",
       "langage": "cobol",
-      "test": "#1",
-      "fichier_entree": "#1test.cbl",
-      "fichier_reponse": "#result1.cbl",
-      "lignes_entree": 5,
-      "lignes_sortie": 5,
-      "identiques": 3,
-      "modifiees": 2,
+      "test": "#8",
+      "fichier_entree": "#8test.cbl",
+      "fichier_reponse": "#result8.cbl",
+      "lignes_entree": 22,
+      "lignes_sortie": 0,
+      "identiques": 0,
+      "modifiees": 0,
       "ajoutees": 0,
-      "supprimees": 0,
-      "total_diff": 2,
-      "similarite": 60.0,
+      "supprimees": 22,
+      "total_diff": 22,
+      "similarite": 0.0,
       "extraction_bloc_md": false,
       "differences": [
         {
+          "ligne": 1,
+          "type": "SUPPRIMEE",
+          "avant": "IDENTIFICATION DIVISION.",
+          "apres": ""
+        },
+        {
           "ligne": 2,
-          "type": "MODIFIEE",
-          "avant": "PROGRAM-ID TEST1",
-          "apres": "PROGRAM-ID. TEST1."
+          "type": "SUPPRIMEE",
+          "avant": "PROGRAM-ID. CLIENT01.",
+          "apres": ""
+        },
+        {
+          "ligne": 3,
+          "type": "SUPPRIMEE",
+          "avant": "ENVIRONMENT DIVISION.",
+          "apres": ""
         },
         {
           "ligne": 4,
-          "type": "MODIFIEE",
-          "avant": "PRINT \"HELLO\"",
-          "apres": "DISPLAY \"HELLO\"."
-        }
-      ]
-    },
-    {
-      "execution": 5,
-      "date": "2026-09-30",
-      "langage": "cobol",
-      "test": "#2",
-      "fichier_entree": "#2test.cbl",
-      "fichier_reponse": "#result2.cbl",
-      "lignes_entree": 9,
-      "lignes_sortie": 9,
-      "identiques": 8,
-      "modifiees": 1,
-      "ajoutees": 0,
-      "supprimees": 0,
-      "total_diff": 1,
-      "similarite": 88.89,
-      "extraction_bloc_md": false,
-      "differences": [
+          "type": "SUPPRIMEE",
+          "avant": "INPUT-OUTPUT SECTION.",
+          "apres": ""
+        },
         {
-          "ligne": 7,
-          "type": "MODIFIEE",
-          "avant": "MOVE \"JOHN\" TO NAMES.",
-          "apres": "MOVE \"JOHN\" TO NAME."
-        }
-      ]
-    },
-    {
-      "execution": 5,
-      "date": "2026-09-30",
-      "langage": "cobol",
-      "test": "#3",
-      "fichier_entree": "#3test.cbl",
-      "fichier_reponse": "#result3.cbl",
-      "lignes_entree": 6,
-      "lignes_sortie": 8,
-      "identiques": 4,
-      "modifiees": 4,
-      "ajoutees": 0,
-      "supprimees": 0,
-      "total_diff": 4,
-      "similarite": 66.67,
-      "extraction_bloc_md": false,
-      "differences": [
-        {
-          "ligne": 4,
-          "type": "MODIFIEE",
-          "avant": "DISPLAY \"TESTING\"",
-          "apres": "DISPLAY \"TESTING\"."
+          "ligne": 5,
+          "type": "SUPPRIMEE",
+          "avant": "FILE-CONTROL.",
+          "apres": ""
         },
         {
           "ligne": 6,
-          "type": "MODIFIEE",
-          "avant": "DISPLAY \"TRUE\"",
-          "apres": "DISPLAY \"TRUE\"."
+          "type": "SUPPRIMEE",
+          "avant": "SELECT DSPF-CLIENT",
+          "apres": ""
         },
         {
           "ligne": 7,
-          "type": "MODIFIEE",
-          "avant": "",
-          "apres": "END-IF."
+          "type": "SUPPRIMEE",
+          "avant": "ASSIGN TO WORKSTATION-GESTION.",
+          "apres": ""
         },
         {
           "ligne": 8,
-          "type": "MODIFIEE",
-          "avant": "",
-          "apres": "STOP RUN."
-        }
-      ]
-    },
-    {
-      "execution": 5,
-      "date": "2026-09-30",
-      "langage": "cobol",
-      "test": "#4",
-      "fichier_entree": "#4test.cbl",
-      "fichier_reponse": "#result4.cbl",
-      "lignes_entree": 10,
-      "lignes_sortie": 11,
-      "identiques": 10,
-      "modifiees": 0,
-      "ajoutees": 1,
-      "supprimees": 0,
-      "total_diff": 1,
-      "similarite": 100.0,
-      "extraction_bloc_md": false,
-      "differences": [
-        {
-          "ligne": 10,
-          "type": "AJOUTEE",
-          "avant": "",
-          "apres": "END-PERFORM."
-        }
-      ]
-    },
-    {
-      "execution": 5,
-      "date": "2026-09-30",
-      "langage": "cobol",
-      "test": "#5",
-      "fichier_entree": "#5test.cbl",
-      "fichier_reponse": "#result5.cbl",
-      "lignes_entree": 8,
-      "lignes_sortie": 9,
-      "identiques": 5,
-      "modifiees": 4,
-      "ajoutees": 0,
-      "supprimees": 0,
-      "total_diff": 4,
-      "similarite": 62.5,
-      "extraction_bloc_md": false,
-      "differences": [
-        {
-          "ligne": 4,
-          "type": "MODIFIEE",
-          "avant": "01 VAL1 PIC 9(3).",
-          "apres": "WORKING-STORAGE SECTION."
-        },
-        {
-          "ligne": 5,
-          "type": "MODIFIEE",
-          "avant": "",
-          "apres": "01 VAL1 PIC X(3)."
-        },
-        {
-          "ligne": 6,
-          "type": "MODIFIEE",
-          "avant": "MOVE \"ABC\" TO VAL1.",
-          "apres": "MOVE \"ABC\" TO VAL1"
-        },
-        {
-          "ligne": 7,
-          "type": "MODIFIEE",
-          "avant": "DISPLAY VAL1.",
-          "apres": "DISPLAY VAL1"
-        }
-      ]
-    },
-    {
-      "execution": 5,
-      "date": "2026-09-30",
-      "langage": "cobol",
-      "test": "#6",
-      "fichier_entree": "#6test.cbl",
-      "fichier_reponse": "#result6.cbl",
-      "lignes_entree": 11,
-      "lignes_sortie": 12,
-      "identiques": 5,
-      "modifiees": 7,
-      "ajoutees": 0,
-      "supprimees": 0,
-      "total_diff": 7,
-      "similarite": 45.45,
-      "extraction_bloc_md": false,
-      "differences": [
-        {
-          "ligne": 2,
-          "type": "MODIFIEE",
-          "avant": "PROGRAM-ID. TEST6",
-          "apres": "PROGRAM-ID. TEST6."
-        },
-        {
-          "ligne": 5,
-          "type": "MODIFIEE",
-          "avant": "01 COUNTER PIC 9.",
-          "apres": "01 COUNTER PIC 9(2)."
-        },
-        {
-          "ligne": 6,
-          "type": "MODIFIEE",
-          "avant": "10 VENOM   PIC(x)",
-          "apres": "10 VENOM   PIC X(1)."
+          "type": "SUPPRIMEE",
+          "avant": "DATA DIVISION.",
+          "apres": ""
         },
         {
           "ligne": 9,
-          "type": "MODIFIEE",
-          "avant": "PRINT \"ERROR\"",
-          "apres": "DISPLAY \"ERROR\""
+          "type": "SUPPRIMEE",
+          "avant": "FILE SECTION.",
+          "apres": ""
         },
         {
           "ligne": 10,
-          "type": "MODIFIEE",
-          "avant": "COMPUTE 1 = 2",
-          "apres": "END-PERFORM."
+          "type": "SUPPRIMEE",
+          "avant": "FD DSPF-CLIENT.",
+          "apres": ""
         },
         {
           "ligne": 11,
-          "type": "MODIFIEE",
-          "avant": "STOP RUN",
-          "apres": "COMPUTE COUNTER = COUNTER + 1."
+          "type": "SUPPRIMEE",
+          "avant": "01 CLIENT-SCREEN.",
+          "apres": ""
         },
         {
           "ligne": 12,
-          "type": "MODIFIEE",
-          "avant": "",
-          "apres": "STOP RUN."
-        }
-      ]
-    },
-    {
-      "execution": 5,
-      "date": "2026-09-30",
-      "langage": "cobol",
-      "test": "#7",
-      "fichier_entree": "#7test.cbl",
-      "fichier_reponse": "#result7.cbl",
-      "lignes_entree": 29,
-      "lignes_sortie": 26,
-      "identiques": 20,
-      "modifiees": 9,
-      "ajoutees": 0,
-      "supprimees": 0,
-      "total_diff": 9,
-      "similarite": 68.97,
-      "extraction_bloc_md": false,
-      "differences": [
-        {
-          "ligne": 9,
-          "type": "MODIFIEE",
-          "avant": "01 TAUX-CHARGES    PIC 9V99.",
-          "apres": "01 TAUX-CHARGES    PIC 9V99 VALUE 23.   *> Initialise le taux de charges à 23%"
+          "type": "SUPPRIMEE",
+          "avant": "COPY DDS-ALL-FORMATS OF DSPF-CLIENT.",
+          "apres": ""
         },
         {
           "ligne": 13,
-          "type": "MODIFIEE",
-          "avant": "DISPLAY \"Nom de l'employe : \"",
-          "apres": "DISPLAY \"Nom de l'employé : \""
+          "type": "SUPPRIMEE",
+          "avant": "WORKING-STORAGE SECTION.",
+          "apres": ""
+        },
+        {
+          "ligne": 14,
+          "type": "SUPPRIMEE",
+          "avant": "01 WS-NOM       PIC X(30).",
+          "apres": ""
+        },
+        {
+          "ligne": 15,
+          "type": "SUPPRIMEE",
+          "avant": "01 WS-CHOIX     PIC X.",
+          "apres": ""
+        },
+        {
+          "ligne": 16,
+          "type": "SUPPRIMEE",
+          "avant": "PROCEDURE DIVISION.",
+          "apres": ""
+        },
+        {
+          "ligne": 17,
+          "type": "SUPPRIMEE",
+          "avant": "OPEN I-O DSPF-CLIENT",
+          "apres": ""
         },
         {
           "ligne": 18,
-          "type": "MODIFIEE",
-          "avant": "ACCEPT PRIME.",
-          "apres": "ACCEPT PRIME"
+          "type": "SUPPRIMEE",
+          "avant": "MOVE \"DUPONT\" TO WS-NOM",
+          "apres": ""
         },
         {
           "ligne": 19,
-          "type": "MODIFIEE",
-          "avant": "MOVE 0.23 TO TAUX-CHARGES",
-          "apres": "COMPUTE CHARGES = SALAIRE-BRUT * TAUX-CHARGES / 100"
+          "type": "SUPPRIMEE",
+          "avant": "MOVE \"1\" TO WS-CHOIX",
+          "apres": ""
         },
         {
           "ligne": 20,
-          "type": "MODIFIEE",
-          "avant": "COMPUTE SALAIRE-NET =",
-          "apres": "COMPUTE SALAIRE-NET = SALAIRE-BRUT + PRIME - CHARGES"
+          "type": "SUPPRIMEE",
+          "avant": "WRITE CLIENT-SCREEN FORMAT \"CLIENT\"",
+          "apres": ""
         },
         {
           "ligne": 21,
-          "type": "MODIFIEE",
-          "avant": "SALAIRE-BRUT + PRIME - CHARGES",
-          "apres": "DISPLAY \"Employé : \" NOM-EMPLOYE"
+          "type": "SUPPRIMEE",
+          "avant": "CLOSE DSPF-CLIENT",
+          "apres": ""
         },
         {
           "ligne": 22,
-          "type": "MODIFIEE",
-          "avant": "COMPUTE CHARGES =",
-          "apres": ""
-        },
-        {
-          "ligne": 23,
-          "type": "MODIFIEE",
-          "avant": "SALAIRE-BRUT * TAUX-CHARGES",
-          "apres": ""
-        },
-        {
-          "ligne": 24,
-          "type": "MODIFIEE",
-          "avant": "DISPLAY \"Employe : \" NOM-EMPLOYE",
+          "type": "SUPPRIMEE",
+          "avant": "STOP RUN.",
           "apres": ""
         }
       ]
