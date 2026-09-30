@@ -1,0 +1,31 @@
+/*********************************************/
+/* Programme CL - Commandes de base          */
+/* Erreurs volontaires pour test Granite     */
+/*********************************************/
+PGM
+
+    /* Déclarations de variables */
+    DCL VAR(&NOM)     TYPE(*CHAR)   LEN(30) VALUE('GILLES')
+    DCL VAR(&AGE)     TYPE(*DEC)    LEN(3 0) VALUE(34)
+    DCL VAR(&SALAIRE) TYPE(*DEC)    LEN(9 2) VALUE(2500.00)
+    DCL VAR(&ACTIF)   TYPE(*LGL)    VALUE('1')
+    DCL VAR(&MSGID)   TYPE(*CHAR)   LEN(7)
+
+    /* ERREUR 1: TYPE invalide */
+    DCL VAR(&CODE)    TYPE(*INTEGER) LEN(10)
+
+    /* ERREUR 2: LEN manquant sur *CHAR */
+    DCL VAR(&LIBELLE) TYPE(*CHAR)
+
+    /* ERREUR 3: VALUE incompatible avec *DEC */
+    DCL VAR(&MONTANT) TYPE(*DEC)    LEN(9 2) VALUE('ABC')
+
+    /* Test IF simple */
+    IF COND(&AGE *GE 18) THEN(DO)
+        SNDMSG MSG('Personne majeure') TOUSR(*SYSOPR)
+    ENDDO
+
+    /* ERREUR 4: ELSE sans IF */
+    ELSE CMD(SNDMSG MSG('Mineur') TOUSR(*SYSOPR))
+
+    /* ERREUR 5: ENDPGM manquant */

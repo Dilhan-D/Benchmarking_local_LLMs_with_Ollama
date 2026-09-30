@@ -1,0 +1,15 @@
+      A          R CLIENTFMT                                            
+      A                                      CA03(03)                   
+      A                                  1  2'GESTION DES CLIENTS'      
+      A                                  3  2'ID CLIENT :'              
+      A            IDCLIENT       5A  B  3 15                           
+      A                                  5  2'NOM :'                    
+      A            NOMCLIENT     30A  B  5 15                           
+      A                                  7  2'CHOIX :'                  
+      A            CHOIX          1A  B  7 15                           
+      A                                  9  2'1 - AJOUTER'              
+      A                                 10  2'2 - MODIFIER'             
+      A                                 11  2'3 - SUPPRIMER'            
+      A                                 12  2'F3 - QUITTER'             
+      A                                 23  2'VOTRE CHOIX :'            
+      A            MESSAGE       50A  O 23 18                           

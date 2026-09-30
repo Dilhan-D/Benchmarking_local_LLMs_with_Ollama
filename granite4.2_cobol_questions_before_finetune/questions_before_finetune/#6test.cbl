@@ -1,0 +1,11 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. TEST6
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 COUNTER PIC 9.
+       10 VENOM   PIC(x)
+       PROCEDURE DIVISION.
+           PERFORM 3 TIMES
+               PRINT "ERROR"
+           COMPUTE 1 = 2
+           STOP RUN
