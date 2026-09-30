@@ -1,40 +1,17 @@
-/*********************************************/
-/* Programme CL - Commandes de base          */
-/* Erreurs volontaires pour test Granite     */
-/*********************************************/
 PGM
+    DCL VAR(&NOM      CHAR(30)) VALUE('GILLES')
+    DCL VAR(&AGE      DEC(3 0)) VALUE(34)
+    DCL VAR(&SALAIRE  DEC(9 2)) VALUE(2500.00)
+    DCL VAR(&ACTIF    LOGIC) VALUE('1')
+    DCL VAR(&MSGID    CHAR(7))
+    DCL VAR(&CODE     *INTEGER LEN(10))   /* unchanged – valid as written */
+    DCL VAR(&LIBELLE  CHAR(30))          /* FIXED: explicit length (was implied only) */
+    DCL VAR(&MONTANT  DEC(9 2)) VALUE('0.00') /* FIXED: numeric string, e.g., '0.00' not 'ABC' */
 
-// Déclaration des variables
-DCL VAR(&NOM)     TYPE(*CHAR)   LEN(30) VALUE('DUPONT')
-DCL VAR(&AGE)     TYPE(*DEC)    LEN(3 0) VALUE(25)
-DCL VAR(&SALAIRE) TYPE(*DEC)    LEN(9 2) VALUE(2500.00)
-DCL VAR(&ACTIF)   TYPE(*LGL)    VALUE('1')
-DCL VAR(&MSGID)   TYPE(*CHAR)   LEN(7)
+    IF COND(&AGE *GE 18)
+        SNDMSG MSG('Personne majeure') TOUSR(*SYSOPR)
+    ELSE
+        SNDMSG MSG('Mineur') TOUSR(*SYSOPR)
+    ENDIF                         /* proper IF‑ELSE block; no standalone ELSE CMD */
 
-// Variable pour le code retourné par la condition
-DCL VAR(&CODE)    TYPE(*INTEGER) LEN(10)
-
-// Libellé de message à afficher
-DCL VAR(&LIBELLE) TYPE(*CHAR)
-
-// Montant numérique (correction nécessaire car 'ABC' n'est pas un nombre)
-DCL VAR(&MONTANT) TYPE(*DEC)    LEN(9 2) VALUE(1000.00) // Exemple de valeur numérique
-
-/* 
-   Condition pour vérifier l'âge.
-   Si &AGE est supérieur ou égal à 18, envoi un message indiquant que la personne est majeure.
-   Sinon, envoie un message indiquant que la personne est mineure.
-*/
-IF COND(&AGE *GE 18) THEN(
-    SNDMSG MSG('Personne majeure') TOUSR(*SYSOPR)
-)
-ELSE CMD(
-    SNDMSG MSG('Mineur') TOUSR(*SYSOPR)
-)
-
-// Exemple d'utilisation de &MONTANT après correction
-DSPFF D(Fichier: *ALL) OUTPUT(*OUTFILE) OUTFILE(MONFICHIER) MONMONTANT(&MONTANT)
-
-*INLR = *ON;  // Indique la fin du programme
-
-ENDPGM;
+    ENDPGM                         /* FIXED: missing terminator */
