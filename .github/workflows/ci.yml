@@ -9,23 +9,23 @@ on:
     paths:
       - '.github/workflows/ci.yml'
       - 'tests/**'
-      - 'granite4.1_cl_questions_before_finetune/**'
-      - 'granite4.1_cobol_questions_before_finetune/**'
-      - 'granite4.1_rpgle_questions_before_finetune/**'
-      - 'granite4.2_cl_questions_before_finetune/**'
-      - 'granite4.2_cobol_questions_before_finetune/**'
-      - 'granite4.2_rpgle_questions_before_finetune/**'
+      - 'models/granite4.1-8b/granite4.1_cl_questions_before_finetune/**'
+      - 'models/granite4.1-8b/granite4.1_cobol_questions_before_finetune/**'
+      - 'models/granite4.1-8b/granite4.1_rpgle_questions_before_finetune/**'
+      - 'models/granite4.2-8b/granite4.2_cl_questions_before_finetune/**'
+      - 'models/granite4.2-8b/granite4.2_cobol_questions_before_finetune/**'
+      - 'models/granite4.2-8b/granite4.2_rpgle_questions_before_finetune/**'
   pull_request:
     branches: [ main, master ]
     paths:
       - '.github/workflows/ci.yml'
       - 'tests/**'
-      - 'granite4.1_cl_questions_before_finetune/**'
-      - 'granite4.1_cobol_questions_before_finetune/**'
-      - 'granite4.1_rpgle_questions_before_finetune/**'
-      - 'granite4.2_cl_questions_before_finetune/**'
-      - 'granite4.2_cobol_questions_before_finetune/**'
-      - 'granite4.2_rpgle_questions_before_finetune/**'
+      - 'models/granite4.1-8b/granite4.1_cl_questions_before_finetune/**'
+      - 'models/granite4.1-8b/granite4.1_cobol_questions_before_finetune/**'
+      - 'models/granite4.1-8b/granite4.1_rpgle_questions_before_finetune/**'
+      - 'models/granite4.2-8b/granite4.2_cl_questions_before_finetune/**'
+      - 'models/granite4.2-8b/granite4.2_cobol_questions_before_finetune/**'
+      - 'models/granite4.2-8b/granite4.2_rpgle_questions_before_finetune/**'
   workflow_dispatch:
 
 jobs:
@@ -48,32 +48,32 @@ jobs:
               - 'tests/clle/**'
               - 'tests/requirements.txt'
               - '.github/workflows/ci.yml'
-              - 'granite4.1_cl_questions_before_finetune/**'
+              - 'models/granite4.1-8b/granite4.1_cl_questions_before_finetune/**'
             cobol_41:
               - 'tests/cobol/**'
               - 'tests/requirements.txt'
               - '.github/workflows/ci.yml'
-              - 'granite4.1_cobol_questions_before_finetune/**'
+              - 'models/granite4.1-8b/granite4.1_cobol_questions_before_finetune/**'
             rpgle_41:
               - 'tests/rpgle/**'
               - 'tests/requirements.txt'
               - '.github/workflows/ci.yml'
-              - 'granite4.1_rpgle_questions_before_finetune/**'
+              - 'models/granite4.1-8b/granite4.1_rpgle_questions_before_finetune/**'
             clle_42:
               - 'tests/clle/**'
               - 'tests/requirements.txt'
               - '.github/workflows/ci.yml'
-              - 'granite4.2_cl_questions_before_finetune/**'
+              - 'models/granite4.2-8b/granite4.2_cl_questions_before_finetune/**'
             cobol_42:
               - 'tests/cobol/**'
               - 'tests/requirements.txt'
               - '.github/workflows/ci.yml'
-              - 'granite4.2_cobol_questions_before_finetune/**'
+              - 'models/granite4.2-8b/granite4.2_cobol_questions_before_finetune/**'
             rpgle_42:
               - 'tests/rpgle/**'
               - 'tests/requirements.txt'
               - '.github/workflows/ci.yml'
-              - 'granite4.2_rpgle_questions_before_finetune/**'
+              - 'models/granite4.2-8b/granite4.2_rpgle_questions_before_finetune/**'
 
       - name: Build test matrix
         id: matrix
@@ -92,22 +92,22 @@ jobs:
             entries+=("{\"language\":\"$1\",\"version\":\"$2\",\"model\":\"$3\",\"data_dir\":\"$4\",\"answer_dir\":\"$5\",\"extension\":\"$6\",\"script\":\"$7\",\"result_dir\":\"$8\"}")
           }
           if [[ "$EVENT_NAME" == "workflow_dispatch" || "$CLLE_41" == "true" ]]; then
-            add_entry clle 4.1 granite4.1:8b granite4.1_cl_questions_before_finetune answer_before_finetune .clle tests/clle/compare_clle.py granite4.1_clle_test_before_finetune
+            add_entry clle 4.1 granite4.1:8b models/granite4.1-8b/granite4.1_cl_questions_before_finetune answer_before_finetune .clle tests/clle/compare_clle.py granite4.1-8b/granite4.1_clle_test_before_finetune
           fi
           if [[ "$EVENT_NAME" == "workflow_dispatch" || "$COBOL_41" == "true" ]]; then
-            add_entry cobol 4.1 granite4.1:8b granite4.1_cobol_questions_before_finetune answers_before_finetune .cbl tests/cobol/compare_cobol.py granite4.1_cobol_test_before_finetune
+            add_entry cobol 4.1 granite4.1:8b models/granite4.1-8b/granite4.1_cobol_questions_before_finetune answers_before_finetune .cbl tests/cobol/compare_cobol.py granite4.1-8b/granite4.1_cobol_test_before_finetune
           fi
           if [[ "$EVENT_NAME" == "workflow_dispatch" || "$RPGLE_41" == "true" ]]; then
-            add_entry rpgle 4.1 granite4.1:8b granite4.1_rpgle_questions_before_finetune answers_before_finetune .rpgle tests/rpgle/compare_rpgle.py granite4.1_rpgle_test_before_finetune
+            add_entry rpgle 4.1 granite4.1:8b models/granite4.1-8b/granite4.1_rpgle_questions_before_finetune answers_before_finetune .rpgle tests/rpgle/compare_rpgle.py granite4.1-8b/granite4.1_rpgle_test_before_finetune
           fi
           if [[ "$EVENT_NAME" == "workflow_dispatch" || "$CLLE_42" == "true" ]]; then
-            add_entry clle 4.2 granite4.2:8b granite4.2_cl_questions_before_finetune answer_before_finetune .clle tests/clle/compare_clle.py granite4.2_clle_test_before_finetune
+            add_entry clle 4.2 granite4.2:8b models/granite4.2-8b/granite4.2_cl_questions_before_finetune answer_before_finetune .clle tests/clle/compare_clle.py granite4.2-8b/granite4.2_clle_test_before_finetune
           fi
           if [[ "$EVENT_NAME" == "workflow_dispatch" || "$COBOL_42" == "true" ]]; then
-            add_entry cobol 4.2 granite4.2:8b granite4.2_cobol_questions_before_finetune answers_before_finetune .cbl tests/cobol/compare_cobol.py granite4.2_cobol_test_before_finetune
+            add_entry cobol 4.2 granite4.2:8b models/granite4.2-8b/granite4.2_cobol_questions_before_finetune answers_before_finetune .cbl tests/cobol/compare_cobol.py granite4.2-8b/granite4.2_cobol_test_before_finetune
           fi
           if [[ "$EVENT_NAME" == "workflow_dispatch" || "$RPGLE_42" == "true" ]]; then
-            add_entry rpgle 4.2 granite4.2:8b granite4.2_rpgle_questions_before_finetune answers_before_finetune .rpgle tests/rpgle/compare_rpgle.py granite4.2_rpgle_test_before_finetune
+            add_entry rpgle 4.2 granite4.2:8b models/granite4.2-8b/granite4.2_rpgle_questions_before_finetune answers_before_finetune .rpgle tests/rpgle/compare_rpgle.py granite4.2-8b/granite4.2_rpgle_test_before_finetune
           fi
           if ((${#entries[@]} == 0)); then
             entries+=('{"skip":true}')
