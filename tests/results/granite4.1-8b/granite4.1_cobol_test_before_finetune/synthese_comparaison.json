@@ -1,10 +1,10 @@
 {
-  "execution": 10,
+  "execution": 11,
   "date": "2026-09-30",
   "langage": "cobol",
   "resultats": [
     {
-      "execution": 10,
+      "execution": 11,
       "date": "2026-09-30",
       "langage": "cobol",
       "test": "#1",
@@ -35,7 +35,7 @@
       ]
     },
     {
-      "execution": 10,
+      "execution": 11,
       "date": "2026-09-30",
       "langage": "cobol",
       "test": "#2",
@@ -60,7 +60,7 @@
       ]
     },
     {
-      "execution": 10,
+      "execution": 11,
       "date": "2026-09-30",
       "langage": "cobol",
       "test": "#3",
@@ -103,7 +103,7 @@
       ]
     },
     {
-      "execution": 10,
+      "execution": 11,
       "date": "2026-09-30",
       "langage": "cobol",
       "test": "#4",
@@ -128,7 +128,7 @@
       ]
     },
     {
-      "execution": 10,
+      "execution": 11,
       "date": "2026-09-30",
       "langage": "cobol",
       "test": "#5",
@@ -171,7 +171,7 @@
       ]
     },
     {
-      "execution": 10,
+      "execution": 11,
       "date": "2026-09-30",
       "langage": "cobol",
       "test": "#6",
@@ -232,7 +232,7 @@
       ]
     },
     {
-      "execution": 10,
+      "execution": 11,
       "date": "2026-09-30",
       "langage": "cobol",
       "test": "#7",
@@ -305,7 +305,7 @@
       ]
     },
     {
-      "execution": 10,
+      "execution": 11,
       "date": "2026-09-30",
       "langage": "cobol",
       "test": "#8",
@@ -344,6 +344,55 @@
           "type": "AJOUTEE",
           "avant": "",
           "apres": "-- Utilisez le format approprié pour écrire sur l'écran"
+        }
+      ]
+    },
+    {
+      "execution": 11,
+      "date": "2026-09-30",
+      "langage": "cobol",
+      "test": "#9",
+      "fichier_entree": "#9test.cbl",
+      "fichier_reponse": "#result9.cbl",
+      "lignes_entree": 15,
+      "lignes_sortie": 15,
+      "identiques": 10,
+      "modifiees": 5,
+      "ajoutees": 0,
+      "supprimees": 0,
+      "total_diff": 5,
+      "similarite": 66.67,
+      "extraction_bloc_md": false,
+      "differences": [
+        {
+          "ligne": 5,
+          "type": "MODIFIEE",
+          "avant": "01  WS-PRIX       PIC 9(5)V99.",
+          "apres": "01 WS-PRIX       PIC 9(5)V99."
+        },
+        {
+          "ligne": 6,
+          "type": "MODIFIEE",
+          "avant": "01  WS-QUANTITE   PIC 9(3).",
+          "apres": "01 WS-QUANTITE   PIC 9(3)."
+        },
+        {
+          "ligne": 7,
+          "type": "MODIFIEE",
+          "avant": "01  WS-TOTAL      PIC 9(7)V99.",
+          "apres": "01 WS-TOTAL      PIC 9(7)V99."
+        },
+        {
+          "ligne": 11,
+          "type": "MODIFIEE",
+          "avant": "DISPLAY \"Entrez la quantite : \"",
+          "apres": "DISPLAY \"Entrez la quantité : \""
+        },
+        {
+          "ligne": 13,
+          "type": "MODIFIEE",
+          "avant": "COMPUTE WS-TOTAL = WS-PRIX + WS-QUANTITE",
+          "apres": "COMPUTE WS-TOTAL = WS-PRIX * WS-QUANTITE"
         }
       ]
     }

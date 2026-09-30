@@ -2,9 +2,9 @@
    RAPPORT DE COMPARAISON - CLLE TEST #1
 ============================================================
   Date d'exécution  : 2026-09-30
-  Numéro exécution  : #3
+  Numéro exécution  : #1
   Langage           : CLLE
-  Modèle            : granite4.1:8b
+  Modèle            : granite4.2:8b
   Entrée            : #1test.clle
   Réponse Granite   : #result1.clle
   Extraction code   : heuristique (pas de bloc détecté)

@@ -1,0 +1,86 @@
+{
+  "execution": 1,
+  "date": "2026-09-30",
+  "langage": "clle",
+  "resultats": [
+    {
+      "execution": 1,
+      "date": "2026-09-30",
+      "langage": "clle",
+      "test": "#1",
+      "fichier_entree": "#1test.clle",
+      "fichier_reponse": "#result1.clle",
+      "lignes_entree": 13,
+      "lignes_sortie": 17,
+      "identiques": 7,
+      "modifiees": 10,
+      "ajoutees": 0,
+      "supprimees": 0,
+      "total_diff": 10,
+      "similarite": 53.85,
+      "extraction_bloc_md": false,
+      "differences": [
+        {
+          "ligne": 2,
+          "type": "MODIFIEE",
+          "avant": "DCL VAR(&NOM)     TYPE(*CHAR)   LEN(30) VALUE('GILLES')",
+          "apres": "DCL VAR(&NOM)     TYPE(*CHAR)   LEN(30) VALUE('DUPONT')"
+        },
+        {
+          "ligne": 3,
+          "type": "MODIFIEE",
+          "avant": "DCL VAR(&AGE)     TYPE(*DEC)    LEN(3 0) VALUE(34)",
+          "apres": "DCL VAR(&AGE)     TYPE(*DEC)    LEN(3 0) VALUE(25)"
+        },
+        {
+          "ligne": 9,
+          "type": "MODIFIEE",
+          "avant": "DCL VAR(&MONTANT) TYPE(*DEC)    LEN(9 2) VALUE('ABC')",
+          "apres": "DCL VAR(&MONTANT) TYPE(*DEC)    LEN(9 2) VALUE(1000.00)"
+        },
+        {
+          "ligne": 10,
+          "type": "MODIFIEE",
+          "avant": "IF COND(&AGE *GE 18) THEN(DO)",
+          "apres": "IF COND(&AGE *GE 18) THEN("
+        },
+        {
+          "ligne": 12,
+          "type": "MODIFIEE",
+          "avant": "ENDDO",
+          "apres": ")"
+        },
+        {
+          "ligne": 13,
+          "type": "MODIFIEE",
+          "avant": "ELSE CMD(SNDMSG MSG('Mineur') TOUSR(*SYSOPR))",
+          "apres": "ELSE CMD("
+        },
+        {
+          "ligne": 14,
+          "type": "MODIFIEE",
+          "avant": "",
+          "apres": "SNDMSG MSG('Mineur') TOUSR(*SYSOPR)"
+        },
+        {
+          "ligne": 15,
+          "type": "MODIFIEE",
+          "avant": "",
+          "apres": ")"
+        },
+        {
+          "ligne": 16,
+          "type": "MODIFIEE",
+          "avant": "",
+          "apres": "DSPFF D(Fichier: *ALL) OUTPUT(*OUTFILE) OUTFILE(MONFICHIER) MONMONTANT(&MONTANT)"
+        },
+        {
+          "ligne": 17,
+          "type": "MODIFIEE",
+          "avant": "",
+          "apres": "ENDPGM;"
+        }
+      ]
+    }
+  ]
+}
