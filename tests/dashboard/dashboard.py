@@ -33,9 +33,12 @@ RESULTS_DIR = Path(__file__).parent.parent / "results"
 
 
 SOURCES = {
-    "clle"  : RESULTS_DIR / "granite_clle_test_before_finetune"  / "synthese_comparaison.csv",
-    "cobol" : RESULTS_DIR / "granite_cobol_test_before_finetune" / "synthese_comparaison.csv",
-    "rpgle" : RESULTS_DIR / "granite_rpgle_test_before_finetune" / "synthese_comparaison.csv",
+    "CLLE — Granite 4.1" : RESULTS_DIR / "granite4.1_clle_test_before_finetune"  / "synthese_comparaison.csv",
+    "COBOL — Granite 4.1": RESULTS_DIR / "granite4.1_cobol_test_before_finetune" / "synthese_comparaison.csv",
+    "RPGLE — Granite 4.1": RESULTS_DIR / "granite4.1_rpgle_test_before_finetune" / "synthese_comparaison.csv",
+    "CLLE — Granite 4.2" : RESULTS_DIR / "granite4.2_clle_test_before_finetune"  / "synthese_comparaison.csv",
+    "COBOL — Granite 4.2": RESULTS_DIR / "granite4.2_cobol_test_before_finetune" / "synthese_comparaison.csv",
+    "RPGLE — Granite 4.2": RESULTS_DIR / "granite4.2_rpgle_test_before_finetune" / "synthese_comparaison.csv",
 }
 
 
@@ -65,7 +68,7 @@ def charger_donnees():
     frames  = []
     erreurs = []
 
-    for langage, path in SOURCES.items():
+    for source_label, path in SOURCES.items():
         if not path.exists():
             continue
 
@@ -74,7 +77,7 @@ def charger_donnees():
             # que l'auto-détection en cas de champs contenant des virgules.
             df = pd.read_csv(path, sep=';', engine='python', on_bad_lines='skip')
         except Exception as e:
-            erreurs.append(f"{langage} ({path.name}) : {e}")
+            erreurs.append(f"{source_label} ({path.name}) : {e}")
             continue
 
         # Complète les colonnes manquantes avec des valeurs par défaut
@@ -84,7 +87,7 @@ def charger_donnees():
             if col not in df.columns:
                 df[col] = defaut
 
-        df["langage"] = langage
+        df["langage"] = source_label
         frames.append(df)
 
     if erreurs:
