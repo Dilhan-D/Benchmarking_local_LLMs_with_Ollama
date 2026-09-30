@@ -2,7 +2,7 @@
    RAPPORT DE COMPARAISON - COBOL TEST #8
 ============================================================
   Date d'exécution  : 2026-09-30
-  Numéro exécution  : #7
+  Numéro exécution  : #8
   Langage           : COBOL
   Modèle            : granite4.1:8b
   Entrée            : #8test.cbl
@@ -12,59 +12,25 @@
   Méthode comparaison : alignement difflib (SequenceMatcher)
 ------------------------------------------------------------
   Total lignes entrée (utiles) : 22
-  Total lignes sortie (utiles) : 0
+  Total lignes sortie (utiles) : 24
 ------------------------------------------------------------
-  Lignes identiques    : 0
-  Lignes modifiées     : 0
-  Lignes ajoutées      : 0
-  Lignes supprimées    : 22
-  Total différences    : 22
-  Similarité globale   : 0.0%
+  Lignes identiques    : 20
+  Lignes modifiées     : 2
+  Lignes ajoutées      : 2
+  Lignes supprimées    : 0
+  Total différences    : 4
+  Similarité globale   : 90.91%
 ============================================================
 
 DÉTAIL DES DIFFÉRENCES :
 ------------------------------------------------------------
-  - Ligne    1 | SUPPR : IDENTIFICATION DIVISION.
+  + Ligne   10 | AJOUT : COPY DDS-ALL-FORMATS OF DSPF-CLIENT INTO DSPF-CLIENT.  -- Inclure les formats du fichier DDS
 
-  - Ligne    2 | SUPPR : PROGRAM-ID. CLIENT01.
+  ~ Ligne   12 | AVANT : COPY DDS-ALL-FORMATS OF DSPF-CLIENT.
+             | APRÈS : INCLUDE DDS-ALL-FORMATS.  -- Inclure les formats dans la définition de fichier
 
-  - Ligne    3 | SUPPR : ENVIRONMENT DIVISION.
+  ~ Ligne   18 | AVANT : MOVE "DUPONT" TO WS-NOM
+             | APRÈS : MOVE "Dupont" TO WS-NOM
 
-  - Ligne    4 | SUPPR : INPUT-OUTPUT SECTION.
-
-  - Ligne    5 | SUPPR : FILE-CONTROL.
-
-  - Ligne    6 | SUPPR : SELECT DSPF-CLIENT
-
-  - Ligne    7 | SUPPR : ASSIGN TO WORKSTATION-GESTION.
-
-  - Ligne    8 | SUPPR : DATA DIVISION.
-
-  - Ligne    9 | SUPPR : FILE SECTION.
-
-  - Ligne   10 | SUPPR : FD DSPF-CLIENT.
-
-  - Ligne   11 | SUPPR : 01 CLIENT-SCREEN.
-
-  - Ligne   12 | SUPPR : COPY DDS-ALL-FORMATS OF DSPF-CLIENT.
-
-  - Ligne   13 | SUPPR : WORKING-STORAGE SECTION.
-
-  - Ligne   14 | SUPPR : 01 WS-NOM       PIC X(30).
-
-  - Ligne   15 | SUPPR : 01 WS-CHOIX     PIC X.
-
-  - Ligne   16 | SUPPR : PROCEDURE DIVISION.
-
-  - Ligne   17 | SUPPR : OPEN I-O DSPF-CLIENT
-
-  - Ligne   18 | SUPPR : MOVE "DUPONT" TO WS-NOM
-
-  - Ligne   19 | SUPPR : MOVE "1" TO WS-CHOIX
-
-  - Ligne   20 | SUPPR : WRITE CLIENT-SCREEN FORMAT "CLIENT"
-
-  - Ligne   21 | SUPPR : CLOSE DSPF-CLIENT
-
-  - Ligne   22 | SUPPR : STOP RUN.
+  + Ligne   20 | AJOUT : -- Utilisez le format approprié pour écrire sur l'écran
 

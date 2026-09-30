@@ -30,3 +30,4 @@ execution;date;langage;test;fichier_entree;fichier_reponse;lignes_entree;lignes_
 7;2026-09-30;cobol;#6;#6test.cbl;#result6.cbl;11;12;5;7;0;0;7;45.45;False
 7;2026-09-30;cobol;#7;#7test.cbl;#result7.cbl;29;26;20;9;0;0;9;68.97;False
 7;2026-09-30;cobol;#8;#8test.cbl;#result8.cbl;22;0;0;0;0;22;22;0.0;False
+8;2026-09-30;cobol;#8;#8test.cbl;#result8.cbl;22;24;20;2;2;0;4;90.91;False

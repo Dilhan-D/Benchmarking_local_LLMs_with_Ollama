@@ -7,10 +7,10 @@
 | Test | #8 |
 | Langage IBM i | COBOL |
 | Date d'exécution | 2026-09-30 |
-| Numéro d'exécution | #7 |
+| Numéro d'exécution | #8 |
 | Modèle utilisé | granite4.1:8b |
 | Lignes input (utiles) | 22 |
-| Lignes output (utiles) | 0 |
+| Lignes output (utiles) | 24 |
 | Méthode d'extraction | Heuristique (aucun bloc trouvé) |
 | Méthode de comparaison | Alignement difflib (SequenceMatcher) |
 | Commentaires ignorés | True |
@@ -21,39 +21,21 @@
 
 | Métrique | Valeur |
 |---|---|
-| Lignes identiques | 0 |
-| Lignes modifiées | 0 |
-| Lignes ajoutées | 0 |
-| Lignes supprimées | 22 |
-| Total différences | 22 |
-| **Similarité globale** | **0.0%** |
+| Lignes identiques | 20 |
+| Lignes modifiées | 2 |
+| Lignes ajoutées | 2 |
+| Lignes supprimées | 0 |
+| Total différences | 4 |
+| **Similarité globale** | **90.91%** |
 
 ## Différences détectées
 
 | Ligne | Type | Avant | Après |
 |---|---|---|---|
-| 1 | SUPPRIMEE | `IDENTIFICATION DIVISION.` | `` |
-| 2 | SUPPRIMEE | `PROGRAM-ID. CLIENT01.` | `` |
-| 3 | SUPPRIMEE | `ENVIRONMENT DIVISION.` | `` |
-| 4 | SUPPRIMEE | `INPUT-OUTPUT SECTION.` | `` |
-| 5 | SUPPRIMEE | `FILE-CONTROL.` | `` |
-| 6 | SUPPRIMEE | `SELECT DSPF-CLIENT` | `` |
-| 7 | SUPPRIMEE | `ASSIGN TO WORKSTATION-GESTION.` | `` |
-| 8 | SUPPRIMEE | `DATA DIVISION.` | `` |
-| 9 | SUPPRIMEE | `FILE SECTION.` | `` |
-| 10 | SUPPRIMEE | `FD DSPF-CLIENT.` | `` |
-| 11 | SUPPRIMEE | `01 CLIENT-SCREEN.` | `` |
-| 12 | SUPPRIMEE | `COPY DDS-ALL-FORMATS OF DSPF-CLIENT.` | `` |
-| 13 | SUPPRIMEE | `WORKING-STORAGE SECTION.` | `` |
-| 14 | SUPPRIMEE | `01 WS-NOM       PIC X(30).` | `` |
-| 15 | SUPPRIMEE | `01 WS-CHOIX     PIC X.` | `` |
-| 16 | SUPPRIMEE | `PROCEDURE DIVISION.` | `` |
-| 17 | SUPPRIMEE | `OPEN I-O DSPF-CLIENT` | `` |
-| 18 | SUPPRIMEE | `MOVE "DUPONT" TO WS-NOM` | `` |
-| 19 | SUPPRIMEE | `MOVE "1" TO WS-CHOIX` | `` |
-| 20 | SUPPRIMEE | `WRITE CLIENT-SCREEN FORMAT "CLIENT"` | `` |
-| 21 | SUPPRIMEE | `CLOSE DSPF-CLIENT` | `` |
-| 22 | SUPPRIMEE | `STOP RUN.` | `` |
+| 10 | AJOUTEE | `` | `COPY DDS-ALL-FORMATS OF DSPF-CLIENT INTO DSPF-CLIENT.  -- Inclure les formats du fichier DDS` |
+| 12 | MODIFIEE | `COPY DDS-ALL-FORMATS OF DSPF-CLIENT.` | `INCLUDE DDS-ALL-FORMATS.  -- Inclure les formats dans la définition de fichier` |
+| 18 | MODIFIEE | `MOVE "DUPONT" TO WS-NOM` | `MOVE "Dupont" TO WS-NOM` |
+| 20 | AJOUTEE | `` | `-- Utilisez le format approprié pour écrire sur l'écran` |
 
 ## Code original (input)
 
@@ -96,6 +78,41 @@
 ## Réponse Granite — code extrait (output normalisé)
 
 ```cobol
+IDENTIFICATION DIVISION.
+       PROGRAM-ID. CLIENT01.
 
+       ENVIRONMENT DIVISION.
+       INPUT-OUTPUT SECTION.
+
+       FILE-CONTROL.
+           SELECT DSPF-CLIENT
+               ASSIGN TO WORKSTATION-GESTION.
+
+       DATA DIVISION.
+       FILE SECTION.
+       
+       COPY DDS-ALL-FORMATS OF DSPF-CLIENT INTO DSPF-CLIENT.  -- Inclure les formats du fichier DDS
+
+       FD DSPF-CLIENT.
+       01 CLIENT-SCREEN.
+           INCLUDE DDS-ALL-FORMATS.  -- Inclure les formats dans la définition de fichier
+
+       WORKING-STORAGE SECTION.
+       01 WS-NOM       PIC X(30).
+       01 WS-CHOIX     PIC X.
+
+       PROCEDURE DIVISION.
+
+           OPEN I-O DSPF-CLIENT
+
+           MOVE "Dupont" TO WS-NOM
+           MOVE "1" TO WS-CHOIX
+
+           -- Utilisez le format approprié pour écrire sur l'écran
+           WRITE CLIENT-SCREEN FORMAT "CLIENT"
+
+           CLOSE DSPF-CLIENT
+
+           STOP RUN.
 ```
 
