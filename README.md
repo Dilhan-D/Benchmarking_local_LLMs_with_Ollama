@@ -1,17 +1,24 @@
-# Projet Personnel: Fine-Tuning et Tests sur Granite 4.1:8b ->ollama
+# Projet Personnel : Tests Granite 4.1:8b et Granite 4.2:8b avec Ollama
 
 ## A propos
 
-Ce dépôt contient le code, les scripts et les documents nécessaires pour réaliser un projet personnel visant à explorer la fine-tuning et l'interrogation de recherche assistée par contenu (RAG) sur le moteur Granite 4.1:8b fourni par IBM. Le but principal est d'évaluer les performances et les capacités du modèle dans un écosystème IBM i, avec une perspective future sur son utilisation.
+Ce dépôt contient le code, les scripts et les documents nécessaires pour évaluer les modèles Granite d'IBM exécutés avec Ollama dans un contexte IBM i. Les réponses des deux modèles sont conservées séparément afin de comparer leurs performances sur les mêmes questions. Le dépôt explore également le fine-tuning et la recherche assistée par contenu (RAG).
 
 Dans un second temps, essayer de lui passer des instructions afin de lui donner du contexte sur son rôles et évaluer son comportement et ses réponses.
 
 ## Contexte
 
 - **École**: Epitech (Alternance)
-- **Projet**: Fine-tuning et tests sur Granite 4.1:8b
+- **Projet**: Tests comparatifs Granite 4.1:8b et Granite 4.2:8b
 - **Raison de choisir IBM**: Pour du développement en IBM i, avec une perspective future.
-- **Moteur Utilisé**: Granite 4.1:8b
+- **Moteur Utilisé**: Ollama
+
+## Modèles et dossiers de données
+
+- Les dossiers `granite4.1_*_questions_before_finetune/` contiennent les questions et réponses produites avec le modèle Ollama `granite4.1:8b`.
+- Les dossiers `granite4.2_*_questions_before_finetune/` contiennent les questions et réponses produites avec le modèle Ollama `granite4.2:8b`.
+- Les rapports sont séparés dans `tests/results/granite4.1_*_test_before_finetune/` et `tests/results/granite4.2_*_test_before_finetune/`.
+- Les suffixes désignent les langages : `cl` (CLLE), `cobol` et `rpgle`.
 
 ## Structure du Dépôt
 
@@ -22,19 +29,19 @@ tests/                  # Scripts et rapports des tests avant et après fine-tun
 rag/                    # Implémentation de la recherche assistée par contenu (RAG)
 docs/                   # Documentation PDFs et autres ressources
 {llm}_generel_questions/      # Répertoire pour les questions générales suivant le modèle utilisé
-granite_rpgle_questions_before_finetune/ # Question rpgle avant d'entrainer le modèle 
-   - answers_before_finetune/ 
-   - questions_before_finetune/
+granite4.1_rpgle_questions_before_finetune/ # Données Ollama granite4.1:8b
+granite4.2_rpgle_questions_before_finetune/ # Données Ollama granite4.2:8b
 questions_and_answers/  # Répertoire pour les questions techniques et leurs réponses
-granite_cobol_questions_before_finetune/ # Question cobol avant d'entrainer le modèle 
-   - answers_before_finetune/
-   - questions_before_finetune/
+granite4.1_cobol_questions_before_finetune/ # Données Ollama granite4.1:8b
+granite4.2_cobol_questions_before_finetune/ # Données Ollama granite4.2:8b
+granite4.1_cl_questions_before_finetune/    # Données CLLE granite4.1:8b
+granite4.2_cl_questions_before_finetune/    # Données CLLE granite4.2:8b
 ```
 
 ## Contenu
 
 ### .github/workflows 
-Ce répertoire contient un CI/CD pour lancer automatiquement les tests quand les réponses de l'IA ont été générées et implémentées dans les dossiers en questions : {llm}/***. (ex: granite/cl_questions/before_finetune/)
+Ce répertoire contient le CI/CD qui détecte les changements dans chaque dossier de questions/réponses et lance le comparateur correspondant. Les six combinaisons (CLLE, COBOL et RPGLE pour Granite 4.1 et 4.2) sont exécutées indépendamment et leurs rapports sont enregistrés dans des dossiers distincts. Seules les paires question/réponse déjà présentes sont comparées; une exécution manuelle du workflow vérifie les six combinaisons.
 
 ### `fine_tuning/`
 Ce répertoire contient tous les scripts nécessaires pour le processus de fine-tuning du modèle Granite 4.1:8b.
