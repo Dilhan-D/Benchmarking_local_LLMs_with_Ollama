@@ -33,12 +33,12 @@ RESULTS_DIR = Path(__file__).parent.parent / "results"
 
 
 SOURCES = {
-    "CLLE — Granite 4.1" : RESULTS_DIR / "granite4.1_clle_test_before_finetune"  / "synthese_comparaison.csv",
-    "COBOL — Granite 4.1": RESULTS_DIR / "granite4.1_cobol_test_before_finetune" / "synthese_comparaison.csv",
-    "RPGLE — Granite 4.1": RESULTS_DIR / "granite4.1_rpgle_test_before_finetune" / "synthese_comparaison.csv",
-    "CLLE — Granite 4.2" : RESULTS_DIR / "granite4.2_clle_test_before_finetune"  / "synthese_comparaison.csv",
-    "COBOL — Granite 4.2": RESULTS_DIR / "granite4.2_cobol_test_before_finetune" / "synthese_comparaison.csv",
-    "RPGLE — Granite 4.2": RESULTS_DIR / "granite4.2_rpgle_test_before_finetune" / "synthese_comparaison.csv",
+    "CLLE — Granite 4.1" : RESULTS_DIR / "granite4.1-8b" / "granite4.1_clle_test_before_finetune"  / "synthese_comparaison.csv",
+    "COBOL — Granite 4.1": RESULTS_DIR / "granite4.1-8b" / "granite4.1_cobol_test_before_finetune" / "synthese_comparaison.csv",
+    "RPGLE — Granite 4.1": RESULTS_DIR / "granite4.1-8b" / "granite4.1_rpgle_test_before_finetune" / "synthese_comparaison.csv",
+    "CLLE — Granite 4.2" : RESULTS_DIR / "granite4.2-8b" / "granite4.2_clle_test_before_finetune"  / "synthese_comparaison.csv",
+    "COBOL — Granite 4.2": RESULTS_DIR / "granite4.2-8b" / "granite4.2_cobol_test_before_finetune" / "synthese_comparaison.csv",
+    "RPGLE — Granite 4.2": RESULTS_DIR / "granite4.2-8b" / "granite4.2_rpgle_test_before_finetune" / "synthese_comparaison.csv",
 }
 
 
