@@ -15,9 +15,10 @@ Dans un second temps, essayer de lui passer des instructions afin de lui donner 
 
 ## Modèles et dossiers de données
 
-- Les dossiers `granite4.1_*_questions_before_finetune/` contiennent les questions et réponses produites avec le modèle Ollama `granite4.1:8b`.
-- Les dossiers `granite4.2_*_questions_before_finetune/` contiennent les questions et réponses produites avec le modèle Ollama `granite4.2:8b`.
-- Les rapports sont séparés dans `tests/results/granite4.1_*_test_before_finetune/` et `tests/results/granite4.2_*_test_before_finetune/`.
+- Le dossier `models/granite4.1-8b/` regroupe les données CLLE, COBOL, RPGLE et générales du modèle Ollama `granite4.1:8b`.
+- Le dossier `models/granite4.2-8b/` regroupe les données CLLE, COBOL et RPGLE du modèle Ollama `granite4.2:8b`.
+- Les rapports sont rangés par modèle dans `tests/results/granite4.1-8b/` et `tests/results/granite4.2-8b/`.
+- Le séparateur `-` remplace `:` dans les noms de dossier pour rester compatible avec Windows; les noms exacts des modèles Ollama gardent les deux-points.
 - Les suffixes désignent les langages : `cl` (CLLE), `cobol` et `rpgle`.
 
 ## Structure du Dépôt
@@ -28,14 +29,20 @@ fine_tuning/            # Scripts et configurations pour le fine-tuning
 tests/                  # Scripts et rapports des tests avant et après fine-tuning
 rag/                    # Implémentation de la recherche assistée par contenu (RAG)
 docs/                   # Documentation PDFs et autres ressources
-{llm}_generel_questions/      # Répertoire pour les questions générales suivant le modèle utilisé
-granite4.1_rpgle_questions_before_finetune/ # Données Ollama granite4.1:8b
-granite4.2_rpgle_questions_before_finetune/ # Données Ollama granite4.2:8b
+models/
+   granite4.1-8b/
+      granite4.1_general_questions/            # Questions générales Ollama granite4.1:8b
+      granite4.1_rpgle_questions_before_finetune/
+      granite4.1_cobol_questions_before_finetune/
+      granite4.1_cl_questions_before_finetune/
+   granite4.2-8b/
+      granite4.2_rpgle_questions_before_finetune/
+      granite4.2_cobol_questions_before_finetune/
+      granite4.2_cl_questions_before_finetune/
 questions_and_answers/  # Répertoire pour les questions techniques et leurs réponses
-granite4.1_cobol_questions_before_finetune/ # Données Ollama granite4.1:8b
-granite4.2_cobol_questions_before_finetune/ # Données Ollama granite4.2:8b
-granite4.1_cl_questions_before_finetune/    # Données CLLE granite4.1:8b
-granite4.2_cl_questions_before_finetune/    # Données CLLE granite4.2:8b
+tests/results/
+   granite4.1-8b/                            # Rapports du modèle Ollama granite4.1:8b
+   granite4.2-8b/                            # Rapports du modèle Ollama granite4.2:8b
 ```
 
 ## Contenu
