@@ -1,0 +1,2 @@
+execution;date;langage;test;fichier_entree;fichier_reponse;lignes_entree;lignes_sortie;identiques;modifiees;ajoutees;supprimees;total_diff;similarite;extraction_bloc_md
+1;2026-09-30;rpgle;#1;#1test.rpgle;#result1.rpgle;17;17;12;5;0;0;5;70.59;False
