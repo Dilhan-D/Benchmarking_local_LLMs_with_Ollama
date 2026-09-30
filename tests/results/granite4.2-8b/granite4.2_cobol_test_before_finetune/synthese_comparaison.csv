@@ -1,0 +1,2 @@
+execution;date;langage;test;fichier_entree;fichier_reponse;lignes_entree;lignes_sortie;identiques;modifiees;ajoutees;supprimees;total_diff;similarite;extraction_bloc_md
+1;2026-09-30;cobol;#1;#1test.cbl;#result1.cbl;5;5;3;2;0;0;2;60.0;False
