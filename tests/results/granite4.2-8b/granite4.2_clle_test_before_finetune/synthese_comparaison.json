@@ -1,102 +1,96 @@
 {
-  "execution": 2,
-  "date": "2026-09-30",
+  "execution": 3,
+  "date": "2026-10-07",
   "langage": "clle",
   "resultats": [
     {
-      "execution": 2,
-      "date": "2026-09-30",
+      "execution": 3,
+      "date": "2026-10-07",
       "langage": "clle",
-      "test": "#1",
-      "fichier_entree": "#1test.clle",
-      "fichier_reponse": "#result1.clle",
-      "lignes_entree": 13,
-      "lignes_sortie": 15,
-      "identiques": 2,
-      "modifiees": 13,
-      "ajoutees": 0,
-      "supprimees": 0,
-      "total_diff": 13,
-      "similarite": 15.38,
+      "test": "#2",
+      "fichier_entree": "#2test.clle",
+      "fichier_reponse": "#result2.clle",
+      "lignes_entree": 17,
+      "lignes_sortie": 18,
+      "identiques": 7,
+      "modifiees": 10,
+      "ajoutees": 1,
+      "supprimees": 1,
+      "total_diff": 12,
+      "similarite": 41.18,
       "extraction_bloc_md": false,
       "differences": [
         {
           "ligne": 2,
           "type": "MODIFIEE",
-          "avant": "DCL VAR(&NOM)     TYPE(*CHAR)   LEN(30) VALUE('GILLES')",
-          "apres": "DCL VAR(&NOM      CHAR(30)) VALUE('GILLES')"
+          "avant": "DCL        VAR(&LIB) TYPE(*CHAR) LEN(10)",
+          "apres": "DCL        VAR(&LIB)   TYPE(*CHAR) LEN(10)"
         },
         {
           "ligne": 3,
           "type": "MODIFIEE",
-          "avant": "DCL VAR(&AGE)     TYPE(*DEC)    LEN(3 0) VALUE(34)",
-          "apres": "DCL VAR(&AGE      DEC(3 0)) VALUE(34)"
+          "avant": "DCL        VAR(&USER) TYPE(*CHAR) LEN(10)",
+          "apres": "DCL        VAR(&USER)  TYPE(*CHAR) LEN(10)"
         },
         {
           "ligne": 4,
           "type": "MODIFIEE",
-          "avant": "DCL VAR(&SALAIRE) TYPE(*DEC)    LEN(9 2) VALUE(2500.00)",
-          "apres": "DCL VAR(&SALAIRE  DEC(9 2)) VALUE(2500.00)"
+          "avant": "DCL        VAR(&MODE) TYPE(*CHAR) LEN(10)",
+          "apres": "DCL        VAR(&MODE)  TYPE(*CHAR) LEN(10)"
         },
         {
           "ligne": 5,
           "type": "MODIFIEE",
-          "avant": "DCL VAR(&ACTIF)   TYPE(*LGL)    VALUE('1')",
-          "apres": "DCL VAR(&ACTIF    LOGIC) VALUE('1')"
+          "avant": "CHGVAR     VAR(&MESSAGE) +",
+          "apres": "DCL        VAR(&MESSAGE) TYPE(*CHAR) LEN(50)"
         },
         {
           "ligne": 6,
           "type": "MODIFIEE",
-          "avant": "DCL VAR(&MSGID)   TYPE(*CHAR)   LEN(7)",
-          "apres": "DCL VAR(&MSGID    CHAR(7))"
+          "avant": "VALUE('Debut du traitement')",
+          "apres": "DCL        VAR(&RESULT) TYPE(*CHAR) LEN(10)"
         },
         {
           "ligne": 7,
           "type": "MODIFIEE",
-          "avant": "DCL VAR(&CODE)    TYPE(*INTEGER) LEN(10)",
-          "apres": "DCL VAR(&CODE     *INTEGER LEN(10))"
+          "avant": "IF         COND(&MODE = '*TEST') THEN",
+          "apres": "CHGVAR     VAR(&MESSAGE) VALUE('Debut du traitement')"
         },
         {
           "ligne": 8,
           "type": "MODIFIEE",
-          "avant": "DCL VAR(&LIBELLE) TYPE(*CHAR)",
-          "apres": "DCL VAR(&LIBELLE  CHAR(30))"
-        },
-        {
-          "ligne": 9,
-          "type": "MODIFIEE",
-          "avant": "DCL VAR(&MONTANT) TYPE(*DEC)    LEN(9 2) VALUE('ABC')",
-          "apres": "DCL VAR(&MONTANT  DEC(9 2)) VALUE('0.00')"
+          "avant": "",
+          "apres": "IF         COND(&MODE *EQ '*TEST') THEN"
         },
         {
           "ligne": 10,
-          "type": "MODIFIEE",
-          "avant": "IF COND(&AGE *GE 18) THEN(DO)",
-          "apres": "IF COND(&AGE *GE 18)"
+          "type": "SUPPRIMEE",
+          "avant": "STARTJOB   JOB(&USER)",
+          "apres": ""
         },
         {
           "ligne": 12,
           "type": "MODIFIEE",
-          "avant": "ENDDO",
-          "apres": "ELSE"
+          "avant": "PARM(&LIB &USER &PARAM)",
+          "apres": "PARM(&LIB &USER &MODE)"
         },
         {
           "ligne": 13,
           "type": "MODIFIEE",
-          "avant": "ELSE CMD(SNDMSG MSG('Mineur') TOUSR(*SYSOPR))",
-          "apres": "SNDMSG MSG('Mineur') TOUSR(*SYSOPR)"
-        },
-        {
-          "ligne": 14,
-          "type": "MODIFIEE",
-          "avant": "",
-          "apres": "ENDIF"
+          "avant": "DLYJOB     TIME(10)",
+          "apres": "DLYJOB     TIME('00:00:10')"
         },
         {
           "ligne": 15,
           "type": "MODIFIEE",
+          "avant": "IF         COND(&RESULT *EQ 'OK') THEN(DO)",
+          "apres": "IF         COND(&RESULT *EQ 'OK') THEN"
+        },
+        {
+          "ligne": 17,
+          "type": "AJOUTEE",
           "avant": "",
-          "apres": "ENDPGM"
+          "apres": "ENDIF"
         }
       ]
     }

@@ -1,0 +1,60 @@
+============================================================
+   RAPPORT DE COMPARAISON - CLLE TEST #2
+============================================================
+  Date d'exécution  : 2026-10-07
+  Numéro exécution  : #3
+  Langage           : CLLE
+  Modèle            : granite4.2:8b
+  Entrée            : #2test.clle
+  Réponse Granite   : #result2.clle
+  Extraction code   : heuristique (pas de bloc détecté)
+  Options actives   : casse_ignoree=False | espaces_ignores=False | vides_ignorees=True | commentaires_ignores=True
+  Méthode comparaison : alignement difflib (SequenceMatcher)
+------------------------------------------------------------
+  Total lignes entrée (utiles) : 17
+  Total lignes sortie (utiles) : 18
+------------------------------------------------------------
+  Lignes identiques    : 7
+  Lignes modifiées     : 10
+  Lignes ajoutées      : 1
+  Lignes supprimées    : 1
+  Total différences    : 12
+  Similarité globale   : 41.18%
+============================================================
+
+DÉTAIL DES DIFFÉRENCES :
+------------------------------------------------------------
+  ~ Ligne    2 | AVANT : DCL        VAR(&LIB) TYPE(*CHAR) LEN(10)
+             | APRÈS : DCL        VAR(&LIB)   TYPE(*CHAR) LEN(10)
+
+  ~ Ligne    3 | AVANT : DCL        VAR(&USER) TYPE(*CHAR) LEN(10)
+             | APRÈS : DCL        VAR(&USER)  TYPE(*CHAR) LEN(10)
+
+  ~ Ligne    4 | AVANT : DCL        VAR(&MODE) TYPE(*CHAR) LEN(10)
+             | APRÈS : DCL        VAR(&MODE)  TYPE(*CHAR) LEN(10)
+
+  ~ Ligne    5 | AVANT : CHGVAR     VAR(&MESSAGE) +
+             | APRÈS : DCL        VAR(&MESSAGE) TYPE(*CHAR) LEN(50)
+
+  ~ Ligne    6 | AVANT : VALUE('Debut du traitement')
+             | APRÈS : DCL        VAR(&RESULT) TYPE(*CHAR) LEN(10)
+
+  ~ Ligne    7 | AVANT : IF         COND(&MODE = '*TEST') THEN
+             | APRÈS : CHGVAR     VAR(&MESSAGE) VALUE('Debut du traitement')
+
+  ~ Ligne    8 | AVANT : 
+             | APRÈS : IF         COND(&MODE *EQ '*TEST') THEN
+
+  - Ligne   10 | SUPPR : STARTJOB   JOB(&USER)
+
+  ~ Ligne   12 | AVANT : PARM(&LIB &USER &PARAM)
+             | APRÈS : PARM(&LIB &USER &MODE)
+
+  ~ Ligne   13 | AVANT : DLYJOB     TIME(10)
+             | APRÈS : DLYJOB     TIME('00:00:10')
+
+  ~ Ligne   15 | AVANT : IF         COND(&RESULT *EQ 'OK') THEN(DO)
+             | APRÈS : IF         COND(&RESULT *EQ 'OK') THEN
+
+  + Ligne   17 | AJOUT : ENDIF
+
