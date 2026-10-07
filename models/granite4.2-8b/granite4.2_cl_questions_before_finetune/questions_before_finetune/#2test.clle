@@ -1,12 +1,33 @@
-PGM
+             PGM        PARM(&LIB &USER &MODE)
 
-    DCL VAR(&NOM)  TYPE(*CHAR) LEN(20) VALUE('DUPONT')
-    DCL VAR(&AGE)  TYPE(*DEC)  LEN(3)  VALUE(25)
-    /* ERREUR 1: LEN(3) sans décimales sur *DEC doit être LEN(3 0) */
+             DCL        VAR(&LIB) TYPE(*CHAR) LEN(10)
+             DCL        VAR(&USER) TYPE(*CHAR) LEN(10)
+             DCL        VAR(&MODE) TYPE(*CHAR) LEN(10)
 
-    SNDMSG MSG(&NOM) TOUSR(*SYSOPR)
+             /* ERREUR : variable non déclarée */
+             CHGVAR     VAR(&MESSAGE) +
+                        VALUE('Debut du traitement')
 
-    /* ERREUR 2: on ne peut pas concaténer directement */
-    SNDMSG MSG('Bonjour ' *CAT &NOM) TOUSR(*SYSOPR)
+             /* ERREUR : syntaxe volontairement incorrecte */
+             IF         COND(&MODE = '*TEST') THEN
+                SNDPGMMSG MSG('Mode test')
+             ENDIF
 
-ENDPGM
+             /* ERREUR : commande fictive */
+             STARTJOB   JOB(&USER)
+
+             /* ERREUR : paramètre inexistant */
+             CALL       PGM(MYLIB/MYPGM) +
+                        PARM(&LIB &USER &PARAM)
+
+             /* ERREUR : commande avec mauvaise syntaxe */
+             DLYJOB     TIME(10)
+
+             /* ERREUR : variable non déclarée */
+             CHGVAR     VAR(&RESULT) VALUE('OK')
+
+             /* ERREUR : END manquant / structure incohérente */
+             IF         COND(&RESULT *EQ 'OK') THEN(DO)
+                SNDPGMMSG MSG('Traitement terminé')
+
+             ENDPGM

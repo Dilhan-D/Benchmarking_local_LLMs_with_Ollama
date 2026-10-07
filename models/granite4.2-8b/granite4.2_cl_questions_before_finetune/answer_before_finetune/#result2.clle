@@ -1,0 +1,35 @@
+PGM        PARM(&LIB &USER &MODE)
+
+  /* Déclarations obligatoires pour toutes les variables utilisées */
+  DCL        VAR(&LIB)   TYPE(*CHAR) LEN(10)
+  DCL        VAR(&USER)  TYPE(*CHAR) LEN(10)
+  DCL        VAR(&MODE)  TYPE(*CHAR) LEN(10)
+  DCL        VAR(&MESSAGE) TYPE(*CHAR) LEN(50)  /* Longueur suffisante pour les messages */
+  DCL        VAR(&RESULT) TYPE(*CHAR) LEN(10)
+
+  /* Initialisation correcte */
+  CHGVAR     VAR(&MESSAGE) VALUE('Debut du traitement')
+
+  /* Condition CL correcte : utiliser *EQ pour la comparaison de chaînes */
+  IF         COND(&MODE *EQ '*TEST') THEN
+    SNDPGMMSG MSG('Mode test')
+  ENDIF
+
+  /* Appel du programme avec ONLY les paramètres déclarés (&LIB, &USER, &MODE) 
+     (remplace l'inexistant &PARAM par les bons paramètres) */
+  CALL       PGM(MYLIB/MYPGM) +
+             PARM(&LIB &USER &MODE)
+
+  /* DLYJOB avec syntaxe valide : TIME attend un format hh:mm:ss ou mm:ss:uu 
+     (exemple : '00:00:10' pour 10 secondes). La commande existe bien sous IBM i. */
+  DLYJOB     TIME('00:00:10')
+
+  /* Initialisation du résultat */
+  CHGVAR     VAR(&RESULT) VALUE('OK')
+
+  /* Bloc IF correctement fermé avec ENDIF */
+  IF         COND(&RESULT *EQ 'OK') THEN
+    SNDPGMMSG MSG('Traitement terminé')
+  ENDIF
+
+  ENDPGM
